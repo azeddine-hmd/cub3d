@@ -1,0 +1,2 @@
+# cub3d
+This project’s objectives are similar to all this first year’s objectives: Rigor, use ofC, useof basic algorithms, information research etc.As a graphic design project,cub3Dwill enable you to improve your skills in theseareas: windows, colors, events, fill shapes, etc.To concludecub3Dis a remarkable playground to explore the playful practical appli-cations of mathematics without having to understand the specifics.With the help of the numerous documents available on the internet, you will usemathematics as a tool to create elegant and efficient algorithms.
