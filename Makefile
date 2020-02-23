@@ -1,15 +1,17 @@
 NAME = cub3d.a
 
-LIBFTOB = libft/*.o
+LIBFTOB = map/libft/*.o
 
 GCC = gcc -Wall -Wextra -Werror
 
-MAKE = make -C libft
+MAKE = make -C map/libft
 
 MCF =	cub3d.c \
-		get_next_line.c \
-		get_next_line_utils.c \
-		map.c \
+		map/map.c \
+		map/fill_map_first.c \
+		map/fill_map_second.c \
+		map/get_next_line/get_next_line.c \
+		map/get_next_line/get_next_line_utils.c \
 
 MOF = ${MCF:.c=.o}
 

@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/20 01:38:34 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/10/13 00:04:41 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/10/13 16:24:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include "map/map.h"
-# include <mlx.h>
-# include <stdio.h> //TODO: remove it when you're done
+#include "libft.h"
 
-#endif
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*dst_tmp;
+	unsigned char	*src_tmp;
+
+	if (dst == NULL && src == NULL)
+		return (dst);
+	i = 0;
+	dst_tmp = (unsigned char*)dst;
+	src_tmp = (unsigned char*)src;
+	while (i < n)
+	{
+		dst_tmp[i] = src_tmp[i];
+		i++;
+	}
+	return (dst);
+}

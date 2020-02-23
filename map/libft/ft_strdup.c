@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/20 01:38:34 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/10/24 08:56:08 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/12/31 14:41:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include "map/map.h"
-# include <mlx.h>
-# include <stdio.h> //TODO: remove it when you're done
+#include "libft.h"
 
-#endif
+char	*ft_strdup(const char *s1)
+{
+	char	*memory;
+	int		i;
+
+	if (!s1)
+		return (NULL);
+	memory = (char*)ft_calloc(1, ft_strlen(s1) + 1);
+	if (!memory)
+		return (NULL);
+	i = -1;
+	while (s1[++i])
+		memory[i] = s1[i];
+	return (memory);
+}

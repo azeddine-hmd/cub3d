@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/20 01:38:34 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/10/14 21:24:55 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/10/29 15:10:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include "map/map.h"
-# include <mlx.h>
-# include <stdio.h> //TODO: remove it when you're done
+#include "libft.h"
 
-#endif
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*sub_str;
+
+	if (!s)
+		return (NULL);
+	if ((unsigned int)ft_strlen(s) < start)
+		len = 0;
+	if (!(sub_str = (char*)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = start;
+	while (i < (start + len))
+	{
+		sub_str[i - start] = s[i];
+		i++;
+	}
+	sub_str[i - start] = '\0';
+	return (sub_str);
+}

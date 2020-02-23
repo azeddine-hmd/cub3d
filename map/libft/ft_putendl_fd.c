@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/20 01:38:34 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/10/26 01:06:49 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/10/26 01:08:59 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include "map/map.h"
-# include <mlx.h>
-# include <stdio.h> //TODO: remove it when you're done
+#include "libft.h"
 
-#endif
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}

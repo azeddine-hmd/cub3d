@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/20 01:38:34 by ahamdaou         ###   ########.fr       */
+/*   Created: 2019/10/11 18:08:54 by ahamdaou          #+#    #+#             */
+/*   Updated: 2019/10/22 00:16:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include "map/map.h"
-# include <mlx.h>
-# include <stdio.h> //TODO: remove it when you're done
+#include "libft.h"
 
-#endif
+char	*ft_strchr(const char *s, int c)
+{
+	int i;
+	int len;
+
+	i = 0;
+	len = ft_strlen((char *)s);
+	while (i < len + 1)
+	{
+		if (s[i] == c)
+			return ((char*)&s[i]);
+		i++;
+	}
+	return (NULL);
+}

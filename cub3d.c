@@ -14,9 +14,16 @@ int		main(void)
 	printf("WE = %s\n", map->we);
 	printf("EA = %s\n", map->ea);
 	printf("S = %s\n", map->s);
-	printf("F = %s\n", map->f);
-	printf("C = %s\n", map->c);
 
-	free_map(map);
+	for (int i = 0; i < 3; i++)
+	{
+		printf("frgb[%d] = %d\n", i, map->frgb[i]);
+	}
+	printf("\n");
+	for (int i = 0; i < 3; i++)
+	{
+		printf("crgb[%d] = %d\n", i, map->frgb[i]);
+	}
+
 	return (0);
 }
