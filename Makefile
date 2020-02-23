@@ -1,19 +1,16 @@
 NAME = cub3d.a
 
-LIBFTOB = map/libft/*.o
+LIBFTOB = libft/*.o
+GET_NEXT_LINEOB = get_next_line/*.o
+MAPOB = map/*.o
 
 GCC = gcc -Wall -Wextra -Werror
 
-MAKE = make -C map/libft
+MAKE = make -C
 
-MCF =	cub3d.c \
-		map/map.c \
-		map/fill_map_first.c \
-		map/fill_map_second.c \
-		map/get_next_line/get_next_line.c \
-		map/get_next_line/get_next_line_utils.c \
+MCF =	cub3d.c
 
-MOF = ${MCF:.c=.o}
+MOF =	${MCF:.c=.o}
 
 ARCHIVE = ar rc
 
@@ -22,16 +19,21 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME):
-	$(MAKE) all
+	$(MAKE) libft all
+	$(MAKE) get_next_line all
+	$(MAKE) map all
 	$(GCC) -c $(MCF)
-	$(ARCHIVE) $(NAME) $(MOF) $(LIBFTOB)
-
+	$(ARCHIVE) $(NAME) $(MOF) $(LIBFTOB) $(GET_NEXT_LINEOB) $(MAPOB)
 clean:
-	$(MAKE) clean
+	$(MAKE) libft clean
+	$(MAKE) get_next_line clean
+	$(MAKE) map clean
 	$(RM) $(MOF)
 
 fclean: clean
-	$(MAKE) fclean
+	$(MAKE) libft fclean
+	$(MAKE) get_next_line fclean
+	$(MAKE) map fclean
 	$(RM) $(NAME)
 	$(RM)r a.out*
 
