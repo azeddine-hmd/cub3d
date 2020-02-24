@@ -8,7 +8,8 @@ GCC = gcc -Wall -Wextra -Werror
 
 MAKE = make -C
 
-MCF =	cub3d.c
+MCF =	cub3d.c \
+		linkedlist.c \
 
 MOF =	${MCF:.c=.o}
 
