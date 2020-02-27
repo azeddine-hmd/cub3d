@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "linkedlist.h"
 
 /*
 ** [Description]:
@@ -50,7 +50,7 @@ static void		lstadd_front(t_data **database, t_data *data)
 ** if list is empty it add it in the front.
 */
 
-void			ft_lstadd_back(t_data **database, t_data *data)
+void			lstadd_back(t_data **database, t_data *data)
 {
 	if (!*database)
 		lstadd_front(database, data);
@@ -76,6 +76,7 @@ void			lstclear(t_data *database)
 	{
 		tmp = database->next;
 		lstremove(database);
+		free(database);
 		database = tmp;
 	}
 }

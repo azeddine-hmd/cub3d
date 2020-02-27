@@ -10,15 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <stdio.h> //TODO: remove it
 #ifndef LINKEDLIST_H
 # define LINKEDLIST_H
 
 typedef struct	s_data
 {
-	void	*data;
+	void			*data;
+	struct s_data	*next;
 }				t_data;
 
-void			ft_lstadd_back(t_data **database, t_data *data);
+void			lstadd_back(t_data **database, t_data *data);
 void			lstclear(t_data *database);
+void			add(t_data *database, void *data);
+void			initdatabase(t_data **database);
 
 #endif

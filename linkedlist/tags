@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+G	Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
+LINKEDLIST_H	linkedlist.h	/^# define LINKEDLIST_H$/;"	d
+NAME	Makefile	/^NAME = linkedlist.a$/;"	m
+O	Makefile	/^O =	${SRC:.c=.o}$/;"	m
+SRC	Makefile	/^SRC = linkedlist.c$/;"	m
+data	linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
+ft_lstadd_back	linkedlist.c	/^void			ft_lstadd_back(t_data **database, t_data *data)$/;"	f
+lstadd_front	linkedlist.c	/^static void		lstadd_front(t_data **database, t_data *data)$/;"	f	file:
+lstclear	linkedlist.c	/^void			lstclear(t_data *database)$/;"	f
+lstlast	linkedlist.c	/^static t_data	*lstlast(t_data *data)$/;"	f	file:
+lstremove	linkedlist.c	/^static void		lstremove(t_data *data)$/;"	f	file:
+next	linkedlist.h	/^	struct s_data	*next;$/;"	m	struct:s_data	typeref:struct:s_data::s_data
+s_data	linkedlist.h	/^typedef struct	s_data$/;"	s
+t_data	linkedlist.h	/^}				t_data;$/;"	t	typeref:struct:s_data

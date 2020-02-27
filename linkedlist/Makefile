@@ -12,20 +12,19 @@
 
 G = gcc -Wall -Wextra -Werror
 
-SRC = map.c \
-	  fill_map_first.c \
-	  fill_map_second.c \
-	  fill_map_third.c \
+SRC = linkedlist.c \
+	  linkedlist_utils.c \
 
-NAME = map.a
+NAME = linkedlist.a
 
-O = ${SRC:.c=.o}
+O =	${SRC:.c=.o}
 
 all: $(NAME)
 
 $(NAME):
 	$(G) -c $(SRC)
 	ar rc $(NAME) $(O)
+	ranlib $(NAME)
 
 clean:
 	rm -f $(O) $(OB)
