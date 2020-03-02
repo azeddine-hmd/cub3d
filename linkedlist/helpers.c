@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 08:56:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 01:42:43 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/02/28 15:26:12 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/02 02:59:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linkedlist.h"
 
-char	*ft_strdup(const char *s1)
+void		error()
 {
-	char	*memory;
-	int		i;
+	ft_putstr("Error\n");
+	lst_clear(*get_head_node());
+	exit(1);
+}
 
-	if (!s1)
-		return (NULL);
-	memory = (char*)ft_calloc(1, ft_strlen(s1) + 1);
-	if (!memory)
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		memory[i] = s1[i];
-	return (memory);
+void		error_message(char *message)
+{
+	ft_putstr("Error\n");
+	ft_putstr(message);
+	ft_putstr("\n");
+	lst_clear(*get_head_node());
+	exit(1);
+}
+
+void		finish()
+{
+	lst_clear(*get_head_node());
+	exit(0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 16:38:42 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 01:31:33 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/02 01:29:33 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/02 03:00:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ static int	check_equality(const char *h, const char *n, int i)
 	return (1);
 }
 
-char		*ft_strnstr(const char *h, const char *n, size_t len)
+char		*ft_strstr(const char *h, const char *n)
 {
 	size_t	i;
 	int		position;
 
+	len = ft_strlen(h);
 	if (*n == '\0')
 		return ((char*)h);
 	if (len == 0)

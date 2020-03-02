@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 20:36:37 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/12/29 14:41:58 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 01:47:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,65 +18,78 @@
 ** and return it.
 **
 ** [Return Values]:
-**  t_lilst*: the last "data" in the list.
-**      NULL: if no "data" found in the list.
+**  t_data*: the last node in the list.
+**     NULL: if no node found in the list.
 */
 
-static t_data	*lstlast(t_data *data)
+t_data	*lst_last(t_data *node)
 {
-	if (!data)
+	if (!node)
 		return (NULL);
-	while (data->next)
-		data = data->next;
-	return (data);
+	while (node->next)
+		node = node->next;
+	return (node);
 }
 
 /*
 ** [Description]:
-** This function add "data" data to the front of the list.
+** This function add node to the front of the list.
 */
 
-static void		lstadd_front(t_data **database, t_data *data)
+void	lst_add_front(t_data **head, t_data *node)
 {
-	if (*database)
-		data->next = *database;
+	if (*head)
+		node->next = *head;
 	else
-		*database = data;
+		*head = node;
 }
 
 /*
 ** [Description]:
-** This function add data (node) to the list.
+** This function add node to the list.
 ** if list is empty it add it in the front.
 */
 
-void			lstadd_back(t_data **database, t_data *data)
+void	lst_add_back(t_data **head, t_data *node)
 {
-	if (!*database)
-		lstadd_front(database, data);
+	if (!*head)
+		lst_add_front(head, node);
 	else
-		(lstlast(*database))->next = data;
+		(lst_last(*head))->next = node;
 }
 
-static void		lstremove(t_data *data)
+/*
+** [Description]:
+** This function free node in the list.
+** if node is NULL function will do nothing.
+*/
+
+void	free_node(t_data *node)
 {
-	if (!data)
+	if (!node)
 		return ;
-	if (data->data)
-		free(data->data);
-	data->data = NULL;
-	data->next = NULL;
+	free(node->data);
+	node->data = NULL;
+	node->next = NULL;
+	free(node);
 }
 
-void			lstclear(t_data *database)
+/*
+** [Description]:
+** This function clear all node in the list.
+** if head is NULL function will do nothing.
+*/
+
+void	lst_clear(t_data *head)
 {
 	t_data	*tmp;
 
-	while (database)
+	if (!head)
+		return ;
+	while (head)
 	{
-		tmp = database->next;
-		lstremove(database);
-		free(database);
-		database = tmp;
+		tmp = head->next;
+		free_node(head);
+		head = tmp;
 	}
 }

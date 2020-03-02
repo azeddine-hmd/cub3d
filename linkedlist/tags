@@ -8,13 +8,23 @@ G	Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 LINKEDLIST_H	linkedlist.h	/^# define LINKEDLIST_H$/;"	d
 NAME	Makefile	/^NAME = linkedlist.a$/;"	m
 O	Makefile	/^O =	${SRC:.c=.o}$/;"	m
-SRC	Makefile	/^SRC = linkedlist.c$/;"	m
+SRC	Makefile	/^SRC = linkedlist.c \\$/;"	m
+add	linkedlist_utils.c	/^void	add(t_data **head, void *data)$/;"	f
 data	linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
-ft_lstadd_back	linkedlist.c	/^void			ft_lstadd_back(t_data **database, t_data *data)$/;"	f
-lstadd_front	linkedlist.c	/^static void		lstadd_front(t_data **database, t_data *data)$/;"	f	file:
-lstclear	linkedlist.c	/^void			lstclear(t_data *database)$/;"	f
-lstlast	linkedlist.c	/^static t_data	*lstlast(t_data *data)$/;"	f	file:
-lstremove	linkedlist.c	/^static void		lstremove(t_data *data)$/;"	f	file:
+error	helpers.c	/^void		error(t_data *head)$/;"	f
+error_message	helpers.c	/^void		error_message(t_data *head, char *message)$/;"	f
+finish	helpers.c	/^void		finish(t_data *head)$/;"	f
+free_node	linkedlist.c	/^void	free_node(t_data *node)$/;"	f
+get_head_node	allocation.c	/^void		**get_head_node(void)$/;"	f
+lst_add_back	linkedlist.c	/^void	lst_add_back(t_data **head, t_data *node)$/;"	f
+lst_add_front	linkedlist.c	/^void	lst_add_front(t_data **head, t_data *node)$/;"	f
+lst_clear	linkedlist.c	/^void	lst_clear(t_data *head)$/;"	f
+lst_last	linkedlist.c	/^t_data	*lst_last(t_data *node)$/;"	f
+main	main.c	/^int		main(void)$/;"	f
+new_node	linkedlist_utils.c	/^t_data	*new_node(void *data)$/;"	f
 next	linkedlist.h	/^	struct s_data	*next;$/;"	m	struct:s_data	typeref:struct:s_data::s_data
 s_data	linkedlist.h	/^typedef struct	s_data$/;"	s
 t_data	linkedlist.h	/^}				t_data;$/;"	t	typeref:struct:s_data
+xfree	allocation.c	/^void		xfree(void *data)$/;"	f
+xfree_after_head	allocation.c	/^static int	xfree_after_head(t_data *node, void *data)$/;"	f	file:
+xmalloc	allocation.c	/^void		*xmalloc(size_t size)$/;"	f

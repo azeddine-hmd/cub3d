@@ -6,133 +6,105 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:32:13 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/24 21:32:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 03:24:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-int		fill_ea(t_data *database, t_map *map, char *line)
+void		fill_ea(t_map *map, const char **strings)
 {
-	char 	**strings;
-	int		i;
-	int		ea_exist;
+	int	i;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	ea_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "EA", 3))
-			ea_exist = 1;
-		if (ea_exist && ft_strnstr(strings[i], "/", ft_strlen(strings[i])))
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], "/"))
 		{
-			map->ea = strings[i];
-			return (1);
+			map->ea = xstrdup(strings[i]);
 		}
+		else
+			error_message("bad path to east texture!");
 	}
-	return (0);
 }
 
-int		fill_s(t_data *database, t_map *map, char *line)
+void		fill_s(t_map *map, const char **strings)
 {
-	char 	**strings;
-	int		i;
-	int		s_exist;
+	int	i;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	s_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "S", 3))
-			s_exist = 1;
-		if (s_exist && ft_strnstr(strings[i], "/", ft_strlen(strings[i])))
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], "/"))
 		{
-			map->s = strings[i];
-			return (1);
+			map->s = xstrdup(strings[i]);
 		}
+		else
+			error_message("bad path to sprite texture!");
 	}
-	return (0);
 }
 
-static void		rgbstr_to_rgbint(t_data *database, int *rgbint, char *rgbstr)
+static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr)
 {
 	char	**rgbarr;
 	int		i;
 
 	rgbarr = ft_split(rgbstr, ',');
-	add(database, rgbarr);
+	add(*get_head_node(), rgbarr);
 	i = -1;
 	while (rgbarr[++i])
-		add(database, rgbarr[i]);
+		add(*get_head_node(), rgbarr[i]);
 	i = -1;
 	while (rgbarr[++i])
 		rgbint[i] = atoi(rgbarr[i]);
+	i = -1;
+	while (rgbarr[++i])
+		xfree(rgbarr[i]);
+	xfree(rgbarr);
 }
 
-int		fill_f(t_data *database, t_map *map, char *line)
+void		fill_f(t_map *map, const char **strings)
 {
-	char 	**strings;
 	int		i;
-	int		f_exist;
 	char	*frgb;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	f_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "F", 3))
-			f_exist = 1;
-		if (f_exist && ft_strnstr(strings[i], ",", ft_strlen(strings[i])))
-			frgb = strings[i];
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], ","))
+		{
+			frgb = xstrdup(strings[i]);
+		}
+		else
+			error_message("bad floor color!");
 	}
-	if (f_exist)
-	{
-		rgbstr_to_rgbint(database, map->frgb, frgb);
-		return (1);
-	}
-	return (0);
+	rgbstr_to_rgbint(map->frgb, frgb);
+	xfree(frgb);
 }
 
-int		fill_c(t_data *database, t_map *map, char *line)
+void		fill_c(t_map *map, const char **strings)
 {
-	char 	**strings;
 	int		i;
-	int		c_exist;
 	char	*crgb;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	c_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "C", 3))
-			c_exist = 1;
-		if (c_exist && ft_strnstr(strings[i], ",", ft_strlen(strings[i])))
-			crgb = strings[i];
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], ","))
+		{
+			crgb = xstrdup(strings[i]);
+		}
+		else
+			error_message("bad ceilling color!");
 	}
-	if (c_exist)
-	{
-		rgbstr_to_rgbint(database, map->frgb, crgb);
-		return (1);
-	}
-	return (0);
+	rgbstr_to_rgbint(map->frgb, crgb);
+	xfree(crgb);
 }

@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_map_third.c                                   :+:      :+:    :+:   */
+/*   ft_onlyspaces.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 03:42:59 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/02 01:23:24 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/02 02:49:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "map.h"
-
-static int	check_map(const char *line)
+int		ft_onlyspaces(const char *s)
 {
 	int	i;
 
 	i = -1;
-	while (strings[++i])
-	{
-		if (line[i] == ' ')
-			continue ;
-		printf("%s\n", line);
-		if (line[i] != '0' && line[i] != '1' && line[i] != '2'
-			&& line[i] != 'N' && line[i] != 'S' && line[i] != 'W'
-			&& line[i] != 'E')
-		{
-			printf("\"%s\"\n", line);
-			return (0);
-		}
-	}
-	if (line[0] == '\0')
+	if (!s)
 		return (0);
-	return (1);
-}
-
-void		map_arr(t_map *map, const char **strings)
-{
-	check_line(strings);
+	while (s[++i])
+		if (s[i] != ' ')
+			return (0);
 	return (1);
 }

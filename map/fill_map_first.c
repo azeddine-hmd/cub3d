@@ -6,119 +6,90 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:32:04 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/24 21:32:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 03:06:43 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-int		fill_r(t_data *database, t_map *map, char *line)
+void	fill_r(t_map *map, const char **strings)
 {
-	char	**strings;
+	int		position;
 	int		i;
-	int		r_exist;
-	int		pos;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	r_exist = 0;
-	pos = 1;
+	position = 1;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "R", 2))
-			r_exist = 1;
-		if (r_exist && pos == 2 && ft_isstrdigit(strings[i]))
-		{
-			map->height = atoi(strings[i]);
-			return (1);
-		}
-		if (r_exist && pos == 1 && ft_isstrdigit(strings[i]))
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (position == 1 && ft_isstrdigit(strings[i]))
 		{
 			map->width = atoi(strings[i]);
-			pos++;
+			position++;
+			continue ;
+		}
+		else if (position == 2 && ft_isstrdigit(strings[i]))
+		{
+			map->height = atoi(strings[i]);
+		}
+		else
+		{
+			error_message("bad resolution!");
 		}
 	}
-	return (0);
 }
 
-int		fill_no(t_data *database, t_map *map, char *line)
+void	fill_no(t_map *map, const char **strings)
 {
-	char 	**strings;
-	int		i;
-	int		no_exist;
+	int	i;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	no_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "NO", 3))
-			no_exist = 1;
-		if (no_exist && ft_strnstr(strings[i], "/", ft_strlen(strings[i])))
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], "/"))
 		{
-			map->no = strings[i];
-			return (1);
+			map->no = xstrdup(strings[i]);
 		}
+		else
+			error_message("bad path to north texture!");
 	}
-	return (0);
 }
 
-int		fill_so(t_data *database, t_map *map, char *line)
+void	fill_so(t_map *map, const char **strings)
 {
-	char 	**strings;
-	int		i;
-	int		so_exist;
+	int	i;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	so_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "SO", 3))
-			so_exist = 1;
-		if (so_exist && ft_strnstr(strings[i], "/", ft_strlen(strings[i])))
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], "/"))
 		{
-			map->so = strings[i];
-			return (1);
+			map->so = xstrdup(strings[i]);
 		}
+		else
+			error_message("bad path to south texture!");
 	}
-	return (0);
 }
 
-int		fill_we(t_data *database, t_map *map, char *line)
+void	fill_we(t_map *map, const char **strings)
 {
-	char 	**strings;
-	int		i;
-	int		we_exist;
+	int	i;
 
-	strings = ft_split(line, ' ');
-	add(database, strings);
-	i = -1;
-	while (strings[++i])
-		add(database, strings[i]);
-	we_exist = 0;
 	i = -1;
 	while (strings[++i])
 	{
-		if (!ft_strncmp(strings[i], "WE", 3))
-			we_exist = 1;
-		if (we_exist && ft_strnstr(strings[i], "/", ft_strlen(strings[i])))
+		if (ft_onlyspaces(strings[i]))
+			continue ;
+		if (ft_strstr(strings[i], "/"))
 		{
-			map->we = strings[i];
-			return (1);
+			map->we = xstrdup(strings[i]);
 		}
+		else
+			error_message("bad path to west texture!");
 	}
-	return (0);
 }

@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_map_third.c                                   :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 03:42:59 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/01 02:12:01 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/01 02:26:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "map.h"
-
-static int	check_map(const char *line)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
 	i = -1;
-	while (strings[++i])
+	while (s1[++i])
 	{
-		if (line[i] == ' ')
-			continue ;
-		printf("%s\n", line);
-		if (line[i] != '0' && line[i] != '1' && line[i] != '2'
-			&& line[i] != 'N' && line[i] != 'S' && line[i] != 'W'
-			&& line[i] != 'E')
+		if (s1[i] != s2[i])
+			return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
+		if (s1[i + 1] == '\0' && s2[i + 1] == '\0')
 		{
-			printf("\"%s\"\n", line);
 			return (0);
 		}
+		else
+		{
+			return (((unsigned char)s1[i + 1]) - ((unsigned char)s2[i + 1]));
+		}
 	}
-	if (line[0] == '\0')
-		return (0);
-	return (1);
-}
-
-void		map_arr(t_map *map, const char **strings)
-{
-	check_line(strings);
-	return (1);
+	return (0);
 }

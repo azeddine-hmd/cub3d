@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 08:56:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 01:42:43 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/02/28 17:58:37 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/02/28 18:00:20 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_putstr(char *s)
 {
-	char	*memory;
 	int		i;
 
-	if (!s1)
-		return (NULL);
-	memory = (char*)ft_calloc(1, ft_strlen(s1) + 1);
-	if (!memory)
-		return (NULL);
+	if (!s)
+		return ;
 	i = -1;
-	while (s1[++i])
-		memory[i] = s1[i];
-	return (memory);
+	while (s[++i])
+		ft_putchar_fd(s[i], 1);
 }

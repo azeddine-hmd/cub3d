@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2019/12/30 18:09:08 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/02 03:01:08 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = ft_atoi.c \
 	  ft_memset.c \
 	  ft_strdup.c \
 	  ft_strnstr.c \
+	  ft_strstr.c \
 	  ft_bzero.c \
 	  ft_itoa.c \
 	  ft_putchar_fd.c \
@@ -35,6 +36,7 @@ SRC = ft_atoi.c \
 	  ft_isalpha.c \
 	  ft_memcmp.c \
 	  ft_putstr_fd.c \
+	  ft_putstr.c \
 	  ft_strlen.c \
 	  ft_tolower.c \
 	  ft_isascii.c \
@@ -46,9 +48,11 @@ SRC = ft_atoi.c \
 	  ft_memmove.c \
 	  ft_strchr.c \
 	  ft_strncmp.c \
+	  ft_strcmp.c \
 	  ft_dec2hex.c \
 	  ft_strtoupper.c \
 	  ft_isstrdigit.c \
+	  ft_onlyspaces.c \
 
 NAME = libft.a
 
