@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:31:24 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/28 22:04:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:54:58 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		main(void)
 {
 	t_map	*map;
 
-	map = read_map(database, MAP_NAME);
+	map = read_map(MAP_NAME);
 
 	printf("width = %d\n", map->width);
 	printf("height = %d\n", map->height);

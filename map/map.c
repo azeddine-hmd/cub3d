@@ -6,13 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 22:37:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 03:47:26 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:49:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-static t_map	*new_map()
+static t_map	*new_map(void)
 {
 	t_map	*map;
 
@@ -37,24 +37,25 @@ static t_map	*new_map()
 
 static int		check_map(const char **strings)
 {
-	int	i;
+	int			i;
+	int			j;
+	const char	*str;
 
 	i = -1;
 	while (strings[++i])
 	{
-		if (line[i] == ' ')
+		if (ft_onlyspaces(strings[i]))
 			continue ;
-		printf("%s\n", line);
-		if (line[i] != '0' && line[i] != '1' && line[i] != '2'
-			&& line[i] != 'N' && line[i] != 'S' && line[i] != 'W'
-			&& line[i] != 'E')
+		str = strings[i];
+		j = -1;
+		while (str[++j])
 		{
-			printf("\"%s\"\n", line);
-			return (0);
+			if (str[j] != '0' && str[j] != '1' && str[j] != '2'
+				&& str[j] != 'N' && str[j] != 'S' && str[j] != 'W'
+				&& str[j] != 'E')
+				return (0);
 		}
 	}
-	if (line[0] == '\0')
-		return (0);
 	return (1);
 }
 
@@ -87,8 +88,23 @@ t_map			*read_map(const char *file_name)
 				continue ;
 			if (!ft_strcmp(strings[i], "R"))
 				fill_r(map, (const char**)(strings + i + 1));
-			if (check_map(map, (const char**)strings[i]))
-				fill_map(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "NO"))
+				fill_no(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "SO"))
+				fill_so(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "WE"))
+				fill_we(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "EA"))
+				fill_ea(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "S"))
+				fill_s(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "F"))
+				fill_f(map, (const char**)(strings + i + 1));
+			if (!ft_strcmp(strings[i], "C"))
+				fill_c(map, (const char**)(strings + i + 1));
+			if (check_map((const char**)strings[i]))
+				fill_map(map, (const char**)(strings + i));
+			error_message("bad format!");
 		}
 		i = -1;
 		while (strings[++i])

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 01:29:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 03:00:30 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:53:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char		*ft_strstr(const char *h, const char *n)
 {
 	size_t	i;
 	int		position;
+	size_t	len;
 
 	len = ft_strlen(h);
 	if (*n == '\0')

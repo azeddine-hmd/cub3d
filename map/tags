@@ -9,13 +9,13 @@ MAP_H	map.h	/^# define MAP_H$/;"	d
 NAME	Makefile	/^NAME = map.a$/;"	m
 O	Makefile	/^O = ${SRC:.c=.o}$/;"	m
 SRC	Makefile	/^SRC = map.c \\$/;"	m
-check_map	fill_map_third.c	/^static int	check_map(const char *line)$/;"	f	file:
 check_map	map.c	/^static int		check_map(const char **strings)$/;"	f	file:
 crgb	map.h	/^	int		crgb[3];$/;"	m	struct:s_map
 ea	map.h	/^	char	*ea;$/;"	m	struct:s_map
 fill_c	fill_map_second.c	/^void		fill_c(t_map *map, const char **strings)$/;"	f
 fill_ea	fill_map_second.c	/^void		fill_ea(t_map *map, const char **strings)$/;"	f
 fill_f	fill_map_second.c	/^void		fill_f(t_map *map, const char **strings)$/;"	f
+fill_map	fill_map_third.c	/^void		fill_map(t_map *map, const char **strings)$/;"	f
 fill_no	fill_map_first.c	/^void	fill_no(t_map *map, const char **strings)$/;"	f
 fill_r	fill_map_first.c	/^void	fill_r(t_map *map, const char **strings)$/;"	f
 fill_s	fill_map_second.c	/^void		fill_s(t_map *map, const char **strings)$/;"	f
@@ -24,10 +24,9 @@ fill_we	fill_map_first.c	/^void	fill_we(t_map *map, const char **strings)$/;"	f
 frgb	map.h	/^	int		frgb[3];$/;"	m	struct:s_map
 height	map.h	/^	int		height;$/;"	m	struct:s_map
 main	test.c	/^int		main(void)$/;"	f
-map_arr	fill_map_third.c	/^void		map_arr(t_map *map, const char **strings)$/;"	f
 map_width	map.h	/^	int		map_width;$/;"	m	struct:s_map
 maparr	map.h	/^	char	*maparr;$/;"	m	struct:s_map
-new_map	map.c	/^static t_map	*new_map()$/;"	f	file:
+new_map	map.c	/^static t_map	*new_map(void)$/;"	f	file:
 no	map.h	/^	char	*no;$/;"	m	struct:s_map
 read_map	map.c	/^t_map			*read_map(const char *file_name)$/;"	f
 rgbstr_to_rgbint	fill_map_second.c	/^static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr)$/;"	f	file:

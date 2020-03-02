@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:32:28 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 03:37:43 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:30:40 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void			fill_ea(t_map *map, const char **strings);
 void			fill_s(t_map *map, const char **strings);
 void			fill_f(t_map *map, const char **strings);
 void			fill_c(t_map *map, const char **strings);
+void			fill_map(t_map *map, const char **strings);
 
 #endif

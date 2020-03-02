@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 20:18:18 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 01:47:23 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:56:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void		xfree(void *data)
 		return ;
 	}
 	if (xfree_after_head(*head, data))
-		error_message(*get_head_node(), "node to free not found!");
+		error_message("node to free not found!");
 }
 
 /*

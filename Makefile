@@ -25,7 +25,6 @@ $(NAME):
 	$(MAKE) get_next_line all
 	$(MAKE) map all
 	$(MAKE) linkedlist all
-	$(MAKE) ft_printf all
 	$(GCC) -c $(MCF)
 	$(ARCHIVE) $(NAME) $(MOF) $(LIBFTOB) $(GET_NEXT_LINEOB) $(MAPOB) $(LLOB)
 
