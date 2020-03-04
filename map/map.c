@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 22:37:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 10:49:14 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/04 22:17:08 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/04 22:17:16 by ahamdaou                                 */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static int		check_map(const char **strings)
 	return (1);
 }
 
+
+
 t_map			*read_map(const char *file_name)
 {
 	t_map	*map;
@@ -76,12 +78,11 @@ t_map			*read_map(const char *file_name)
 	{
 		if ((line_end = get_next_line(fd, &line)) == -1)
 			error();
-		add(*get_head_node(), line);
+		add(get_head_node(), line);
 		strings = ft_split(line, ' ');
+		add_double_pointer(strings);
 		xfree(line);
 		i = -1;
-		while (strings[++i])
-			add(*get_head_node(), strings[i]);
 		while (strings[++i])
 		{
 			if (ft_onlyspaces(strings[i]))
@@ -102,13 +103,11 @@ t_map			*read_map(const char *file_name)
 				fill_f(map, (const char**)(strings + i + 1));
 			if (!ft_strcmp(strings[i], "C"))
 				fill_c(map, (const char**)(strings + i + 1));
-			if (check_map((const char**)strings[i]))
+			if (check_map((const char**)(strings + i)))
 				fill_map(map, (const char**)(strings + i));
 			error_message("bad format!");
 		}
-		i = -1;
-		while (strings[++i])
-			xfree(strings[i]);
 	}
+	xfree_double_pointer(strings);
 	return (map);
 }

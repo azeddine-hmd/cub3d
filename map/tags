@@ -9,6 +9,7 @@ MAP_H	map.h	/^# define MAP_H$/;"	d
 NAME	Makefile	/^NAME = map.a$/;"	m
 O	Makefile	/^O = ${SRC:.c=.o}$/;"	m
 SRC	Makefile	/^SRC = map.c \\$/;"	m
+add_double_pointer	map.c	/^void			add_double_pointer(char **ptr)$/;"	f
 check_map	map.c	/^static int		check_map(const char **strings)$/;"	f	file:
 crgb	map.h	/^	int		crgb[3];$/;"	m	struct:s_map
 ea	map.h	/^	char	*ea;$/;"	m	struct:s_map
@@ -23,7 +24,6 @@ fill_so	fill_map_first.c	/^void	fill_so(t_map *map, const char **strings)$/;"	f
 fill_we	fill_map_first.c	/^void	fill_we(t_map *map, const char **strings)$/;"	f
 frgb	map.h	/^	int		frgb[3];$/;"	m	struct:s_map
 height	map.h	/^	int		height;$/;"	m	struct:s_map
-main	test.c	/^int		main(void)$/;"	f
 map_width	map.h	/^	int		map_width;$/;"	m	struct:s_map
 maparr	map.h	/^	char	*maparr;$/;"	m	struct:s_map
 new_map	map.c	/^static t_map	*new_map(void)$/;"	f	file:
@@ -36,3 +36,4 @@ so	map.h	/^	char	*so;$/;"	m	struct:s_map
 t_map	map.h	/^}				t_map;$/;"	t	typeref:struct:s_map
 we	map.h	/^	char	*we;$/;"	m	struct:s_map
 width	map.h	/^	int		width;$/;"	m	struct:s_map
+xfree_double_pointer	map.c	/^void			xfree_double_pointer(char **ptr)$/;"	f
