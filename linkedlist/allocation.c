@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 20:18:18 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 10:56:50 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/05 02:51:33 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/05 03:45:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 /*
 ** [Description]
-** .
+** first call create static head.
+** after first call, function will return the exist list.
 ** [Return Values]
 ** void** (static): the list's head;
 */
 
-void		**get_head_node(void)
+t_data		**get_head_node(void)
 {
 	static t_data	*head;
 
-	return ((void**)&head);
+	return (&head);
 }
 
 /*
@@ -116,4 +117,30 @@ char		*xstrdup(const char *s)
 		strdup[i] = s[i];
 	strdup[i] = '\0';
 	return (strdup);
+}
+
+/*
+** [Description]
+** join two strings and make new one with xmalloc.
+*/
+
+char		*xstrjoin(const char *s1, const char *s2)
+{
+	char	*joined;
+	int		i;
+	int		j;
+
+	if (!s1)
+		return (xstrdup(s2));
+	if (!s2)
+		return (xstrdup(s1));
+	joined = xmalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	i = -1;
+	while (s1[++i])
+		joined[i] = s1[i];
+	j = -1;
+	while (s2[++j])
+		joined[i++] = s2[j];
+	joined[i] = '\0';
+	return (joined);
 }

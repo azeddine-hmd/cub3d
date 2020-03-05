@@ -6,13 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 17:58:37 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/28 18:00:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/05 00:48:45 by ahamdaou                                 */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *s)
+void	ft_putstr(const char *s)
 {
 	int		i;
 

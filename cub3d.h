@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/02/20 01:38:34 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/05 00:51:22 by ahamdaou                                 */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "map/map.h"
 # include <math.h>
 # include <mlx.h>
-# include <stdio.h> //TODO: remove it when you're done
+# include <stdio.h>
 
 int		rgb_toint(int r, int g, int b);
 

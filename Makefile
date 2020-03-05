@@ -1,4 +1,4 @@
-NAME = cub3d.a
+NAME = cub3d
 
 LIBFTOB = libft/*.o
 GET_NEXT_LINEOB = get_next_line/*.o

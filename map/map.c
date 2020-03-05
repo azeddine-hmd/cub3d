@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 22:17:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/04 22:17:16 by ahamdaou                                 */
+/*   Created: 2020/03/04 22:54:02 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/05 09:54:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static t_map	*new_map(void)
 	t_map	*map;
 
 	map = (t_map*)xmalloc(sizeof(t_map));
+	map->name = NULL;
 	map->height = 0;
 	map->width = 0;
 	map->no = NULL;
@@ -32,6 +33,7 @@ static t_map	*new_map(void)
 	map->crgb[2] = 255;
 	map->maparr = NULL;
 	map->map_width = 0;
+	map->map_size = 0;
 	return (map);
 }
 
@@ -59,8 +61,6 @@ static int		check_map(const char **strings)
 	return (1);
 }
 
-
-
 t_map			*read_map(const char *file_name)
 {
 	t_map	*map;
@@ -69,8 +69,10 @@ t_map			*read_map(const char *file_name)
 	int		line_end;
 	char	**strings;
 	int		i;
+	t_data	*maparr;
 
 	map = new_map();
+	map->name = xstrdup(file_name);
 	if ((fd = open(file_name, O_RDONLY)) == -1)
 		error();
 	line_end = 1;
@@ -88,26 +90,56 @@ t_map			*read_map(const char *file_name)
 			if (ft_onlyspaces(strings[i]))
 				continue ;
 			if (!ft_strcmp(strings[i], "R"))
+			{
 				fill_r(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "NO"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "NO"))
+			{
 				fill_no(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "SO"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "SO"))
+			{
 				fill_so(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "WE"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "WE"))
+			{
 				fill_we(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "EA"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "EA"))
+			{
 				fill_ea(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "S"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "S"))
+			{
 				fill_s(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "F"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "F"))
+			{
 				fill_f(map, (const char**)(strings + i + 1));
-			if (!ft_strcmp(strings[i], "C"))
+				break ;
+			}
+			else if (!ft_strcmp(strings[i], "C"))
+			{
 				fill_c(map, (const char**)(strings + i + 1));
-			if (check_map((const char**)(strings + i)))
-				fill_map(map, (const char**)(strings + i));
-			error_message("bad format!");
+				break ;
+			}
+			else if (check_map((const char**)(strings + i)))
+			{
+				fill_map(map, (const char**)(strings + i), &maparr);
+				break ;
+			}
+			else
+				error_map(map->name, "bad formated!");
 		}
 	}
 	xfree_double_pointer(strings);
+	if (!is_map_closed(maparr))
+		error_map(map->name, "walls are not closed!");
 	return (map);
 }

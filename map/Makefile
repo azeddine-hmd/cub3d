@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2019/12/30 18:09:08 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/05 09:55:07 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC = map.c \
 	  fill_map_first.c \
 	  fill_map_second.c \
 	  fill_map_third.c \
+	  map_wall.c \
 
 NAME = map.a
 

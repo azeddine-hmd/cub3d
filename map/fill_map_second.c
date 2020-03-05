@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:32:13 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 03:24:37 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/05 02:54:06 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/05 02:54:07 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,11 @@ static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr)
 	int		i;
 
 	rgbarr = ft_split(rgbstr, ',');
-	add(*get_head_node(), rgbarr);
-	i = -1;
-	while (rgbarr[++i])
-		add(*get_head_node(), rgbarr[i]);
+	add_double_pointer(rgbarr);
 	i = -1;
 	while (rgbarr[++i])
 		rgbint[i] = atoi(rgbarr[i]);
-	i = -1;
-	while (rgbarr[++i])
-		xfree(rgbarr[i]);
-	xfree(rgbarr);
+	xfree_double_pointer(rgbarr);
 }
 
 void		fill_f(t_map *map, const char **strings)

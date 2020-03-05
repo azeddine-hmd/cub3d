@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 15:07:37 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 01:47:50 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/05 02:52:51 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/05 08:54:17 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,62 @@ void	add(t_data **head, void *data)
 {
 	t_data	*node;
 
-	if (!data)
-		error(*get_head_node());
+	if (!data || !head)
+		error();
 	if (!(node = new_node(data)))
-		error(*get_head_node());
+		error();
 	lst_add_back(head, node);
+}
+
+/*
+** [Description]
+** add double pointers to the list.
+*/
+
+void	add_double_pointer(char **ptr)
+{
+	int	i;
+
+	i = -1;
+	while (ptr[++i])
+		add(get_head_node(), ptr[i]);
+	add(get_head_node(), ptr);
+}
+
+/*
+** [Description]
+** free double pointers
+*/
+
+void	xfree_double_pointer(char **ptr)
+{
+	int i;
+
+	i = -1;
+	while (ptr[++i])
+		xfree(ptr[i]);
+	xfree(ptr);
+}
+
+/*
+** [Description]
+** count size of nodes in the list.
+**
+** [Return Values]
+** int: size of list.
+*/
+
+int				lst_size(t_data *head)
+{
+	int	size;
+
+	if (!head)
+		error_message("head not exist to count list size.");
+	size = 0;
+	while (head)
+	{
+		size++;
+		head = head->next;
+	}
+	return (size);
 }
