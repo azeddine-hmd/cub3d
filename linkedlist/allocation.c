@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:51:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/05 03:45:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/08 08:45:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_data		**get_head_node(void)
 
 /*
 ** [Description]
-** alloc data and add it to the list.
+** allocate data and add it to the list.
 **
 ** [Return Values]
 ** void*: address of the first byte in allocated bytes.
@@ -40,7 +40,7 @@ void		*xmalloc(size_t size)
 	void	*data;
 
 	data = malloc(size);
-	add((t_data**)get_head_node(), data);
+	add(get_head_node(), data);
 	return (data);
 }
 

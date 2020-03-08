@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/05 08:54:51 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/05 23:02:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char			*xstrdup(const char *s);
 char			*xstrjoin(const char *s1, const char *s2);
 
 /*
-** file: helpers.c
+** file: error.c
 */
 void			error();
 void			error_message(const char *message);

@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/02/28 21:21:39 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/05 23:11:57 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ G = gcc -Wall -Wextra -Werror
 SRC = linkedlist.c \
 	  linkedlist_utils.c \
 	  allocation.c \
-	  helpers.c \
+	  error.c \
 
 NAME = linkedlist.a
 
