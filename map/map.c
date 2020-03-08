@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 01:13:42 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 11:22:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:10:58 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,6 @@ t_map			*read_map(const char *file_name)
 	}
 	if (!is_map_closed(map, maparr))
 		error_map(map->name, "map walls not closed!");
+	lst_clear(maparr);
 	return (map);
 }
