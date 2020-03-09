@@ -6,23 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 23:06:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/09 08:26:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/09 09:02:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
-
-static t_direction	*get_direction(void)
-{
-	t_direction	*dire;
-
-	dire = (t_direction*)xmalloc(sizeof(t_direction));
-	dire->up = '\0';
-	dire->down = '\0';
-	dire->left = '\0';
-	dire->right = '\0';
-	return (dire);
-}
 
 static void			add_sp(char *line, unsigned int start, unsigned int end)
 {
@@ -61,7 +49,7 @@ static void			fill_map_withspaces(t_data *maparr, int map_width)
 	}
 }
 
-void				checking_walls(t_data *maparr)
+static int			walls_closed(t_data *maparr)
 {
 	char	*previous;
 	char	*current;
@@ -75,18 +63,18 @@ void				checking_walls(t_data *maparr)
 			next = NULL;
 		else
 			next = (char*)maparr->next->data;
-		fill_directions(previous, current, next);
+		if (!fill_directions(previous, current, next))
+			return (0);
 		previous = current;
 		maparr = maparr->next;
 	}
+	return (1);
 }
 
-int					is_map_closed(t_map *map, t_data *maparr)
+int					is_map_walls_closed(t_map *map, t_data *maparr)
 {
-	t_direction *dire;
-
-	dire = get_direction();
 	fill_map_withspaces(maparr, map->map_width);
-	checking_walls(maparr);
+	if (!walls_closed(maparr))
+		return (0);
 	return (1);
 }
