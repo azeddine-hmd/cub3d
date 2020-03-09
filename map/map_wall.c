@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 23:06:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 11:22:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/09 08:26:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,60 @@ static void			add_sp(char *line, unsigned int start, unsigned int end)
 	}
 }
 
-static void			fill_map_withspaces(t_data *head, int map_width)
+static void			fill_map_withspaces(t_data *maparr, int map_width)
 {
 	char	*line;
 	int		data_len;
+	t_data	*node;
 
-	while (head)
+	node = maparr;
+	while (node)
 	{
-		data_len = ft_strlen((const char*)head->data);
+		data_len = ft_strlen((const char*)node->data);
 		if (data_len != map_width)
 		{
-			line = (char*)xmalloc(map_width + 1);
+			line = (char*)malloc(map_width + 1);
+			if (!line)
+			{
+				lst_clear(maparr);
+				error();
+			}
 			ft_memset(line, 0, map_width + 1);
-			ft_memmove(line, head->data, data_len);
+			ft_memmove(line, node->data, data_len);
 			add_sp(line, data_len, map_width);
+			free(node->data);
+			node->data = line;
 		}
-		head = head->next;
+		node = node->next;
 	}
 }
 
-int					is_map_closed(t_map *map, t_data *current)
+void				checking_walls(t_data *maparr)
+{
+	char	*previous;
+	char	*current;
+	char	*next;
+
+	previous = NULL;
+	while(maparr)
+	{
+		current = (char*)maparr->data;
+		if (!maparr->next)
+			next = NULL;
+		else
+			next = (char*)maparr->next->data;
+		fill_directions(previous, current, next);
+		previous = current;
+		maparr = maparr->next;
+	}
+}
+
+int					is_map_closed(t_map *map, t_data *maparr)
 {
 	t_direction *dire;
 
 	dire = get_direction();
-	fill_map_withspaces(current, map->map_width);
+	fill_map_withspaces(maparr, map->map_width);
+	checking_walls(maparr);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 12:08:59 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:22:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,15 @@ static void	set_map_width(t_map *map, const char *line)
 
 void		fill_map(t_map *map, t_data **maparr, const char *line)
 {
+	const char	*maparr_line;
+
+	maparr_line = (const char*)ft_strdup(line);
+	if (!maparr_line)
+	{
+		lst_clear(*maparr);
+		error();
+	}
 	check_map(map, line);
 	set_map_width(map, line);
-	add(maparr, (void*)xstrdup(line));
+	add(maparr, (void*)maparr_line);
 }
