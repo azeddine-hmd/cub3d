@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 21:32:04 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 11:12:38 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/09 13:10:49 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,66 +30,74 @@ void	fill_r(t_map *map, const char **strings)
 			continue ;
 		}
 		else if (position == 2 && ft_isstrdigit(strings[i]))
-		{
 			map->height = atoi(strings[i]);
-		}
 		else
-		{
-			error_message("bad resolution!");
-		}
+			error_map(map->name, "bad resolution.");
 	}
 }
 
 void	fill_no(t_map *map, const char **strings)
 {
-	int	i;
+	t_image	*img;
+	int		i;
 
+	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if (ft_strstr(strings[i], "/"))
+		if ((img->d = mlx_xpm_file_to_image(
+						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
-			map->no = xstrdup(strings[i]);
+			map->no = img;
+			return ;
 		}
 		else
-			error_message("bad path to north texture!");
+			error_message("bad path to north texture.");
 	}
 }
 
 void	fill_so(t_map *map, const char **strings)
 {
-	int	i;
+	t_image	*img;
+	int		i;
 
+	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if (ft_strstr(strings[i], "/"))
+		if ((img->d = mlx_xpm_file_to_image(
+						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
-			map->so = xstrdup(strings[i]);
+			map->so = img;
+			return ;
 		}
 		else
-			error_message("bad path to south texture!");
+			error_map(map->name, "bad path to south texture.");
 	}
 }
 
 void	fill_we(t_map *map, const char **strings)
 {
-	int	i;
+	t_image	*img;
+	int		i;
 
+	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if (ft_strstr(strings[i], "/"))
+		if ((img->d = mlx_xpm_file_to_image(
+						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
-			map->we = xstrdup(strings[i]);
+			map->we = img;
+			return ;
 		}
 		else
-			error_message("bad path to west texture!");
+			error_map(map->name, "bad path to west texture.");
 	}
 }

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/09 23:23:02 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/09 11:39:53 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#define MAP_NAME "cub/map.cub"
+#include "map.h"
 
-int		main(void)
+void	fill_maparr(t_map *map, t_data *maparr)
 {
-	t_map	*map;
-
-	map = read_map(MAP_NAME);
-	finish();
-	return (0);
+	while (maparr)
+	{
+		//TODO
+		map->maparr
+		maparr = maparr->next;
+	}
 }

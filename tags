@@ -11,7 +11,7 @@ G	get_next_line/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	libft/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	linkedlist/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	map/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
-GCC	Makefile	/^GCC = gcc -Wall -Wextra -Werror$/;"	m
+GCC	Makefile	/^GCC = gcc -Wall -Wextra -Werror -include \/usr\/local\/include \\$/;"	m
 GET_NEXT_LINEOB	Makefile	/^GET_NEXT_LINEOB = get_next_line\/*.o$/;"	m
 GET_NEXT_LINE_H	get_next_line/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
 LIBFTOB	Makefile	/^LIBFTOB = libft\/*.o$/;"	m
@@ -49,18 +49,19 @@ check_map	map/fill_map_third.c	/^static int		check_map(t_map *map, const char *l
 count_words	libft/ft_split.c	/^static	int		count_words(char const *s, char c)$/;"	f	file:
 crgb	map/map.h	/^	int		crgb[3];$/;"	m	struct:s_map
 data	linkedlist/linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
-down	map/map.h	/^	char	down;$/;"	m	struct:s_dire
-ea	map/map.h	/^	char	*ea;$/;"	m	struct:s_map
+down	map/map.h	/^	char	down;$/;"	m	struct:s_direction
+ea	map/map.h	/^	t_image	*ea;$/;"	m	struct:s_map
 error	linkedlist/error.c	/^void	error(void)$/;"	f
 error_map	linkedlist/error.c	/^void	error_map(const char *file_name, const char *message)$/;"	f
 error_message	linkedlist/error.c	/^void	error_message(const char *message)$/;"	f
 fd	get_next_line/get_next_line.h	/^	int				fd;$/;"	m	struct:s_list
 fill_c	map/fill_map_second.c	/^void		fill_c(t_map *map, const char **strings)$/;"	f
-fill_directions	map/fill_directions.c	/^void	fill_directions(t_direction *dire, char *pre, char* cur, char *nex)$/;"	f
+fill_directions	map/fill_directions.c	/^int					fill_directions(char *previous, char *current, char *next)$/;"	f
 fill_ea	map/fill_map_second.c	/^void		fill_ea(t_map *map, const char **strings)$/;"	f
 fill_f	map/fill_map_second.c	/^void		fill_f(t_map *map, const char **strings)$/;"	f
 fill_map	map/fill_map_third.c	/^void		fill_map(t_map *map, t_data **maparr, const char *line)$/;"	f
 fill_map_withspaces	map/map_wall.c	/^static void			fill_map_withspaces(t_data *maparr, int map_width)$/;"	f	file:
+fill_maparr	map/fill_map.c	/^void	fill_maparr(t_map *map, t_data *maparr)$/;"	f
 fill_no	map/fill_map_first.c	/^void	fill_no(t_map *map, const char **strings)$/;"	f
 fill_r	map/fill_map_first.c	/^void	fill_r(t_map *map, const char **strings)$/;"	f
 fill_s	map/fill_map_second.c	/^void		fill_s(t_map *map, const char **strings)$/;"	f
@@ -112,13 +113,14 @@ ft_strtrim_helper	libft/ft_strtrim.c	/^static char	*ft_strtrim_helper(char const
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_tolower	libft/ft_tolower.c	/^int		ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int		ft_toupper(int c)$/;"	f
-get_direction	map/map_wall.c	/^static t_direction	*get_direction(void)$/;"	f	file:
 get_fd_buffer	get_next_line/get_next_line.c	/^static char		**get_fd_buffer(int fd, t_list **buffers)$/;"	f	file:
 get_head_node	linkedlist/allocation.c	/^t_data		**get_head_node(void)$/;"	f
 get_length	libft/ft_split.c	/^static	int		get_length(char const *s, int c, int start)$/;"	f	file:
+get_mlx	map/map.c	/^void			*get_mlx(void)$/;"	f
 get_next_line	get_next_line/get_next_line.c	/^int				get_next_line(int fd, char **line)$/;"	f
 have_a_newline	get_next_line/get_next_line_utils.c	/^int			have_a_newline(char *str)$/;"	f
 height	map/map.h	/^	int		height;$/;"	m	struct:s_map
+height	map/map.h	/^	int	height;$/;"	m	struct:s_image
 hexer	libft/ft_dec2hex.c	/^static char	*hexer(int l)$/;"	f	file:
 integer_length	libft/ft_putnbr_fd.c	/^static int	integer_length(int nb)$/;"	f	file:
 is_map_walls_closed	map/map_wall.c	/^int					is_map_walls_closed(t_map *map, t_data *maparr)$/;"	f
@@ -126,7 +128,7 @@ is_set	libft/ft_strtrim.c	/^static int	is_set(char const *set, char c)$/;"	f	fil
 l_lstnew	get_next_line/get_next_line_utils.c	/^t_list		*l_lstnew(int fd)$/;"	f
 l_lstremove	get_next_line/get_next_line.c	/^static void		l_lstremove(int fd, t_list **buffers)$/;"	f	file:
 l_lstremove_afterhead	get_next_line/get_next_line.c	/^static void		l_lstremove_afterhead(int fd, t_list *node)$/;"	f	file:
-left	map/map.h	/^	char	left;$/;"	m	struct:s_dire
+left	map/map.h	/^	char	left;$/;"	m	struct:s_direction
 line_allocation	get_next_line/get_next_line.c	/^static int		line_allocation(t_list **bs, char **li, char **buf, int fd)$/;"	f	file:
 lst_add_back	linkedlist/linkedlist.c	/^void	lst_add_back(t_data **head, t_data *node)$/;"	f
 lst_add_front	linkedlist/linkedlist.c	/^void	lst_add_front(t_data **head, t_data *node)$/;"	f
@@ -143,32 +145,37 @@ new_map	map/map.c	/^static t_map	*new_map(void)$/;"	f	file:
 new_node	linkedlist/linkedlist_utils.c	/^t_data	*new_node(void *data)$/;"	f
 next	get_next_line/get_next_line.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list::s_list
 next	linkedlist/linkedlist.h	/^	struct s_data	*next;$/;"	m	struct:s_data	typeref:struct:s_data::s_data
-no	map/map.h	/^	char	*no;$/;"	m	struct:s_map
+no	map/map.h	/^	t_image	*no;$/;"	m	struct:s_map
 norminette_helper	libft/ft_split.c	/^static	char	**norminette_helper(char const *s, char c, char **str, int j)$/;"	f	file:
 numlen	libft/ft_itoa.c	/^static long	numlen(long n)$/;"	f	file:
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
 read_map	map/map.c	/^t_map			*read_map(const char *file_name)$/;"	f
 rgb_toint	helpers.c	/^int		rgb_toint(int r, int g, int b)$/;"	f
 rgbstr_to_rgbint	map/fill_map_second.c	/^static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr)$/;"	f	file:
-right	map/map.h	/^	char	right;$/;"	m	struct:s_dire
-s	map/map.h	/^	char	*s;$/;"	m	struct:s_map
+right	map/map.h	/^	char	right;$/;"	m	struct:s_direction
+s	map/map.h	/^	t_image	*s;$/;"	m	struct:s_map
 s_data	linkedlist/linkedlist.h	/^typedef struct	s_data$/;"	s
-s_dire	map/map.h	/^typedef struct	s_dire$/;"	s
+s_direction	map/map.h	/^typedef struct	s_direction$/;"	s
+s_image	map/map.h	/^typedef struct	s_image$/;"	s
 s_list	get_next_line/get_next_line.h	/^typedef	struct	s_list$/;"	s
 s_map	map/map.h	/^typedef struct	s_map$/;"	s
+self	map/map.h	/^	char	self;$/;"	m	struct:s_direction
 set_map_width	map/fill_map_third.c	/^static void	set_map_width(t_map *map, const char *line)$/;"	f	file:
-so	map/map.h	/^	char	*so;$/;"	m	struct:s_map
+so	map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
 str_allocation	libft/ft_split.c	/^static	char	*str_allocation(char const *s, char c, int start)$/;"	f	file:
 str_join	get_next_line/get_next_line_utils.c	/^char		*str_join(char *buffer, char *tmp, int read_return, int i)$/;"	f
 sub_str	get_next_line/get_next_line_utils.c	/^char		*sub_str(char const *s, unsigned int start)$/;"	f
 t_data	linkedlist/linkedlist.h	/^}				t_data;$/;"	t	typeref:struct:s_data
-t_dire	map/map.h	/^}				t_dire;$/;"	t	typeref:struct:s_dire
+t_direction	map/map.h	/^}				t_direction;$/;"	t	typeref:struct:s_direction
+t_image	map/map.h	/^}				t_image;$/;"	t	typeref:struct:s_image
 t_list	get_next_line/get_next_line.h	/^}				t_list;$/;"	t	typeref:struct:s_list
 t_map	map/map.h	/^}				t_map;$/;"	t	typeref:struct:s_map
-up	map/map.h	/^	char	up;$/;"	m	struct:s_dire
+up	map/map.h	/^	char	up;$/;"	m	struct:s_direction
+wall_conditions	map/fill_directions.c	/^static int			wall_conditions(t_direction dire)$/;"	f	file:
 walls_closed	map/map_wall.c	/^static int			walls_closed(t_data *maparr)$/;"	f	file:
-we	map/map.h	/^	char	*we;$/;"	m	struct:s_map
+we	map/map.h	/^	t_image	*we;$/;"	m	struct:s_map
 width	map/map.h	/^	int		width;$/;"	m	struct:s_map
+width	map/map.h	/^	int	width;$/;"	m	struct:s_image
 xfree	linkedlist/allocation.c	/^void		xfree(void *data)$/;"	f
 xfree_after_head	linkedlist/allocation.c	/^static int	xfree_after_head(t_data *node, void *data)$/;"	f	file:
 xfree_double_pointer	linkedlist/linkedlist_utils.c	/^void	xfree_double_pointer(char **ptr)$/;"	f

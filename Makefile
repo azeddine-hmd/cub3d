@@ -5,7 +5,7 @@ GET_NEXT_LINEOB = get_next_line/*.o
 MAPOB = map/*.o
 LLOB = linkedlist/*.o
 
-GCC = gcc -Wall -Wextra -Werror
+GCC = gcc
 
 MAKE = make -C
 

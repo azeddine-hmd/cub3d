@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 12:22:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/09 13:00:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		check_map(t_map *map, const char *line)
 	return (1);
 }
 
-static void	set_map_width(t_map *map, const char *line)
+static void		set_map_width(t_map *map, const char *line)
 {
 	int	strings_len;
 
@@ -43,7 +43,7 @@ static void	set_map_width(t_map *map, const char *line)
 		map->map_width = strings_len;
 }
 
-void		fill_map(t_map *map, t_data **maparr, const char *line)
+void			fill_map(t_map *map, t_data **maparr, const char *line)
 {
 	const char	*maparr_line;
 

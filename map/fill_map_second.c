@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 02:54:06 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/05 02:54:07 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/09 13:09:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,45 @@
 
 void		fill_ea(t_map *map, const char **strings)
 {
-	int	i;
+	t_image	*img;
+	int		i;
 
+	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if (ft_strstr(strings[i], "/"))
+		if ((img->d = mlx_xpm_file_to_image(
+						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
-			map->ea = xstrdup(strings[i]);
+			map->ea = img;
+			return ;
 		}
 		else
-			error_message("bad path to east texture!");
+			error_map(map->name, "bad path to east texture.");
 	}
 }
 
 void		fill_s(t_map *map, const char **strings)
 {
-	int	i;
+	t_image *img;
+	int		i;
 
+	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if (ft_strstr(strings[i], "/"))
+		if ((img->d = mlx_xpm_file_to_image(
+						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
-			map->s = xstrdup(strings[i]);
+			map->s = img;
+			return ;
 		}
 		else
-			error_message("bad path to sprite texture!");
+			error_map(map->name, "bad path to sprite texture.");
 	}
 }
 
@@ -76,7 +84,7 @@ void		fill_f(t_map *map, const char **strings)
 			frgb = xstrdup(strings[i]);
 		}
 		else
-			error_message("bad floor color!");
+			error_map(map->name, "bad floor color.");
 	}
 	rgbstr_to_rgbint(map->frgb, frgb);
 	xfree(frgb);
@@ -97,7 +105,7 @@ void		fill_c(t_map *map, const char **strings)
 			crgb = xstrdup(strings[i]);
 		}
 		else
-			error_message("bad ceilling color!");
+			error_map(map->name, "bad ceilling color.");
 	}
 	rgbstr_to_rgbint(map->frgb, crgb);
 	xfree(crgb);
