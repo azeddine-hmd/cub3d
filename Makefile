@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
+#    Updated: 2020/03/11 11:02:49 by ahamdaou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = cub3d
 
 LIBFTOB = libft/*.o
@@ -5,7 +17,7 @@ GET_NEXT_LINEOB = get_next_line/*.o
 MAPOB = map/*.o
 LLOB = linkedlist/*.o
 
-GCC = gcc
+GCC = gcc -Wall -Werror -Wextra -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 
 MAKE = make -C
 

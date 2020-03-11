@@ -1,10 +1,12 @@
+/* ************************************************************************** */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 01:13:42 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/09 13:03:37 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/11 10:23:39 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,42 +77,42 @@ t_map			*read_map(const char *file_name)
 		{
 			if (!ft_strcmp(strings[i], "R"))
 			{
-				//fill_r(map, (const char**)(strings + i + 1));
+				fill_r(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "NO"))
 			{
-				//fill_no(map, (const char**)(strings + i + 1));
+				fill_no(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "SO"))
 			{
-				//fill_so(map, (const char**)(strings + i + 1));
+				fill_so(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "WE"))
 			{
-				//fill_we(map, (const char**)(strings + i + 1));
+				fill_we(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "EA"))
 			{
-				//fill_ea(map, (const char**)(strings + i + 1));
+				fill_ea(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "S"))
 			{
-				//fill_s(map, (const char**)(strings + i + 1));
+				fill_s(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "F"))
 			{
-				//fill_f(map, (const char**)(strings + i + 1));
+				fill_f(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else if (!ft_strcmp(strings[i], "C"))
 			{
-				//fill_c(map, (const char**)(strings + i + 1));
+				fill_c(map, (const char**)(strings + i + 1));
 				break ;
 			}
 			else

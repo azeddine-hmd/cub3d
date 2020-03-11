@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 01:38:32 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 12:12:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/11 10:32:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "linkedlist/linkedlist.h"
 # include "map/map.h"
 # include <math.h>
-# include <mlx.h>
 # include <stdio.h>
 
 int		rgb_toint(int r, int g, int b);

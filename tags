@@ -11,7 +11,7 @@ G	get_next_line/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	libft/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	linkedlist/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	map/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
-GCC	Makefile	/^GCC = gcc -Wall -Wextra -Werror -include \/usr\/local\/include \\$/;"	m
+GCC	Makefile	/^GCC = gcc -Wall -Werror -Wextra -I \/usr\/local\/include -L \/usr\/local\/lib\/ -lmlx -framework OpenGL -framework AppKit$/;"	m
 GET_NEXT_LINEOB	Makefile	/^GET_NEXT_LINEOB = get_next_line\/*.o$/;"	m
 GET_NEXT_LINE_H	get_next_line/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
 LIBFTOB	Makefile	/^LIBFTOB = libft\/*.o$/;"	m
@@ -48,6 +48,7 @@ check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, cons
 check_map	map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line)$/;"	f	file:
 count_words	libft/ft_split.c	/^static	int		count_words(char const *s, char c)$/;"	f	file:
 crgb	map/map.h	/^	int		crgb[3];$/;"	m	struct:s_map
+d	map/map.h	/^	void	*d;$/;"	m	struct:s_image
 data	linkedlist/linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
 down	map/map.h	/^	char	down;$/;"	m	struct:s_direction
 ea	map/map.h	/^	t_image	*ea;$/;"	m	struct:s_map
@@ -59,7 +60,7 @@ fill_c	map/fill_map_second.c	/^void		fill_c(t_map *map, const char **strings)$/;
 fill_directions	map/fill_directions.c	/^int					fill_directions(char *previous, char *current, char *next)$/;"	f
 fill_ea	map/fill_map_second.c	/^void		fill_ea(t_map *map, const char **strings)$/;"	f
 fill_f	map/fill_map_second.c	/^void		fill_f(t_map *map, const char **strings)$/;"	f
-fill_map	map/fill_map_third.c	/^void		fill_map(t_map *map, t_data **maparr, const char *line)$/;"	f
+fill_map	map/fill_map_third.c	/^void			fill_map(t_map *map, t_data **maparr, const char *line)$/;"	f
 fill_map_withspaces	map/map_wall.c	/^static void			fill_map_withspaces(t_data *maparr, int map_width)$/;"	f	file:
 fill_maparr	map/fill_map.c	/^void	fill_maparr(t_map *map, t_data *maparr)$/;"	f
 fill_no	map/fill_map_first.c	/^void	fill_no(t_map *map, const char **strings)$/;"	f
@@ -118,9 +119,9 @@ get_head_node	linkedlist/allocation.c	/^t_data		**get_head_node(void)$/;"	f
 get_length	libft/ft_split.c	/^static	int		get_length(char const *s, int c, int start)$/;"	f	file:
 get_mlx	map/map.c	/^void			*get_mlx(void)$/;"	f
 get_next_line	get_next_line/get_next_line.c	/^int				get_next_line(int fd, char **line)$/;"	f
+h	map/map.h	/^	int		h;$/;"	m	struct:s_image
 have_a_newline	get_next_line/get_next_line_utils.c	/^int			have_a_newline(char *str)$/;"	f
 height	map/map.h	/^	int		height;$/;"	m	struct:s_map
-height	map/map.h	/^	int	height;$/;"	m	struct:s_image
 hexer	libft/ft_dec2hex.c	/^static char	*hexer(int l)$/;"	f	file:
 integer_length	libft/ft_putnbr_fd.c	/^static int	integer_length(int nb)$/;"	f	file:
 is_map_walls_closed	map/map_wall.c	/^int					is_map_walls_closed(t_map *map, t_data *maparr)$/;"	f
@@ -160,7 +161,7 @@ s_image	map/map.h	/^typedef struct	s_image$/;"	s
 s_list	get_next_line/get_next_line.h	/^typedef	struct	s_list$/;"	s
 s_map	map/map.h	/^typedef struct	s_map$/;"	s
 self	map/map.h	/^	char	self;$/;"	m	struct:s_direction
-set_map_width	map/fill_map_third.c	/^static void	set_map_width(t_map *map, const char *line)$/;"	f	file:
+set_map_width	map/fill_map_third.c	/^static void		set_map_width(t_map *map, const char *line)$/;"	f	file:
 so	map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
 str_allocation	libft/ft_split.c	/^static	char	*str_allocation(char const *s, char c, int start)$/;"	f	file:
 str_join	get_next_line/get_next_line_utils.c	/^char		*str_join(char *buffer, char *tmp, int read_return, int i)$/;"	f
@@ -171,11 +172,11 @@ t_image	map/map.h	/^}				t_image;$/;"	t	typeref:struct:s_image
 t_list	get_next_line/get_next_line.h	/^}				t_list;$/;"	t	typeref:struct:s_list
 t_map	map/map.h	/^}				t_map;$/;"	t	typeref:struct:s_map
 up	map/map.h	/^	char	up;$/;"	m	struct:s_direction
+w	map/map.h	/^	int		w;$/;"	m	struct:s_image
 wall_conditions	map/fill_directions.c	/^static int			wall_conditions(t_direction dire)$/;"	f	file:
 walls_closed	map/map_wall.c	/^static int			walls_closed(t_data *maparr)$/;"	f	file:
 we	map/map.h	/^	t_image	*we;$/;"	m	struct:s_map
 width	map/map.h	/^	int		width;$/;"	m	struct:s_map
-width	map/map.h	/^	int	width;$/;"	m	struct:s_image
 xfree	linkedlist/allocation.c	/^void		xfree(void *data)$/;"	f
 xfree_after_head	linkedlist/allocation.c	/^static int	xfree_after_head(t_data *node, void *data)$/;"	f	file:
 xfree_double_pointer	linkedlist/linkedlist_utils.c	/^void	xfree_double_pointer(char **ptr)$/;"	f

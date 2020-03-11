@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/09 11:39:53 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/11 10:54:26 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	fill_maparr(t_map *map, t_data *maparr)
 {
-	while (maparr)
-	{
-		//TODO
-		map->maparr
-		maparr = maparr->next;
-	}
+	map++;
+	maparr++;
 }
