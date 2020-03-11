@@ -6,18 +6,22 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/03/11 11:02:49 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/11 11:43:53 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3d.a
+
+EXE = cub3d
 
 LIBFTOB = libft/*.o
 GET_NEXT_LINEOB = get_next_line/*.o
 MAPOB = map/*.o
 LLOB = linkedlist/*.o
 
-GCC = gcc -Wall -Werror -Wextra -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+GCC = gcc -Wall -Werror -Wextra -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
+
+CC = gcc -Wall -Werror -Wextra
 
 MAKE = make -C
 
@@ -37,8 +41,8 @@ $(NAME):
 	$(MAKE) get_next_line all
 	$(MAKE) map all
 	$(MAKE) linkedlist all
-	$(GCC) -c $(MCF)
-	$(ARCHIVE) $(NAME) $(MOF) $(LIBFTOB) $(GET_NEXT_LINEOB) $(MAPOB) $(LLOB)
+	$(ARCHIVE) $(NAME) $(LIBFTOB) $(GET_NEXT_LINEOB) $(MAPOB) $(LLOB)
+	$(GCC) $(MCF) $(NAME) -o $(EXE)
 
 clean:
 	$(MAKE) libft clean
@@ -52,7 +56,7 @@ fclean: clean
 	$(MAKE) get_next_line fclean
 	$(MAKE) map fclean
 	$(MAKE) linkedlist fclean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(EXE)
 	$(RM)r a.out*
 
 re: fclean all
