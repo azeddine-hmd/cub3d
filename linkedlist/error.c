@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:01:29 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 11:01:44 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:39:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	error_message(const char *message)
 
 void	error_map(const char *file_name, const char *message)
 {
-	ft_putstr("Error\n");
-	ft_putstr(file_name);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(file_name, 2);
 	ft_putstr(": ");
 	ft_putstr(message);
 	ft_putstr("\n");

@@ -6,12 +6,14 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 ARCHIVE	Makefile	/^ARCHIVE = ar rc$/;"	m
 BUFFER_SIZE	get_next_line/get_next_line.h	/^# define BUFFER_SIZE /;"	d
+CC	Makefile	/^CC = gcc -Wall -Werror -Wextra$/;"	m
 CUB3D_H	cub3d.h	/^# define CUB3D_H$/;"	d
+EXE	Makefile	/^EXE = cub3d$/;"	m
 G	get_next_line/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	libft/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	linkedlist/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
 G	map/Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
-GCC	Makefile	/^GCC = gcc -Wall -Werror -Wextra -I \/usr\/local\/include -L \/usr\/local\/lib\/ -lmlx -framework OpenGL -framework AppKit$/;"	m
+GCC	Makefile	/^GCC = gcc -Wall -Werror -Wextra \\$/;"	m
 GET_NEXT_LINEOB	Makefile	/^GET_NEXT_LINEOB = get_next_line\/*.o$/;"	m
 GET_NEXT_LINE_H	get_next_line/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
 LIBFTOB	Makefile	/^LIBFTOB = libft\/*.o$/;"	m
@@ -24,7 +26,7 @@ MAP_H	map/map.h	/^# define MAP_H$/;"	d
 MAP_NAME	cub3d.c	/^#define MAP_NAME /;"	d	file:
 MCF	Makefile	/^MCF =	cub3d.c \\$/;"	m
 MOF	Makefile	/^MOF =	${MCF:.c=.o}$/;"	m
-NAME	Makefile	/^NAME = cub3d$/;"	m
+NAME	Makefile	/^NAME = cub3d.a$/;"	m
 NAME	get_next_line/Makefile	/^NAME = get_next_line.a$/;"	m
 NAME	libft/Makefile	/^NAME = libft.a$/;"	m
 NAME	linkedlist/Makefile	/^NAME = linkedlist.a$/;"	m

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/11 12:06:29 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 09:41:06 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	fill_maparr(t_map *map, t_data *maparr)
 
 	while (maparr)
 	{
-		temp = (char*)map->maparr;
-		map->maparr = xstrjoin((char*)maparr->data, (char*)map->maparr);
-		free(temp);
+		temp = map->maparr;
+		map->maparr = xstrjoin((char*)map->maparr, (char*)maparr->data);
+		if (temp)
+			xfree(temp);
 		maparr = maparr->next;
 	}
 	printf("map->maparr = '%s'\n", map->maparr);

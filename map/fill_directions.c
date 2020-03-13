@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:30:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/09 11:26:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 09:52:38 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ static int			wall_conditions(t_direction dire)
 	if (dire.up == '\0' && dire.self == '0')
 		return (0);
 	if (dire.down == '\0' && dire.self == '0')
+		return (0);
+	if (dire.right == '\0' && dire.self == '0')
+		return (0);
+	if (dire.left == '\0' && dire.self == '0')
 		return (0);
 	if (dire.self == ' ' && (dire.up == '0' || dire.right == '0'
 						|| dire.down == '0' || dire.left == '0'))

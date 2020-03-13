@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/03/11 11:43:53 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/12 11:38:19 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,11 @@ GET_NEXT_LINEOB = get_next_line/*.o
 MAPOB = map/*.o
 LLOB = linkedlist/*.o
 
-GCC = gcc -Wall -Werror -Wextra -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
+GCC = gcc -Wall -Werror -Wextra \
+	  -fsanitize=address \
+	  -I /usr/local/include \
+	  -L /usr/local/lib -lmlx \
+	  -framework OpenGL -framework AppKit \
 
 CC = gcc -Wall -Werror -Wextra
 
