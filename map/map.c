@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:13:10 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 15:23:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_map			*read_map(const char *file_name)
 	t_data	*maparr;
 	int		map_time;
 	int		map_reached;
+	int		player_state;
 
 	map = new_map();
 	maparr = NULL;
@@ -126,8 +127,9 @@ t_map			*read_map(const char *file_name)
 		xfree(line);
 	}
 	xfree_double_pointer(strings);
+	player_state = 0;
 	if (*line != '\0')
-		fill_map(map, &maparr, (const char*)line);
+		fill_map(map, &maparr, (const char*)line, &player_state);
 	xfree(line);
 	map_reached = 0;
 	while (line_end)
@@ -138,9 +140,11 @@ t_map			*read_map(const char *file_name)
 		if (!map_reached && *line == '\0')
 			continue ;
 		map_reached = 1;
-		fill_map(map, &maparr, (const char*)line);
+		fill_map(map, &maparr, (const char*)line, &player_state);
 		xfree(line);
 	}
+	if (player_state != 1)
+		error_map(map->name, "multiple players or player doesn't exist.");
 	if (!is_map_walls_closed(map, maparr))
 		error_map(map->name, "map walls not closed!");
 	fill_maparr(map, maparr);

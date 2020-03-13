@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:30:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:20:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 18:37:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,38 @@
 
 static int			wall_conditions(t_direction dire)
 {
-	if (dire.up == '\0' && dire.self == '0')
+	const char	*player;
+	int			i;
+
+	if (dire.self == '1' || dire.self == ' ')
+		return (1);
+	if (dire.self == '0' && (dire.up == ' ' || dire.up == '\0' ||
+							dire.right == ' ' || dire.right == '\0' ||
+							dire.down == ' ' || dire.down == '\0' ||
+							dire.left == ' ' || dire.left == '\0'))
 		return (0);
-	if (dire.down == '\0' && dire.self == '0')
-		return (0);
-	if (dire.right == '\0' && dire.self == '0')
-		return (0);
-	if (dire.left == '\0' && dire.self == '0')
-		return (0);
-	if (dire.self == ' ' && (dire.up == '0' || dire.right == '0'
-						|| dire.down == '0' || dire.left == '0'))
-		return (0);
+	player = "NEWS";
+	i = -1;
+	while (player[++i])
+		if (dire.self == player[i] && (dire.up == ' ' || dire.up == '\0' ||
+					dire.right == ' ' || dire.right == '\0' ||
+					dire.down == ' ' || dire.down == '\0' ||
+					dire.left == ' ' || dire.left == '\0'))
+		{
+			error_message("player not inside the walls.");
+			return (0);
+		}
 	return (1);
+}
+
+static void			norm(t_direction *dire, char *previous,
+		char *current, int i)
+{
+	dire->self = current[i];
+	if (!previous)
+		dire->up = '\0';
+	else
+		dire->up = previous[i];
 }
 
 int					fill_directions(char *previous, char *current, char *next)
@@ -38,11 +58,7 @@ int					fill_directions(char *previous, char *current, char *next)
 	i = -1;
 	while (current[++i])
 	{
-		dire.self = current[i];
-		if (!previous)
-			dire.up = '\0';
-		else
-			dire.up = previous[i];
+		norm(&dire, previous, current, i);
 		if (!next)
 			dire.down = '\0';
 		else

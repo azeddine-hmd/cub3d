@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:28:53 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 10:48:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	fill_r(t_map *map, const char **strings)
 	int		position;
 	int		i;
 
+	if (!have_strings(strings, 2))
+		error_map(map->name,
+				"found less or more than 2 argumments in resolution.");
 	position = 1;
 	i = -1;
-	if (!have_strings(strings, 3))
-		error_map(map->name, "found less than 2 argumments in resolution.");
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
@@ -43,6 +44,9 @@ void	fill_no(t_map *map, const char **strings)
 	t_image	*img;
 	int		i;
 
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumment in no texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
@@ -65,6 +69,9 @@ void	fill_so(t_map *map, const char **strings)
 	t_image	*img;
 	int		i;
 
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumment in so texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
@@ -87,6 +94,9 @@ void	fill_we(t_map *map, const char **strings)
 	t_image	*img;
 	int		i;
 
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumment in we texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])

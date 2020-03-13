@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/09 13:09:08 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 10:52:34 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void		fill_ea(t_map *map, const char **strings)
 	t_image	*img;
 	int		i;
 
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumment in ea texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
@@ -39,6 +42,9 @@ void		fill_s(t_map *map, const char **strings)
 	t_image *img;
 	int		i;
 
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumment in s texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
@@ -56,13 +62,16 @@ void		fill_s(t_map *map, const char **strings)
 	}
 }
 
-static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr)
+static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)
 {
 	char	**rgbarr;
 	int		i;
 
 	rgbarr = ft_split(rgbstr, ',');
 	add_double_pointer(rgbarr);
+	if (!have_strings((const char**)rgbarr, 3))
+		error_map(map->name,
+				"found less or more than 3 argumments in rgb color.");
 	i = -1;
 	while (rgbarr[++i])
 		rgbint[i] = atoi(rgbarr[i]);
@@ -86,7 +95,7 @@ void		fill_f(t_map *map, const char **strings)
 		else
 			error_map(map->name, "bad floor color.");
 	}
-	rgbstr_to_rgbint(map->frgb, frgb);
+	rgbstr_to_rgbint(map->frgb, frgb, map);
 	xfree(frgb);
 }
 
@@ -107,6 +116,6 @@ void		fill_c(t_map *map, const char **strings)
 		else
 			error_map(map->name, "bad ceilling color.");
 	}
-	rgbstr_to_rgbint(map->frgb, crgb);
+	rgbstr_to_rgbint(map->frgb, crgb, map);
 	xfree(crgb);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:23:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 18:19:31 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void			fill_c(t_map *map, const char **strings);
 ** file: fill_map_third.c
 */
 
-void			fill_map(t_map *map, t_data **maparr, const char *line);
+void			fill_map(t_map *map, t_data **maparr, const char *line, int *p);
 
 /*
 ** file: fill_directions.c
