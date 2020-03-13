@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/03/12 11:38:19 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/13 10:09:50 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ CC = gcc -Wall -Werror -Wextra
 
 MAKE = make -C
 
-MCF =	cub3d.c \
+MCF =\
+		cub3d.c \
 		helpers.c \
 
 MOF =	${MCF:.c=.o}

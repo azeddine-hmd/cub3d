@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 09:57:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 10:28:53 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	fill_r(t_map *map, const char **strings)
 
 	position = 1;
 	i = -1;
+	if (!have_strings(strings, 3))
+		error_map(map->name, "found less than 2 argumments in resolution.");
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))

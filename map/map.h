@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/12 14:00:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/13 10:23:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,55 @@ typedef struct	s_direction
 	char	left;
 }				t_direction;
 
+/*
+** file: map.c
+*/
+
 void			*get_mlx(void);
 t_map			*read_map(const char *file_name);
+
+/*
+** file: fill_map_first.c
+*/
+
 void			fill_r(t_map *map, const char **strings);
 void			fill_no(t_map *map, const char **strings);
 void			fill_so(t_map *map, const char **strings);
 void			fill_we(t_map *map, const char **strings);
+
+/*
+** file: fill_map_second.c
+*/
+
 void			fill_ea(t_map *map, const char **strings);
 void			fill_s(t_map *map, const char **strings);
 void			fill_f(t_map *map, const char **strings);
 void			fill_c(t_map *map, const char **strings);
+
+/*
+** file: fill_map_third.c
+*/
+
 void			fill_map(t_map *map, t_data **maparr, const char *line);
-int				is_map_walls_closed(t_map *map, t_data *maparr);
+
+/*
+** file: fill_directions.c
+*/
+
 int				fill_directions(char *previous, char *current, char *next);
+
+/*
+** file: map_wall.c
+*/
+
+int				is_map_walls_closed(t_map *map, t_data *maparr);
+
+
+/*
+** file: fill_map.c
+*/
+
+int				have_strings(const char **strings, int count);
 void			fill_maparr(t_map *map, t_data *maparr);
 
 #endif
