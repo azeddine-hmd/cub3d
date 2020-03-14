@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/14 14:06:16 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 18:41:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,21 @@ typedef struct	s_direction
 	char	down;
 	char	left;
 }				t_direction;
+
+typedef struct	s_localmap
+{
+	t_map	*map;
+	char	*line;
+	int		fd;
+	int		line_end;
+	char	**strings;
+	int		i;
+	t_data	*maparr;
+	int		map_time;
+	int		map_reached;
+	int		player_state;
+	int		id_count;
+}				t_localmap;
 
 /*
 ** file: map.c

@@ -6,13 +6,37 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/14 14:35:08 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 17:38:33 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-void	fill_r(t_map *map, const char **strings)
+static void	fill_r_norm(t_map *map, const char **strings, int i, int *position)
+{
+	if (ft_onlyspaces(strings[i]))
+		return ;
+	if (*position == 1 && ft_isstrdigit(strings[i]))
+	{
+		if ((map->width = atoi(strings[i])) < 100)
+			map->width = 100;
+		if (map->width > 2560)
+			map->width = 2560;
+		(*position)++;
+		return ;
+	}
+	else if (*position == 2 && ft_isstrdigit(strings[i]))
+	{
+		if ((map->height = atoi(strings[i])) < 100)
+			map->height = 100;
+		if (map->height > 1440)
+			map->height = 1440;
+	}
+	else
+		error_map(map->name, "bad resolution.");
+}
+
+void		fill_r(t_map *map, const char **strings)
 {
 	int		position;
 	int		i;
@@ -24,30 +48,11 @@ void	fill_r(t_map *map, const char **strings)
 	i = -1;
 	while (strings[++i])
 	{
-		if (ft_onlyspaces(strings[i]))
-			continue ;
-		if (position == 1 && ft_isstrdigit(strings[i]))
-		{
-			if ((map->width = atoi(strings[i])) < 100)
-				map->width = 100;
-			if (map->width > 2560)
-				map->width = 2560;
-			position++;
-			continue ;
-		}
-		else if (position == 2 && ft_isstrdigit(strings[i]))
-		{
-			if ((map->height = atoi(strings[i])) < 100)
-				map->height = 100;
-			if (map->height > 1440)
-				map->height = 1440;
-		}
-		else
-			error_map(map->name, "bad resolution.");
+		fill_r_norm(map, strings, i, &position);
 	}
 }
 
-void	fill_no(t_map *map, const char **strings)
+void		fill_no(t_map *map, const char **strings)
 {
 	t_image	*img;
 	int		i;
@@ -72,7 +77,7 @@ void	fill_no(t_map *map, const char **strings)
 	}
 }
 
-void	fill_so(t_map *map, const char **strings)
+void		fill_so(t_map *map, const char **strings)
 {
 	t_image	*img;
 	int		i;
@@ -97,7 +102,7 @@ void	fill_so(t_map *map, const char **strings)
 	}
 }
 
-void	fill_we(t_map *map, const char **strings)
+void		fill_we(t_map *map, const char **strings)
 {
 	t_image	*img;
 	int		i;

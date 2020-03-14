@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/14 15:12:09 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 17:30:40 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)
 	char	**rgbarr;
 	int		i;
 
+	if (!rgbstr)
+		return ;
 	rgbarr = ft_split(rgbstr, ',');
 	add_double_pointer(rgbarr);
 	if (!have_strings((const char**)rgbarr, 3))
@@ -89,6 +91,10 @@ void		fill_f(t_map *map, const char **strings)
 	char	*frgb;
 
 	i = -1;
+	frgb = NULL;
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumments in floor color.");
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
@@ -104,7 +110,8 @@ void		fill_f(t_map *map, const char **strings)
 			error_map(map->name, "bad floor color.");
 	}
 	rgbstr_to_rgbint(map->frgb, frgb, map);
-	xfree(frgb);
+	if (frgb)
+		xfree(frgb);
 }
 
 void		fill_c(t_map *map, const char **strings)
@@ -113,6 +120,10 @@ void		fill_c(t_map *map, const char **strings)
 	char	*crgb;
 
 	i = -1;
+	crgb = NULL;
+	if (!have_strings(strings, 1))
+		error_map(map->name,
+				"found less or more than one argumments in ceiling color.");
 	while (strings[++i])
 	{
 		if (ft_onlyspaces(strings[i]))
@@ -128,5 +139,6 @@ void		fill_c(t_map *map, const char **strings)
 			error_map(map->name, "bad ceilling color.");
 	}
 	rgbstr_to_rgbint(map->crgb, crgb, map);
-	xfree(crgb);
+	if (!crgb)
+		xfree(crgb);
 }
