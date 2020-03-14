@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/03/02 03:01:08 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/03/14 14:50:46 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC = ft_atoi.c \
 	  ft_strtoupper.c \
 	  ft_isstrdigit.c \
 	  ft_onlyspaces.c \
+	  ft_countchar.c \
 
 NAME = libft.a
 

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 18:19:31 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:06:16 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,17 @@ int				fill_directions(char *previous, char *current, char *next);
 
 int				is_map_walls_closed(t_map *map, t_data *maparr);
 
-
 /*
 ** file: fill_map.c
 */
 
 int				have_strings(const char **strings, int count);
 void			fill_maparr(t_map *map, t_data *maparr);
+
+/*
+** file: fill_map.c
+*/
+
+void			check_allfilled(t_map *map);
 
 #endif

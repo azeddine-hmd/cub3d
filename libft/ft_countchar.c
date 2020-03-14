@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_map.c                                         :+:      :+:    :+:   */
+/*   ft_countchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/14 14:36:44 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/03/14 14:48:23 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/03/14 14:55:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
 
-int		have_strings(const char **strings, int count)
+#include "libft.h"
+
+int		ft_countchar(const char *s, char c)
 {
+	int	counter;
 	int	i;
 
+	counter = 0;
 	i = -1;
-	while (strings[++i])
-		count--;
-	if (count != 0)
-		return (0);
-	return (1);
-}
-
-void	fill_maparr(t_map *map, t_data *maparr)
-{
-	char	*temp;
-
-	while (maparr)
-	{
-		temp = map->maparr;
-		map->maparr = xstrjoin((char*)map->maparr, (char*)maparr->data);
-		if (temp)
-			xfree(temp);
-		maparr = maparr->next;
-	}
+	while (s[++i])
+		if (s[i] == c)
+			counter++;
+	return (counter);
 }

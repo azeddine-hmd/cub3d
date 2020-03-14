@@ -6,7 +6,7 @@
 /*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 22:38:41 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/05 03:41:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:51:59 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ char			*ft_strtoupper(char *s);
 int				ft_isstrdigit(const char *s);
 void			ft_putstr(const char *s);
 int				ft_onlyspaces(const char *s);
+int				ft_countchar(const char *s, char c);
 
 #endif

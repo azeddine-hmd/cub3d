@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 15:23:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:22:51 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ static t_map	*new_map(void)
 
 	map = (t_map*)xmalloc(sizeof(t_map));
 	map->name = NULL;
-	map->height = 0;
-	map->width = 0;
+	map->height = -1;
+	map->width = -1;
 	map->no = NULL;
 	map->so = NULL;
 	map->we = NULL;
 	map->ea = NULL;
 	map->s = NULL;
-	map->frgb[0] = 255;
-	map->frgb[1] = 255;
-	map->frgb[2] = 255;
-	map->crgb[0] = 255;
-	map->crgb[1] = 255;
-	map->crgb[2] = 255;
+	map->frgb[0] = -1;
+	map->frgb[1] = -1;
+	map->frgb[2] = -1;
+	map->crgb[0] = -1;
+	map->crgb[1] = -1;
+	map->crgb[2] = -1;
 	map->maparr = NULL;
 	map->map_width = 0;
 	map->map_size = 0;
@@ -127,6 +127,7 @@ t_map			*read_map(const char *file_name)
 		xfree(line);
 	}
 	xfree_double_pointer(strings);
+	check_allfilled(map);
 	player_state = 0;
 	if (*line != '\0')
 		fill_map(map, &maparr, (const char*)line, &player_state);
@@ -143,8 +144,10 @@ t_map			*read_map(const char *file_name)
 		fill_map(map, &maparr, (const char*)line, &player_state);
 		xfree(line);
 	}
-	if (player_state != 1)
-		error_map(map->name, "multiple players or player doesn't exist.");
+	if (player_state > 1)
+		error_map(map->name, "found multiple players.");
+	if (player_state < 1)
+		error_map(map->name, "no player in the map.");
 	if (!is_map_walls_closed(map, maparr))
 		error_map(map->name, "map walls not closed!");
 	fill_maparr(map, maparr);

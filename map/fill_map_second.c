@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:52:34 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:12:09 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,12 @@ static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)
 				"found less or more than 3 argumments in rgb color.");
 	i = -1;
 	while (rgbarr[++i])
-		rgbint[i] = atoi(rgbarr[i]);
+	{
+		if ((rgbint[i] = atoi(rgbarr[i])) < 0)
+			error_map(map->name, "rgb color below 0.");
+		if (rgbint[i] > 255)
+			error_map(map->name, "rgb color bigger than 255.");
+	}
 	xfree_double_pointer(rgbarr);
 }
 
@@ -90,6 +95,9 @@ void		fill_f(t_map *map, const char **strings)
 			continue ;
 		if (ft_strstr(strings[i], ","))
 		{
+			if (ft_countchar(strings[i], ',') != 2)
+				error_map(map->name,
+						"found less or more than two commas in floor rgb.");
 			frgb = xstrdup(strings[i]);
 		}
 		else
@@ -111,11 +119,14 @@ void		fill_c(t_map *map, const char **strings)
 			continue ;
 		if (ft_strstr(strings[i], ","))
 		{
+			if (ft_countchar(strings[i], ',') != 2)
+				error_map(map->name,
+						"found less or more than two commas in ceiling rgb.");
 			crgb = xstrdup(strings[i]);
 		}
 		else
 			error_map(map->name, "bad ceilling color.");
 	}
-	rgbstr_to_rgbint(map->frgb, crgb, map);
+	rgbstr_to_rgbint(map->crgb, crgb, map);
 	xfree(crgb);
 }

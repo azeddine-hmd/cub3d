@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 12:00:34 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:27:43 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int		check_map(t_map *map, const char *line, int *p)
 {
-	int i;
+	int		i;
+	char	*message;
 
 	i = -1;
 	if (*line == '\0')
@@ -28,7 +29,9 @@ static int		check_map(t_map *map, const char *line, int *p)
 				&& line[i] != 'N' && line[i] != 'S' && line[i] != 'W'
 				&& line[i] != 'E' && line[i] != ' ')
 		{
-			error_map(map->name, "map's lines not well formated.");
+			message = xstrdup("'x' not  a map element.");
+			message[1] = line[i];
+			error_map(map->name, (const char*)message);
 			return (0);
 		}
 	}

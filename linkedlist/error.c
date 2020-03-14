@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:01:29 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 18:38:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:14:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	error(void)
 void	error_message(const char *message)
 {
 	perror("Error\n");
-	ft_putstr(message);
-	ft_putstr("\n");
+	ft_putstr_fd(message, 2);
+	ft_putstr_fd("\n", 2);
 	lst_clear(*get_head_node());
 	exit(1);
 }
@@ -32,9 +32,9 @@ void	error_map(const char *file_name, const char *message)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(file_name, 2);
-	ft_putstr(": ");
-	ft_putstr(message);
-	ft_putstr("\n");
+	ft_putstr_fd(": ", 2);
+	ft_putstr_fd(message, 2);
+	ft_putstr_fd("\n", 2);
 	lst_clear(*get_head_node());
 	exit(1);
 }
@@ -43,4 +43,13 @@ void	finish(void)
 {
 	lst_clear(*get_head_node());
 	exit(0);
+}
+
+void	error_special(const char *message)
+{
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(message, 2);
+	ft_putstr_fd("\n", 2);
+	lst_clear(*get_head_node());
+	exit(1);
 }

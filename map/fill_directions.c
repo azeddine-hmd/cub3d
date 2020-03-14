@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:30:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 18:37:21 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:06:07 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int			wall_conditions(t_direction dire)
 					dire.down == ' ' || dire.down == '\0' ||
 					dire.left == ' ' || dire.left == '\0'))
 		{
-			error_message("player not inside the walls.");
+			error_special("player not inside the walls.");
 			return (0);
 		}
 	return (1);

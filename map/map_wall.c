@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 23:06:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:02:27 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:32:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int			walls_closed(t_data *maparr)
 	char	*next;
 
 	previous = NULL;
-	while(maparr)
+	while (maparr)
 	{
 		current = (char*)maparr->data;
 		if (!maparr->next)

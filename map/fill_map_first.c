@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/13 10:48:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:35:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@ void	fill_r(t_map *map, const char **strings)
 			continue ;
 		if (position == 1 && ft_isstrdigit(strings[i]))
 		{
-			map->width = atoi(strings[i]);
+			if ((map->width = atoi(strings[i])) < 100)
+				map->width = 100;
+			if (map->width > 2560)
+				map->width = 2560;
 			position++;
 			continue ;
 		}
 		else if (position == 2 && ft_isstrdigit(strings[i]))
-			map->height = atoi(strings[i]);
+		{
+			if ((map->height = atoi(strings[i])) < 100)
+				map->height = 100;
+			if (map->height > 1440)
+				map->height = 1440;
+		}
 		else
 			error_map(map->name, "bad resolution.");
 	}

@@ -45,6 +45,7 @@ add_double_pointer	linkedlist/linkedlist_utils.c	/^void	add_double_pointer(char 
 add_sp	map/map_wall.c	/^static void			add_sp(char *line, unsigned int start, unsigned int end)$/;"	f	file:
 allocate_line	get_next_line/get_next_line_utils.c	/^int			allocate_line(char **line, char **buffer)$/;"	f
 buffer	get_next_line/get_next_line.h	/^	char			*buffer;$/;"	m	struct:s_list
+check_allfilled	map/check_allfilled.c	/^void	check_allfilled(t_map *map)$/;"	f
 check_equality	libft/ft_strnstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_map	map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line, int *p)$/;"	f	file:
@@ -57,6 +58,7 @@ ea	map/map.h	/^	t_image	*ea;$/;"	m	struct:s_map
 error	linkedlist/error.c	/^void	error(void)$/;"	f
 error_map	linkedlist/error.c	/^void	error_map(const char *file_name, const char *message)$/;"	f
 error_message	linkedlist/error.c	/^void	error_message(const char *message)$/;"	f
+error_special	linkedlist/error.c	/^void	error_special(const char *message)$/;"	f
 fd	get_next_line/get_next_line.h	/^	int				fd;$/;"	m	struct:s_list
 fill_c	map/fill_map_second.c	/^void		fill_c(t_map *map, const char **strings)$/;"	f
 fill_directions	map/fill_directions.c	/^int					fill_directions(char *previous, char *current, char *next)$/;"	f
@@ -76,6 +78,7 @@ frgb	map/map.h	/^	int		frgb[3];$/;"	m	struct:s_map
 ft_atoi	libft/ft_atoi.c	/^int		ft_atoi(const char *str)$/;"	f
 ft_bzero	libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f
 ft_calloc	libft/ft_calloc.c	/^void	*ft_calloc(size_t count, size_t size)$/;"	f
+ft_countchar	libft/ft_countchar.c	/^int		ft_countchar(const char *s, char c)$/;"	f
 ft_dec2hex	libft/ft_dec2hex.c	/^char		*ft_dec2hex(size_t decimal)$/;"	f
 ft_isalnum	libft/ft_isalnum.c	/^int		ft_isalnum(int c)$/;"	f
 ft_isalpha	libft/ft_isalpha.c	/^int		ft_isalpha(int c)$/;"	f
@@ -150,7 +153,7 @@ new_node	linkedlist/linkedlist_utils.c	/^t_data	*new_node(void *data)$/;"	f
 next	get_next_line/get_next_line.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list::s_list
 next	linkedlist/linkedlist.h	/^	struct s_data	*next;$/;"	m	struct:s_data	typeref:struct:s_data::s_data
 no	map/map.h	/^	t_image	*no;$/;"	m	struct:s_map
-norm	map/fill_directions.c	/^static void			norm(t_direction dire, char *previous, char *next, int i)$/;"	f	file:
+norm	map/fill_directions.c	/^static void			norm(t_direction *dire, char *previous,$/;"	f	file:
 norminette_helper	libft/ft_split.c	/^static	char	**norminette_helper(char const *s, char c, char **str, int j)$/;"	f	file:
 numlen	libft/ft_itoa.c	/^static long	numlen(long n)$/;"	f	file:
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
