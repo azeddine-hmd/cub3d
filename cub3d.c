@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/15 00:59:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/15 01:06:34 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main(void)
 {
-	t_map	*map;
+	static t_map	*map;
 
 	map = read_map(MAP_NAME);
 	finish();
