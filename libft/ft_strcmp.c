@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 02:12:01 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/14 18:44:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 19:53:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
-	printf("well\n");
 	i = -1;
 	while (s1[++i])
 	{

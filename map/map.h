@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/14 18:41:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/03/14 20:49:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,20 @@ void			fill_maparr(t_map *map, t_data *maparr);
 */
 
 void			check_allfilled(t_map *map);
+
+/*
+** file: fill_map.c
+*/
+
+void			*get_mlx(void);
+t_map			*new_map(void);
+t_localmap		*init_localmap(void);
+
+/*
+** file: fill_map.c
+*/
+
+void			read_map_5(t_localmap *localmap);
+void			read_map_6(t_localmap *localmap);
 
 #endif
