@@ -6,62 +6,69 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/03/15 01:04:44 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/10/30 17:46:47 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d.a
+NAME = cub3D
 
-EXE = cub3d
+LIB = libcub3d.a
 
-LIBFTOB = libft/*.o
-GET_NEXT_LINEOB = get_next_line/*.o
-MAPOB = map/*.o
-LLOB = linkedlist/*.o
+# include internal objects
+LIBFT_OBJ = libft/*.o
+GET_NEXT_LINE_OBJ = get_next_line/*.o
+MAP_OBJ = game_map/*.o
+LL_OBJ = linkedlist/*.o
 
-GCC = gcc -Wall -Werror -Wextra \
+CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra \
 	  -fsanitize=address \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
-
-CC = gcc -Wall -Werror -Wextra
+	  -O3 \
+	  -g \
 
 MAKE = make -C
 
-MCF =\
-		cub3d.c \
-		helpers.c \
+SRC = cub3d.c \
+	  vars.c \
+	  game.c \
+	  map_methods.c \
+	  collision.c \
+	  input.c \
+	  player_methods.c \
+	  player.c \
+	  projection.c \
+	  rays.c \
+	  utils.c \
+	  txt.c \
 
-MOF =	${MCF:.c=.o}
-
-ARCHIVE = ar rc
-
-RM = rm -f
+OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 
 $(NAME):
 	$(MAKE) libft all
 	$(MAKE) get_next_line all
-	$(MAKE) map all
+	$(MAKE) game_map all
 	$(MAKE) linkedlist all
-	$(ARCHIVE) $(NAME) $(LIBFTOB) $(GET_NEXT_LINEOB) $(MAPOB) $(LLOB)
-	$(GCC) $(MCF) $(NAME) -o $(EXE)
+	ar rc $(LIB) $(LIBFT_OBJ) $(GET_NEXT_LINE_OBJ) $(MAP_OBJ) $(LL_OBJ)
+	$(CC) $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
 
 clean:
 	$(MAKE) libft clean
 	$(MAKE) get_next_line clean
-	$(MAKE) map clean
+	$(MAKE) game_map clean
 	$(MAKE) linkedlist clean
-	$(RM) $(MOF)
+	rm -rf $(OBJ)
 
 fclean: clean
 	$(MAKE) libft fclean
 	$(MAKE) get_next_line fclean
-	$(MAKE) map fclean
+	$(MAKE) game_map fclean
 	$(MAKE) linkedlist fclean
-	$(RM) $(NAME) $(EXE)
-	$(RM)r a.out*
+	rm -rf $(NAME) $(LIB)
 
 re: fclean all

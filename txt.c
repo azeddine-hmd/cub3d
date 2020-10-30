@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   txt.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/29 18:42:33 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/10/30 14:08:57 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/10/30 17:49:13 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#define ERROR_CL "less or more than two command line argumment have been found"
 
-/*
-** initialize game objects.
-** Note: functions invokation order is essential otherwise game will crash.
-*/
-
-static void	setup(const char *map_name)
+void	release_textures(void)
 {
-	map_init(map_name);
-	vars();
-	player();
-	input_handler();
-}
-
-int			main(int argc, char **argv)
-{
-	if (argc != 2)
-		error_message(ERROR_CL);
-	setup(argv[1]);
-	game_loop();
-	return (0);
+	mlx_destroy_image(vars()->mlx, map()->no->imgarr);
+	mlx_destroy_image(vars()->mlx, map()->so->imgarr);
+	mlx_destroy_image(vars()->mlx, map()->we->imgarr);
+	mlx_destroy_image(vars()->mlx, map()->ea->imgarr);
 }

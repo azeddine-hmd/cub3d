@@ -1,36 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   mlx_util.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/29 18:42:33 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/10/28 10:35:04 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/10/28 10:35:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#define ERROR_CL "less or more than two command line argumment have been found"
-
-/*
-** initialize game objects.
-** Note: functions invokation order is essential otherwise game will crash.
-*/
-
-static void	setup(const char *map_name)
-{
-	map_init(map_name);
-	vars();
-	player();
-	input_handler();
-}
-
-int			main(int argc, char **argv)
-{
-	if (argc != 2)
-		error_message(ERROR_CL);
-	setup(argv[1]);
-	game_loop();
-	return (0);
-}

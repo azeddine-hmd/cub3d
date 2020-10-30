@@ -1,0 +1,5 @@
+*.o
+*.a
+.DS_Store
+tags
+cub3d.dSYM

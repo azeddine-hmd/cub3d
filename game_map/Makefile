@@ -5,21 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/10/28 10:17:13 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/10/28 13:20:34 by ahamdaou         ###   ########.fr        #
+#    Created: 2020/10/28 10:16:47 by ahamdaou          #+#    #+#              #
+#    Updated: 2020/10/28 10:24:07 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libget_next_line.a
+NAME = map.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Werror -Wextra -g
 
-SRC = get_next_line.c \
-	  get_next_line_utils.c \
+SRC = map.c \
+	  fill_directions.c \
+	  fill_map_first.c \
+	  fill_map_second.c \
+	  fill_map_third.c \
+	  fill_map.c \
+	  map_helper.c \
+	  map_information.c \
+	  map_norm.c \
+	  map_utils.c \
+	  map_wall.c \
+	  check_allfilled.c \
 
-OBJ =	${SRC:.c=.o}
+OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 

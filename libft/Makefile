@@ -6,11 +6,15 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/03/14 14:50:46 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/10/28 13:21:23 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-G = gcc -Wall -Wextra -Werror
+NAME = libft.a
+
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_atoi.c \
 	  ft_isprint.c \
@@ -55,19 +59,16 @@ SRC = ft_atoi.c \
 	  ft_onlyspaces.c \
 	  ft_countchar.c \
 
-NAME = libft.a
-
-O = ${SRC:.c=.o}
+OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 
 $(NAME):
-	$(G) -c $(SRC)
-	ar rc $(NAME) $(O)
-	ranlib $(NAME)
+	$(CC) $(CFLAGS) -c $(SRC)
+	ar rc $(NAME) $(OBJ)
 
 clean:
-	rm -f $(O) $(OB)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
