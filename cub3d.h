@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/30 17:45:27 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 10:25:23 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ typedef struct	s_ray
 	int		wall_hit_content;
 }				t_ray;
 
+typedef struct	s_txt
+{
+	int		*buf;
+	int		width;
+	int		height;
+}				t_txt;
+
 /*
 ** file: utils.c
 */
@@ -71,7 +78,6 @@ void			square(int x, int y, int width, int color);
 void			rect(t_point p, int width, int height, int color);
 float			normalize_angle(float angle);
 float			distance_between_points(float x1, float y1, float x2, float y2);
-int				*cpy_int_arr(const int *arr, size_t size);
 void			clear(int color);
 
 /*
@@ -101,7 +107,6 @@ void			player_render(void);
 */
 
 int				has_wall_at(float x, float y);
-int				has_sprite_at(float x, float y);
 
 /*
 ** file: input.c

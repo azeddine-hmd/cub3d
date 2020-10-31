@@ -20,7 +20,7 @@ static t_player	*player_init(void)
 {
 	t_player	*player;
 
-	player = (t_player*)malloc(sizeof(t_player));
+	player = (t_player*)xmalloc(sizeof(t_player));
 	player->x = map()->initial_pos[0] * TILE_SIZE - (TILE_SIZE / 2);
 	player->y = map()->initial_pos[1] * TILE_SIZE - (TILE_SIZE / 2);
 	player->width = 1;

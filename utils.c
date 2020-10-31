@@ -7,24 +7,24 @@ int		rgb(int r, int g, int b)
 
 void	pixel_put(int x, int y, int color)
 {
-	int	*buffer;
+	int	*buf;
 	int	unused;
 
 	if (!is_inside_window(x, y))
 		return ;
-	buffer = (int*)mlx_get_data_addr(vars()->img, &unused, &unused, &unused);
-	buffer[x + y * map()->win_width] = color;
+	buf = (int*)mlx_get_data_addr(vars()->img, &unused, &unused, &unused);
+	buf[x + y * map()->win_width] = color;
 }
 
 int		pixel_get(int x, int y, void *img, int txt_width, int txt_height)
 {
-	int	*buffer;
+	int	*buf;
 	int	unused;
 
 	if (!is_inside_texture(x, y, txt_width, txt_height))
 		return rgb(255, 0, 0);
-	buffer = (int*)mlx_get_data_addr(img, &unused, &unused, &unused);
-	return (buffer[x + y * txt_width]);
+	buf = (int*)mlx_get_data_addr(img, &unused, &unused, &unused);
+	return (buf[x + y * txt_width]);
 }
 
 void	line(t_point p0, t_point p1, int color)
@@ -97,19 +97,6 @@ float	normalize_angle(float angle) {
 float	distance_between_points(float x1, float y1, float x2, float y2)
 {
 	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
-}
-
-int		*cpy_int_arr(const int *arr, size_t size)
-{
-	int		*cpy;
-	size_t	i;
-
-	if (!(cpy = (int*)malloc(sizeof(int) * size)))
-		exit(-1);
-	i = -1;
-	while (++i < size)
-		cpy[i] = arr[i];
-	return (cpy);
 }
 
 void	clear(int color)

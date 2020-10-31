@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   projection.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/10/31 10:24:00 by ahamdaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	render_projection_walls(void)
@@ -5,22 +17,19 @@ void	render_projection_walls(void)
 	int 	i;
 	int		y;
 	t_ray	*ray;
-	float	wall_strip_height;
-	float	correct_wall_distance;
-	float	distance_proj_plane;
 
 	i = -1;
 	while (++i < map()->num_rays)
 	{
 		ray = rays()[i];
 
-		correct_wall_distance = ray->distance * cos(ray->ray_angle - player()->rotation_angle);
+		float correct_wall_distance = ray->distance * cos(ray->ray_angle - player()->rotation_angle);
 
 		// calculate the distace to the projection plane
-		distance_proj_plane = (map()->win_width / 2) / tan(FOV_ANGLE / 2);
+		float distance_proj_plane = (map()->win_width / 2) / tan(FOV_ANGLE / 2);
 
 		// projected wall height
-		wall_strip_height = (TILE_SIZE / correct_wall_distance) * distance_proj_plane;
+		float wall_strip_height = (TILE_SIZE / correct_wall_distance) * distance_proj_plane;
 
         int wall_top_pixel = (map()->win_height / 2) - (wall_strip_height / 2);
         wall_top_pixel = wall_top_pixel < 0 ? 0 : wall_top_pixel;
@@ -32,6 +41,8 @@ void	render_projection_walls(void)
 		y = -1;
 		while (++y < wall_top_pixel)
 			pixel_put(i, y, rgb(0, 0, 0));
+
+		t_txt *txt = get_texture(ray);
 
 		// deciding which texture to be set
 		void *txt = NULL;
@@ -89,10 +100,7 @@ void	render_projection_walls(void)
 			// calculate offset_y
 			distance_from_top = y + (wall_strip_height / 2) - (map()->win_height / 2);
 			offset_y = distance_from_top * ((float)txt_width / wall_strip_height);
-
 			int texture_color = pixel_get(offset_x, offset_y, txt, txt_width, txt_height);
-			//int texture_color = rgb(255,255,255);
-
 			pixel_put(i, y, texture_color);
 		}
 

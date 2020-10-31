@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/30 17:46:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 10:26:27 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_ray	**rays(void)
 
 	if (!rays)
 	{
-		rays = (t_ray**)malloc(sizeof(t_ray*) * map()->num_rays);
+		rays = (t_ray**)xmalloc(sizeof(t_ray*) * map()->num_rays);
 		if (!rays)
 			game_exit();
 	}
@@ -30,7 +30,7 @@ t_ray	*ray(float ray_angle)
 {
 	t_ray *ray;
 
-	ray = (t_ray*)malloc(sizeof(t_ray));
+	ray = (t_ray*)xmalloc(sizeof(t_ray));
 	if (!ray)
 		game_exit();
 	ray->ray_angle = normalize_angle(ray_angle);
@@ -191,8 +191,8 @@ void	cast(t_ray *ray)
 		ray->was_hit_vertical = 0;
 
 		// debugging
-		printf("wall_hit_x = %f\n", ray->wall_hit_x);
-		printf("wall_hit_y = %f\n\n", ray->wall_hit_y);
+		//printf("wall_hit_x = %f\n", ray->wall_hit_x);
+		//printf("wall_hit_y = %f\n\n", ray->wall_hit_y);
 	}
 }
 

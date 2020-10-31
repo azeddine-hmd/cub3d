@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/30 14:05:21 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/30 18:40:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static int	on_key_pressed(int key, void *param)
 	else if (key == KEY_W)
 		player()->walk_direction = 1;
 	else if (key == KEY_A)
-		player()->x = player()->x + player()->walk_speed;
+		;
 	else if (key == KEY_S)
 		player()->walk_direction = -1;
 	else if (key == KEY_D)
-		player()->x = player()->x - player()->walk_speed;
+		;
 	else
 		printf("key: %d not mapped\n", key);
 	game_loop();
@@ -49,11 +49,11 @@ static int	on_key_released(int key, void *param)
 	else if (key == KEY_W)
 		player()->walk_direction = 0;
 	else if (key == KEY_A)
-		player()->x++;
+		;
 	else if (key == KEY_S)
 		player()->walk_direction = 0;
 	else if (key == KEY_D)
-		player()->x--;
+		;
 	else
 		printf("key: %d not mapped\n", key);
 	game_loop();
