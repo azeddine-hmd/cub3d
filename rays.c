@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/31 13:00:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/01 20:40:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,6 @@ void	rays_init(void)
 		rays_double[col] = (t_ray*)xmalloc(sizeof(t_ray));
 		ft_bzero(rays_double[col], sizeof(t_ray));
 	}
-}
-
-t_ray	*ray(float ray_angle)
-{
-	t_ray *ray;
-
-	ray = (t_ray*)xmalloc(sizeof(t_ray));
-	if (!ray)
-		game_exit();
-	ray->ray_angle = normalize_angle(ray_angle);
-	ray->wall_hit_x = 0;
-	ray->wall_hit_y = 0;
-	ray->distance = 0;
-	ray->is_ray_facing_down = ray->ray_angle > 0 && ray->ray_angle < M_PI;
-	ray->is_ray_facing_up = !ray->is_ray_facing_down;
-	ray->is_ray_facing_right = ray->ray_angle < 0.5 * M_PI || ray->ray_angle > 1.5 * M_PI;
-	ray->is_ray_facing_left = !ray->is_ray_facing_right;
-	ray->was_hit_vertical = 0;
-	ray->wall_hit_content = 0;
-	return (ray);
 }
 
 void	cast(t_ray *ray)

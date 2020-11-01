@@ -271,6 +271,7 @@ set_map_information	game_map/map_information.c	/^void		set_map_information(t_map
 set_map_width	game_map/fill_map_third.c	/^static void		set_map_width(t_map *map, const char *line)$/;"	f	file:
 set_north_texture	txt_helper.c	/^void	set_north_texture(t_txt *txt)$/;"	f
 set_num_rays	game_map/map_information.c	/^static void	set_num_rays(t_map *map)$/;"	f	file:
+set_ray_direction	rays.c	/^void	set_ray_direction(t_ray *ray)$/;"	f
 set_south_texture	txt_helper.c	/^void	set_south_texture(t_txt *txt)$/;"	f
 set_west_texture	txt_helper.c	/^void	set_west_texture(t_txt *txt)$/;"	f
 settexture	txt.c	/^t_txt			*settexture(t_ray *ray)$/;"	f

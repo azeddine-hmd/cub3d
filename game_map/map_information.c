@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:32:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/01 19:59:59 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/01 20:46:16 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	set_initial_player_position(
 
 static void	set_num_rays(t_map *map)
 {
-	map->num_rays = map->map_width;
+	map->num_rays = map->win_width;
 }
 
 void		set_map_information(t_map *map)

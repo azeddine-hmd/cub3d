@@ -6,12 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/31 12:54:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/01 20:34:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <time.h>
 
 void	render_projection_walls(void)
 {
@@ -44,6 +43,12 @@ void	render_projection_walls(void)
         wall_bottom_pixel = (map()->win_height / 2) + (wall_strip_height / 2);
         wall_bottom_pixel = wall_bottom_pixel > map()->win_height ? map()->win_height : wall_bottom_pixel;
 
+		// debugging
+		//printf("correct_wall_distance = %f\n", correct_wall_distance);
+		//printf("distance_proj_plane = %f\n", distance_proj_plane);
+		//printf("wall_strip_height = %f\n", wall_strip_height);
+		//printf("wall_top_pixel = %d\n", wall_top_pixel);
+		//printf("wall_bottom_pixel = %d\n\n", wall_top_pixel);
 
 		y = -1;
 		while (++y < wall_top_pixel)
@@ -58,10 +63,8 @@ void	render_projection_walls(void)
 
 		// calculate offset_x
 		if (ray->was_hit_vertical)
-			//offset_x = (int)ray->wall_hit_y % TILE_SIZE;
 			offset_x = (int)ray->wall_hit_y % txt->height;
 		else
-			//offset_x = (int)ray->wall_hit_x % TILE_SIZE;
 			offset_x = (int)ray->wall_hit_x % txt->width;
 
 		y = wall_top_pixel - 1;

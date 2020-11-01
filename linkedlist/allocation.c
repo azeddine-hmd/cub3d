@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:51:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/08 08:45:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/01 20:07:04 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** [Description]
-** first call create static head.
+** first create static head.
 ** after first call, function will return the exist list.
 ** [Return Values]
 ** void** (static): the list's head;

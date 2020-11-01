@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/31 12:50:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/01 20:42:23 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	update(void)
 {
 	move_player();
 	cast_all_rays();
+	printf("win_width = %d\n", map()->win_width);
+	printf("num_rays = %d\n", map()->num_rays);
 }
 
 /*
@@ -48,22 +50,9 @@ static void	update(void)
 
 void	render(void)
 {
-	// DEBUG: measure clocks times.
-	clock_t start = clock();
-
-
-	int memsize = lst_size(*get_head_node());
-	printf("memsize = %d\n", memsize);
-
-	clock_t end = clock();
-	float seconds = (float)(end - start) / CLOCKS_PER_SEC;
-	printf("seconds = %f\n", seconds);
-
 	update();
 	mlx_clear_window(vars()->mlx, vars()->win);
 	render_projection_walls();
-
-
 	minimap_render();
 	rays_render();
 	player_render();
