@@ -6,40 +6,60 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:08:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/31 10:23:39 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 12:52:44 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_txt	**txts(void)
-{
-	static t_txt	**txts;
+/*
+** make sure calling this function after invoking first 'texture_init()'.
+*/
 
-	if (!txts)
+static t_txt	*gettexture(void)
+{
+	static t_txt	*txt;
+
+	if (!txt)
 	{
-		txts =
+		txt = (t_txt*)xmalloc(sizeof(t_txt));
+		if (!txt)
+			game_exit();
 	}
-	return (txts);
+	return (txt);
 }
 
-void	txt_init(void)
+void			texture_init(void)
 {
-	int	i;
+	t_txt	*txt;
 
-	i = 0;
-	while (i < 4)
-	{
-		//TODO:
-	}
+	txt = gettexture();
+	txt->img = NULL;
+	txt->width = 0;
+	txt->height = 0;
 }
 
-t_txt	*get_texture(t_ray *ray)
+t_txt			*settexture(t_ray *ray)
 {
+	t_txt	*txt = NULL;
 
+	txt = gettexture();
+	if (!ray->was_hit_vertical && ray->is_ray_facing_up)
+		set_north_texture(txt);
+	else if (!ray->was_hit_vertical && ray->is_ray_facing_down)
+		set_south_texture(txt);
+	else if (ray->was_hit_vertical && ray->is_ray_facing_left)
+		set_west_texture(txt);
+	else if (ray->was_hit_vertical && ray->is_ray_facing_right)
+		set_east_texture(txt);
+	return (txt);
 }
 
-void	release_textures(void)
+/*
+** make sure to call this function after done work with textures.
+*/
+
+void			release_textures(void)
 {
 	mlx_destroy_image(vars()->mlx, map()->no->imgarr);
 	mlx_destroy_image(vars()->mlx, map()->so->imgarr);

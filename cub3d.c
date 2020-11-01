@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/30 18:41:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 19:32:06 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ static void	setup(const char *map_name)
 {
 	map_init(map_name);
 	vars();
+	rays_init();
 	player();
 	input_handler();
+	texture_init();
 }
 
 int			main(int argc, char **argv)

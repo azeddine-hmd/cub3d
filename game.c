@@ -6,11 +6,12 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/30 14:16:13 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 12:50:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <time.h>
 
 void	game_exit(void)
 {
@@ -47,9 +48,22 @@ static void	update(void)
 
 void	render(void)
 {
+	// DEBUG: measure clocks times.
+	clock_t start = clock();
+
+
+	int memsize = lst_size(*get_head_node());
+	printf("memsize = %d\n", memsize);
+
+	clock_t end = clock();
+	float seconds = (float)(end - start) / CLOCKS_PER_SEC;
+	printf("seconds = %f\n", seconds);
+
 	update();
-	clear(COLOR_BLACK);
+	mlx_clear_window(vars()->mlx, vars()->win);
 	render_projection_walls();
+
+
 	minimap_render();
 	rays_render();
 	player_render();

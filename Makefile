@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/10/30 17:46:47 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/10/31 11:55:44 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC = cub3d.c \
 	  rays.c \
 	  utils.c \
 	  txt.c \
+	  txt_helper.c \
 
 OBJ = ${SRC:.c=.o}
 

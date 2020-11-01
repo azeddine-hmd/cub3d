@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/31 10:26:27 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 13:00:15 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ t_ray	**rays(void)
 	}
 	return (rays);
 
+}
+
+void	rays_init(void)
+{
+	int		col;
+	t_ray	**rays_double;
+
+	rays_double = rays();
+	col = -1;
+	while (++col < map()->num_rays)
+	{
+		rays_double[col] = (t_ray*)xmalloc(sizeof(t_ray));
+		ft_bzero(rays_double[col], sizeof(t_ray));
+	}
 }
 
 t_ray	*ray(float ray_angle)
@@ -189,11 +203,16 @@ void	cast(t_ray *ray)
 		ray->wall_hit_y = horz_wall_hit_y;
 		ray->wall_hit_content = horz_wall_content;
 		ray->was_hit_vertical = 0;
-
-		// debugging
-		//printf("wall_hit_x = %f\n", ray->wall_hit_x);
-		//printf("wall_hit_y = %f\n\n", ray->wall_hit_y);
 	}
+}
+
+// TODO: refactore it later.
+void	set_ray_direction(t_ray *ray)
+{
+	ray->is_ray_facing_down = ray->ray_angle > 0 && ray->ray_angle < M_PI;
+	ray->is_ray_facing_up = !ray->is_ray_facing_down;
+	ray->is_ray_facing_right = ray->ray_angle < 0.5 * M_PI || ray->ray_angle > 1.5 * M_PI;
+	ray->is_ray_facing_left = !ray->is_ray_facing_right;
 }
 
 void	cast_all_rays(void)
@@ -205,7 +224,8 @@ void	cast_all_rays(void)
 	col = -1;
 	while (++col < map()->num_rays)
 	{
-		rays()[col] = ray(ray_angle);
+		rays()[col]->ray_angle = normalize_angle(ray_angle);
+		set_ray_direction(rays()[col]);
 		cast(rays()[col]);
 		ray_angle += FOV_ANGLE / map()->num_rays;
 	}

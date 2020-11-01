@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/31 10:25:23 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/10/31 12:47:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct	s_ray
 
 typedef struct	s_txt
 {
-	int		*buf;
+	void	*img;
 	int		width;
 	int		height;
 }				t_txt;
@@ -128,6 +128,7 @@ t_ray			**rays(void);
 void			cast_all_rays(void);
 void			rays_render(void);
 void			cast(t_ray *ray);
+void			rays_init(void);
 
 /*
 ** file: projection.c
@@ -147,6 +148,17 @@ void			render(void);
 ** file: txt.c
 */
 
+void			texture_init(void);
+t_txt			*settexture(t_ray *ray);
 void			release_textures(void);
+
+/*
+** file: txt_helper.c
+*/
+
+void	set_north_texture(t_txt *txt);
+void	set_south_texture(t_txt *txt);
+void	set_west_texture(t_txt *txt);
+void	set_east_texture(t_txt *txt);
 
 #endif
