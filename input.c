@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 14:28:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 17:21:38 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,27 @@ static int	on_key_pressed(int key, void *param)
 	if (key == KEY_ESC)
 		game_exit();
 	else if (key == KEY_LEFT_ARROW)
-	{
 		player()->turn_direction = -1;
-		move_player();
-	}
 	else if (key == KEY_RIGHT_ARROW)
 		player()->turn_direction = 1;
 	else if (key == KEY_W)
+	{
 		player()->walk_direction = 1;
+		player()->move_forward_or_backward = 1;
+	}
 	else if (key == KEY_A)
 		player()->move_left = 1;
 	else if (key == KEY_S)
+	{
 		player()->walk_direction = -1;
+		player()->move_forward_or_backward = 1;
+	}
 	else if (key == KEY_D)
 		player()->move_right = 1;
+	else if (key == 35)
+		map()->minimap_scale += 0.01;
+	else if (key == 31)
+		map()->minimap_scale -= 0.01;
 	else
 		printf("key: %d not mapped\n", key);
 	game_loop();

@@ -32,6 +32,7 @@ static t_player	*player_init(void)
 	player->turn_speed = 4.5 * (M_PI / 180.0);
 	player->move_right = 0;
 	player->move_right = 0;
+	player->move_forward_or_backward = 0;
 	return (player);
 }
 

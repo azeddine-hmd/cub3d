@@ -6,14 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 14:22:42 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 17:26:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 # include "game_map/map.h"
-# define MINIMAP_SCALE 0.1
 # define FOV_ANGLE (60 * (M_PI / 180))
 # define KEY_ESC 53
 # define KEY_LEFT_ARROW 123
@@ -45,6 +44,7 @@ typedef struct	s_player
 	float	rotation_angle;
 	int		move_right;
 	int		move_left;
+	int		move_forward_or_backward;
 }				t_player;
 
 typedef struct	s_ray

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:22:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/27 02:49:14 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:37:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_map		*new_map(void)
 	map->cols = 0;
 	map->rows = 0;
 	map->num_rays = 0;
+	map->minimap_scale = 0.1;
 	map->no = NULL;
 	map->so = NULL;
 	map->we = NULL;

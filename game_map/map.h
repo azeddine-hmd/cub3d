@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 11:41:28 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:37:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_map
 	int		cols;
 	int		rows;
 	int		num_rays;
+	float	minimap_scale;
 	char	pview;
 	int		initial_pos[2];
 	t_image	*no;
