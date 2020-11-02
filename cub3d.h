@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/01 20:46:22 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:22:42 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct	s_player
 	float	walk_speed;
 	float	turn_speed;
 	float	rotation_angle;
+	int		move_right;
+	int		move_left;
 }				t_player;
 
 typedef struct	s_ray

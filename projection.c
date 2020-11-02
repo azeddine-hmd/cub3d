@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/01 20:34:21 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 11:43:32 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ void	render_projection_walls(void)
 
         wall_bottom_pixel = (map()->win_height / 2) + (wall_strip_height / 2);
         wall_bottom_pixel = wall_bottom_pixel > map()->win_height ? map()->win_height : wall_bottom_pixel;
-
-		// debugging
-		//printf("correct_wall_distance = %f\n", correct_wall_distance);
-		//printf("distance_proj_plane = %f\n", distance_proj_plane);
-		//printf("wall_strip_height = %f\n", wall_strip_height);
-		//printf("wall_top_pixel = %d\n", wall_top_pixel);
-		//printf("wall_bottom_pixel = %d\n\n", wall_top_pixel);
 
 		y = -1;
 		while (++y < wall_top_pixel)

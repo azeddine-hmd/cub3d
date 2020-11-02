@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/01 20:42:23 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:28:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static void	update(void)
 {
 	move_player();
 	cast_all_rays();
-	printf("win_width = %d\n", map()->win_width);
-	printf("num_rays = %d\n", map()->num_rays);
 }
 
 /*

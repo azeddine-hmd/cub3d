@@ -30,6 +30,8 @@ static t_player	*player_init(void)
 	player->rotation_angle = get_initial_angle();
 	player->walk_speed = 20;
 	player->turn_speed = 4.5 * (M_PI / 180.0);
+	player->move_right = 0;
+	player->move_right = 0;
 	return (player);
 }
 

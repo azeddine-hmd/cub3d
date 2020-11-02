@@ -207,7 +207,9 @@ maparr	game_map/map.h	/^	char	*maparr;$/;"	m	struct:s_map
 maparr	game_map/map.h	/^	t_data	*maparr;$/;"	m	struct:s_localmap
 minimap_render	map_methods.c	/^void	minimap_render()$/;"	f
 mlx	game_map/map.h	/^	void *mlx;$/;"	m	struct:s_vars
+move_left	input.c	/^static void 		move_left(void)$/;"	f	file:
 move_player	player_methods.c	/^void	move_player(void)$/;"	f
+move_right	input.c	/^static void 		move_right(void)$/;"	f	file:
 name	game_map/map.h	/^	char	*name;$/;"	m	struct:s_map
 negative_condition	libft/ft_itoa.c	/^static char	*negative_condition(long n)$/;"	f	file:
 new_map	game_map/map_utils.c	/^t_map		*new_map(void)$/;"	f
@@ -231,7 +233,6 @@ player_render	player_methods.c	/^void	player_render(void)$/;"	f
 player_state	game_map/map.h	/^	int		player_state;$/;"	m	struct:s_localmap
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
 pview	game_map/map.h	/^	char	pview;$/;"	m	struct:s_map
-ray	rays.c	/^t_ray	*ray(float ray_angle)$/;"	f
 ray_angle	cub3d.h	/^	float	ray_angle;$/;"	m	struct:s_ray
 rays	rays.c	/^t_ray	**rays(void)$/;"	f
 rays_init	rays.c	/^void	rays_init(void)$/;"	f
