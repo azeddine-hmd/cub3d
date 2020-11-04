@@ -6,11 +6,17 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:40:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/19 12:17:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:03:22 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
 
 void		read_map_5(t_localmap *localmap)
 {
@@ -23,6 +29,12 @@ void		read_map_5(t_localmap *localmap)
 				(const char*)localmap->line, &(localmap->player_state));
 	xfree(localmap->line);
 }
+
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
 
 void		read_map_6(t_localmap *localmap)
 {

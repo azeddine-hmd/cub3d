@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/11/02 14:33:23 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/11/03 20:29:20 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
 	  -O3 \
-	  #-g \
+	  -g \
 
 MAKE = make -C
 

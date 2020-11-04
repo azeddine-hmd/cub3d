@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 17:26:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:07:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,14 @@ typedef struct	s_txt
 
 int				rgb(int r, int g, int b);
 void			pixel_put(int x, int y, int color);
-int				pixel_get(int x, int y, void *arr, int txt_width, int txt_height);
+int				pixel_get(int x, int y);
 void			line(t_point p0, t_point p1, int color);
 void			square(int x, int y, int width, int color);
 void			rect(t_point p, int width, int height, int color);
 float			normalize_angle(float angle);
 float			distance_between_points(float x1, float y1, float x2, float y2);
 void			clear(int color);
+float			f_mod(float a, float b);
 
 /*
 ** file: map_methods.c
@@ -150,8 +151,9 @@ void			render(void);
 ** file: txt.c
 */
 
+t_txt			*gettxt(void);
 void			texture_init(void);
-t_txt			*settexture(t_ray *ray);
+void			settexture(t_ray *ray);
 void			release_textures(void);
 
 /*

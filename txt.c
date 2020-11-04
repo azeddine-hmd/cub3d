@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:08:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 11:42:36 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:31:42 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** make sure calling this function after invoking first 'texture_init()'.
 */
 
-static t_txt	*gettexture(void)
+t_txt	*gettxt(void)
 {
 	static t_txt	*txt;
 
@@ -33,17 +33,17 @@ void			texture_init(void)
 {
 	t_txt	*txt;
 
-	txt = gettexture();
+	txt = gettxt();
 	txt->img = NULL;
 	txt->width = 0;
 	txt->height = 0;
 }
 
-t_txt			*settexture(t_ray *ray)
+void			settexture(t_ray *ray)
 {
 	t_txt	*txt = NULL;
 
-	txt = gettexture();
+	txt = gettxt();
 	if (!ray->was_hit_vertical && ray->is_ray_facing_up)
 		set_north_texture(txt);
 	else if (!ray->was_hit_vertical && ray->is_ray_facing_down)
@@ -52,7 +52,6 @@ t_txt			*settexture(t_ray *ray)
 		set_west_texture(txt);
 	else if (ray->was_hit_vertical && ray->is_ray_facing_right)
 		set_east_texture(txt);
-	return (txt);
 }
 
 /*

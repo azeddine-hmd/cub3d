@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:52:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 17:23:28 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/03 20:19:53 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,18 @@ void	move_player(void)
 	nplayer_y = 0.0;
 	if (player()->move_right)
 	{
-		printf("right\n");
 		nplayer_x = player()->x + cos(player()->rotation_angle + M_PI / 2) * player()->walk_speed;
 		nplayer_y = player()->y + cos(player()->rotation_angle) * player()->walk_speed;
 		player()->move_right = 0;
 	}
 	else if (player()->move_left)
 	{
-		printf("left\n");
 		nplayer_x = player()->x - cos(player()->rotation_angle + M_PI / 2) * player()->walk_speed;
 		nplayer_y = player()->y - cos(player()->rotation_angle) * player()->walk_speed;
 		player()->move_left = 0;
 	}
 	else if (player()->move_forward_or_backward)
 	{
-		printf("forwards or backwards\n\n");
 		player()->rotation_angle += player()->turn_direction * player()->turn_speed;
 		player()->rotation_angle = normalize_angle(player()->rotation_angle);
 		move_step = player()->walk_direction * player()->walk_speed;
@@ -44,7 +41,10 @@ void	move_player(void)
 		nplayer_y = player()->y + sin(player()->rotation_angle) * move_step;
 		player()->move_forward_or_backward = 1;
 	}
-
+	if (!has_wall_at(nplayer_x, player()->y))
+		player()->x = nplayer_x;
+	if (!has_wall_at(player()->x, nplayer_y))
+		player()->y = nplayer_y;
 	if (!has_wall_at(nplayer_x, nplayer_y))
 	{
 		player()->x = nplayer_x;

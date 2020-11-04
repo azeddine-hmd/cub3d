@@ -6,11 +6,17 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/27 12:36:29 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:04:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
 
 static int		read_map_4(t_localmap *localmap)
 {
@@ -35,6 +41,12 @@ static int		read_map_4(t_localmap *localmap)
 	}
 	return (0);
 }
+
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
 
 static int		read_map_3(t_localmap *localmap)
 {
@@ -62,6 +74,12 @@ static int		read_map_3(t_localmap *localmap)
 	return (0);
 }
 
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
+
 static int		read_map_2(t_localmap *localmap)
 {
 	if (!ft_strcmp((localmap->strings)[localmap->i], "R"))
@@ -87,6 +105,12 @@ static int		read_map_2(t_localmap *localmap)
 	}
 	return (0);
 }
+
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
 
 static void		read_map_1(t_localmap *localmap)
 {
@@ -114,10 +138,17 @@ static void		read_map_1(t_localmap *localmap)
 	}
 }
 
+/*
+** function implementation is not human readable
+** proceed carefully
+** I'm too lazy to refactore it
+*/
+
 t_map			*read_map(const char *file_name)
 {
 	t_localmap	*localmap;
 
+	check_file_extension(file_name);
 	localmap = init_localmap();
 	localmap->map->name = xstrdup(file_name);
 	if ((localmap->fd = open(file_name, O_RDONLY)) == -1)

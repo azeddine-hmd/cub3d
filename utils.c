@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/04 18:12:23 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/11/04 18:24:56 by ahamdaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		rgb(int r, int g, int b)
@@ -16,15 +28,15 @@ void	pixel_put(int x, int y, int color)
 	buf[x + y * map()->win_width] = color;
 }
 
-int		pixel_get(int x, int y, void *img, int txt_width, int txt_height)
+int		pixel_get(int x, int y)
 {
 	int	*buf;
 	int	unused;
 
-	if (!is_inside_texture(x, y, txt_width, txt_height))
+	if (!is_inside_texture(x, y, gettxt()->width, gettxt()->height))
 		return rgb(255, 0, 0);
-	buf = (int*)mlx_get_data_addr(img, &unused, &unused, &unused);
-	return (buf[x + y * txt_width]);
+	buf = (int*)mlx_get_data_addr(gettxt()->img, &unused, &unused, &unused);
+	return (buf[x + y * gettxt()->width]);
 }
 
 void	line(t_point p0, t_point p1, int color)
@@ -111,4 +123,9 @@ void	clear(int color)
 		while (++y < map()->win_height)
 			pixel_put(x, y, color);
 	}
+}
+
+float	f_mod(float a, float b)
+{
+	return (a - (floor(a/b) * b));
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 14:37:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:09:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,5 +169,11 @@ void			map_init(const char *map_name);
 */
 
 void			set_map_information(t_map *map);
+
+/*
+** file: map_extension.c
+*/
+
+void			check_file_extension(const char *file_name);
 
 #endif

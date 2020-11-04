@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 11:43:32 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:31:34 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	render_projection_walls(void)
 	int 	i;
 	int		y;
 	t_ray	*ray;
-	t_txt	*txt;
 	float 	correct_wall_distance;
 	float 	distance_proj_plane;
 	float 	wall_strip_height;
@@ -43,11 +42,12 @@ void	render_projection_walls(void)
         wall_bottom_pixel = (map()->win_height / 2) + (wall_strip_height / 2);
         wall_bottom_pixel = wall_bottom_pixel > map()->win_height ? map()->win_height : wall_bottom_pixel;
 
+		int	*crgb = map()->crgb;
 		y = -1;
 		while (++y < wall_top_pixel)
-			pixel_put(i, y, rgb(0, 0, 0));
+			pixel_put(i, y, rgb(crgb[0], crgb[1], crgb[2]));
 
-		txt = settexture(ray);
+		settexture(ray);
 
 		// applying texture on walls
 		int	offset_x;
@@ -56,23 +56,21 @@ void	render_projection_walls(void)
 
 		// calculate offset_x
 		if (ray->was_hit_vertical)
-			offset_x = (int)ray->wall_hit_y % txt->height;
+			offset_x = f_mod(ray->wall_hit_y, TILE_SIZE) * (gettxt()->width / TILE_SIZE);
 		else
-			offset_x = (int)ray->wall_hit_x % txt->width;
+			offset_x = f_mod(ray->wall_hit_x, TILE_SIZE) * (gettxt()->width / TILE_SIZE);
 
 		y = wall_top_pixel - 1;
 		while (++y < wall_bottom_pixel)
 		{
-			// calculate offset_y
 			distance_from_top = y + (wall_strip_height / 2) - (map()->win_height / 2);
-			offset_y = distance_from_top * ((float)txt->width / wall_strip_height);
-			int texture_color = pixel_get(offset_x, offset_y, txt->img, txt->width, txt->height);
-			//int	texture_color = rgb(255, 255, 255);
-			pixel_put(i, y, texture_color);
+			offset_y = distance_from_top * ((float)gettxt()->height / wall_strip_height);
+			pixel_put(i, y, pixel_get(offset_x, offset_y));
 		}
 
+		int *frgb = map()->frgb;
 		y = wall_bottom_pixel - 1;
 		while (++y < map()->win_height)
-			pixel_put(i, y, rgb(255, 127, 63));
+			pixel_put(i, y, rgb(frgb[0], frgb[1], frgb[2]));
 	}
 }
