@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rays.c                                             :+:      :+:    :+:   */
+/*   rays_helper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 12:55:21 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/11/07 12:51:57 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/11/07 12:52:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_ray	**rays(void)
+void	set_ray_direction(t_ray *ray)
 {
-	static t_ray **rays;
-
-	if (!rays)
-	{
-		rays = (t_ray**)xmalloc(sizeof(t_ray*) * map()->num_rays);
-		if (!rays)
-			game_exit();
-	}
-	return (rays);
-
-}
-
-void	rays_init(void)
-{
-	int		col;
-	t_ray	**rays_double;
-
-	rays_double = rays();
-	col = -1;
-	while (++col < map()->num_rays)
-	{
-		rays_double[col] = (t_ray*)xmalloc(sizeof(t_ray));
-		ft_bzero(rays_double[col], sizeof(t_ray));
-	}
+	ray->is_ray_facing_down = ray->ray_angle > 0 && ray->ray_angle < M_PI;
+	ray->is_ray_facing_up = !ray->is_ray_facing_down;
+	ray->is_ray_facing_right = ray->ray_angle < 0.5 * M_PI || ray->ray_angle > 1.5 * M_PI;
+	ray->is_ray_facing_left = !ray->is_ray_facing_right;
 }

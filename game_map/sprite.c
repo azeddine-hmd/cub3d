@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rays.c                                             :+:      :+:    :+:   */
+/*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 12:55:21 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/11/09 13:57:22 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/11/10 10:19:59 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "map.h"
 
-t_ray	**rays(void)
+void	set_sprite_initial_position(t_map *map, int x, int y)
 {
-	static t_ray **rays;
+	char		*arr;
+	int			x;
+	int			y;
+	t_data		**head;
+	t_sprite	sprite;
 
-	if (!rays)
+	x = -1;
+	while (++x < map_cols)
 	{
-		rays = (t_ray**)xmalloc(sizeof(t_ray*) * map()->num_rays);
-		if (!rays)
-			game_exit();
-	}
-	return (rays);
-
-}
-
-void	rays_init(void)
-{
-	int		col;
-	t_ray	**rays_double;
-
-	rays_double = rays();
-	col = -1;
-	while (++col < map()->num_rays)
-	{
-		rays_double[col] = (t_ray*)xmalloc(sizeof(t_ray));
-		ft_bzero(rays_double[col], sizeof(t_ray));
+		y = -1;
+		while (++y < map_rows)
+			if (arr[x + y * map_cols] == '2')
+				add(head, );
 	}
 }

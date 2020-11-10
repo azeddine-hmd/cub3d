@@ -6,14 +6,23 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/04 20:07:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/09 16:19:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 # include "game_map/map.h"
+
 # define FOV_ANGLE (60 * (M_PI / 180))
+# define INT_MAX 2147483647
+# define COLOR_BLACK rgb(0, 0, 0)
+# define COLOR_WHITE rgb(255, 255, 255)
+
+/*
+** Keys macros
+*/
+
 # define KEY_ESC 53
 # define KEY_LEFT_ARROW 123
 # define KEY_RIGHT_ARROW 124
@@ -21,9 +30,6 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
-# define INT_MAX 2147483647
-# define COLOR_BLACK rgb(0, 0, 0)
-# define COLOR_WHITE rgb(255, 255, 255)
 
 typedef struct	s_point
 {
@@ -69,19 +75,20 @@ typedef struct	s_txt
 }				t_txt;
 
 /*
-** file: utils.c
+** file: math_helper.c
 */
 
-int				rgb(int r, int g, int b);
-void			pixel_put(int x, int y, int color);
-int				pixel_get(int x, int y);
+float			normalize_angle(float angle);
+float			distance_between_points(float x1, float y1, float x2, float y2);
+float			f_mod(float a, float b);
+
+/*
+** file: draw.c
+*/
+
 void			line(t_point p0, t_point p1, int color);
 void			square(int x, int y, int width, int color);
 void			rect(t_point p, int width, int height, int color);
-float			normalize_angle(float angle);
-float			distance_between_points(float x1, float y1, float x2, float y2);
-void			clear(int color);
-float			f_mod(float a, float b);
 
 /*
 ** file: map_methods.c
@@ -90,7 +97,11 @@ float			f_mod(float a, float b);
 void			minimap_render(void);
 int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
-int				is_inside_texture(float x, float y, int txt_width, int txt_height);
+int				is_inside_texture(
+									float x,
+									float y,
+									int txt_width,
+									int txt_height);
 
 /*
 ** file: player.c
@@ -118,6 +129,14 @@ int				has_wall_at(float x, float y);
 void			input_handler(void);
 
 /*
+** file: mlx_helper.c
+*/
+
+int				rgb(int r, int g, int b);
+void			pixel_put(int x, int y, int color);
+int				pixel_get(int x, int y);
+
+/*
 ** file: vars.c
 */
 
@@ -128,10 +147,21 @@ t_vars			*vars(void);
 */
 
 t_ray			**rays(void);
-void			cast_all_rays(void);
-void			rays_render(void);
-void			cast(t_ray *ray);
 void			rays_init(void);
+
+/*
+** file: rays_helper.c
+*/
+
+void			set_ray_direction(t_ray *ray);
+
+/*
+** file: rays_methods.c
+*/
+
+void			rays_render(void);
+void			cast_all_rays(void);
+void			cast(t_ray *ray);
 
 /*
 ** file: projection.c
@@ -160,9 +190,23 @@ void			release_textures(void);
 ** file: txt_helper.c
 */
 
-void	set_north_texture(t_txt *txt);
-void	set_south_texture(t_txt *txt);
-void	set_west_texture(t_txt *txt);
-void	set_east_texture(t_txt *txt);
+void			set_north_texture(t_txt *txt);
+void			set_south_texture(t_txt *txt);
+void			set_west_texture(t_txt *txt);
+void			set_east_texture(t_txt *txt);
+
+/*
+** file: rays_helper.c
+*/
+
+void			set_ray_direction(t_ray *ray);
+
+/*
+** file: rays_methods.c
+*/
+
+void			rays_render(void);
+void			cast_all_rays(void);
+void			cast(t_ray *ray);
 
 #endif

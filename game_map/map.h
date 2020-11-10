@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 02:55:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/04 20:09:02 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/11/09 19:09:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,12 @@ typedef struct	s_direction
 	char	down;
 	char	left;
 }				t_direction;
+
+typedef struct	s_sp
+{
+	int		pos[2];
+	int		dist;
+}				t_sp;
 
 typedef struct	s_localmap
 {
@@ -175,5 +181,11 @@ void			set_map_information(t_map *map);
 */
 
 void			check_file_extension(const char *file_name);
+
+/*
+** file: sprite.c
+*/
+
+void			set_sprite_initial_position(t_map *map, int x, int y);
 
 #endif

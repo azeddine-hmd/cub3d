@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:22:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/03 19:57:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/09 19:17:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,18 @@ t_map		*new_map(void)
 	t_map	*map;
 
 	map = (t_map*)xmalloc(sizeof(t_map));
-	map->name = NULL;
+	ft_bzero(map, sizeof(t_map));
 	map->win_width = -1;
 	map->win_height = -1;
 	map->map_width = -1;
 	map->map_height = -1;
-	map->cols = 0;
-	map->rows = 0;
-	map->num_rays = 0;
 	map->minimap_scale = 0.1;
-	map->no = NULL;
-	map->so = NULL;
-	map->we = NULL;
-	map->ea = NULL;
-	map->s = NULL;
 	map->frgb[0] = -1;
 	map->frgb[1] = -1;
 	map->frgb[2] = -1;
 	map->crgb[0] = -1;
 	map->crgb[1] = -1;
 	map->crgb[2] = -1;
-	map->maparr = NULL;
 	return (map);
 }
 

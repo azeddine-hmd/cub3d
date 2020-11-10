@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:32:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/01 20:46:16 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/09 18:47:31 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void	set_initial_player_position(
 			pl = maparr[x + y * map_cols];
 			if (pl == 'N' || pl == 'S' || pl == 'W' || pl == 'E')
 			{
+				//set_sprite_initial_position(map, x, y);
 				flag = 0;
 				break ;
 			}
@@ -54,14 +55,10 @@ static void	set_initial_player_position(
 	map->initial_pos[1] = y + 1;
 }
 
-static void	set_num_rays(t_map *map)
-{
-	map->num_rays = map->win_width;
-}
-
 void		set_map_information(t_map *map)
 {
 	convert_spacesto_wall(map->maparr);
 	set_initial_player_position(map->maparr, map->rows, map->cols, map);
-	set_num_rays(map);
+	map->num_rays = map->win_width;
+	map->minimap_scale = 0.1;
 }

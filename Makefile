@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/11/03 20:29:20 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/11/09 14:12:15 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,11 @@ SRC = cub3d.c \
 	  utils.c \
 	  txt.c \
 	  txt_helper.c \
+	  math_helper.c \
+	  draw.c \
+	  mlx_helper.c \
+	  rays_helper.c \
+	  rays_methods.c \
 
 OBJ = ${SRC:.c=.o}
 
@@ -70,6 +75,6 @@ fclean: clean
 	$(MAKE) get_next_line fclean
 	$(MAKE) game_map fclean
 	$(MAKE) linkedlist fclean
-	rm -rf $(NAME) $(LIB)
+	rm -rf $(NAME) $(LIB) cub3d.dSYM # remove 'cub3d.dSYM' later
 
 re: fclean all
