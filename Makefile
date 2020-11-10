@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/11/09 14:12:15 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/11/10 19:39:01 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRC = cub3d.c \
 	  mlx_helper.c \
 	  rays_helper.c \
 	  rays_methods.c \
+	  sprite_methods.c \
 
 OBJ = ${SRC:.c=.o}
 

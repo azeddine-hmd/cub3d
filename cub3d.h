@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/09 16:19:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:38:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,5 +208,11 @@ void			set_ray_direction(t_ray *ray);
 void			rays_render(void);
 void			cast_all_rays(void);
 void			cast(t_ray *ray);
+
+
+/*
+** file: sprite_methods.c
+*/
+void			release_sprites(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/29 19:47:58 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:42:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void		fill_no(t_map *map, const char **strings)
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if ((img->imgarr = mlx_xpm_file_to_image(
+		if ((img->img = mlx_xpm_file_to_image(
 						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
 			map->no = img;
@@ -91,7 +91,7 @@ void		fill_so(t_map *map, const char **strings)
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if ((img->imgarr = mlx_xpm_file_to_image(
+		if ((img->img = mlx_xpm_file_to_image(
 						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
 			map->so = img;
@@ -116,7 +116,7 @@ void		fill_we(t_map *map, const char **strings)
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if ((img->imgarr = mlx_xpm_file_to_image(
+		if ((img->img = mlx_xpm_file_to_image(
 						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
 			map->we = img;

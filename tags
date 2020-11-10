@@ -168,8 +168,8 @@ hexer	libft/ft_dec2hex.c	/^static char	*hexer(int l)$/;"	f	file:
 i	game_map/map.h	/^	int		i;$/;"	m	struct:s_localmap
 id_count	game_map/map.h	/^	int		id_count;$/;"	m	struct:s_localmap
 img	cub3d.h	/^	void	*img;$/;"	m	struct:s_txt
+img	game_map/map.h	/^	void	*img;$/;"	m	struct:s_image
 img	game_map/map.h	/^	void *img;$/;"	m	struct:s_vars
-imgarr	game_map/map.h	/^	void	*imgarr;$/;"	m	struct:s_image
 init_localmap	game_map/map_utils.c	/^t_localmap	*init_localmap(void)$/;"	f
 initial_pos	game_map/map.h	/^	int		initial_pos[2];$/;"	m	struct:s_map
 input_handler	input.c	/^void		input_handler(void)$/;"	f
@@ -197,7 +197,6 @@ lst_clear	linkedlist/linkedlist.c	/^void	lst_clear(t_data *head)$/;"	f
 lst_last	linkedlist/linkedlist.c	/^t_data	*lst_last(t_data *node)$/;"	f
 lst_size	linkedlist/linkedlist_utils.c	/^int				lst_size(t_data *head)$/;"	f
 main	cub3d.c	/^int			main(int argc, char **argv)$/;"	f
-main	test.c	/^int		main(int argc, char **argv)$/;"	f
 map	game_map/map.h	/^	t_map	*map;$/;"	m	struct:s_localmap
 map	game_map/map_helper.c	/^t_map			*map(void)$/;"	f
 map_double	game_map/map_helper.c	/^static t_map	**map_double(void)$/;"	f	file:
@@ -251,6 +250,7 @@ read_map_4	game_map/map.c	/^static int		read_map_4(t_localmap *localmap)$/;"	f	f
 read_map_5	game_map/map_norm.c	/^void		read_map_5(t_localmap *localmap)$/;"	f
 read_map_6	game_map/map_norm.c	/^void		read_map_6(t_localmap *localmap)$/;"	f
 rect	draw.c	/^void	rect(t_point p, int width, int height, int color)$/;"	f
+release_sprites	game_map/sprite.c	/^void			release_sprites(void)$/;"	f
 release_textures	txt.c	/^void			release_textures(void)$/;"	f
 render	game.c	/^void	render(void)$/;"	f
 render_projection_walls	projection.c	/^void	render_projection_walls(void)$/;"	f

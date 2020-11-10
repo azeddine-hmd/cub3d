@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 12:24:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:02:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void	game_exit(void)
 {
+	release_sprites();
 	release_textures();
 	mlx_destroy_image(vars()->mlx, vars()->img);
 	mlx_destroy_window(vars()->mlx, vars()->win);

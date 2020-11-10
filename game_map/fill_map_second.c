@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/29 19:33:11 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:39:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		fill_ea(t_map *map, const char **strings)
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if ((img->imgarr = mlx_xpm_file_to_image(
+		if ((img->img = mlx_xpm_file_to_image(
 						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
 			map->ea = img;
@@ -51,7 +51,7 @@ void		fill_s(t_map *map, const char **strings)
 	{
 		if (ft_onlyspaces(strings[i]))
 			continue ;
-		if ((img->imgarr = mlx_xpm_file_to_image(
+		if ((img->img = mlx_xpm_file_to_image(
 						get_mlx(), (char*)strings[i], &(img->w), &(img->h))))
 		{
 			map->s = img;

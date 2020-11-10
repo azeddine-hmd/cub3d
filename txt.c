@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:08:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/04 18:31:42 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:10:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void			settexture(t_ray *ray)
 
 void			release_textures(void)
 {
-	mlx_destroy_image(vars()->mlx, map()->no->imgarr);
-	mlx_destroy_image(vars()->mlx, map()->so->imgarr);
-	mlx_destroy_image(vars()->mlx, map()->we->imgarr);
-	mlx_destroy_image(vars()->mlx, map()->ea->imgarr);
+	mlx_destroy_image(vars()->mlx, map()->no->img);
+	mlx_destroy_image(vars()->mlx, map()->so->img);
+	mlx_destroy_image(vars()->mlx, map()->we->img);
+	mlx_destroy_image(vars()->mlx, map()->ea->img);
 }
