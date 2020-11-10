@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:08:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 12:10:03 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:49:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_txt	*gettxt(void)
 	{
 		txt = (t_txt*)xmalloc(sizeof(t_txt));
 		if (!txt)
-			game_exit();
+			game_exit(1);
 	}
 	return (txt);
 }

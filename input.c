@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/04 20:25:10 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:49:23 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	on_key_pressed(int key, void *param)
 {
 	param = NULL;
 	if (key == KEY_ESC)
-		game_exit();
+		game_exit(0);
 	else if (key == KEY_LEFT_ARROW)
 		player()->turn_direction = -1;
 	else if (key == KEY_RIGHT_ARROW)
@@ -47,7 +47,7 @@ static int	on_key_released(int key, void *param)
 {
 	param = NULL;
 	if (key == KEY_ESC)
-		game_exit();
+		game_exit(0);
 	else if (key == KEY_LEFT_ARROW)
 		player()->turn_direction = 0;
 	else if (key == KEY_RIGHT_ARROW)
@@ -66,7 +66,7 @@ static int	on_key_released(int key, void *param)
 
 int			on_window_closed(void)
 {
-	game_exit();
+	game_exit(0);
 	return (0);
 }
 

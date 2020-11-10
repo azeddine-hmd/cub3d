@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 12:55:21 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:49:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_ray	**rays(void)
 	{
 		rays = (t_ray**)xmalloc(sizeof(t_ray*) * map()->num_rays);
 		if (!rays)
-			game_exit();
+			game_exit(1);
 	}
 	return (rays);
 

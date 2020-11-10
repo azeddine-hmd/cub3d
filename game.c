@@ -6,21 +6,26 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:02:03 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:49:57 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <time.h>
 
-void	game_exit(void)
+
+/*
+** free and release game allocation from memory then exit
+*/
+
+void	game_exit(int return_signal)
 {
 	release_sprites();
 	release_textures();
 	mlx_destroy_image(vars()->mlx, vars()->img);
 	mlx_destroy_window(vars()->mlx, vars()->win);
-	finish();
-	exit(0);
+	lst_clear(*get_head_node());
+	exit(return_signal);
 }
 
 void	game_loop(void)

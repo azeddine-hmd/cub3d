@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:38:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:49:51 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,7 @@ void			render_projection_walls(void);
 ** file: game.c
 */
 
-void			game_exit(void);
+void			game_exit(int return_signal);
 void			game_loop(void);
 void			render(void);
 
