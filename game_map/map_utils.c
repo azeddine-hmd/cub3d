@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:22:09 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/09 19:17:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 10:38:10 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_map		*new_map(void)
 	map->crgb[0] = -1;
 	map->crgb[1] = -1;
 	map->crgb[2] = -1;
+	map->sp_head = NULL;
 	return (map);
 }
 

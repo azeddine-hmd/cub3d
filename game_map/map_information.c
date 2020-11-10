@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:32:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/09 18:47:31 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/10 10:43:29 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void		set_map_information(t_map *map)
 	set_initial_player_position(map->maparr, map->rows, map->cols, map);
 	map->num_rays = map->win_width;
 	map->minimap_scale = 0.1;
+	set_sp_initial_position(map);
 }
