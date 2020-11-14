@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:38:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:52:57 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct	s_map
 	float	minimap_scale;
 	char	pview;
 	int		initial_pos[2];
-	int		max_sprite;
 	t_data	*sp_head;
 	t_image	*no;
 	t_image	*so;
@@ -76,9 +75,9 @@ typedef struct	s_direction
 
 typedef struct	s_sp
 {
-	int		x;
-	int		y;
-	int		dist;
+	float	x;
+	float	y;
+	float	dist;
 }				t_sp;
 
 typedef struct	s_localmap

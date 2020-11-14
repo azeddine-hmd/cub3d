@@ -102,7 +102,6 @@ fill_r_norm	game_map/fill_map_first.c	/^static void	fill_r_norm(t_map *map, cons
 fill_s	game_map/fill_map_second.c	/^void		fill_s(t_map *map, const char **strings)$/;"	f
 fill_so	game_map/fill_map_first.c	/^void		fill_so(t_map *map, const char **strings)$/;"	f
 fill_we	game_map/fill_map_first.c	/^void		fill_we(t_map *map, const char **strings)$/;"	f
-finish	linkedlist/error.c	/^void	finish(void)$/;"	f
 free_node	linkedlist/linkedlist.c	/^void	free_node(t_data *node)$/;"	f
 frgb	game_map/map.h	/^	int		frgb[3];$/;"	m	struct:s_map
 ft_atoi	libft/ft_atoi.c	/^int		ft_atoi(const char *str)$/;"	f
@@ -149,7 +148,7 @@ ft_strtrim_helper	libft/ft_strtrim.c	/^static char	*ft_strtrim_helper(char const
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_tolower	libft/ft_tolower.c	/^int		ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int		ft_toupper(int c)$/;"	f
-game_exit	game.c	/^void	game_exit(void)$/;"	f
+game_exit	game.c	/^void	game_exit(int return_signal)$/;"	f
 game_loop	game.c	/^void	game_loop(void)$/;"	f
 get_fd_buffer	get_next_line/get_next_line.c	/^static char		**get_fd_buffer(int fd, t_list **buffers)$/;"	f	file:
 get_head_node	linkedlist/allocation.c	/^t_data		**get_head_node(void)$/;"	f
@@ -207,6 +206,7 @@ map_time	game_map/map.h	/^	int		map_time;$/;"	m	struct:s_localmap
 map_width	game_map/map.h	/^	int		map_width;$/;"	m	struct:s_map
 maparr	game_map/map.h	/^	char	*maparr;$/;"	m	struct:s_map
 maparr	game_map/map.h	/^	t_data	*maparr;$/;"	m	struct:s_localmap
+max_sprite	game_map/map.h	/^	int		max_sprite;$/;"	m	struct:s_map
 minimap_render	map_methods.c	/^void	minimap_render()$/;"	f
 minimap_scale	game_map/map.h	/^	float	minimap_scale;$/;"	m	struct:s_map
 mlx	game_map/map.h	/^	void *mlx;$/;"	m	struct:s_vars
@@ -250,7 +250,7 @@ read_map_4	game_map/map.c	/^static int		read_map_4(t_localmap *localmap)$/;"	f	f
 read_map_5	game_map/map_norm.c	/^void		read_map_5(t_localmap *localmap)$/;"	f
 read_map_6	game_map/map_norm.c	/^void		read_map_6(t_localmap *localmap)$/;"	f
 rect	draw.c	/^void	rect(t_point p, int width, int height, int color)$/;"	f
-release_sprites	game_map/sprite.c	/^void			release_sprites(void)$/;"	f
+release_sprites	sprite_methods.c	/^void	release_sprites(void)$/;"	f
 release_textures	txt.c	/^void			release_textures(void)$/;"	f
 render	game.c	/^void	render(void)$/;"	f
 render_projection_walls	projection.c	/^void	render_projection_walls(void)$/;"	f
@@ -273,6 +273,7 @@ s_sp	game_map/map.h	/^typedef struct	s_sp$/;"	s
 s_txt	cub3d.h	/^typedef struct	s_txt$/;"	s
 s_vars	game_map/map.h	/^typedef struct	s_vars$/;"	s
 self	game_map/map.h	/^	char	self;$/;"	m	struct:s_direction
+set_distance_sprites	sprite_methods.c	/^void	set_distance_sprites(t_sptire *sp)$/;"	f
 set_east_texture	txt_helper.c	/^void	set_east_texture(t_txt *txt)$/;"	f
 set_initial_player_position	game_map/map_information.c	/^static void	set_initial_player_position($/;"	f	file:
 set_map_information	game_map/map_information.c	/^void		set_map_information(t_map *map)$/;"	f

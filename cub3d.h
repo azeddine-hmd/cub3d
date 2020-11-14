@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:49:51 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:12:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,8 @@ void			cast(t_ray *ray);
 /*
 ** file: sprite_methods.c
 */
+
 void			release_sprites(void);
+void			set_distance_sprites(void);
 
 #endif

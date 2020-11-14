@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:51:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/01 20:07:04 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:02:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		*xmalloc(size_t size)
 ** 1: node not found in the list.
 */
 
-static int	xfree_after_head(t_data *node, void *data)
+/*static int	xfree_after_head(t_data *node, void *data)
 {
 	t_data *tmp;
 	t_data *node_left;
@@ -73,7 +73,7 @@ static int	xfree_after_head(t_data *node, void *data)
 		node = node->next;
 	}
 	return (1);
-}
+}*/
 
 /*
 ** [Description]
@@ -95,8 +95,8 @@ void		xfree(void *data)
 		free_node(tmp);
 		return ;
 	}
-	if (xfree_after_head(*head, data))
-		error_message("node to free not found!");
+	//if (xfree_after_head(*head, data))
+		//error_message("trying to free a node that doesn't exist in allocation list");
 }
 
 /*

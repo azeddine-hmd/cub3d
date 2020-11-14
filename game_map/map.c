@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 13:04:00 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:36:06 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,5 @@ t_map			*read_map(const char *file_name)
 	localmap->map->map_height = localmap->map->rows * TILE_SIZE;
 	fill_maparr(localmap->map, localmap->maparr);
 	set_map_information(localmap->map);
-	lst_clear(localmap->maparr);
 	return (localmap->map);
 }
