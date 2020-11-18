@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:49:23 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:45:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,16 @@ static int	on_key_pressed(int key, void *param)
 	}
 	else if (key == KEY_D)
 		player()->move_right = 1;
-	else if (key == 35)
-		map()->minimap_scale += 0.1;
-	else if (key == 31)
-		map()->minimap_scale -= 0.1;
+	else if (key == KEY_P)
+	{
+		if (!(map()->map_width * map()->minimap_scale > map()->win_width))
+			map()->minimap_scale += 0.01;
+	}
+	else if (key == KEY_O)
+	{
+		if (!(map()->minimap_scale < 0.1))
+			map()->minimap_scale -= 0.01;
+	}
 	game_loop();
 	return (0);
 }
@@ -64,14 +70,18 @@ static int	on_key_released(int key, void *param)
 	return (0);
 }
 
-int			on_window_closed(void)
+/*
+** exit game if user click on red button window
+*/
+
+static int			on_window_closed(void)
 {
 	game_exit(0);
 	return (0);
 }
 
 /*
-** before calling this function, 'player()' should be invoked first.
+** before calling this function player() should be called first.
 */
 
 void		input_handler(void)

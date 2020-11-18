@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/11/11 19:07:57 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/11/18 11:49:18 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ LL_OBJ = linkedlist/*.o
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra \
-	  -fsanitize=address \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
+	  -fsanitize=address \
 	  -O3 \
 	  -g \
 

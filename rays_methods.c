@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 12:58:49 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 11:34:20 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,12 +164,18 @@ void	cast(t_ray *ray)
 	// Calculate both horizontal and vertical distances and choose the smallest values
 	float	horz_hit_distance;
 	float	vert_hit_distance;
+	t_point	player_point;
+	t_point	horz_wall_hit_point;
+	t_point	vert_wall_hit_point;
 
+	setpoint(&player_point, player()->x, player()->y);
+	setpoint(&horz_wall_hit_point, horz_wall_hit_x, horz_wall_hit_y);
+	setpoint(&vert_wall_hit_point, vert_wall_hit_x, vert_wall_hit_y);
 	horz_hit_distance = (found_horz_wall_hit)
-		? distance_between_points(player()->x, player()->y, horz_wall_hit_x, horz_wall_hit_y)
+		? distance_between_points(player_point, horz_wall_hit_point)
 		: INT_MAX;
 	vert_hit_distance = (found_vert_wall_hit)
-		? distance_between_points(player()->x, player()->y, vert_wall_hit_x, vert_wall_hit_y)
+		? distance_between_points(player_point, vert_wall_hit_point)
 		: INT_MAX;
 
 	// only store the smallest of the distances

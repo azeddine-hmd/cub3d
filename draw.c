@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:47:17 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/07 12:48:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 13:46:40 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	line(t_point p0, t_point p1, int color)
 	}
 }
 
-void	square(int x, int y, int width, int color)
+void	square(float x, float y, float width, int color)
 {
 	int i;
 	int j;

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:24:17 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:23:16 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,12 @@ void			error_message(const char *message);
 void			finish();
 void			error_map(const char *file_name, const char *message);
 void			error_special(const char *message);
+
+
+/*
+** file: swap.c
+*/
+
+void	swap(t_data* this, t_data* other);
 
 #endif

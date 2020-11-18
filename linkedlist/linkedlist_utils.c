@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/22 02:29:38 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:08:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int				lst_size(t_data *head)
 	int	size;
 
 	if (!head)
-		error_message("head not exist to count list size.");
+		error_message("lst_size: list head is NULL");
 	size = 0;
 	while (head)
 	{

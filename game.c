@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/14 13:42:01 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/18 12:20:53 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	update(void)
 {
 	move_player();
 	cast_all_rays();
-	set_distance_sprites();
+	set_sprites_distance();
 }
 
 /*
@@ -57,6 +57,7 @@ void	render(void)
 	update();
 	mlx_clear_window(vars()->mlx, vars()->win);
 	render_projection_walls();
+	render_sprites();
 	minimap_render();
 	rays_render();
 	player_render();

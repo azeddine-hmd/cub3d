@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 01:32:28 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 20:00:53 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:12:06 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_map	**map_double(void)
 }
 
 /*
-** this function depends on 'map_init(map_name)' to function correctly.
+** make sure to call map_init before calling this function
 */
 
 t_map			*map(void)
@@ -47,6 +47,6 @@ void			map_init(const char *map_name)
 
 	map = map_double();
 	if (*map)
-		error_message("map_init(): map already initialized");
+		error_message("map_init: double initializition");
 	*map = read_map(map_name);
 }

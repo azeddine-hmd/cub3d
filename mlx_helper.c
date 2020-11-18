@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:35:25 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/08 18:15:51 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 13:25:44 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		rgb(int r, int g, int b)
 	return (r << 16 | g << 8 | b);
 }
 
-void	pixel_put(int x, int y, int color)
+void	pixel_put(float x, float y, int color)
 {
 	int *buf;
 	int	unused;
@@ -25,7 +25,7 @@ void	pixel_put(int x, int y, int color)
 	if (!is_inside_window(x, y))
 		return ;
 	buf = (int*)mlx_get_data_addr(vars()->img, &unused, &unused, &unused);
-	buf[x + y * map()->win_width] = color;
+	buf[(int)floor(x) + (int)floor(y) * map()->win_width] = color;
 }
 
 int		pixel_get(int x, int y)

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/14 13:12:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/18 12:08:49 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define INT_MAX 2147483647
 # define COLOR_BLACK rgb(0, 0, 0)
 # define COLOR_WHITE rgb(255, 255, 255)
+# define COLOR_RED rgb(255, 0, 0)
 
 /*
 ** Keys macros
@@ -30,6 +31,8 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+# define KEY_O 31
+# define KEY_P 35
 
 typedef struct	s_point
 {
@@ -79,15 +82,16 @@ typedef struct	s_txt
 */
 
 float			normalize_angle(float angle);
-float			distance_between_points(float x1, float y1, float x2, float y2);
+float			distance_between_points(t_point p1, t_point p2);
 float			f_mod(float a, float b);
+void			setpoint(t_point *p, int x, int y);
 
 /*
 ** file: draw.c
 */
 
 void			line(t_point p0, t_point p1, int color);
-void			square(int x, int y, int width, int color);
+void			square(float x, float y, float width, int color);
 void			rect(t_point p, int width, int height, int color);
 
 /*
@@ -133,7 +137,7 @@ void			input_handler(void);
 */
 
 int				rgb(int r, int g, int b);
-void			pixel_put(int x, int y, int color);
+void			pixel_put(float x, float y, int color);
 int				pixel_get(int x, int y);
 
 /*
@@ -215,6 +219,8 @@ void			cast(t_ray *ray);
 */
 
 void			release_sprites(void);
-void			set_distance_sprites(void);
+void			set_sprites_distance(void);
+void			linkedlist_bubble_sort(t_data *head);
+void			render_sprites(void);
 
 #endif

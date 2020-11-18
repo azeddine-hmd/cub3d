@@ -6,11 +6,16 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/02 14:39:25 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:14:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+/*
+** draws a small minimap on top left side window to visuals
+** player position in game.
+*/
 
 void	minimap_render()
 {
