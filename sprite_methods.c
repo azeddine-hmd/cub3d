@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/18 12:32:22 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/18 14:58:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,36 +68,68 @@ void		linkedlist_bubble_sort(t_data *head)
 		linkedlist_bubble_sort(head);
 }
 
+static void	draw_sprite(int x, float distance, float height)
+{
+	int i;
+	int j;
+	int y_offset;
+	int color;
+
+	i = x;
+	while (i <= x + height)
+	{
+		j = (map()->win_height - height) / 2;
+		y_offset = 0;
+		if (i >= 0 && i < map()->win_width && distance < rays[i]->dist)
+		{
+			while (j < (map()->win_height + height) / 2 - 1)
+			{
+				//TODO
+				j++;
+				y_offset++;
+			}
+		}
+		i++;
+	}
+}
+
 /*
 ** Description: sort sprites based on distance from nearest to farthest,
 ** then render them as squares on window.
 */
 
-static void	print_sprites_distance(void)
-{
-	t_sp	*sprite;
-	t_data	*head;
-
-	head = map()->sp_head;
-	while (head)
-	{
-		sprite = (t_sp*)head->data;
-		printf("distance = %f\n", sprite->dist);
-		head = head->next;
-	}
-}
-
 void		render_sprites(void)
 {
 	t_data	*head;
+	t_sp	*sprite;
+	float	angle;
+	int		sp_size;
+	float	sprite_height;
+	int		column_index;
+	int		i;
 
 	head = map()->sp_head;
 	if (!head)
 		return ;
-	print_sprites_distance();
+	sp_size = lst_size(head);
 	linkedlist_bubble_sort(head);
-	printf("\n");
-	print_sprites_distance();
+	i = -1;
+	while (++i < sp_size)
+	{
+		sprite = (t_sp*)head->data;
+		angle = atan2(sprite->y - player()->y, sprite->x - player()->x);
+		while (angle - rays()[i]->ray_angle > M_PI)
+			angle -= 2 * M_PI;
+		while (angle - rays()[i]->ray_angle < -M_PI)
+			angle += 2 * M_PI;
+		sprite_height = (TILE_SIZE / sprite->dist);
+		column_index = (angle - rays()[i]->ray_angle)
+		/ (FOV_ANGLE / map()->win_width) - (sprite_height / 2);
+		draw_sprite(column_index, sprite->dist, sprite_height);
+		head = head->next;
+		if (head == NULL)
+			printf("YOO head is null somehting wrong");
+	}
 }
 
 /*

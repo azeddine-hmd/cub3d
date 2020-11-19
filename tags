@@ -75,16 +75,17 @@ check_equality	libft/ft_strnstr.c	/^static int	check_equality(const char *h, con
 check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_file_extension	game_map/map_extension.c	/^void	check_file_extension(const char *file_name)$/;"	f
 check_map	game_map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line, int *p)$/;"	f	file:
+close_map_file	game_map/close_map.c	/^void	close_map_file(int fd)$/;"	f
 cols	game_map/map.h	/^	int		cols;$/;"	m	struct:s_map
 convert_spacesto_wall	game_map/map_information.c	/^static void	convert_spacesto_wall(char *maparr)$/;"	f	file:
 count_words	libft/ft_split.c	/^static	int		count_words(char const *s, char c)$/;"	f	file:
-create	test.c	/^void	create(const char *s)$/;"	f
 crgb	game_map/map.h	/^	int		crgb[3];$/;"	m	struct:s_map
 data	linkedlist/linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
 dist	game_map/map.h	/^	float	dist;$/;"	m	struct:s_sp
 distance	cub3d.h	/^	float	distance;$/;"	m	struct:s_ray
 distance_between_points	math_helper.c	/^float	distance_between_points(t_point p1, t_point p2)$/;"	f
 down	game_map/map.h	/^	char	down;$/;"	m	struct:s_direction
+draw_sprite	sprite_methods.c	/^static void	draw_sprite(int x, float distance, float height)$/;"	f	file:
 ea	game_map/map.h	/^	t_image	*ea;$/;"	m	struct:s_map
 error	linkedlist/error.c	/^void	error(void)$/;"	f
 error_map	linkedlist/error.c	/^void	error_map(const char *file_name, const char *message)$/;"	f
@@ -194,14 +195,13 @@ line	draw.c	/^void	line(t_point p0, t_point p1, int color)$/;"	f
 line	game_map/map.h	/^	char	*line;$/;"	m	struct:s_localmap
 line_allocation	get_next_line/get_next_line.c	/^static int		line_allocation(t_list **bs, char **li, char **buf, int fd)$/;"	f	file:
 line_end	game_map/map.h	/^	int		line_end;$/;"	m	struct:s_localmap
-linkedlist_bubble_sort	sprite_methods.c	/^void	linkedlist_bubble_sort(t_data *head)$/;"	f
+linkedlist_bubble_sort	sprite_methods.c	/^void		linkedlist_bubble_sort(t_data *head)$/;"	f
 lst_add_back	linkedlist/linkedlist.c	/^void	lst_add_back(t_data **head, t_data *node)$/;"	f
 lst_add_front	linkedlist/linkedlist.c	/^void	lst_add_front(t_data **head, t_data *node)$/;"	f
 lst_clear	linkedlist/linkedlist.c	/^void	lst_clear(t_data *head)$/;"	f
 lst_last	linkedlist/linkedlist.c	/^t_data	*lst_last(t_data *node)$/;"	f
 lst_size	linkedlist/linkedlist_utils.c	/^int				lst_size(t_data *head)$/;"	f
 main	cub3d.c	/^int			main(int argc, char **argv)$/;"	f
-main	test.c	/^int		main(int argc, char **argv)$/;"	f
 map	game_map/map.h	/^	t_map	*map;$/;"	m	struct:s_localmap
 map	game_map/map_helper.c	/^t_map			*map(void)$/;"	f
 map_double	game_map/map_helper.c	/^static t_map	**map_double(void)$/;"	f	file:
@@ -242,7 +242,6 @@ player_init	player.c	/^static t_player	*player_init(void)$/;"	f	file:
 player_render	player_methods.c	/^void	player_render(void)$/;"	f
 player_state	game_map/map.h	/^	int		player_state;$/;"	m	struct:s_localmap
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
-print_sprites_distance	sprite_methods.c	/^static void	print_sprites_distance(void)$/;"	f	file:
 pview	game_map/map.h	/^	char	pview;$/;"	m	struct:s_map
 ray_angle	cub3d.h	/^	float	ray_angle;$/;"	m	struct:s_ray
 rays	rays.c	/^t_ray	**rays(void)$/;"	f
@@ -256,11 +255,11 @@ read_map_4	game_map/map.c	/^static int		read_map_4(t_localmap *localmap)$/;"	f	f
 read_map_5	game_map/map_norm.c	/^void		read_map_5(t_localmap *localmap)$/;"	f
 read_map_6	game_map/map_norm.c	/^void		read_map_6(t_localmap *localmap)$/;"	f
 rect	draw.c	/^void	rect(t_point p, int width, int height, int color)$/;"	f
-release_sprites	sprite_methods.c	/^void	release_sprites(void)$/;"	f
+release_sprites	sprite_methods.c	/^void		release_sprites(void)$/;"	f
 release_textures	txt.c	/^void			release_textures(void)$/;"	f
 render	game.c	/^void	render(void)$/;"	f
 render_projection_walls	projection.c	/^void	render_projection_walls(void)$/;"	f
-render_sprites	sprite_methods.c	/^void	render_sprites(void)$/;"	f
+render_sprites	sprite_methods.c	/^void		render_sprites(void)$/;"	f
 rgb	mlx_helper.c	/^int		rgb(int r, int g, int b)$/;"	f
 rgbstr_to_rgbint	game_map/fill_map_second.c	/^static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)$/;"	f	file:
 right	game_map/map.h	/^	char	right;$/;"	m	struct:s_direction
@@ -288,7 +287,7 @@ set_north_texture	txt_helper.c	/^void	set_north_texture(t_txt *txt)$/;"	f
 set_ray_direction	rays_helper.c	/^void	set_ray_direction(t_ray *ray)$/;"	f
 set_south_texture	txt_helper.c	/^void	set_south_texture(t_txt *txt)$/;"	f
 set_sp_initial_position	game_map/sprite.c	/^void			set_sp_initial_position(t_map *map)$/;"	f
-set_sprites_distance	sprite_methods.c	/^void	set_sprites_distance(void)$/;"	f
+set_sprites_distance	sprite_methods.c	/^void		set_sprites_distance(void)$/;"	f
 set_west_texture	txt_helper.c	/^void	set_west_texture(t_txt *txt)$/;"	f
 setpoint	math_helper.c	/^void	setpoint(t_point *p, int x, int y)$/;"	f
 settexture	txt.c	/^void			settexture(t_ray *ray)$/;"	f

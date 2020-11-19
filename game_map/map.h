@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/14 13:52:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:34:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,5 +189,11 @@ void			check_file_extension(const char *file_name);
 */
 
 void			set_sp_initial_position(t_map *map);
+
+/*
+** file: close_map.c
+*/
+
+void			close_map_file(int fd);
 
 #endif

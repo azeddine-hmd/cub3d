@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:35:25 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/16 13:25:44 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/18 12:37:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		pixel_get(int x, int y)
 	int	unused;
 
 	if (!is_inside_texture(x, y, gettxt()->width, gettxt()->height))
-		return rgb(255, 0, 0);
+		return COLOR_RED;
 	buf = (int*)mlx_get_data_addr(gettxt()->img, &unused, &unused, &unused);
 	return (buf[x + y * gettxt()->width]);
 }
