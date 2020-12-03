@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:35:25 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/18 12:37:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/19 14:56:13 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,23 @@ void	pixel_put(float x, float y, int color)
 	buf[(int)floor(x) + (int)floor(y) * map()->win_width] = color;
 }
 
-int		pixel_get(int x, int y)
+int		get_pixel_tex(int x, int y)
 {
 	int *buf;
 	int	unused;
 
 	if (!is_inside_texture(x, y, gettxt()->width, gettxt()->height))
+		return COLOR_RED;
+	buf = (int*)mlx_get_data_addr(gettxt()->img, &unused, &unused, &unused);
+	return (buf[x + y * gettxt()->width]);
+}
+
+int		sprite_pixel_get(int x, int y)
+{
+	int *buf;
+	int	unused;
+
+	if (!is_inside_sprite(x, y, gettxt()->width, gettxt()->height))
 		return COLOR_RED;
 	buf = (int*)mlx_get_data_addr(gettxt()->img, &unused, &unused, &unused);
 	return (buf[x + y * gettxt()->width]);

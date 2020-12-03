@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/16 14:14:03 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/19 14:53:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,16 @@ int		is_inside_window(float x, float y)
 	return (1);
 }
 
-int		is_inside_texture(float x, float y, int txt_width, int txt_height)
+int		is_inside_texture(float x, float y, int width, int height)
 {
-	if (x < 0 || x >= txt_width || y < 0 || y >= txt_height)
+	if (x < 0 || x >= width || y < 0 || y >= height)
+		return (0);
+	return (1);
+}
+
+int		is_inside_sprite(float x, float y, int width, int height)
+{
+	if (x < 0 || x >= width || y < 0 || y >= height)
 		return (0);
 	return (1);
 }

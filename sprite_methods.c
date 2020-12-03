@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/18 14:58:54 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/19 14:56:15 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,9 @@ static void	draw_sprite(int x, float distance, float height)
 		{
 			while (j < (map()->win_height + height) / 2 - 1)
 			{
-				//TODO
+				color = g_texture[4].data[(int)(y_offset / height *
+						g_texture[4].height) * g_texture[4].width +
+					(int)((i - x) / height * g_texture[4].width)];
 				j++;
 				y_offset++;
 			}

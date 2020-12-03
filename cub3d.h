@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/19 13:59:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/11/19 14:55:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,8 @@ void			rect(t_point p, int width, int height, int color);
 void			minimap_render(void);
 int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
-int				is_inside_texture(
-									float x,
-									float y,
-									int txt_width,
-									int txt_height);
+int				is_inside_texture( float x, float y, int width, int height);
+int				is_inside_sprite( float x, float y, int width, int height);
 
 /*
 ** file: player.c
@@ -138,7 +135,8 @@ void			input_handler(void);
 
 int				rgb(int r, int g, int b);
 void			pixel_put(float x, float y, int color);
-int				pixel_get(int x, int y);
+int				getpixel_texture(int x, int y);
+int				getpixel_sprite(int x, int y);
 
 /*
 ** file: vars.c
