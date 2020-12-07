@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/16 14:45:18 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/07 19:23:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ static int	on_key_pressed(int key, void *param)
 		player()->move_forward_or_backward = 1;
 	}
 	else if (key == KEY_A)
-		player()->move_left = 1;
+		player()->move_left = TRUE;
 	else if (key == KEY_S)
 	{
 		player()->walk_direction = -1;
 		player()->move_forward_or_backward = 1;
 	}
 	else if (key == KEY_D)
-		player()->move_right = 1;
+		player()->move_right = TRUE;
 	else if (key == KEY_P)
 	{
 		if (!(map()->map_width * map()->minimap_scale > map()->win_width))
@@ -61,11 +61,11 @@ static int	on_key_released(int key, void *param)
 	else if (key == KEY_W)
 		player()->walk_direction = 0;
 	else if (key == KEY_A)
-		player()->move_left = 0;
+		player()->move_left = FALSE;
 	else if (key == KEY_S)
 		player()->walk_direction = 0;
 	else if (key == KEY_D)
-		player()->move_right = 0;
+		player()->move_right = FALSE;
 	game_loop();
 	return (0);
 }

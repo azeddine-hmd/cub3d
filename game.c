@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/18 12:20:53 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/07 20:44:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static void	update(void)
 }
 
 /*
-** render game graphics.
+** render game's graphics.
 **
 ** Note: functions order is essential to determine which graphic should
-** be rendered first otherwise canvas will be messy.
+** be rendered first otherwise window will be messy.
 */
 
 void	render(void)

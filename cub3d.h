@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/19 14:55:25 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/07 19:18:04 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@
 
 # define FOV_ANGLE (60 * (M_PI / 180))
 # define INT_MAX 2147483647
+
+/*
+** Colors
+*/
+
 # define COLOR_BLACK rgb(0, 0, 0)
 # define COLOR_WHITE rgb(255, 255, 255)
 # define COLOR_RED rgb(255, 0, 0)
+# define COLOR_YELLOW rgb(255, 255, 0)
 
 /*
 ** Keys macros
@@ -122,6 +128,8 @@ void			player_render(void);
 */
 
 int				has_wall_at(float x, float y);
+int				has_player_at(float x, float y);
+int				has_sprite_at(float x, float y);
 
 /*
 ** file: input.c
@@ -135,8 +143,8 @@ void			input_handler(void);
 
 int				rgb(int r, int g, int b);
 void			pixel_put(float x, float y, int color);
-int				getpixel_texture(int x, int y);
-int				getpixel_sprite(int x, int y);
+int				texture_pixel_get(int x, int y);
+int				sprite_pixel_get(int x, int y);
 
 /*
 ** file: vars.c

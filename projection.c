@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/04 20:28:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/07 19:27:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,16 @@ void	render_projection_walls(void)
 		{
 			distance_from_top = y + (wall_strip_height / 2) - (map()->win_height / 2);
 			offset_y = distance_from_top * ((float)gettxt()->height / wall_strip_height);
-			pixel_put(i, y, pixel_get(offset_x, offset_y));
+			pixel_put(i, y, texture_pixel_get(offset_x, offset_y));
 		}
 
 		int *frgb = map()->frgb;
 		y = wall_bottom_pixel - 1;
 		while (++y < map()->win_height)
+		{
+			if (y < 0)
+				break ;
 			pixel_put(i, y, rgb(frgb[0], frgb[1], frgb[2]));
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/19 14:53:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/07 19:27:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,16 @@ void	minimap_render()
 		{
 			int tile_x = j * TILE_SIZE;
 			int tile_y = i * TILE_SIZE;
-			int color = map()->maparr[j + i * map()->cols] == '1' ?
-				rgb(255, 255, 255) : rgb(0, 0, 0);
+			int content = map()->maparr[j + i * map()->cols] - '0';
+
+			int color = -1;
+			if (content == 1)
+				color = COLOR_WHITE;
+			else if (content == 2)
+				color = COLOR_YELLOW;
+			else
+				color = COLOR_BLACK;
+
 			square(
 				tile_x * map()->minimap_scale,
 				tile_y * map()->minimap_scale,

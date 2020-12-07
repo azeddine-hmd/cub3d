@@ -75,7 +75,6 @@ check_equality	libft/ft_strnstr.c	/^static int	check_equality(const char *h, con
 check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_file_extension	game_map/map_extension.c	/^void	check_file_extension(const char *file_name)$/;"	f
 check_map	game_map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line, int *p)$/;"	f	file:
-close_map_file	game_map/close_map.c	/^void	close_map_file(int fd)$/;"	f
 cols	game_map/map.h	/^	int		cols;$/;"	m	struct:s_map
 convert_spacesto_wall	game_map/map_information.c	/^static void	convert_spacesto_wall(char *maparr)$/;"	f	file:
 count_words	libft/ft_split.c	/^static	int		count_words(char const *s, char c)$/;"	f	file:
@@ -163,6 +162,8 @@ get_mlx	game_map/map_helper.c	/^void			*get_mlx(void)$/;"	f
 get_next_line	get_next_line/get_next_line.c	/^int				get_next_line(int fd, char **line)$/;"	f
 gettxt	txt.c	/^t_txt	*gettxt(void)$/;"	f
 h	game_map/map.h	/^	int		h;$/;"	m	struct:s_image
+has_player_at	collision.c	/^int		has_player_at(float x, float y)$/;"	f
+has_sprite_at	collision.c	/^int		has_sprite_at(float x, float y)$/;"	f
 has_wall_at	collision.c	/^int		has_wall_at(float x, float y)$/;"	f
 have_a_newline	get_next_line/get_next_line_utils.c	/^int			have_a_newline(char *str)$/;"	f
 have_strings	game_map/fill_map.c	/^int		have_strings(const char **strings, int count)$/;"	f
@@ -179,7 +180,8 @@ initial_pos	game_map/map.h	/^	int		initial_pos[2];$/;"	m	struct:s_map
 input_handler	input.c	/^void		input_handler(void)$/;"	f
 integer_length	libft/ft_putnbr_fd.c	/^static int	integer_length(int nb)$/;"	f	file:
 is_inside_map	map_methods.c	/^int		is_inside_map(float x, float y)$/;"	f
-is_inside_texture	map_methods.c	/^int		is_inside_texture(float x, float y, int txt_width, int txt_height)$/;"	f
+is_inside_sprite	map_methods.c	/^int		is_inside_sprite(float x, float y, int width, int height)$/;"	f
+is_inside_texture	map_methods.c	/^int		is_inside_texture(float x, float y, int width, int height)$/;"	f
 is_inside_window	map_methods.c	/^int		is_inside_window(float x, float y)$/;"	f
 is_map_walls_closed	game_map/map_wall.c	/^int					is_map_walls_closed(t_map *map, t_data *maparr)$/;"	f
 is_ray_facing_down	cub3d.h	/^	int		is_ray_facing_down;$/;"	m	struct:s_ray
@@ -235,7 +237,6 @@ numlen	libft/ft_itoa.c	/^static long	numlen(long n)$/;"	f	file:
 on_key_pressed	input.c	/^static int	on_key_pressed(int key, void *param)$/;"	f	file:
 on_key_released	input.c	/^static int	on_key_released(int key, void *param)$/;"	f	file:
 on_window_closed	input.c	/^static int			on_window_closed(void)$/;"	f	file:
-pixel_get	mlx_helper.c	/^int		pixel_get(int x, int y)$/;"	f
 pixel_put	mlx_helper.c	/^void	pixel_put(float x, float y, int color)$/;"	f
 player	player.c	/^t_player	*player(void)$/;"	f
 player_init	player.c	/^static t_player	*player_init(void)$/;"	f	file:
@@ -294,6 +295,7 @@ settexture	txt.c	/^void			settexture(t_ray *ray)$/;"	f
 setup	cub3d.c	/^static void	setup(const char *map_name)$/;"	f	file:
 so	game_map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
 sp_head	game_map/map.h	/^	t_data	*sp_head;$/;"	m	struct:s_map
+sprite_pixel_get	mlx_helper.c	/^int		sprite_pixel_get(int x, int y)$/;"	f
 square	draw.c	/^void	square(float x, float y, float width, int color)$/;"	f
 str_allocation	libft/ft_split.c	/^static	char	*str_allocation(char const *s, char c, int start)$/;"	f	file:
 str_join	get_next_line/get_next_line_utils.c	/^char		*str_join(char *buffer, char *tmp, int read_return, int i)$/;"	f
@@ -313,6 +315,7 @@ t_sp	game_map/map.h	/^}				t_sp;$/;"	t	typeref:struct:s_sp
 t_txt	cub3d.h	/^}				t_txt;$/;"	t	typeref:struct:s_txt
 t_vars	game_map/map.h	/^}				t_vars;$/;"	t	typeref:struct:s_vars
 texture_init	txt.c	/^void			texture_init(void)$/;"	f
+texture_pixel_get	mlx_helper.c	/^int		texture_pixel_get(int x, int y)$/;"	f
 turn_direction	cub3d.h	/^	int		turn_direction;$/;"	m	struct:s_player
 turn_speed	cub3d.h	/^	float	turn_speed;$/;"	m	struct:s_player
 up	game_map/map.h	/^	char	up;$/;"	m	struct:s_direction

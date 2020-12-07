@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/19 14:46:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/04 18:11:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define MAX_WINDOW_HEIGHT 1440
 # define MIN_WINDOW_WIDTH 100
 # define MIN_WINDOW_HEIGHT 100
+# define TRUE 1
+# define FALSE 0
 
 typedef struct	s_vars
 {

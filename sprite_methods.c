@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/19 14:56:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/07 20:44:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,15 @@ static void	draw_sprite(int x, float distance, float height)
 	{
 		j = (map()->win_height - height) / 2;
 		y_offset = 0;
-		if (i >= 0 && i < map()->win_width && distance < rays[i]->dist)
+		if (i >= 0 && i < map()->win_width && distance < rays()[i]->distance)
 		{
 			while (j < (map()->win_height + height) / 2 - 1)
 			{
-				color = g_texture[4].data[(int)(y_offset / height *
-						g_texture[4].height) * g_texture[4].width +
-					(int)((i - x) / height * g_texture[4].width)];
+				color = sprite_pixel_get((int)(y_offset / height) * (map()->s->h * map()->s->w) , (int)(i - x) / height);
+				if (j < map()->win_height && j >= 0)
+				{
+					pixel_put(i, j, color);
+				}
 				j++;
 				y_offset++;
 			}
@@ -96,8 +98,8 @@ static void	draw_sprite(int x, float distance, float height)
 }
 
 /*
-** Description: sort sprites based on distance from nearest to farthest,
-** then render them as squares on window.
+** sort sprites based on distance from nearest to farthest,then render
+** them as squares on window.
 */
 
 void		render_sprites(void)
@@ -129,14 +131,12 @@ void		render_sprites(void)
 		/ (FOV_ANGLE / map()->win_width) - (sprite_height / 2);
 		draw_sprite(column_index, sprite->dist, sprite_height);
 		head = head->next;
-		if (head == NULL)
-			printf("YOO head is null somehting wrong");
 	}
 }
 
 /*
-** make sure to call this function before game end, otherwise memory leak
-** deallocate sprites memory only if sprite head is exists otherwise do nothing
+** Make sure to call this function before game ends, otherwise memory leak.
+** Deallocate sprites memory only if sprite's head is exists otherwise do nothing.
 */
 
 void		release_sprites(void)
