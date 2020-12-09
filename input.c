@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/07 19:23:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/08 16:54:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static int	on_key_released(int key, void *param)
 
 static int			on_window_closed(void)
 {
+	system("killall afplay");
 	game_exit(0);
 	return (0);
 }

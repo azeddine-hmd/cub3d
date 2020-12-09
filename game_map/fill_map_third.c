@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/10/29 19:33:17 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/09 14:33:27 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		check_map(t_map *map, const char *line, int *p)
 			map->pview = line[i];
 			(*p)++;
 		}
-		if (line[i] != '0' && line[i] != '1' && line[i] != '2'
+		if (line[i] != '0' && line[i] != '1' && line[i] != '2' && line[i] != '3'
 				&& line[i] != 'N' && line[i] != 'S' && line[i] != 'W'
 				&& line[i] != 'E' && line[i] != ' ')
 		{
@@ -57,7 +57,7 @@ void			fill_map(t_map *map, t_data **maparr, const char *line, int *p)
 {
 	const char	*maparr_line;
 
-	maparr_line = (const char*)ft_strdup(line);
+	maparr_line = (const char*)xstrdup(line);
 	if (!maparr_line)
 	{
 		lst_clear(*maparr);

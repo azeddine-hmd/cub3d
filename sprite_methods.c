@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/07 20:44:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/08 18:45:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		linkedlist_bubble_sort(t_data *head)
 	{
 		lsprite = (t_sp*)head->data;
 		rsprite = (t_sp*)head->next->data;
-		if (lsprite->dist > rsprite->dist)
+		if (lsprite->dist < rsprite->dist)
 		{
 			swap(head, head->next);
 			swapped = 1;
@@ -70,6 +70,23 @@ void		linkedlist_bubble_sort(t_data *head)
 
 static void	draw_sprite(int x, float distance, float height)
 {
+	/*
+	float scale = 5;
+	for (int x = 0; x < map()->s->w * scale; x++) {
+		for (int y = 0; y < map()->s->h * scale; y++) {
+			float offset_x = f_mod(x / scale, map()->s->w * scale);
+			float offset_y = f_mod(y / scale, map()->s->h * scale);
+			int color = sprite_pixel_get(offset_x, offset_y);
+			if (color == sprite_pixel_get(0, 0)) {
+				continue ;
+			}
+			float x1 = x + map()->win_width / 2;
+			float y1 = y + map()->win_height / 2;
+			pixel_put(x1, y1, color);
+		}
+	}
+	*/
+
 	int i;
 	int j;
 	int y_offset;
@@ -84,11 +101,22 @@ static void	draw_sprite(int x, float distance, float height)
 		{
 			while (j < (map()->win_height + height) / 2 - 1)
 			{
-				color = sprite_pixel_get((int)(y_offset / height) * (map()->s->h * map()->s->w) , (int)(i - x) / height);
-				if (j < map()->win_height && j >= 0)
+				/*color = g_texture[4].data[(int)(y_offset / height *
+				g_texture[4].height) * g_texture[4].width +
+				(int)((i - x) / height * g_texture[4].width)];*/
+
+				color = sprite_pixel_get(
+						(int)(i - x) / height * map()->s->w,
+						(int)(y_offset / height * map()->s->h)
+						);
+
+				/*if (j < g_window.height && j >= 0 && color != 0x000000)
+					g_data[(j) * g_window.width + (i)] = color;*/
+				if (j < map()->win_height && j >= 0 && color != 0x000000)
 				{
 					pixel_put(i, j, color);
 				}
+
 				j++;
 				y_offset++;
 			}
@@ -122,13 +150,12 @@ void		render_sprites(void)
 	{
 		sprite = (t_sp*)head->data;
 		angle = atan2(sprite->y - player()->y, sprite->x - player()->x);
-		while (angle - rays()[i]->ray_angle > M_PI)
+		while (angle - rays()[0]->ray_angle > M_PI)
 			angle -= 2 * M_PI;
-		while (angle - rays()[i]->ray_angle < -M_PI)
+		while (angle - rays()[0]->ray_angle < -M_PI)
 			angle += 2 * M_PI;
-		sprite_height = (TILE_SIZE / sprite->dist);
-		column_index = (angle - rays()[i]->ray_angle)
-		/ (FOV_ANGLE / map()->win_width) - (sprite_height / 2);
+		sprite_height = (TILE_SIZE / sprite->dist) * (map()->win_width / 2) / tan(FOV_ANGLE / 2);
+		column_index = (angle - rays()[0]->ray_angle) / (FOV_ANGLE / map()->win_width) - (sprite_height / 2);
 		draw_sprite(column_index, sprite->dist, sprite_height);
 		head = head->next;
 	}

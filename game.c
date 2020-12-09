@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/07 20:44:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/09 13:30:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 void	game_exit(int return_signal)
 {
+	system("killall afplay");
 	release_sprites();
 	release_textures();
 	mlx_destroy_image(vars()->mlx, vars()->img);
@@ -61,5 +62,27 @@ void	render(void)
 	minimap_render();
 	rays_render();
 	player_render();
+
+	// testing
+	/*float scale = 8;
+	for (int x = 0; x < map()->s->w * scale; x++) {
+		for (int y = 0; y < map()->s->h * scale; y++) {
+
+
+
+			float offset_x = f_mod(x / scale, map()->s->w * scale);
+			float offset_y = f_mod(y / scale, map()->s->h * scale);
+			int color = sprite_pixel_get(offset_x, offset_y);
+
+
+			if (color == sprite_pixel_get(0, 0)) {
+				continue ;
+			}
+			float x1 = x;
+			float y1 = y;
+			pixel_put(x1, y1, color);
+		}
+	}*/
+
 	mlx_put_image_to_window(vars()->mlx, vars()->win, vars()->img, 0, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/16 11:34:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/08 18:33:31 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	cast(t_ray *ray)
 		float x_to_check = next_horz_touch_x;
 		float y_to_check = next_horz_touch_y + (ray->is_ray_facing_up ? -1 : 0);
 
-		if (has_wall_at(x_to_check, y_to_check))
+		if (has_wall_at(x_to_check, y_to_check) || has_hidden_wall_at(x_to_check, y_to_check))
 		{
 			horz_wall_hit_x = next_horz_touch_x;
 			horz_wall_hit_y = next_horz_touch_y;
@@ -142,7 +142,7 @@ void	cast(t_ray *ray)
 		float x_to_check = next_vert_touch_x - (ray->is_ray_facing_left ? 1 : 0);
 		float y_to_check = next_vert_touch_y;
 
-		if (has_wall_at(x_to_check, y_to_check))
+		if (has_wall_at(x_to_check, y_to_check) || has_hidden_wall_at(x_to_check, y_to_check))
 		{
 			vert_wall_hit_x = next_vert_touch_x;
 			vert_wall_hit_y = next_vert_touch_y;

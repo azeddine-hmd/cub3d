@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:52:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/07 20:43:38 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/08 06:08:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ void	move_player(void)
 		nplayer_y = player()->y + sin(player()->rotation_angle) * move_step;
 		player()->move_forward_or_backward = 1;
 	}
+	else
+	{
+		player()->rotation_angle += player()->turn_direction * player()->turn_speed;
+		player()->rotation_angle = normalize_angle(player()->rotation_angle);
+	}
+
 	if (!has_wall_at(nplayer_x, player()->y) && !has_sprite_at(nplayer_x, player()->y))
 		player()->x = nplayer_x;
 	if (!has_wall_at(player()->x, nplayer_y) && !has_sprite_at(player()->x, nplayer_y))

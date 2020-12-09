@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/07 19:18:04 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/08 18:23:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void			player_render(void);
 */
 
 int				has_wall_at(float x, float y);
+int				has_hidden_wall_at(float x, float y);
 int				has_player_at(float x, float y);
 int				has_sprite_at(float x, float y);
 
@@ -227,5 +228,11 @@ void			release_sprites(void);
 void			set_sprites_distance(void);
 void			linkedlist_bubble_sort(t_data *head);
 void			render_sprites(void);
+
+
+/*
+** file: audio.c
+*/
+void			play_song(void);
 
 #endif

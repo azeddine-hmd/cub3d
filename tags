@@ -18,9 +18,11 @@ CFLAGS	linkedlist/Makefile	/^CFLAGS = -Wall -Werror -Wextra -g$/;"	m
 COLOR_BLACK	cub3d.h	/^# define COLOR_BLACK /;"	d
 COLOR_RED	cub3d.h	/^# define COLOR_RED /;"	d
 COLOR_WHITE	cub3d.h	/^# define COLOR_WHITE /;"	d
+COLOR_YELLOW	cub3d.h	/^# define COLOR_YELLOW /;"	d
 CUB3D_H	cub3d.h	/^# define CUB3D_H$/;"	d
 ERROR_CL	cub3d.c	/^#define ERROR_CL /;"	d	file:
 EXTENSION_ERR	game_map/map_extension.c	/^#define EXTENSION_ERR /;"	d	file:
+FALSE	game_map/map.h	/^# define FALSE /;"	d
 FOV_ANGLE	cub3d.h	/^# define FOV_ANGLE /;"	d
 GET_NEXT_LINE_H	get_next_line/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
 GET_NEXT_LINE_OBJ	Makefile	/^GET_NEXT_LINE_OBJ = get_next_line\/*.o$/;"	m
@@ -62,6 +64,7 @@ SRC	get_next_line/Makefile	/^SRC = get_next_line.c \\$/;"	m
 SRC	libft/Makefile	/^SRC = ft_atoi.c \\$/;"	m
 SRC	linkedlist/Makefile	/^SRC = linkedlist.c \\$/;"	m
 TILE_SIZE	game_map/map.h	/^# define TILE_SIZE /;"	d
+TRUE	game_map/map.h	/^# define TRUE /;"	d
 WINDOW_NAME	game_map/map.h	/^# define WINDOW_NAME /;"	d
 add	linkedlist/linkedlist_utils.c	/^void	add(t_data **head, void *data)$/;"	f
 add_double_pointer	linkedlist/linkedlist_utils.c	/^void	add_double_pointer(char **ptr)$/;"	f
@@ -162,6 +165,7 @@ get_mlx	game_map/map_helper.c	/^void			*get_mlx(void)$/;"	f
 get_next_line	get_next_line/get_next_line.c	/^int				get_next_line(int fd, char **line)$/;"	f
 gettxt	txt.c	/^t_txt	*gettxt(void)$/;"	f
 h	game_map/map.h	/^	int		h;$/;"	m	struct:s_image
+has_hidden_wall_at	collision.c	/^int		has_hidden_wall_at(float x, float y)$/;"	f
 has_player_at	collision.c	/^int		has_player_at(float x, float y)$/;"	f
 has_sprite_at	collision.c	/^int		has_sprite_at(float x, float y)$/;"	f
 has_wall_at	collision.c	/^int		has_wall_at(float x, float y)$/;"	f
@@ -238,6 +242,7 @@ on_key_pressed	input.c	/^static int	on_key_pressed(int key, void *param)$/;"	f	f
 on_key_released	input.c	/^static int	on_key_released(int key, void *param)$/;"	f	file:
 on_window_closed	input.c	/^static int			on_window_closed(void)$/;"	f	file:
 pixel_put	mlx_helper.c	/^void	pixel_put(float x, float y, int color)$/;"	f
+play_song	audio.c	/^void	play_song(void)$/;"	f
 player	player.c	/^t_player	*player(void)$/;"	f
 player_init	player.c	/^static t_player	*player_init(void)$/;"	f	file:
 player_render	player_methods.c	/^void	player_render(void)$/;"	f

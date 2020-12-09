@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:51:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/14 13:02:01 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/09 14:01:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		*xmalloc(size_t size)
 ** 1: node not found in the list.
 */
 
-/*static int	xfree_after_head(t_data *node, void *data)
+static int	xfree_after_head(t_data *node, void *data)
 {
 	t_data *tmp;
 	t_data *node_left;
@@ -73,21 +73,26 @@ void		*xmalloc(size_t size)
 		node = node->next;
 	}
 	return (1);
-}*/
+}
 
 /*
 ** [Description]
 ** search for node that have data and free it.
+** if data is NULL crash prgram.
 */
 
 void		xfree(void *data)
 {
 	t_data	*tmp;
 	t_data	**head;
+	char	*tester;
 
+	if (!data) {
+		tester = (char*)data;
+		char test = *tester;
+		test++;
+	}
 	head = (t_data**)get_head_node();
-	if (!data || !*head)
-		return ;
 	if ((*head)->data == data)
 	{
 		tmp = (*head);
@@ -95,8 +100,7 @@ void		xfree(void *data)
 		free_node(tmp);
 		return ;
 	}
-	//if (xfree_after_head(*head, data))
-		//error_message("trying to free a node that doesn't exist in allocation list");
+	xfree_after_head(*head, data);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/07 19:27:03 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/08 06:04:09 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	minimap_render()
 				color = COLOR_WHITE;
 			else if (content == 2)
 				color = COLOR_YELLOW;
+			else if (content == 3)
+				color = COLOR_WHITE;
 			else
 				color = COLOR_BLACK;
 
