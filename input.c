@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/08 16:54:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/11 19:19:13 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,26 @@ static int	on_key_pressed(int key, void *param)
 		if (!(map()->minimap_scale < 0.1))
 			map()->minimap_scale -= 0.01;
 	}
+	else if (key == KEY_1)
+		play_song(1);
+	else if (key == KEY_2)
+		play_song(2);
+	else if (key == KEY_3)
+		play_song(3);
+	else if (key == KEY_4)
+		play_song(4);
+	else if (key == KEY_5)
+		play_song(5);
+	else if (key == KEY_6)
+		play_song(6);
+	else if (key == KEY_7)
+		play_song(7);
+	else if (key == KEY_8)
+		play_song(8);
+	else if (key == KEY_9)
+		play_song(9);
+	else if (key == KEY_0)
+		play_song(0);
 	game_loop();
 	return (0);
 }
@@ -76,7 +96,7 @@ static int	on_key_released(int key, void *param)
 
 static int			on_window_closed(void)
 {
-	system("killall afplay");
+	system("killall afplay &2>1 >/dev/null");
 	game_exit(0);
 	return (0);
 }

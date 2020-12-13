@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/09 14:16:51 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/11 20:24:31 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
-	  #-fsanitize=address \
+	  -fsanitize=address \
 	  -O3 \
 	  -g \
 
@@ -52,31 +52,32 @@ SRC = cub3d.c \
 	  rays_methods.c \
 	  sprite_methods.c \
 	  audio.c \
+	  screenshot.c \
 
 OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 
 $(NAME):
-	$(MAKE) libft all
-	$(MAKE) get_next_line all
-	$(MAKE) game_map all
-	$(MAKE) linkedlist all
-	ar rc $(LIB) $(LIBFT_OBJ) $(GET_NEXT_LINE_OBJ) $(MAP_OBJ) $(LL_OBJ)
-	$(CC) $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
+	@$(MAKE) libft all
+	@$(MAKE) get_next_line all
+	@$(MAKE) game_map all
+	@$(MAKE) linkedlist all
+	@ar rc $(LIB) $(LIBFT_OBJ) $(GET_NEXT_LINE_OBJ) $(MAP_OBJ) $(LL_OBJ)
+	@$(CC) $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
 
 clean:
-	$(MAKE) libft clean
-	$(MAKE) get_next_line clean
-	$(MAKE) game_map clean
-	$(MAKE) linkedlist clean
-	rm -rf $(OBJ)
+	@$(MAKE) libft clean
+	@$(MAKE) get_next_line clean
+	@$(MAKE) game_map clean
+	@$(MAKE) linkedlist clean
+	@rm -rf $(OBJ)
 
 fclean: clean
-	$(MAKE) libft fclean
-	$(MAKE) get_next_line fclean
-	$(MAKE) game_map fclean
-	$(MAKE) linkedlist fclean
-	rm -rf $(NAME) $(LIB) cub3d.dSYM # remove 'cub3d.dSYM' later
+	@$(MAKE) libft fclean
+	@$(MAKE) get_next_line fclean
+	@$(MAKE) game_map fclean
+	@$(MAKE) linkedlist fclean
+	@rm -rf $(NAME) $(LIB) cub3d.dSYM # remove 'cub3d.dSYM' later
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 14:13:47 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/09 15:01:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,15 +157,14 @@ t_map			*read_map(const char *file_name)
 	read_map_5(localmap);
 	read_map_6(localmap);
 	if (localmap->player_state > 1)
-		error_map(localmap->map->name, "found multiple players.");
+		error_map(localmap->map->name, "multiple players have been found in the map.");
 	if (localmap->player_state < 1)
-		error_map(localmap->map->name, "no player found in the map.");
+		error_map(localmap->map->name, "no player have been found in the map.");
 	if (!is_map_walls_closed(localmap->map, localmap->maparr))
 		error_map(localmap->map->name, "map walls not closed!");
 	localmap->map->rows = lst_size(localmap->maparr);
 	localmap->map->map_height = localmap->map->rows * TILE_SIZE;
 	fill_maparr(localmap->map, localmap->maparr);
-	//lst_clear(localmap->maparr);
 	set_map_information(localmap->map);
 	close(localmap->fd);
 	return (localmap->map);

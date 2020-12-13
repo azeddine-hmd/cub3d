@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/08 05:39:51 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:31:27 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ void	render_projection_walls(void)
         wall_bottom_pixel = (map()->win_height / 2) + (wall_strip_height / 2);
         wall_bottom_pixel = wall_bottom_pixel > map()->win_height ? map()->win_height : wall_bottom_pixel;
 
+		// seilling projection
 		int	*crgb = map()->crgb;
 		y = -1;
 		while (++y < wall_top_pixel)
 			pixel_put(i, y, rgb(crgb[0], crgb[1], crgb[2]));
 
+		// applying textures on walls
 		settexture(ray);
 
 		// applying texture on walls
@@ -68,6 +70,7 @@ void	render_projection_walls(void)
 			pixel_put(i, y, texture_pixel_get(offset_x, offset_y));
 		}
 
+		// floor projection
 		int *frgb = map()->frgb;
 		y = wall_bottom_pixel - 1;
 		while (++y < map()->win_height)

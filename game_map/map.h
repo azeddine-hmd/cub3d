@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/04 18:11:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:54:39 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_vars
 	void *mlx;
 	void *win;
 	void *img;
+	void *fimg;
 }				t_vars;
 
 typedef struct	s_image

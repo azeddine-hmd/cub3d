@@ -33,6 +33,7 @@ static t_player	*player_init(void)
 	player->move_right = 0;
 	player->move_right = 0;
 	player->move_forward_or_backward = 0;
+	player->look = 100;
 	return (player);
 }
 

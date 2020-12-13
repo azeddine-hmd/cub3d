@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/08 18:23:30 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/11 20:00:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # define FOV_ANGLE (60 * (M_PI / 180))
 # define INT_MAX 2147483647
+# define MAX_SONGS 2
 
 /*
 ** Colors
@@ -24,10 +25,10 @@
 # define COLOR_BLACK rgb(0, 0, 0)
 # define COLOR_WHITE rgb(255, 255, 255)
 # define COLOR_RED rgb(255, 0, 0)
-# define COLOR_YELLOW rgb(255, 255, 0)
+# define COLOR_ORANGE rgb(255, 165, 0)
 
 /*
-** Keys macros
+** Keys
 */
 
 # define KEY_ESC 53
@@ -39,6 +40,16 @@
 # define KEY_D 2
 # define KEY_O 31
 # define KEY_P 35
+# define KEY_0 29
+# define KEY_1 18
+# define KEY_2 19
+# define KEY_3 20
+# define KEY_4 21
+# define KEY_5 23
+# define KEY_6 22
+# define KEY_7 26
+# define KEY_8 28
+# define KEY_9 25
 
 typedef struct	s_point
 {
@@ -60,6 +71,7 @@ typedef struct	s_player
 	int		move_right;
 	int		move_left;
 	int		move_forward_or_backward;
+	int		look;
 }				t_player;
 
 typedef struct	s_ray
@@ -83,6 +95,20 @@ typedef struct	s_txt
 	int		height;
 }				t_txt;
 
+typedef struct	s_bitmapheader{
+	uint32_t	file_size;
+	uint32_t	off_bits;
+	uint32_t	size;
+	uint32_t	info_size;
+	int32_t		width;
+	int32_t		height;
+	uint16_t	planes;
+	uint16_t	bit_count;
+	uint32_t	image_size;
+	int			width_in_bytes;
+	int			fd;
+}				t_bitmapheader;
+
 /*
 ** file: math_helper.c
 */
@@ -104,11 +130,12 @@ void			rect(t_point p, int width, int height, int color);
 ** file: map_methods.c
 */
 
+void			minimap_sprite_render(void);
 void			minimap_render(void);
 int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
-int				is_inside_texture( float x, float y, int width, int height);
-int				is_inside_sprite( float x, float y, int width, int height);
+int				is_inside_texture(float x, float y, int width, int height);
+int				is_inside_sprite(float x, float y, int width, int height);
 
 /*
 ** file: player.c
@@ -144,6 +171,7 @@ void			input_handler(void);
 
 int				rgb(int r, int g, int b);
 void			pixel_put(float x, float y, int color);
+int				get_window_color(float x, float y);
 int				texture_pixel_get(int x, int y);
 int				sprite_pixel_get(int x, int y);
 
@@ -229,10 +257,15 @@ void			set_sprites_distance(void);
 void			linkedlist_bubble_sort(t_data *head);
 void			render_sprites(void);
 
-
 /*
 ** file: audio.c
 */
-void			play_song(void);
+void			play_song(int id);
+
+/*
+** file: screenshot.c
+*/
+
+void			take_screenshot(void);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:32:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 10:43:29 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/11 18:43:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-static void	convert_spacesto_wall(char *maparr)
+/*static void	convert_spacesto_wall(char *maparr)
 {
 	int i;
 
@@ -20,7 +20,7 @@ static void	convert_spacesto_wall(char *maparr)
 	while (maparr[++i])
 		if (maparr[i] == ' ')
 			maparr[i] = '1';
-}
+}*/
 
 static void	set_initial_player_position(
 		const char *maparr,
@@ -43,7 +43,6 @@ static void	set_initial_player_position(
 			pl = maparr[x + y * map_cols];
 			if (pl == 'N' || pl == 'S' || pl == 'W' || pl == 'E')
 			{
-				//set_sprite_initial_position(map, x, y);
 				flag = 0;
 				break ;
 			}
@@ -57,7 +56,7 @@ static void	set_initial_player_position(
 
 void		set_map_information(t_map *map)
 {
-	convert_spacesto_wall(map->maparr);
+	//convert_spacesto_wall(map->maparr);
 	set_initial_player_position(map->maparr, map->rows, map->cols, map);
 	map->num_rays = map->win_width;
 	map->minimap_scale = 0.1;

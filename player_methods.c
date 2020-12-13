@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:52:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/08 06:08:11 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/09 20:05:55 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	move_player(void)
 	float nplayer_x;
 	float nplayer_y;
 
-	nplayer_x = 0.0;
-	nplayer_y = 0.0;
+	nplayer_x = player()->x;
+	nplayer_y = player()->y;
 	if (player()->move_right)
 	{
 		nplayer_x = player()->x + cos(player()->rotation_angle + M_PI / 2) * player()->walk_speed;
@@ -61,10 +61,15 @@ void	player_render(void)
 	p0.x = player()->x * map()->minimap_scale;
 	p0.y = player()->y * map()->minimap_scale;
 	p1.x = p0.x + cos(player()->rotation_angle)
-		* TILE_SIZE * 4 * map()->minimap_scale;
+		* TILE_SIZE * 2 * map()->minimap_scale;
 	p1.y = p0.y + sin(player()->rotation_angle)
-		* TILE_SIZE * 4 * map()->minimap_scale;
+		* TILE_SIZE * 2 * map()->minimap_scale;
 
 	line(p0, p1, COLOR_RED);
-	square(player()->x * map()->minimap_scale - 2, player()->y * map()->minimap_scale - 2, 4, COLOR_RED);
+	square(
+			player()->x * map()->minimap_scale - 2,
+			player()->y * map()->minimap_scale - 2,
+			4,
+			COLOR_RED
+	);
 }
