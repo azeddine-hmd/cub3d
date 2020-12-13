@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 06:22:58 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/11 19:20:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/13 20:21:24 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	play_song(int id)
 {
 	char command[128];
 
-	system("killall mplayer >/dev/null 2>/dev/null");
+	system("killall afplay >/dev/null 2>/dev/null");
 	ft_bzero(command, 128);
 	sprintf(
 			command,
-			"mplayer -loop 0 </dev/null >/dev/null 2&>1 soundtracks/%d.mp3 &",
+			"afplay </dev/null >/dev/null 2&>1 soundtracks/%d.mp3 &",
 			id);
 	system(command);
 }

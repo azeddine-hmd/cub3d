@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/11 20:00:54 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:54:49 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ typedef struct	s_player
 	int		move_right;
 	int		move_left;
 	int		move_forward_or_backward;
-	int		look;
 }				t_player;
 
 typedef struct	s_ray

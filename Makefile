@@ -6,19 +6,16 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/11 20:24:31 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/13 20:12:18 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-LIB = libcub3d.a
-
-# include internal objects
-LIBFT_OBJ = libft/*.o
-GET_NEXT_LINE_OBJ = get_next_line/*.o
-MAP_OBJ = game_map/*.o
-LL_OBJ = linkedlist/*.o
+LIBS = libft/libft.a \
+	   get_next_line/libget_next_line.a \
+	   linkedlist/liblinkedlist.a \
+	   game_map/libmap.a \
 
 CC = gcc
 
@@ -30,7 +27,6 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -O3 \
 	  -g \
 
-MAKE = make -C
 
 SRC = cub3d.c \
 	  vars.c \
@@ -56,28 +52,29 @@ SRC = cub3d.c \
 
 OBJ = ${SRC:.c=.o}
 
+MAKE = make -C
+
 all: $(NAME)
 
 $(NAME):
-	@$(MAKE) libft all
-	@$(MAKE) get_next_line all
-	@$(MAKE) game_map all
-	@$(MAKE) linkedlist all
-	@ar rc $(LIB) $(LIBFT_OBJ) $(GET_NEXT_LINE_OBJ) $(MAP_OBJ) $(LL_OBJ)
-	@$(CC) $(CFLAGS) $(SRC) $(LIB) -o $(NAME)
+	@ $(MAKE) libft
+	@ $(MAKE) get_next_line
+	@ $(MAKE) game_map
+	@ $(MAKE) linkedlist
+	@ $(CC) $(CFLAGS) $(SRC) $(LIBS) -o $(NAME)
 
 clean:
-	@$(MAKE) libft clean
-	@$(MAKE) get_next_line clean
-	@$(MAKE) game_map clean
-	@$(MAKE) linkedlist clean
-	@rm -rf $(OBJ)
+	@ $(MAKE) libft clean
+	@ $(MAKE) get_next_line clean
+	@ $(MAKE) game_map clean
+	@ $(MAKE) linkedlist clean
+	@ rm -rf $(OBJ)
 
 fclean: clean
-	@$(MAKE) libft fclean
-	@$(MAKE) get_next_line fclean
-	@$(MAKE) game_map fclean
-	@$(MAKE) linkedlist fclean
-	@rm -rf $(NAME) $(LIB) cub3d.dSYM # remove 'cub3d.dSYM' later
+	@ $(MAKE) libft fclean
+	@ $(MAKE) get_next_line fclean
+	@ $(MAKE) game_map fclean
+	@ $(MAKE) linkedlist fclean
+	@ rm -rf $(NAME)
 
 re: fclean all

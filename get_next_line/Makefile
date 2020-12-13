@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:17:13 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/11 18:53:26 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/13 20:10:25 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,18 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = get_next_line.c \
 	  get_next_line_utils.c \
 
-OBJ =	${SRC:.c=.o}
+OBJ = ${SRC:.c=.o}
 
 all: $(NAME)
 
 $(NAME):
-	@$(CC) $(CFLAGS) -c $(SRC)
-	@ar rc $(NAME) $(OBJ)
+	@ $(CC) $(CFLAGS) -c $(SRC)
+	@ ar rc $(NAME) $(OBJ)
 
 clean:
-	@rm -f $(OBJ)
+	@ rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	@ rm -f $(NAME)
 
 re:	fclean all

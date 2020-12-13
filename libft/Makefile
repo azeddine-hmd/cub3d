@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/11 21:04:24 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/13 20:09:27 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +64,13 @@ OBJ = ${SRC:.c=.o}
 all: $(NAME)
 
 $(NAME):
-	@$(CC) $(CFLAGS) -c $(SRC)
-	@ar rc $(NAME) $(OBJ)
+	@ $(CC) $(CFLAGS) -c $(SRC)
+	@ ar rc $(NAME) $(OBJ)
 
 clean:
-	@rm -f $(OBJ)
+	@ rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	@ rm -f $(NAME)
 
 re:	fclean all

@@ -6,15 +6,16 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:16:47 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/11 18:53:08 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/13 20:11:30 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = map.a
+NAME = libmap.a
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra \
+		 -g \
 
 SRC = map.c \
 	  fill_directions.c \
@@ -36,13 +37,13 @@ OBJ = ${SRC:.c=.o}
 all: $(NAME)
 
 $(NAME):
-	@$(CC) $(CFLAGS) -c $(SRC)
-	@ar rc $(NAME) $(OBJ)
+	@ $(CC) $(CFLAGS) -c $(SRC)
+	@ ar rc $(NAME) $(OBJ)
 
 clean:
-	@rm -f $(OBJ)
+	@ rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	@ rm -f $(NAME)
 
 re:	fclean all
