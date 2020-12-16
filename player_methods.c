@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 03:06:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:50:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	player_render(void)
 	t_point p1;
 	int		line_height;
 
+	if (map()->enable_minimap == 0)
+		return ;
 	p0.x = player()->x * map()->minimap_scale;
 	p0.y = player()->y * map()->minimap_scale;
 	line_height = 2;

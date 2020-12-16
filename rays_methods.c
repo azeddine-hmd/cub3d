@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 19:04:08 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:53:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	rays_render(void)
 	t_point p1;
 	int		col;
 
+	if (map()->enable_minimap == 0)
+		return ;
 	p0.x = player()->x * map()->minimap_scale;
 	p0.y = player()->y * map()->minimap_scale;
 	col = -1;

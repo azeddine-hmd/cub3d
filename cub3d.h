@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 03:18:58 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 04:12:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define KEY_D 2
 # define KEY_O 31
 # define KEY_P 35
+# define KEY_M 46
 # define KEY_0 29
 # define KEY_1 18
 # define KEY_2 19
@@ -280,7 +281,6 @@ void			cast_all_rays(void);
 ** file: sprite_methods.c
 */
 
-void			release_sprites(void);
 void			set_sprites_distance(void);
 void			linkedlist_bubble_sort(t_data *head);
 void			render_sprites(void);
@@ -337,7 +337,6 @@ void			wall_projection(int col, t_ray *ray, t_wall *wall);
 
 void			cast(t_ray *ray);
 
-
 /*
 ** file: horz_intersection.c
 */
@@ -349,5 +348,11 @@ void			horizontal_intersection(t_ray *ray, t_horz *horz);
 */
 
 void			vertical_intersection(t_ray *ray, t_vert *vert);
+
+/*
+** file: release_sprites.c
+*/
+
+void		release_sprites(void);
 
 #endif

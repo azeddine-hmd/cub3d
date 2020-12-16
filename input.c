@@ -6,11 +6,22 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 02:38:01 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:53:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	minimap_binding(int key)
+{
+	if (key == KEY_M)
+	{
+		if (map()->enable_minimap == 0)
+			map()->enable_minimap = 1;
+		else
+			map()->enable_minimap = 0;
+	}
+}
 
 static int	on_key_pressed(int key, void *param)
 {
@@ -18,6 +29,7 @@ static int	on_key_pressed(int key, void *param)
 	global_binding(key);
 	rotation_binding(key);
 	movement_binding(key);
+	minimap_binding(key);
 	minimap_resezing_binding(key);
 	render();
 	return (0);
@@ -40,6 +52,8 @@ static int	on_key_released(int key, void *param)
 		player()->walk_direction = 0;
 	else if (key == KEY_D)
 		player()->move_right = FALSE;
+	else if (key == KEY_M)
+		render();
 	return (0);
 }
 
