@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:16:47 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/13 20:11:30 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/16 04:26:43 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = libmap.a
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra \
-		 -g \
 
 SRC = map.c \
 	  fill_directions.c \

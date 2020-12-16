@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:17:13 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/13 20:10:25 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/16 04:26:31 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libget_next_line.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror \
 
 SRC = get_next_line.c \
 	  get_next_line_utils.c \
