@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:57:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/04 11:18:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:17:58 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_sp	*new_sprite(int x, int y)
 	return (sp);
 }
 
-void			set_sp_initial_position(t_map *map)
+void		set_sp_initial_position(t_map *map)
 {
 	int x;
 	int	y;

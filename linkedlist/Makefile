@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/13 20:10:03 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/16 03:14:12 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = linkedlist.c \
 	  allocation.c \
 	  error.c \
 	  swap.c \
+	  utils.c \
 
 OBJ = ${SRC:.c=.o}
 

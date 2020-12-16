@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 18:59:55 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:14:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int				lst_size(t_data *head);
 t_data			**get_head_node(void);
 void			*xmalloc(size_t size);
 void			xfree(void *data);
-char			*xstrdup(const char *s);
-char			*xstrjoin(const char *s1, const char *s2);
 
 /*
 ** file: error.c
@@ -67,5 +65,13 @@ void			error_special(const char *message);
 */
 
 void			swap(t_data *this, t_data *other);
+
+
+/*
+** file: utils.c
+*/
+
+char			*xstrdup(const char *s);
+char			*xstrjoin(const char *s1, const char *s2);
 
 #endif

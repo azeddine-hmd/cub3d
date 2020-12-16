@@ -6,21 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:32:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/11 18:43:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:17:43 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
-
-/*static void	convert_spacesto_wall(char *maparr)
-{
-	int i;
-
-	i = -1;
-	while (maparr[++i])
-		if (maparr[i] == ' ')
-			maparr[i] = '1';
-}*/
 
 static void	set_initial_player_position(
 		const char *maparr,
@@ -56,7 +46,6 @@ static void	set_initial_player_position(
 
 void		set_map_information(t_map *map)
 {
-	//convert_spacesto_wall(map->maparr);
 	set_initial_player_position(map->maparr, map->rows, map->cols, map);
 	map->num_rays = map->win_width;
 	map->minimap_scale = 0.1;

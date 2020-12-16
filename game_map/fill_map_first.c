@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:46:25 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:22:33 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		fill_no(t_map *map, const char **strings)
 
 	if (!have_strings(strings, 1))
 		error_map(map->name,
-				"found less or more than one argumment in 'no' texture.");
+				"found less or more than one argumment in 'NO' texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
@@ -84,7 +84,7 @@ void		fill_so(t_map *map, const char **strings)
 
 	if (!have_strings(strings, 1))
 		error_map(map->name,
-				"found less or more than one argumment in 'so'' texture.");
+				"found less or more than one argumment in 'SO' texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])
@@ -109,7 +109,7 @@ void		fill_we(t_map *map, const char **strings)
 
 	if (!have_strings(strings, 1))
 		error_map(map->name,
-				"found less or more than one argumment in 'we' texture.");
+				"found less or more than one argumment in 'WE' texture.");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (strings[++i])

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 06:27:39 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:08:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,18 +107,14 @@ void		render_sprites(void)
 	t_data	*head;
 	t_sp	*sprite;
 	float	angle;
-	int		sp_size;
 	float	sprite_height;
 	int		column_index;
-	int		i;
 
 	head = map()->sp_head;
 	if (!head)
 		return ;
-	sp_size = lst_size(head);
 	linkedlist_bubble_sort(head);
-	i = -1;
-	while (++i < sp_size)
+	while (head)
 	{
 		sprite = (t_sp*)head->data;
 		angle = atan2(sprite->y - player()->y, sprite->x - player()->x);

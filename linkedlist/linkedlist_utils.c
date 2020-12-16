@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/16 14:08:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:16:49 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	xfree_double_pointer(char **ptr)
 ** int: size of list.
 */
 
-int				lst_size(t_data *head)
+int		lst_size(t_data *head)
 {
 	int	size;
 

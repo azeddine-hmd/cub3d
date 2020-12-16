@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 18:21:23 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:06:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	player_render(void)
 	p1.y = p0.y + sin(player()->rotation_angle) *
 		(TILE_SIZE * line_height * map()->minimap_scale);
 	line(p0, p1, COLOR_RED);
-
 	square(
 			player()->x * map()->minimap_scale - 2,
 			player()->y * map()->minimap_scale - 2,
