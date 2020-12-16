@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/10 19:49:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 05:31:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_ray	**rays(void)
 			game_exit(1);
 	}
 	return (rays);
-
 }
 
 void	rays_init(void)

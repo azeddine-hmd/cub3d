@@ -4,14 +4,15 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+AUDIO_PLAYER	cub3d.h	/^# define AUDIO_PLAYER /;"	d
 BUFFER_SIZE	get_next_line/get_next_line.h	/^# define BUFFER_SIZE /;"	d
-CC	Makefile	/^CC = gcc$/;"	m
+CC	Makefile	/^CC = clang$/;"	m
 CC	game_map/Makefile	/^CC = gcc$/;"	m
 CC	get_next_line/Makefile	/^CC = gcc$/;"	m
 CC	libft/Makefile	/^CC = gcc$/;"	m
 CC	linkedlist/Makefile	/^CC = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -Wall -Werror -Wextra \\$/;"	m
-CFLAGS	game_map/Makefile	/^CFLAGS = -Wall -Werror -Wextra -g$/;"	m
+CFLAGS	game_map/Makefile	/^CFLAGS = -Wall -Werror -Wextra \\$/;"	m
 CFLAGS	get_next_line/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	linkedlist/Makefile	/^CFLAGS = -Wall -Werror -Wextra$/;"	m
@@ -25,7 +26,6 @@ EXTENSION_ERR	game_map/map_extension.c	/^#define EXTENSION_ERR /;"	d	file:
 FALSE	game_map/map.h	/^# define FALSE /;"	d
 FOV_ANGLE	cub3d.h	/^# define FOV_ANGLE /;"	d
 GET_NEXT_LINE_H	get_next_line/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
-GET_NEXT_LINE_OBJ	Makefile	/^GET_NEXT_LINE_OBJ = get_next_line\/*.o$/;"	m
 INT_MAX	cub3d.h	/^# define INT_MAX /;"	d
 KEY_0	cub3d.h	/^# define KEY_0 /;"	d
 KEY_1	cub3d.h	/^# define KEY_1 /;"	d
@@ -46,27 +46,24 @@ KEY_P	cub3d.h	/^# define KEY_P /;"	d
 KEY_RIGHT_ARROW	cub3d.h	/^# define KEY_RIGHT_ARROW /;"	d
 KEY_S	cub3d.h	/^# define KEY_S /;"	d
 KEY_W	cub3d.h	/^# define KEY_W /;"	d
-LIB	Makefile	/^LIB = libcub3d.a$/;"	m
 LIBFT_H	libft/libft.h	/^# define LIBFT_H$/;"	d
-LIBFT_OBJ	Makefile	/^LIBFT_OBJ = libft\/*.o$/;"	m
+LIBS	Makefile	/^LIBS = libft\/libft.a \\$/;"	m
 LINKEDLIST_H	linkedlist/linkedlist.h	/^# define LINKEDLIST_H$/;"	d
-LL_OBJ	Makefile	/^LL_OBJ = linkedlist\/*.o$/;"	m
 MAKE	Makefile	/^MAKE = make -C$/;"	m
 MAP_H	game_map/map.h	/^# define MAP_H$/;"	d
-MAP_OBJ	Makefile	/^MAP_OBJ = game_map\/*.o$/;"	m
 MAX_SONGS	cub3d.h	/^# define MAX_SONGS /;"	d
 MAX_WINDOW_HEIGHT	game_map/map.h	/^# define MAX_WINDOW_HEIGHT /;"	d
 MAX_WINDOW_WIDTH	game_map/map.h	/^# define MAX_WINDOW_WIDTH /;"	d
 MIN_WINDOW_HEIGHT	game_map/map.h	/^# define MIN_WINDOW_HEIGHT /;"	d
 MIN_WINDOW_WIDTH	game_map/map.h	/^# define MIN_WINDOW_WIDTH /;"	d
 NAME	Makefile	/^NAME = cub3D$/;"	m
-NAME	game_map/Makefile	/^NAME = map.a$/;"	m
+NAME	game_map/Makefile	/^NAME = libmap.a$/;"	m
 NAME	get_next_line/Makefile	/^NAME = libget_next_line.a$/;"	m
 NAME	libft/Makefile	/^NAME = libft.a$/;"	m
-NAME	linkedlist/Makefile	/^NAME = linkedlist.a$/;"	m
+NAME	linkedlist/Makefile	/^NAME = liblinkedlist.a$/;"	m
 OBJ	Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
 OBJ	game_map/Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
-OBJ	get_next_line/Makefile	/^OBJ =	${SRC:.c=.o}$/;"	m
+OBJ	get_next_line/Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
 OBJ	libft/Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
 OBJ	linkedlist/Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
 SRC	Makefile	/^SRC = cub3d.c \\$/;"	m
@@ -83,22 +80,27 @@ add_sp	game_map/map_wall.c	/^static void			add_sp(char *line, unsigned int start
 allocate_line	get_next_line/get_next_line_utils.c	/^int			allocate_line(char **line, char **buffer)$/;"	f
 bit_count	cub3d.h	/^	uint16_t	bit_count;$/;"	m	struct:s_bitmapheader
 buffer	get_next_line/get_next_line.h	/^	char			*buffer;$/;"	m	struct:s_list
-cast	rays_methods.c	/^void	cast(t_ray *ray)$/;"	f
+cast	cast.c	/^void	cast(t_ray *ray)$/;"	f
 cast_all_rays	rays_methods.c	/^void	cast_all_rays(void)$/;"	f
+ceilling_projection	projection_helper.c	/^void	ceilling_projection(int col, t_wall *wall)$/;"	f
 check_allfilled	game_map/check_allfilled.c	/^void	check_allfilled(t_map *map)$/;"	f
 check_equality	libft/ft_strnstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_file_extension	game_map/map_extension.c	/^void	check_file_extension(const char *file_name)$/;"	f
 check_map	game_map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line, int *p)$/;"	f	file:
 cols	game_map/map.h	/^	int		cols;$/;"	m	struct:s_map
+correct_wall_distance	cub3d.h	/^	float		correct_wall_distance;$/;"	m	struct:s_wall
 count_words	libft/ft_split.c	/^static	int		count_words(char const *s, char c)$/;"	f	file:
 crgb	game_map/map.h	/^	int		crgb[3];$/;"	m	struct:s_map
 data	linkedlist/linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
 dist	game_map/map.h	/^	float	dist;$/;"	m	struct:s_sp
 distance	cub3d.h	/^	float	distance;$/;"	m	struct:s_ray
 distance_between_points	math_helper.c	/^float	distance_between_points(t_point p1, t_point p2)$/;"	f
+distance_proj_plane	cub3d.h	/^	float		distance_proj_plane;$/;"	m	struct:s_wall
 down	game_map/map.h	/^	char	down;$/;"	m	struct:s_direction
+draw_minimap	map_methods.c	/^void		draw_minimap(int x, int y)$/;"	f
 draw_sprite	sprite_methods.c	/^static void	draw_sprite(int x, float distance, float height)$/;"	f	file:
+draw_sprite_minimap	map_methods.c	/^static void	draw_sprite_minimap(int x, int y)$/;"	f	file:
 ea	game_map/map.h	/^	t_image	*ea;$/;"	m	struct:s_map
 error	linkedlist/error.c	/^void	error(void)$/;"	f
 error_map	linkedlist/error.c	/^void	error_map(const char *file_name, const char *message)$/;"	f
@@ -122,6 +124,7 @@ fill_r_norm	game_map/fill_map_first.c	/^static void	fill_r_norm(t_map *map, cons
 fill_s	game_map/fill_map_second.c	/^void		fill_s(t_map *map, const char **strings)$/;"	f
 fill_so	game_map/fill_map_first.c	/^void		fill_so(t_map *map, const char **strings)$/;"	f
 fill_we	game_map/fill_map_first.c	/^void		fill_we(t_map *map, const char **strings)$/;"	f
+floor_projection	projection_helper.c	/^void	floor_projection(int col, t_wall *wall)$/;"	f
 free_node	linkedlist/linkedlist.c	/^void	free_node(t_data *node)$/;"	f
 frgb	game_map/map.h	/^	int		frgb[3];$/;"	m	struct:s_map
 ft_atoi	libft/ft_atoi.c	/^int		ft_atoi(const char *str)$/;"	f
@@ -168,8 +171,8 @@ ft_strtrim_helper	libft/ft_strtrim.c	/^static char	*ft_strtrim_helper(char const
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_tolower	libft/ft_tolower.c	/^int		ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int		ft_toupper(int c)$/;"	f
-game_exit	game.c	/^void	game_exit(int return_signal)$/;"	f
-game_loop	game.c	/^void	game_loop(void)$/;"	f
+game_exit	game.c	/^void		game_exit(int return_signal)$/;"	f
+game_loop	game.c	/^void		game_loop(void)$/;"	f
 get_colors	screenshot.c	/^int		*get_colors(int color)$/;"	f
 get_fd_buffer	get_next_line/get_next_line.c	/^static char		**get_fd_buffer(int fd, t_list **buffers)$/;"	f	file:
 get_head_node	linkedlist/allocation.c	/^t_data		**get_head_node(void)$/;"	f
@@ -177,8 +180,8 @@ get_initial_angle	player.c	/^static float	get_initial_angle(void)$/;"	f	file:
 get_length	libft/ft_split.c	/^static	int		get_length(char const *s, int c, int start)$/;"	f	file:
 get_mlx	game_map/map_helper.c	/^void			*get_mlx(void)$/;"	f
 get_next_line	get_next_line/get_next_line.c	/^int				get_next_line(int fd, char **line)$/;"	f
-get_window_color	mlx_helper.c	/^int		get_window_color(float x, float y)$/;"	f
 gettxt	txt.c	/^t_txt	*gettxt(void)$/;"	f
+global_binding	binding.c	/^void	global_binding(int key)$/;"	f
 h	game_map/map.h	/^	int		h;$/;"	m	struct:s_image
 has_hidden_wall_at	collision.c	/^int		has_hidden_wall_at(float x, float y)$/;"	f
 has_player_at	collision.c	/^int		has_player_at(float x, float y)$/;"	f
@@ -201,10 +204,10 @@ init_localmap	game_map/map_utils.c	/^t_localmap	*init_localmap(void)$/;"	f
 initial_pos	game_map/map.h	/^	int		initial_pos[2];$/;"	m	struct:s_map
 input_handler	input.c	/^void		input_handler(void)$/;"	f
 integer_length	libft/ft_putnbr_fd.c	/^static int	integer_length(int nb)$/;"	f	file:
-is_inside_map	map_methods.c	/^int		is_inside_map(float x, float y)$/;"	f
-is_inside_sprite	map_methods.c	/^int		is_inside_sprite(float x, float y, int width, int height)$/;"	f
-is_inside_texture	map_methods.c	/^int		is_inside_texture(float x, float y, int width, int height)$/;"	f
-is_inside_window	map_methods.c	/^int		is_inside_window(float x, float y)$/;"	f
+is_inside_map	protection.c	/^int		is_inside_map(float x, float y)$/;"	f
+is_inside_sprite	protection.c	/^int		is_inside_sprite(float x, float y, int width, int height)$/;"	f
+is_inside_texture	protection.c	/^int		is_inside_texture(float x, float y, int width, int height)$/;"	f
+is_inside_window	protection.c	/^int		is_inside_window(float x, float y)$/;"	f
 is_map_walls_closed	game_map/map_wall.c	/^int					is_map_walls_closed(t_map *map, t_data *maparr)$/;"	f
 is_ray_facing_down	cub3d.h	/^	int		is_ray_facing_down;$/;"	m	struct:s_ray
 is_ray_facing_left	cub3d.h	/^	int		is_ray_facing_left;$/;"	m	struct:s_ray
@@ -238,14 +241,19 @@ map_time	game_map/map.h	/^	int		map_time;$/;"	m	struct:s_localmap
 map_width	game_map/map.h	/^	int		map_width;$/;"	m	struct:s_map
 maparr	game_map/map.h	/^	char	*maparr;$/;"	m	struct:s_map
 maparr	game_map/map.h	/^	t_data	*maparr;$/;"	m	struct:s_localmap
-minimap_render	map_methods.c	/^void	minimap_render()$/;"	f
+minimap_render	map_methods.c	/^void		minimap_render(void)$/;"	f
+minimap_resezing_binding	binding.c	/^void	minimap_resezing_binding(int key)$/;"	f
 minimap_scale	game_map/map.h	/^	float	minimap_scale;$/;"	m	struct:s_map
-minimap_sprite_render	map_methods.c	/^void	minimap_sprite_render(void)$/;"	f
+minimap_sprite_render	map_methods.c	/^void		minimap_sprite_render(void)$/;"	f
 mlx	game_map/map.h	/^	void *mlx;$/;"	m	struct:s_vars
+move	movement.c	/^void	move(float *move_step, float *nplayer_x, float *nplayer_y)$/;"	f
 move_forward_or_backward	cub3d.h	/^	int		move_forward_or_backward;$/;"	m	struct:s_player
 move_left	cub3d.h	/^	int		move_left;$/;"	m	struct:s_player
+move_left	movement.c	/^void	move_left(float *nplayer_x, float *nplayer_y)$/;"	f
 move_player	player_methods.c	/^void	move_player(void)$/;"	f
 move_right	cub3d.h	/^	int		move_right;$/;"	m	struct:s_player
+move_right	movement.c	/^void	move_right(float *nplayer_x, float *nplayer_y)$/;"	f
+movement_binding	binding.c	/^void	movement_binding(int key)$/;"	f
 name	game_map/map.h	/^	char	*name;$/;"	m	struct:s_map
 negative_condition	libft/ft_itoa.c	/^static char	*negative_condition(long n)$/;"	f	file:
 new_map	game_map/map_utils.c	/^t_map		*new_map(void)$/;"	f
@@ -254,23 +262,27 @@ new_sprite	game_map/sprite.c	/^static t_sp	*new_sprite(int x, int y)$/;"	f	file:
 next	get_next_line/get_next_line.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list::s_list
 next	linkedlist/linkedlist.h	/^	struct s_data	*next;$/;"	m	struct:s_data	typeref:struct:s_data::s_data
 no	game_map/map.h	/^	t_image	*no;$/;"	m	struct:s_map
+no_movement	movement.c	/^void	no_movement(void)$/;"	f
 norm	game_map/fill_directions.c	/^static void			norm(t_direction *dire, char *previous,$/;"	f	file:
-normalize_angle	math_helper.c	/^float	normalize_angle(float angle) {$/;"	f
+normalize_angle	math_helper.c	/^float	normalize_angle(float angle)$/;"	f
 norminette_helper	libft/ft_split.c	/^static	char	**norminette_helper(char const *s, char c, char **str, int j)$/;"	f	file:
 num_rays	game_map/map.h	/^	int		num_rays;$/;"	m	struct:s_map
 numlen	libft/ft_itoa.c	/^static long	numlen(long n)$/;"	f	file:
 off_bits	cub3d.h	/^	uint32_t	off_bits;$/;"	m	struct:s_bitmapheader
 on_key_pressed	input.c	/^static int	on_key_pressed(int key, void *param)$/;"	f	file:
 on_key_released	input.c	/^static int	on_key_released(int key, void *param)$/;"	f	file:
-on_window_closed	input.c	/^static int			on_window_closed(void)$/;"	f	file:
+on_window_closed	input.c	/^static int	on_window_closed(void)$/;"	f	file:
+pixel_get	mlx_helper.c	/^int		pixel_get(float x, float y)$/;"	f
 pixel_put	mlx_helper.c	/^void	pixel_put(float x, float y, int color)$/;"	f
 planes	cub3d.h	/^	uint16_t	planes;$/;"	m	struct:s_bitmapheader
-play_song	audio.c	/^void	play_song(int id)$/;"	f
-player	player.c	/^t_player	*player(void)$/;"	f
+play_song	audio.c	/^void	play_song(void)$/;"	f
+player	player.c	/^t_player		*player(void)$/;"	f
 player_init	player.c	/^static t_player	*player_init(void)$/;"	f	file:
 player_render	player_methods.c	/^void	player_render(void)$/;"	f
+player_render	player_methods_cp.c	/^void	player_render(void)$/;"	f
 player_state	game_map/map.h	/^	int		player_state;$/;"	m	struct:s_localmap
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
+projection	projection.c	/^static void	projection(t_ray *ray, int col)$/;"	f	file:
 pview	game_map/map.h	/^	char	pview;$/;"	m	struct:s_map
 ray_angle	cub3d.h	/^	float	ray_angle;$/;"	m	struct:s_ray
 rays	rays.c	/^t_ray	**rays(void)$/;"	f
@@ -285,17 +297,18 @@ read_map_5	game_map/map_norm.c	/^void		read_map_5(t_localmap *localmap)$/;"	f
 read_map_6	game_map/map_norm.c	/^void		read_map_6(t_localmap *localmap)$/;"	f
 rect	draw.c	/^void	rect(t_point p, int width, int height, int color)$/;"	f
 release_sprites	sprite_methods.c	/^void		release_sprites(void)$/;"	f
-release_textures	txt.c	/^void			release_textures(void)$/;"	f
-render	game.c	/^void	render(void)$/;"	f
-render_projection_walls	projection.c	/^void	render_projection_walls(void)$/;"	f
+release_textures	txt.c	/^void	release_textures(void)$/;"	f
+render	game.c	/^void		render(void)$/;"	f
+render_projection_walls	projection.c	/^void		render_projection_walls(void)$/;"	f
 render_sprites	sprite_methods.c	/^void		render_sprites(void)$/;"	f
-rgb	mlx_helper.c	/^int		rgb(int r, int g, int b)$/;"	f
+rgb	draw.c	/^int		rgb(int r, int g, int b)$/;"	f
 rgbstr_to_rgbint	game_map/fill_map_second.c	/^static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)$/;"	f	file:
 right	game_map/map.h	/^	char	right;$/;"	m	struct:s_direction
 rotation_angle	cub3d.h	/^	float	rotation_angle;$/;"	m	struct:s_player
+rotation_binding	binding.c	/^void	rotation_binding(int key)$/;"	f
 rows	game_map/map.h	/^	int		rows;$/;"	m	struct:s_map
 s	game_map/map.h	/^	t_image	*s;$/;"	m	struct:s_map
-s_bitmapheader	cub3d.h	/^typedef struct	s_bitmapheader{$/;"	s
+s_bitmapheader	cub3d.h	/^typedef struct	s_bitmapheader$/;"	s
 s_data	linkedlist/linkedlist.h	/^typedef struct	s_data$/;"	s
 s_direction	game_map/map.h	/^typedef struct	s_direction$/;"	s
 s_image	game_map/map.h	/^typedef struct	s_image$/;"	s
@@ -308,6 +321,7 @@ s_ray	cub3d.h	/^typedef struct	s_ray$/;"	s
 s_sp	game_map/map.h	/^typedef struct	s_sp$/;"	s
 s_txt	cub3d.h	/^typedef struct	s_txt$/;"	s
 s_vars	game_map/map.h	/^typedef struct	s_vars$/;"	s
+s_wall	cub3d.h	/^typedef struct	s_wall {$/;"	s
 self	game_map/map.h	/^	char	self;$/;"	m	struct:s_direction
 set_east_texture	txt_helper.c	/^void	set_east_texture(t_txt *txt)$/;"	f
 set_initial_player_position	game_map/map_information.c	/^static void	set_initial_player_position($/;"	f	file:
@@ -320,7 +334,7 @@ set_sp_initial_position	game_map/sprite.c	/^void			set_sp_initial_position(t_map
 set_sprites_distance	sprite_methods.c	/^void		set_sprites_distance(void)$/;"	f
 set_west_texture	txt_helper.c	/^void	set_west_texture(t_txt *txt)$/;"	f
 setpoint	math_helper.c	/^void	setpoint(t_point *p, int x, int y)$/;"	f
-settexture	txt.c	/^void			settexture(t_ray *ray)$/;"	f
+settexture	txt.c	/^void	settexture(t_ray *ray)$/;"	f
 setup	cub3d.c	/^static void	setup(const char *map_name)$/;"	f	file:
 size	cub3d.h	/^	uint32_t	size;$/;"	m	struct:s_bitmapheader
 so	game_map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
@@ -345,22 +359,28 @@ t_ray	cub3d.h	/^}				t_ray;$/;"	t	typeref:struct:s_ray
 t_sp	game_map/map.h	/^}				t_sp;$/;"	t	typeref:struct:s_sp
 t_txt	cub3d.h	/^}				t_txt;$/;"	t	typeref:struct:s_txt
 t_vars	game_map/map.h	/^}				t_vars;$/;"	t	typeref:struct:s_vars
+t_wall	cub3d.h	/^}				t_wall;$/;"	t	typeref:struct:s_wall
 take_screenshot	screenshot.c	/^void	take_screenshot(void)$/;"	f
-texture_init	txt.c	/^void			texture_init(void)$/;"	f
+test	test.c	/^int		test(void)$/;"	f
+texture_init	txt.c	/^void	texture_init(void)$/;"	f
 texture_pixel_get	mlx_helper.c	/^int		texture_pixel_get(int x, int y)$/;"	f
 turn_direction	cub3d.h	/^	int		turn_direction;$/;"	m	struct:s_player
 turn_speed	cub3d.h	/^	float	turn_speed;$/;"	m	struct:s_player
 up	game_map/map.h	/^	char	up;$/;"	m	struct:s_direction
 update	game.c	/^static void	update(void)$/;"	f	file:
-vars	vars.c	/^t_vars	*vars(void)$/;"	f
-vars_init	vars.c	/^static t_vars	*vars_init()$/;"	f	file:
+vars	vars.c	/^t_vars			*vars(void)$/;"	f
+vars_init	vars.c	/^static t_vars	*vars_init(void)$/;"	f	file:
 w	game_map/map.h	/^	int		w;$/;"	m	struct:s_image
 walk_direction	cub3d.h	/^	int		walk_direction;$/;"	m	struct:s_player
 walk_speed	cub3d.h	/^	float	walk_speed;$/;"	m	struct:s_player
+wall_bottom_pixel	cub3d.h	/^	int			wall_bottom_pixel;$/;"	m	struct:s_wall
 wall_conditions	game_map/fill_directions.c	/^static int			wall_conditions(t_direction dire)$/;"	f	file:
 wall_hit_content	cub3d.h	/^	int		wall_hit_content;$/;"	m	struct:s_ray
 wall_hit_x	cub3d.h	/^	float	wall_hit_x;$/;"	m	struct:s_ray
 wall_hit_y	cub3d.h	/^	float	wall_hit_y;$/;"	m	struct:s_ray
+wall_projection	projection_helper.c	/^void	wall_projection(int col, t_ray *ray, t_wall *wall)$/;"	f
+wall_strip_height	cub3d.h	/^	float		wall_strip_height;$/;"	m	struct:s_wall
+wall_top_pixel	cub3d.h	/^	int			wall_top_pixel;$/;"	m	struct:s_wall
 walls_closed	game_map/map_wall.c	/^static int			walls_closed(t_data *maparr)$/;"	f	file:
 was_hit_vertical	cub3d.h	/^	int		was_hit_vertical;$/;"	m	struct:s_ray
 we	game_map/map.h	/^	t_image	*we;$/;"	m	struct:s_map

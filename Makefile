@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/13 20:12:18 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/16 02:18:03 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,16 +17,12 @@ LIBS = libft/libft.a \
 	   linkedlist/liblinkedlist.a \
 	   game_map/libmap.a \
 
-CC = gcc
+CC = clang
 
 CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
-	  -fsanitize=address \
-	  -O3 \
-	  -g \
-
 
 SRC = cub3d.c \
 	  vars.c \
@@ -38,7 +34,6 @@ SRC = cub3d.c \
 	  player.c \
 	  projection.c \
 	  rays.c \
-	  utils.c \
 	  txt.c \
 	  txt_helper.c \
 	  math_helper.c \
@@ -49,6 +44,13 @@ SRC = cub3d.c \
 	  sprite_methods.c \
 	  audio.c \
 	  screenshot.c \
+	  binding.c \
+	  protection.c \
+	  movement.c \
+	  projection_helper.c \
+	  cast.c \
+	  horz_intersection.c \
+	  vert_intersection.c \
 
 OBJ = ${SRC:.c=.o}
 

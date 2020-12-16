@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/13 19:56:09 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 02:32:10 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ static void	setup(const char *map_name)
 	player();
 	input_handler();
 	texture_init();
-	play_song(1);
+	play_song();
 }
 
 int			main(int argc, char **argv)
 {
+	setup(argv[1]);
 	if (argc == 3 && !ft_strncmp(argv[2], "--save", 7))
 		take_screenshot();
-	setup(argv[1]);
-	game_loop();
+	render();
+	mlx_loop(vars()->mlx);
 	return (0);
 }

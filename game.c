@@ -6,18 +6,17 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/13 20:05:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 02:34:23 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <time.h>
 
 /*
 ** free and release game allocation from memory then exit
 */
 
-void	game_exit(int return_signal)
+void		game_exit(int return_signal)
 {
 	system("killall afplay");
 	release_sprites();
@@ -26,12 +25,6 @@ void	game_exit(int return_signal)
 	mlx_destroy_window(vars()->mlx, vars()->win);
 	lst_clear(*get_head_node());
 	exit(return_signal);
-}
-
-void	game_loop(void)
-{
-	render();
-	mlx_loop(vars()->mlx);
 }
 
 /*
@@ -52,7 +45,7 @@ static void	update(void)
 ** be rendered first otherwise window will be messy.
 */
 
-void	render(void)
+void		render(void)
 {
 	update();
 	mlx_clear_window(vars()->mlx, vars()->win);

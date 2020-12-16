@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 09:52:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 20:05:55 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/12/14 18:21:23 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,20 @@ void	move_player(void)
 	nplayer_x = player()->x;
 	nplayer_y = player()->y;
 	if (player()->move_right)
-	{
-		nplayer_x = player()->x + cos(player()->rotation_angle + M_PI / 2) * player()->walk_speed;
-		nplayer_y = player()->y + cos(player()->rotation_angle) * player()->walk_speed;
-		player()->move_right = 0;
-	}
+		move_right(&nplayer_x, &nplayer_y);
 	else if (player()->move_left)
-	{
-		nplayer_x = player()->x - cos(player()->rotation_angle + M_PI / 2) * player()->walk_speed;
-		nplayer_y = player()->y - cos(player()->rotation_angle) * player()->walk_speed;
-		player()->move_left = 0;
-	}
+		move_left(&nplayer_x, &nplayer_y);
 	else if (player()->move_forward_or_backward)
-	{
-		player()->rotation_angle += player()->turn_direction * player()->turn_speed;
-		player()->rotation_angle = normalize_angle(player()->rotation_angle);
-		move_step = player()->walk_direction * player()->walk_speed;
-		nplayer_x = player()->x + cos(player()->rotation_angle) * move_step;
-		nplayer_y = player()->y + sin(player()->rotation_angle) * move_step;
-		player()->move_forward_or_backward = 1;
-	}
+		move(&move_step, &nplayer_x, &nplayer_y);
 	else
-	{
-		player()->rotation_angle += player()->turn_direction * player()->turn_speed;
-		player()->rotation_angle = normalize_angle(player()->rotation_angle);
-	}
-
-	if (!has_wall_at(nplayer_x, player()->y) && !has_sprite_at(nplayer_x, player()->y))
+		no_movement();
+	if (
+			!has_wall_at(nplayer_x, player()->y) &&
+			!has_sprite_at(nplayer_x, player()->y))
 		player()->x = nplayer_x;
-	if (!has_wall_at(player()->x, nplayer_y) && !has_sprite_at(player()->x, nplayer_y))
+	if (
+			!has_wall_at(player()->x, nplayer_y) &&
+			!has_sprite_at(player()->x, nplayer_y))
 		player()->y = nplayer_y;
 }
 
@@ -57,19 +42,20 @@ void	player_render(void)
 {
 	t_point p0;
 	t_point p1;
+	int		line_height;
 
 	p0.x = player()->x * map()->minimap_scale;
 	p0.y = player()->y * map()->minimap_scale;
-	p1.x = p0.x + cos(player()->rotation_angle)
-		* TILE_SIZE * 2 * map()->minimap_scale;
-	p1.y = p0.y + sin(player()->rotation_angle)
-		* TILE_SIZE * 2 * map()->minimap_scale;
-
+	line_height = 2;
+	p1.x = p0.x + cos(player()->rotation_angle) *
+		(TILE_SIZE * line_height * map()->minimap_scale);
+	p1.y = p0.y + sin(player()->rotation_angle) *
+		(TILE_SIZE * line_height * map()->minimap_scale);
 	line(p0, p1, COLOR_RED);
+
 	square(
 			player()->x * map()->minimap_scale - 2,
 			player()->y * map()->minimap_scale - 2,
 			4,
-			COLOR_RED
-	);
+			COLOR_RED);
 }

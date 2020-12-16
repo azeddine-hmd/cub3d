@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/14 05:29:39 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/12/14 05:30:27 by ahamdaou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static float	get_initial_angle(void)
@@ -40,7 +52,7 @@ static t_player	*player_init(void)
 ** before calling this function, 'vars()' should be invoked first.
 */
 
-t_player	*player(void)
+t_player		*player(void)
 {
 	static t_player	*player;
 

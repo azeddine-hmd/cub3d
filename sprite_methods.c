@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 17:23:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 06:27:39 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,9 @@ static void	draw_sprite(int x, float distance, float height)
 			{
 				color = sprite_pixel_get(
 						(int)(i - x) / height * map()->s->w,
-						(int)(y_offset / height * map()->s->h)
-						);
-
+						(int)(y_offset / height * map()->s->h));
 				if (j < map()->win_height && j >= 0 && color != 0x000000)
 					pixel_put(i, j, color);
-
 				j++;
 				y_offset++;
 			}
@@ -129,8 +126,11 @@ void		render_sprites(void)
 			angle -= 2 * M_PI;
 		while (angle - rays()[0]->ray_angle < -M_PI)
 			angle += 2 * M_PI;
-		sprite_height = (TILE_SIZE / sprite->dist) * (map()->win_width / 2) / tan(FOV_ANGLE / 2);
-		column_index = (angle - rays()[0]->ray_angle) / (FOV_ANGLE / map()->win_width) - (sprite_height / 2);
+		sprite_height = (TILE_SIZE / sprite->dist) *
+			(map()->win_width / 2) / tan(FOV_ANGLE / 2);
+		column_index =
+			(angle - rays()[0]->ray_angle) / (FOV_ANGLE / map()->win_width)
+			- (sprite_height / 2);
 		draw_sprite(column_index, sprite->dist, sprite_height);
 		head = head->next;
 	}
@@ -138,7 +138,8 @@ void		render_sprites(void)
 
 /*
 ** Make sure to call this function before game ends, otherwise memory leak.
-** Deallocate sprites memory only if sprite's head is exists otherwise do nothing.
+** Deallocate sprites memory only if sprite's head is exists
+** otherwise do nothing.
 */
 
 void		release_sprites(void)

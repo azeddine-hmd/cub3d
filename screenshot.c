@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 20:39:01 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/11 18:32:49 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 06:24:41 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ char	*make_img_buff(t_bitmapheader *header)
 		j = 0;
 		while (j < header->width)
 		{
-			colors = get_colors(get_window_color(
-				j,
-				(map()->win_height - i)
-			));
+			colors = get_colors(pixel_get(j, (map()->win_height - i)));
 			buf[i * header->width_in_bytes + j * 3 + 2] = colors[0];
 			buf[i * header->width_in_bytes + j * 3 + 1] = colors[1];
 			buf[i * header->width_in_bytes + j * 3 + 0] = colors[2];
@@ -86,7 +83,7 @@ void	take_screenshot(void)
 	char			*img_buf;
 
 	header.fd = open("./screenshot.bmp", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
-	game_loop();
+	render();
 	header_str = make_bmp_header(&header);
 	img_buf = make_img_buff(&header);
 	write(header.fd, header_str, 54);

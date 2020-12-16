@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/13 19:54:49 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/16 02:32:31 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 # define FOV_ANGLE (60 * (M_PI / 180))
 # define INT_MAX 2147483647
 # define MAX_SONGS 2
+# define AUDIO_PLAYER mplayer
 
 /*
 ** Colors
 */
 
-# define COLOR_BLACK rgb(0, 0, 0)
-# define COLOR_WHITE rgb(255, 255, 255)
-# define COLOR_RED rgb(255, 0, 0)
-# define COLOR_ORANGE rgb(255, 165, 0)
+# define COLOR_BLACK 0x000000
+# define COLOR_WHITE 0xFFFFFF
+# define COLOR_RED 0xFF0000
+# define COLOR_ORANGE 0xFFA500
 
 /*
 ** Keys
@@ -94,7 +95,8 @@ typedef struct	s_txt
 	int		height;
 }				t_txt;
 
-typedef struct	s_bitmapheader{
+typedef struct	s_bitmapheader
+{
 	uint32_t	file_size;
 	uint32_t	off_bits;
 	uint32_t	size;
@@ -107,6 +109,35 @@ typedef struct	s_bitmapheader{
 	int			width_in_bytes;
 	int			fd;
 }				t_bitmapheader;
+
+typedef struct	s_wall
+{
+	float		correct_wall_distance;
+	float		distance_proj_plane;
+	float		wall_strip_height;
+	int			wall_top_pixel;
+	int			wall_bottom_pixel;
+}				t_wall;
+
+typedef struct	s_horz
+{
+	float	next_horz_touch_x;
+	float	next_horz_touch_y;
+	int		found_horz_wall_hit;
+	float	horz_wall_hit_x;
+	float	horz_wall_hit_y;
+	int		horz_wall_content;
+}				t_horz;
+
+typedef struct	s_vert
+{
+	int		found_vert_wall_hit;
+	float	vert_wall_hit_x;
+	float	vert_wall_hit_y;
+	float	next_vert_touch_x;
+	float	next_vert_touch_y;
+	int		vert_wall_content;
+}				t_vert;
 
 /*
 ** file: math_helper.c
@@ -121,6 +152,7 @@ void			setpoint(t_point *p, int x, int y);
 ** file: draw.c
 */
 
+int				rgb(int r, int g, int b);
 void			line(t_point p0, t_point p1, int color);
 void			square(float x, float y, float width, int color);
 void			rect(t_point p, int width, int height, int color);
@@ -168,9 +200,8 @@ void			input_handler(void);
 ** file: mlx_helper.c
 */
 
-int				rgb(int r, int g, int b);
 void			pixel_put(float x, float y, int color);
-int				get_window_color(float x, float y);
+int				pixel_get(float x, float y);
 int				texture_pixel_get(int x, int y);
 int				sprite_pixel_get(int x, int y);
 
@@ -212,7 +243,6 @@ void			render_projection_walls(void);
 */
 
 void			game_exit(int return_signal);
-void			game_loop(void);
 void			render(void);
 
 /*
@@ -245,7 +275,6 @@ void			set_ray_direction(t_ray *ray);
 
 void			rays_render(void);
 void			cast_all_rays(void);
-void			cast(t_ray *ray);
 
 /*
 ** file: sprite_methods.c
@@ -259,12 +288,66 @@ void			render_sprites(void);
 /*
 ** file: audio.c
 */
-void			play_song(int id);
+void			play_song(void);
 
 /*
 ** file: screenshot.c
 */
 
 void			take_screenshot(void);
+
+/*
+** file: binding.c
+*/
+
+void			movement_binding(int key);
+void			minimap_resezing_binding(int key);
+void			rotation_binding(int key);
+void			global_binding(int key);
+
+/*
+** file: protection.c
+*/
+
+int				is_inside_map(float x, float y);
+int				is_inside_window(float x, float y);
+int				is_inside_texture(float x, float y, int width, int height);
+int				is_inside_sprite(float x, float y, int width, int height);
+
+/*
+** file: movement.c
+*/
+
+void			move_right(float *nplayer_x, float *nplayer_y);
+void			move_left(float *nplayer_x, float *nplayer_y);
+void			move(float *move_step, float *nplayer_x, float *nplayer_y);
+void			no_movement(void);
+
+/*
+** file: projection_helper.c
+*/
+
+void			ceilling_projection(int col, t_wall *wall);
+void			floor_projection(int col, t_wall *wall);
+void			wall_projection(int col, t_ray *ray, t_wall *wall);
+
+/*
+** file: cast.c
+*/
+
+void			cast(t_ray *ray);
+
+
+/*
+** file: horz_intersection.c
+*/
+
+void			horizontal_intersection(t_ray *ray, t_horz *horz);
+
+/*
+** file: horz_intersection.c
+*/
+
+void			vertical_intersection(t_ray *ray, t_vert *vert);
 
 #endif

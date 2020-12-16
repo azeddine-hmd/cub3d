@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:08:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 20:27:41 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 05:22:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_txt	*gettxt(void)
 	return (txt);
 }
 
-void			texture_init(void)
+void	texture_init(void)
 {
 	t_txt	*txt;
 
@@ -39,9 +39,9 @@ void			texture_init(void)
 	txt->height = 0;
 }
 
-void			settexture(t_ray *ray)
+void	settexture(t_ray *ray)
 {
-	t_txt	*txt = NULL;
+	t_txt	*txt;
 
 	txt = gettxt();
 	if (!ray->was_hit_vertical && ray->is_ray_facing_up)
@@ -58,7 +58,7 @@ void			settexture(t_ray *ray)
 ** make sure to call this function after done work with textures.
 */
 
-void			release_textures(void)
+void	release_textures(void)
 {
 	mlx_destroy_image(vars()->mlx, map()->no->img);
 	mlx_destroy_image(vars()->mlx, map()->so->img);

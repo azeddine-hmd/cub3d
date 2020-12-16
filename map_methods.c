@@ -6,49 +6,46 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 17:28:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 05:34:42 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	minimap_sprite_render(void)
+void		draw_minimap(int x, int y)
 {
-	int i;
-	int j;
+	int tile_x;
+	int tile_y;
+	int content;
+	int color;
 
-	i = -1;
-	while (++i < map()->rows)
-	{
-		j = -1;
-		while (++j < map()->cols)
-		{
-			int tile_x = j * TILE_SIZE;
-			int tile_y = i * TILE_SIZE;
-			int content = map()->maparr[j + i * map()->cols];
-
-			int color = -1;
-			if (content == '2')
-				color = COLOR_ORANGE;
-			else
-				continue ;
-
-			square(
-				tile_x * map()->minimap_scale,
-				tile_y * map()->minimap_scale,
-				TILE_SIZE * map()->minimap_scale,
-				color
-			);
-		}
-	}
+	tile_x = x * TILE_SIZE;
+	tile_y = y * TILE_SIZE;
+	color = -1;
+	content = map()->maparr[x + y * map()->cols];
+	if (content == '0')
+		color = COLOR_BLACK;
+	else if (content == '1')
+		color = COLOR_WHITE;
+	else if (content == '3')
+		color = COLOR_WHITE;
+	else if (content == ' ')
+		return ;
+	else
+		color = COLOR_BLACK;
+	square(
+		tile_x * map()->minimap_scale,
+		tile_y * map()->minimap_scale,
+		TILE_SIZE * map()->minimap_scale,
+		color);
 }
 
 /*
-** draws a small minimap on top left side window to visuals
-** player position in game.
+** draws a small minimap on top left side window to visuals player
+** position in game.
 */
 
-void	minimap_render()
+void		minimap_render(void)
 {
 	int i;
 	int j;
@@ -58,57 +55,48 @@ void	minimap_render()
 	{
 		j = -1;
 		while (++j < map()->cols)
-		{
-			int tile_x = j * TILE_SIZE;
-			int tile_y = i * TILE_SIZE;
-			int content = map()->maparr[j + i * map()->cols];
-
-			int color = -1;
-			if (content == '0')
-				color = COLOR_BLACK;
-			else if (content == '1')
-				color = COLOR_WHITE;
-			else if (content == '3')
-				color = COLOR_WHITE;
-			else if (content == ' ')
-				continue ;
-			else
-				color = COLOR_BLACK;
-
-			square(
-				tile_x * map()->minimap_scale,
-				tile_y * map()->minimap_scale,
-				TILE_SIZE * map()->minimap_scale,
-				color
-			);
-		}
+			draw_minimap(j, i);
 	}
 }
 
-int		is_inside_map(float x, float y)
+static void	draw_sprite_minimap(int x, int y)
 {
-	if (x < 0 || x >= map()->map_width || y < 0 || y >= map()->map_height)
-		return (0);
-	return (1);
+	int tile_x;
+	int tile_y;
+	int content;
+	int color;
+
+	tile_x = x * TILE_SIZE;
+	tile_y = y * TILE_SIZE;
+	color = -1;
+	content = map()->maparr[x + y * map()->cols];
+	if (content == '2')
+		color = COLOR_ORANGE;
+	else
+		return ;
+	square(
+		tile_x * map()->minimap_scale,
+		tile_y * map()->minimap_scale,
+		TILE_SIZE * map()->minimap_scale,
+		color);
 }
 
-int		is_inside_window(float x, float y)
-{
-	if (x < 0 || x >= map()->win_width || y < 0 || y >= map()->win_height)
-		return (0);
-	return (1);
-}
+/*
+** this is same as the above one only difference is this will draw only sprites
+** and ignore other map's elements. You may be wondering why I dublicate code
+** two times, well the answer is obvious: I'M F***ing LAZY!!
+*/
 
-int		is_inside_texture(float x, float y, int width, int height)
+void		minimap_sprite_render(void)
 {
-	if (x < 0 || x >= width || y < 0 || y >= height)
-		return (0);
-	return (1);
-}
+	int i;
+	int j;
 
-int		is_inside_sprite(float x, float y, int width, int height)
-{
-	if (x < 0 || x >= width || y < 0 || y >= height)
-		return (0);
-	return (1);
+	i = -1;
+	while (++i < map()->rows)
+	{
+		j = -1;
+		while (++j < map()->cols)
+			draw_sprite_minimap(j, i);
+	}
 }

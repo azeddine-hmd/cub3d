@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 01:32:28 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/16 14:12:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 19:02:15 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			*get_mlx(void)
 	{
 		mlx = mlx_init();
 		if (!mlx)
-			error("failed to initialize mlx");
+			error_message("failed to initialize mlx");
 	}
 	return (mlx);
 }

@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-void	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int i;
+	size_t	i;
 
-	i = -1;
+	i = 0;
 	while (s[i])
 		i++;
 	return (i);
@@ -12,6 +12,6 @@ void	ft_strlen(const char *s)
 
 int		main(int argc, char **argv)
 {
-	printf("Hello World\n");
+	printf("hello world\n");
 	return (0);
 }

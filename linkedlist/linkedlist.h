@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 18:17:58 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:59:55 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,16 @@ char			*xstrjoin(const char *s1, const char *s2);
 ** file: error.c
 */
 
-void			error();
+void			error(void);
 void			error_message(const char *message);
-void			finish();
+void			finish(void);
 void			error_map(const char *file_name, const char *message);
 void			error_special(const char *message);
-
 
 /*
 ** file: swap.c
 */
 
-void	swap(t_data* this, t_data* other);
+void			swap(t_data *this, t_data *other);
 
 #endif
