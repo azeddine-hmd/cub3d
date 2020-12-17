@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 04:09:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:24:00 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <float.h>
 # include <mlx.h>
+
 # define WINDOW_NAME "cub3d"
 # define TILE_SIZE 64
 # define MAX_WINDOW_WIDTH 2560
@@ -54,7 +55,9 @@ typedef struct	s_map
 	int		num_rays;
 	float	minimap_scale;
 	char	pview;
-	int		enable_minimap;
+	int		is_minimap_enabled;
+	int		is_collision_enabled;
+	int		is_audio_enabled;
 	int		initial_pos[2];
 	t_data	*sp_head;
 	t_image	*no;
@@ -172,7 +175,7 @@ void			read_map_6(t_localmap *localmap);
 */
 
 void			*get_mlx();
-t_map			*map();
+t_map			*game();
 void			map_init(const char *map_name);
 
 /*

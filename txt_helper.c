@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 11:06:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 20:28:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:01:41 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	set_north_texture(t_txt *txt)
 {
-	txt->img = map()->no->img;
-	txt->width = map()->no->w;
-	txt->height = map()->no->h;
+	txt->img = game()->no->img;
+	txt->width = game()->no->w;
+	txt->height = game()->no->h;
 }
 
 void	set_south_texture(t_txt *txt)
 {
-	txt->img = map()->so->img;
-	txt->width = map()->so->w;
-	txt->height = map()->so->h;
+	txt->img = game()->so->img;
+	txt->width = game()->so->w;
+	txt->height = game()->so->h;
 }
 
 void	set_west_texture(t_txt *txt)
 {
-	txt->img = map()->we->img;
-	txt->width = map()->we->w;
-	txt->height = map()->we->h;
+	txt->img = game()->we->img;
+	txt->width = game()->we->w;
+	txt->height = game()->we->h;
 }
 
 void	set_east_texture(t_txt *txt)
 {
-	txt->img = map()->ea->img;
-	txt->width = map()->ea->w;
-	txt->height = map()->ea->h;
+	txt->img = game()->ea->img;
+	txt->width = game()->ea->w;
+	txt->height = game()->ea->h;
 }

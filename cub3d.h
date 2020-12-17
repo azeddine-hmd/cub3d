@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 04:12:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 20:00:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define KEY_P 35
 # define KEY_M 46
 # define KEY_0 29
+# define KEY_C 8
 # define KEY_1 18
 # define KEY_2 19
 # define KEY_3 20
@@ -286,11 +287,6 @@ void			linkedlist_bubble_sort(t_data *head);
 void			render_sprites(void);
 
 /*
-** file: audio.c
-*/
-void			play_song(void);
-
-/*
 ** file: screenshot.c
 */
 
@@ -300,6 +296,7 @@ void			take_screenshot(void);
 ** file: binding.c
 */
 
+void			minimap_binding(int key);
 void			movement_binding(int key);
 void			minimap_resezing_binding(int key);
 void			rotation_binding(int key);
@@ -318,9 +315,9 @@ int				is_inside_sprite(float x, float y, int width, int height);
 ** file: movement.c
 */
 
-void			move_right(float *nplayer_x, float *nplayer_y);
-void			move_left(float *nplayer_x, float *nplayer_y);
-void			move(float *move_step, float *nplayer_x, float *nplayer_y);
+void			move_right(float nplayer_x, float nplayer_y);
+void			move_left(float nplayer_x, float nplayer_y);
+void			move_forwback(float *move_step, float *nplayer_x, float *nplayer_y);
 void			no_movement(void);
 
 /*

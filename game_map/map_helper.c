@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 01:32:28 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 19:02:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:59:08 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_map	**map_double(void)
 ** make sure to call map_init before calling this function
 */
 
-t_map			*map(void)
+t_map			*game(void)
 {
 	return (*map_double());
 }

@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/16 04:26:06 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/17 11:49:57 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ SRC = cub3d.c \
 	  rays_helper.c \
 	  rays_methods.c \
 	  sprite_methods.c \
-	  audio.c \
 	  screenshot.c \
 	  binding.c \
 	  protection.c \

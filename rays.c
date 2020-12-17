@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 05:31:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:01:24 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_ray	**rays(void)
 
 	if (!rays)
 	{
-		rays = (t_ray**)xmalloc(sizeof(t_ray*) * map()->num_rays);
+		rays = (t_ray**)xmalloc(sizeof(t_ray*) * game()->num_rays);
 		if (!rays)
 			game_exit(1);
 	}
@@ -32,7 +32,7 @@ void	rays_init(void)
 
 	rays_double = rays();
 	col = -1;
-	while (++col < map()->num_rays)
+	while (++col < game()->num_rays)
 	{
 		rays_double[col] = (t_ray*)xmalloc(sizeof(t_ray));
 		ft_bzero(rays_double[col], sizeof(t_ray));

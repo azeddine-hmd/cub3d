@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:35:25 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 02:48:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:06:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pixel_put(float x, float y, int color)
 	if (!is_inside_window(x, y))
 		return ;
 	buf = (int*)mlx_get_data_addr(vars()->img, &unused, &unused, &unused);
-	buf[(int)floor(x) + (int)floor(y) * map()->win_width] = color;
+	buf[(int)floor(x) + (int)floor(y) * game()->win_width] = color;
 }
 
 int		pixel_get(float x, float y)
@@ -31,7 +31,7 @@ int		pixel_get(float x, float y)
 	if (!is_inside_window(x, y))
 		return (COLOR_RED);
 	buf = (int*)mlx_get_data_addr(vars()->img, &unused, &unused, &unused);
-	return (buf[(int)floor(x) + (int)floor(y) * map()->win_width]);
+	return (buf[(int)floor(x) + (int)floor(y) * game()->win_width]);
 }
 
 int		texture_pixel_get(int x, int y)
@@ -52,6 +52,6 @@ int		sprite_pixel_get(int x, int y)
 
 	if (!is_inside_sprite(x, y, gettxt()->width, gettxt()->height))
 		return (COLOR_RED);
-	buf = (int*)mlx_get_data_addr(map()->s->img, &unused, &unused, &unused);
-	return (buf[x + y * map()->s->w]);
+	buf = (int*)mlx_get_data_addr(game()->s->img, &unused, &unused, &unused);
+	return (buf[x + y * game()->s->w]);
 }

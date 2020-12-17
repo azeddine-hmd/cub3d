@@ -6,22 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 04:25:00 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 19:51:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void	minimap_binding(int key)
-{
-	if (key == KEY_M)
-	{
-		if (map()->enable_minimap == 0)
-			map()->enable_minimap = 1;
-		else
-			map()->enable_minimap = 0;
-	}
-}
 
 static int	on_key_pressed(int key, void *param)
 {
@@ -31,6 +20,13 @@ static int	on_key_pressed(int key, void *param)
 	movement_binding(key);
 	minimap_binding(key);
 	minimap_resezing_binding(key);
+	if (key == KEY_C)
+	{
+		if (game()->is_collision_enabled)
+			game()->is_collision_enabled = FALSE;
+		else
+			game()->is_collision_enabled = TRUE;
+	}
 	render();
 	return (0);
 }
@@ -52,8 +48,6 @@ static int	on_key_released(int key, void *param)
 		player()->walk_direction = 0;
 	else if (key == KEY_D)
 		player()->move_right = FALSE;
-	else if (key == KEY_M)
-		render();
 	return (0);
 }
 
@@ -63,7 +57,7 @@ static int	on_key_released(int key, void *param)
 
 static int	on_window_closed(void)
 {
-	system("killall AUDIO_PLAYER &2>1 >/dev/null");
+	system("killall afplay");
 	game_exit(0);
 	return (0);
 }

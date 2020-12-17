@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:16:17 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 02:22:29 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:05:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static int	check_horz_collision(
 		if (is_inside_map(x_to_check, y_to_check))
 		{
 			index = (int)(floor((x_to_check / TILE_SIZE)) +
-					floor((y_to_check / TILE_SIZE)) * map()->cols);
-			horz->horz_wall_content = map()->maparr[index];
+					floor((y_to_check / TILE_SIZE)) * game()->cols);
+			horz->horz_wall_content = game()->maparr[index];
 		}
 		return (-1);
 	}

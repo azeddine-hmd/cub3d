@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 02:58:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 03:08:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:06:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int		is_inside_map(float x, float y)
 {
-	if (x < 0 || x >= map()->map_width || y < 0 || y >= map()->map_height)
+	if (x < 0 || x >= game()->map_width || y < 0 || y >= game()->map_height)
 		return (0);
 	return (1);
 }
 
 int		is_inside_window(float x, float y)
 {
-	if (x < 0 || x >= map()->win_width || y < 0 || y >= map()->win_height)
+	if (x < 0 || x >= game()->win_width || y < 0 || y >= game()->win_height)
 		return (0);
 	return (1);
 }

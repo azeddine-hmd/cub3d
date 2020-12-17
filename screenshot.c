@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 20:39:01 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 06:24:41 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:03:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ char	*make_bmp_header(t_bitmapheader *header)
 
 	buf = ft_calloc(54, 1);
 	header->bit_count = 24;
-	header->width_in_bytes = ((map()->win_width * header->bit_count + 31)
+	header->width_in_bytes = ((game()->win_width * header->bit_count + 31)
 	/ 32) * 4;
-	header->image_size = header->width_in_bytes * map()->win_height;
+	header->image_size = header->width_in_bytes * game()->win_height;
 	header->size = 54 + header->image_size;
 	header->off_bits = 54;
 	header->info_size = 40;
 	header->planes = 1;
-	header->width = map()->win_width;
-	header->height = map()->win_height;
+	header->width = game()->win_width;
+	header->height = game()->win_height;
 	ft_memcpy(buf, "BM", 2);
 	ft_memcpy(buf + 2, &(header->size), 4);
 	ft_memcpy(buf + 10, &(header->off_bits), 4);
@@ -64,7 +64,7 @@ char	*make_img_buff(t_bitmapheader *header)
 		j = 0;
 		while (j < header->width)
 		{
-			colors = get_colors(pixel_get(j, (map()->win_height - i)));
+			colors = get_colors(pixel_get(j, (game()->win_height - i)));
 			buf[i * header->width_in_bytes + j * 3 + 2] = colors[0];
 			buf[i * header->width_in_bytes + j * 3 + 1] = colors[1];
 			buf[i * header->width_in_bytes + j * 3 + 0] = colors[2];
@@ -90,5 +90,4 @@ void	take_screenshot(void)
 	write(header.fd, img_buf, header.image_size);
 	free(header_str);
 	free(img_buf);
-	game_exit(0);
 }

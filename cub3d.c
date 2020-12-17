@@ -6,12 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 02:32:10 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 19:41:24 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#define ERROR_CL "less or more than two command line argumment have been found"
 
 /*
 ** initialize game objects.
@@ -26,14 +25,24 @@ static void	setup(const char *map_name)
 	player();
 	input_handler();
 	texture_init();
-	play_song();
 }
 
 int			main(int argc, char **argv)
 {
-	setup(argv[1]);
-	if (argc == 3 && !ft_strncmp(argv[2], "--save", 7))
+	if (argc == 3 && !ft_strcmp(argv[2], "--save"))
+	{
+		setup(argv[1]);
 		take_screenshot();
+		game_exit(0);
+	}
+	if (argc != 2)
+	{
+		ft_putstr_fd("Usage: ./cub3D <map_path> ['--save']\n", 2);
+		ft_putstr_fd("--save: will take a screenshot then save it as bmp ", 2);
+		ft_putstr_fd("file and store it in current directory.", 2);
+		game_exit(1);
+	}
+	setup(argv[1]);
 	render();
 	mlx_loop(vars()->mlx);
 	return (0);

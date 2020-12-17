@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 03:48:55 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:23:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		draw_minimap(int x, int y)
 	tile_x = x * TILE_SIZE;
 	tile_y = y * TILE_SIZE;
 	color = -1;
-	content = map()->maparr[x + y * map()->cols];
+	content = game()->maparr[x + y * game()->cols];
 	if (content == '0')
 		color = COLOR_BLACK;
 	else if (content == '1')
@@ -34,9 +34,9 @@ void		draw_minimap(int x, int y)
 	else
 		color = COLOR_BLACK;
 	square(
-		tile_x * map()->minimap_scale,
-		tile_y * map()->minimap_scale,
-		TILE_SIZE * map()->minimap_scale,
+		tile_x * game()->minimap_scale,
+		tile_y * game()->minimap_scale,
+		TILE_SIZE * game()->minimap_scale,
 		color);
 }
 
@@ -50,13 +50,13 @@ void		minimap_render(void)
 	int i;
 	int j;
 
-	if (map()->enable_minimap == 0)
+	if (game()->is_minimap_enabled == 0)
 		return ;
 	i = -1;
-	while (++i < map()->rows)
+	while (++i < game()->rows)
 	{
 		j = -1;
-		while (++j < map()->cols)
+		while (++j < game()->cols)
 			draw_minimap(j, i);
 	}
 }
@@ -71,15 +71,15 @@ static void	draw_sprite_minimap(int x, int y)
 	tile_x = x * TILE_SIZE;
 	tile_y = y * TILE_SIZE;
 	color = -1;
-	content = map()->maparr[x + y * map()->cols];
+	content = game()->maparr[x + y * game()->cols];
 	if (content == '2')
 		color = COLOR_ORANGE;
 	else
 		return ;
 	square(
-		tile_x * map()->minimap_scale,
-		tile_y * map()->minimap_scale,
-		TILE_SIZE * map()->minimap_scale,
+		tile_x * game()->minimap_scale,
+		tile_y * game()->minimap_scale,
+		TILE_SIZE * game()->minimap_scale,
 		color);
 }
 
@@ -94,13 +94,13 @@ void		minimap_sprite_render(void)
 	int i;
 	int j;
 
-	if (map()->enable_minimap == 0)
+	if (game()->is_minimap_enabled == 0)
 		return ;
 	i = -1;
-	while (++i < map()->rows)
+	while (++i < game()->rows)
 	{
 		j = -1;
-		while (++j < map()->cols)
+		while (++j < game()->cols)
 			draw_sprite_minimap(j, i);
 	}
 }

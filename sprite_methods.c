@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 04:09:24 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 14:02:07 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		set_sprites_distance(void)
 	t_point	player_point;
 	t_point	sprite_point;
 
-	head = map()->sp_head;
+	head = game()->sp_head;
 	if (!head)
 		return ;
 	setpoint(&player_point, player()->x, player()->y);
@@ -78,16 +78,16 @@ static void	draw_sprite(int x, float distance, float height)
 	i = x;
 	while (i <= x + height)
 	{
-		j = (map()->win_height - height) / 2;
+		j = (game()->win_height - height) / 2;
 		y_offset = 0;
-		if (i >= 0 && i < map()->win_width && distance < rays()[i]->distance)
+		if (i >= 0 && i < game()->win_width && distance < rays()[i]->distance)
 		{
-			while (j < (map()->win_height + height) / 2 - 1)
+			while (j < (game()->win_height + height) / 2 - 1)
 			{
 				color = sprite_pixel_get(
-						(int)(i - x) / height * map()->s->w,
-						(int)(y_offset / height * map()->s->h));
-				if (j < map()->win_height && j >= 0 && color != 0x000000)
+						(int)(i - x) / height * game()->s->w,
+						(int)(y_offset / height * game()->s->h));
+				if (j < game()->win_height && j >= 0 && color != 0x000000)
 					pixel_put(i, j, color);
 				j++;
 				y_offset++;
@@ -119,7 +119,7 @@ void		render_sprites(void)
 	float	sprite_height;
 	int		column_index;
 
-	head = map()->sp_head;
+	head = game()->sp_head;
 	if (!head)
 		return ;
 	linkedlist_bubble_sort(head);
@@ -128,9 +128,9 @@ void		render_sprites(void)
 		sprite = (t_sp*)head->data;
 		set_sprite_angle(sprite, &angle);
 		sprite_height = (TILE_SIZE / sprite->dist) *
-			(map()->win_width / 2) / tan(FOV_ANGLE / 2);
+			(game()->win_width / 2) / tan(FOV_ANGLE / 2);
 		column_index =
-			(angle - rays()[0]->ray_angle) / (FOV_ANGLE / map()->win_width)
+			(angle - rays()[0]->ray_angle) / (FOV_ANGLE / game()->win_width)
 			- (sprite_height / 2);
 		draw_sprite(column_index, sprite->dist, sprite_height);
 		head = head->next;

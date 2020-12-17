@@ -6,15 +6,15 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 03:14:01 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/17 12:33:58 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKEDLIST_H
 # define LINKEDLIST_H
 # include <stdlib.h>
-# include <stdio.h>
 # include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_data
 {
