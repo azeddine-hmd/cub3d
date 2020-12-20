@@ -6,15 +6,16 @@
 /*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 20:07:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2019/11/19 06:06:47 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 03:57:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 1024
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 typedef	struct	s_list
 {

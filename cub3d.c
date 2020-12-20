@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 03:52:25 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 04:00:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 static void	setup(const char *map_name)
 {
-	system("afplay soundtracks/1.mp3 &");
 	map_init(map_name);
 	vars();
 	rays_init();

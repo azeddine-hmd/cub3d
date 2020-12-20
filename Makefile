@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/18 00:45:59 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/20 04:06:54 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRC = cub3d.c \
 	  vert_intersection.c \
 	  release_sprites.c \
 	  bonus_binding.c \
+	  audio.c \
 
 OBJ = ${SRC:.c=.o}
 

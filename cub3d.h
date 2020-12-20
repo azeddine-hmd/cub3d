@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 03:11:42 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 04:13:32 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -357,5 +357,13 @@ void		release_sprites(void);
 */
 
 void		collision_binding(int key);
+
+/*
+** file: audio.c
+*/
+
+void		play_audio(int id);
+void		stop_audio(void);
+void		audio_binding(int key);
 
 #endif

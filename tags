@@ -79,6 +79,7 @@ add	linkedlist/linkedlist_utils.c	/^void	add(t_data **head, void *data)$/;"	f
 add_double_pointer	linkedlist/linkedlist_utils.c	/^void	add_double_pointer(char **ptr)$/;"	f
 add_sp	game_map/map_wall.c	/^static void			add_sp(char *line, unsigned int start, unsigned int end)$/;"	f	file:
 allocate_line	get_next_line/get_next_line_utils.c	/^int			allocate_line(char **line, char **buffer)$/;"	f
+audio_binding	audio.c	/^void	audio_binding(int key)$/;"	f
 bit_count	cub3d.h	/^	uint16_t	bit_count;$/;"	m	struct:s_bitmapheader
 buffer	get_next_line/get_next_line.h	/^	char			*buffer;$/;"	m	struct:s_list
 cast	cast.c	/^void		cast(t_ray *ray)$/;"	f
@@ -214,9 +215,9 @@ img	game_map/map.h	/^	void *img;$/;"	m	struct:s_vars
 info_size	cub3d.h	/^	uint32_t	info_size;$/;"	m	struct:s_bitmapheader
 init_localmap	game_map/map_utils.c	/^t_localmap	*init_localmap(void)$/;"	f
 initial_pos	game_map/map.h	/^	int		initial_pos[2];$/;"	m	struct:s_map
-input_handler	input.c	/^void		input_handler(void)$/;"	f
+input_handler	input.c	/^int			input_handler(void)$/;"	f
 integer_length	libft/ft_putnbr_fd.c	/^static int	integer_length(int nb)$/;"	f	file:
-is_audio_enabled	game_map/map.h	/^	int		is_audio_enabled;$/;"	m	struct:s_map
+is_audio_running	game_map/map.h	/^	int		is_audio_running;$/;"	m	struct:s_map
 is_collision_enabled	game_map/map.h	/^	int		is_collision_enabled;$/;"	m	struct:s_map
 is_inside_map	protection.c	/^int		is_inside_map(float x, float y)$/;"	f
 is_inside_sprite	protection.c	/^int		is_inside_sprite(float x, float y, int width, int height)$/;"	f
@@ -228,7 +229,6 @@ is_ray_facing_down	cub3d.h	/^	int		is_ray_facing_down;$/;"	m	struct:s_ray
 is_ray_facing_left	cub3d.h	/^	int		is_ray_facing_left;$/;"	m	struct:s_ray
 is_ray_facing_right	cub3d.h	/^	int		is_ray_facing_right;$/;"	m	struct:s_ray
 is_ray_facing_up	cub3d.h	/^	int		is_ray_facing_up;$/;"	m	struct:s_ray
-is_rotating	cub3d.h	/^	int		is_rotating;$/;"	m	struct:s_player
 is_set	libft/ft_strtrim.c	/^static int	is_set(char const *set, char c)$/;"	f	file:
 l_lstnew	get_next_line/get_next_line_utils.c	/^t_list		*l_lstnew(int fd)$/;"	f
 l_lstremove	get_next_line/get_next_line.c	/^static void		l_lstremove(int fd, t_list **buffers)$/;"	f	file:
@@ -266,7 +266,7 @@ mlx	game_map/map.h	/^	void *mlx;$/;"	m	struct:s_vars
 move_forward_or_backward	cub3d.h	/^	int		move_forward_or_backward;$/;"	m	struct:s_player
 move_forwback	movement.c	/^void	move_forwback(float *nplayer_x, float *nplayer_y)$/;"	f
 move_left	movement.c	/^void	move_left(float *nplayer_x, float *nplayer_y)$/;"	f
-move_player	player_methods.c	/^void	move_player(void)$/;"	f
+move_player	player_methods.c	/^void		move_player(void)$/;"	f
 move_right	movement.c	/^void	move_right(float *nplayer_x, float *nplayer_y)$/;"	f
 movement_binding	binding.c	/^void	movement_binding(int key)$/;"	f
 name	game_map/map.h	/^	char	*name;$/;"	m	struct:s_map
@@ -293,9 +293,11 @@ on_window_closed	input.c	/^static int	on_window_closed(void)$/;"	f	file:
 pixel_get	mlx_helper.c	/^int		pixel_get(float x, float y)$/;"	f
 pixel_put	mlx_helper.c	/^void	pixel_put(float x, float y, int color)$/;"	f
 planes	cub3d.h	/^	uint16_t	planes;$/;"	m	struct:s_bitmapheader
+play_audio	audio.c	/^void	play_audio(int id)$/;"	f
+play_audio	game_map/audio.c	/^void	play_audio(int id)$/;"	f
 player	player.c	/^t_player		*player(void)$/;"	f
 player_init	player.c	/^static t_player	*player_init(void)$/;"	f	file:
-player_render	player_methods.c	/^void	player_render(void)$/;"	f
+player_render	player_methods.c	/^void		player_render(void)$/;"	f
 player_state	game_map/map.h	/^	int		player_state;$/;"	m	struct:s_localmap
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
 projection	projection.c	/^static void	projection(t_ray *ray, int col)$/;"	f	file:
@@ -358,10 +360,13 @@ setpoint	math_helper.c	/^void	setpoint(t_point *p, int x, int y)$/;"	f
 settexture	txt.c	/^void	settexture(t_ray *ray)$/;"	f
 setup	cub3d.c	/^static void	setup(const char *map_name)$/;"	f	file:
 size	cub3d.h	/^	uint32_t	size;$/;"	m	struct:s_bitmapheader
+slide	player_methods.c	/^static void	slide(float nplayer_x, float nplayer_y)$/;"	f	file:
 so	game_map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
 sp_head	game_map/map.h	/^	t_data	*sp_head;$/;"	m	struct:s_map
 sprite_pixel_get	mlx_helper.c	/^int		sprite_pixel_get(int x, int y)$/;"	f
 square	draw.c	/^void	square(float x, float y, float width, int color)$/;"	f
+stop_audio	audio.c	/^void	stop_audio(void)$/;"	f
+stop_audio	game_map/audio.c	/^void	stop_audio(void)$/;"	f
 storing_ray_content	cast.c	/^static void	storing_ray_content(t_ray *ray, t_horz *horz, t_vert *vert)$/;"	f	file:
 str_allocation	libft/ft_split.c	/^static	char	*str_allocation(char const *s, char c, int start)$/;"	f	file:
 str_join	get_next_line/get_next_line_utils.c	/^char		*str_join(char *buffer, char *tmp, int read_return, int i)$/;"	f

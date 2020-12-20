@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 00:18:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 04:04:16 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct	s_map
 	char	pview;
 	int		is_minimap_enabled;
 	int		is_collision_enabled;
-	int		is_audio_enabled;
+	int		is_audio_running;
 	int		initial_pos[2];
 	t_data	*sp_head;
 	t_image	*no;

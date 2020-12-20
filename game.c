@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/18 00:44:36 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 04:01:17 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 void		game_exit(int return_signal)
 {
-	system("killall afplay");
+	if (game()->is_audio_running)
+		stop_audio();
 	release_sprites();
 	release_textures();
 	mlx_destroy_image(vars()->mlx, vars()->img);
