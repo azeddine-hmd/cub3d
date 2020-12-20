@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 19:41:24 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 03:52:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 static void	setup(const char *map_name)
 {
+	system("afplay soundtracks/1.mp3 &");
 	map_init(map_name);
 	vars();
 	rays_init();
 	player();
-	input_handler();
 	texture_init();
 }
 
@@ -39,11 +39,12 @@ int			main(int argc, char **argv)
 	{
 		ft_putstr_fd("Usage: ./cub3D <map_path> ['--save']\n", 2);
 		ft_putstr_fd("--save: will take a screenshot then save it as bmp ", 2);
-		ft_putstr_fd("file and store it in current directory.", 2);
+		ft_putstr_fd("file and store it in the current directory.", 2);
 		game_exit(1);
 	}
 	setup(argv[1]);
 	render();
+	mlx_loop_hook(vars()->mlx, input_handler, NULL);
 	mlx_loop(vars()->mlx);
 	return (0);
 }

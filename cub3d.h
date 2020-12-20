@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 20:00:21 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 03:11:42 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct	s_player
 	float	walk_speed;
 	float	turn_speed;
 	float	rotation_angle;
-	int		move_right;
-	int		move_left;
+	int		right;
+	int		left;
 	int		move_forward_or_backward;
 }				t_player;
 
@@ -196,7 +196,7 @@ int				has_sprite_at(float x, float y);
 ** file: input.c
 */
 
-void			input_handler(void);
+int				input_handler(void);
 
 /*
 ** file: mlx_helper.c
@@ -315,10 +315,10 @@ int				is_inside_sprite(float x, float y, int width, int height);
 ** file: movement.c
 */
 
-void			move_right(float nplayer_x, float nplayer_y);
-void			move_left(float nplayer_x, float nplayer_y);
-void			move_forwback(float *move_step, float *nplayer_x, float *nplayer_y);
-void			no_movement(void);
+void			move_right(float *nplayer_x, float *nplayer_y);
+void			move_left(float *nplayer_x, float *nplayer_y);
+void			move_forwback(float *nplayer_x, float *nplayer_y);
+void			rotate(void);
 
 /*
 ** file: projection_helper.c
@@ -351,5 +351,11 @@ void			vertical_intersection(t_ray *ray, t_vert *vert);
 */
 
 void		release_sprites(void);
+
+/*
+** file: bonus_binding.c
+*/
+
+void		collision_binding(int key);
 
 #endif

@@ -6,17 +6,11 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 20:04:28 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 03:54:24 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void move(float nplayer_x, float nplayer_y)
-{
-	player()->x = nplayer_x;
-	player()->y = nplayer_y;
-}
 
 static void	slide(float nplayer_x, float nplayer_y)
 {
@@ -30,29 +24,30 @@ static void	slide(float nplayer_x, float nplayer_y)
 		player()->y = nplayer_y;
 }
 
-void	move_player(void)
+void		move_player(void)
 {
-	float move_step;
 	float nplayer_x;
 	float nplayer_y;
 
 	nplayer_x = player()->x;
 	nplayer_y = player()->y;
-	if (player()->move_right)
-		move_right(nplayer_x, nplayer_y);
-	else if (player()->move_left)
-		move_left(nplayer_x, nplayer_y);
+	rotate();
+	if (player()->right)
+		move_right(&nplayer_x, &nplayer_y);
+	else if (player()->left)
+		move_left(&nplayer_x, &nplayer_y);
 	else if (player()->move_forward_or_backward)
-		move_forwback(&move_step, &nplayer_x, &nplayer_y);
-	else
-		no_movement();
+		move_forwback(&nplayer_x, &nplayer_y);
 	if (game()->is_collision_enabled)
 		slide(nplayer_x, nplayer_y);
 	else
-		move(nplayer_x, nplayer_y);
+	{
+		player()->x = nplayer_x;
+		player()->y = nplayer_y;
+	}
 }
 
-void	player_render(void)
+void		player_render(void)
 {
 	t_point p0;
 	t_point p1;

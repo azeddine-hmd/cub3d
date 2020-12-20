@@ -37,6 +37,7 @@ KEY_7	cub3d.h	/^# define KEY_7 /;"	d
 KEY_8	cub3d.h	/^# define KEY_8 /;"	d
 KEY_9	cub3d.h	/^# define KEY_9 /;"	d
 KEY_A	cub3d.h	/^# define KEY_A /;"	d
+KEY_C	cub3d.h	/^# define KEY_C /;"	d
 KEY_D	cub3d.h	/^# define KEY_D /;"	d
 KEY_ESC	cub3d.h	/^# define KEY_ESC /;"	d
 KEY_LEFT_ARROW	cub3d.h	/^# define KEY_LEFT_ARROW /;"	d
@@ -90,6 +91,7 @@ check_file_extension	game_map/map_extension.c	/^void	check_file_extension(const 
 check_horz_collision	horz_intersection.c	/^static int	check_horz_collision($/;"	f	file:
 check_map	game_map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line, int *p)$/;"	f	file:
 check_vert_collision	vert_intersection.c	/^static int	check_vert_collision($/;"	f	file:
+collision_binding	bonus_binding.c	/^void	collision_binding(int key)$/;"	f
 cols	game_map/map.h	/^	int		cols;$/;"	m	struct:s_map
 correct_wall_distance	cub3d.h	/^	float		correct_wall_distance;$/;"	m	struct:s_wall
 count_words	libft/ft_split.c	/^static	int		count_words(char const *s, char c)$/;"	f	file:
@@ -226,10 +228,12 @@ is_ray_facing_down	cub3d.h	/^	int		is_ray_facing_down;$/;"	m	struct:s_ray
 is_ray_facing_left	cub3d.h	/^	int		is_ray_facing_left;$/;"	m	struct:s_ray
 is_ray_facing_right	cub3d.h	/^	int		is_ray_facing_right;$/;"	m	struct:s_ray
 is_ray_facing_up	cub3d.h	/^	int		is_ray_facing_up;$/;"	m	struct:s_ray
+is_rotating	cub3d.h	/^	int		is_rotating;$/;"	m	struct:s_player
 is_set	libft/ft_strtrim.c	/^static int	is_set(char const *set, char c)$/;"	f	file:
 l_lstnew	get_next_line/get_next_line_utils.c	/^t_list		*l_lstnew(int fd)$/;"	f
 l_lstremove	get_next_line/get_next_line.c	/^static void		l_lstremove(int fd, t_list **buffers)$/;"	f	file:
 l_lstremove_afterhead	get_next_line/get_next_line.c	/^static void		l_lstremove_afterhead(int fd, t_list *node)$/;"	f	file:
+left	cub3d.h	/^	int		left;$/;"	m	struct:s_player
 left	game_map/map.h	/^	char	left;$/;"	m	struct:s_direction
 line	draw.c	/^void	line(t_point p0, t_point p1, int color)$/;"	f
 line	game_map/map.h	/^	char	*line;$/;"	m	struct:s_localmap
@@ -259,13 +263,10 @@ minimap_resezing_binding	binding.c	/^void	minimap_resezing_binding(int key)$/;"	
 minimap_scale	game_map/map.h	/^	float	minimap_scale;$/;"	m	struct:s_map
 minimap_sprite_render	map_methods.c	/^void		minimap_sprite_render(void)$/;"	f
 mlx	game_map/map.h	/^	void *mlx;$/;"	m	struct:s_vars
-move	player_methods.c	/^static void move(float nplayer_x, float nplayer_y)$/;"	f	file:
 move_forward_or_backward	cub3d.h	/^	int		move_forward_or_backward;$/;"	m	struct:s_player
-move_forwback	movement.c	/^void	move_forwback(float *move_step, float *nplayer_x, float *nplayer_y)$/;"	f
-move_left	cub3d.h	/^	int		move_left;$/;"	m	struct:s_player
+move_forwback	movement.c	/^void	move_forwback(float *nplayer_x, float *nplayer_y)$/;"	f
 move_left	movement.c	/^void	move_left(float *nplayer_x, float *nplayer_y)$/;"	f
 move_player	player_methods.c	/^void	move_player(void)$/;"	f
-move_right	cub3d.h	/^	int		move_right;$/;"	m	struct:s_player
 move_right	movement.c	/^void	move_right(float *nplayer_x, float *nplayer_y)$/;"	f
 movement_binding	binding.c	/^void	movement_binding(int key)$/;"	f
 name	game_map/map.h	/^	char	*name;$/;"	m	struct:s_map
@@ -280,7 +281,6 @@ next_horz_touch_y	cub3d.h	/^	float	next_horz_touch_y;$/;"	m	struct:s_horz
 next_vert_touch_x	cub3d.h	/^	float	next_vert_touch_x;$/;"	m	struct:s_vert
 next_vert_touch_y	cub3d.h	/^	float	next_vert_touch_y;$/;"	m	struct:s_vert
 no	game_map/map.h	/^	t_image	*no;$/;"	m	struct:s_map
-no_movement	movement.c	/^void	no_movement(void)$/;"	f
 norm	game_map/fill_directions.c	/^static void			norm(t_direction *dire, char *previous,$/;"	f	file:
 normalize_angle	math_helper.c	/^float	normalize_angle(float angle)$/;"	f
 norminette_helper	libft/ft_split.c	/^static	char	**norminette_helper(char const *s, char c, char **str, int j)$/;"	f	file:
@@ -319,7 +319,9 @@ render_projection_walls	projection.c	/^void		render_projection_walls(void)$/;"	f
 render_sprites	sprite_methods.c	/^void		render_sprites(void)$/;"	f
 rgb	draw.c	/^int		rgb(int r, int g, int b)$/;"	f
 rgbstr_to_rgbint	game_map/fill_map_second.c	/^static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)$/;"	f	file:
+right	cub3d.h	/^	int		right;$/;"	m	struct:s_player
 right	game_map/map.h	/^	char	right;$/;"	m	struct:s_direction
+rotate	movement.c	/^void	rotate(void)$/;"	f
 rotation_angle	cub3d.h	/^	float	rotation_angle;$/;"	m	struct:s_player
 rotation_binding	binding.c	/^void	rotation_binding(int key)$/;"	f
 rows	game_map/map.h	/^	int		rows;$/;"	m	struct:s_map
@@ -356,7 +358,6 @@ setpoint	math_helper.c	/^void	setpoint(t_point *p, int x, int y)$/;"	f
 settexture	txt.c	/^void	settexture(t_ray *ray)$/;"	f
 setup	cub3d.c	/^static void	setup(const char *map_name)$/;"	f	file:
 size	cub3d.h	/^	uint32_t	size;$/;"	m	struct:s_bitmapheader
-slide	player_methods.c	/^static void	slide(float nplayer_x, float nplayer_y)$/;"	f	file:
 so	game_map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
 sp_head	game_map/map.h	/^	t_data	*sp_head;$/;"	m	struct:s_map
 sprite_pixel_get	mlx_helper.c	/^int		sprite_pixel_get(int x, int y)$/;"	f

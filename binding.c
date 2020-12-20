@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 01:54:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 19:42:38 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/20 03:51:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void	movement_binding(int key)
 	if (key == KEY_W)
 	{
 		player()->walk_direction = 1;
-		player()->move_forward_or_backward = 1;
+		player()->move_forward_or_backward = TRUE;
 	}
 	else if (key == KEY_A)
-		player()->move_left = TRUE;
+		player()->left = TRUE;
 	else if (key == KEY_S)
 	{
 		player()->walk_direction = -1;
-		player()->move_forward_or_backward = 1;
+		player()->move_forward_or_backward = TRUE;
 	}
 	else if (key == KEY_D)
-		player()->move_right = TRUE;
+		player()->right = TRUE;
 }
 
 void	rotation_binding(int key)
