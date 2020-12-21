@@ -6,22 +6,20 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 14:02:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 22:45:46 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-int		have_strings(const char **strings, int count)
+int		length(const char **array)
 {
 	int	i;
 
-	i = -1;
-	while (strings[++i])
-		count--;
-	if (count != 0)
-		return (0);
-	return (1);
+	i = 0;
+	while (array[i])
+		i++;
+	return (i);
 }
 
 void	fill_maparr(t_map *map, t_data *maparr)

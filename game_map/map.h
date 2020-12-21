@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 04:04:16 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 03:55:13 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # define TILE_SIZE 64
 # define MAX_WINDOW_WIDTH 2560
 # define MAX_WINDOW_HEIGHT 1440
-# define MIN_WINDOW_WIDTH 100
-# define MIN_WINDOW_HEIGHT 100
+# define MIN_WINDOW_WIDTH 500
+# define MIN_WINDOW_HEIGHT 500
 # define TRUE 1
 # define FALSE 0
 
@@ -111,19 +111,19 @@ t_map			*read_map(const char *file_name);
 ** file: fill_map_first.c
 */
 
-void			fill_r(t_map *map, const char **strings);
-void			fill_no(t_map *map, const char **strings);
-void			fill_so(t_map *map, const char **strings);
-void			fill_we(t_map *map, const char **strings);
+void			fill_r(t_map *map, const char **arglst);
+void			fill_no(t_map *map, const char **arglst);
+void			fill_so(t_map *map, const char **arglst);
+void			fill_we(t_map *map, const char **arglst);
 
 /*
 ** file: fill_map_second.c
 */
 
-void			fill_ea(t_map *map, const char **strings);
-void			fill_s(t_map *map, const char **strings);
-void			fill_f(t_map *map, const char **strings);
-void			fill_c(t_map *map, const char **strings);
+void			fill_ea(t_map *map, const char **arglst);
+void			fill_s(t_map *map, const char **arglst);
+void			fill_f(t_map *map, const char **arglst);
+void			fill_c(t_map *map, const char **arglst);
 
 /*
 ** file: fill_map_third.c
@@ -147,7 +147,7 @@ int				is_map_walls_closed(t_map *map, t_data *maparr);
 ** file: fill_map.c
 */
 
-int				have_strings(const char **strings, int count);
+int				length(const char **array);
 void			fill_maparr(t_map *map, t_data *maparr);
 
 /*

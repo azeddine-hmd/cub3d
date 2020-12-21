@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 04:13:32 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 22:07:43 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 # define KEY_ESC 53
 # define KEY_LEFT_ARROW 123
 # define KEY_RIGHT_ARROW 124
+# define KEY_UP_ARROW 126
+# define KEY_DOWN_ARROW 125
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
@@ -74,6 +76,7 @@ typedef struct	s_player
 	int		right;
 	int		left;
 	int		move_forward_or_backward;
+	int		look;
 }				t_player;
 
 typedef struct	s_ray

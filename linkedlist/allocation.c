@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:51:33 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 03:15:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 22:51:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void		*xmalloc(size_t size)
 	void	*data;
 
 	data = malloc(size);
+	if (data == NULL)
+		error();
 	add(get_head_node(), data);
 	return (data);
 }

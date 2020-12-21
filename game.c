@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 04:01:17 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 03:09:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** free and release game allocation from memory then exit
 */
 
-void		game_exit(int return_signal)
+void		game_exit(int signal)
 {
 	if (game()->is_audio_running)
 		stop_audio();
@@ -25,7 +25,7 @@ void		game_exit(int return_signal)
 	mlx_destroy_image(vars()->mlx, vars()->img);
 	mlx_destroy_window(vars()->mlx, vars()->win);
 	lst_clear(*get_head_node());
-	exit(return_signal);
+	exit(signal);
 }
 
 /*
@@ -49,7 +49,7 @@ static void	update(void)
 void		render(void)
 {
 	update();
-	mlx_clear_window(vars()->mlx, vars()->win);
+	//mlx_clear_window(vars()->mlx, vars()->win);
 	render_projection_walls();
 	render_sprites();
 	minimap_render();

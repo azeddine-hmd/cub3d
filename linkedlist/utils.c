@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 03:13:06 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/16 03:14:17 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 23:00:04 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,31 @@ char		*xstrjoin(const char *s1, const char *s2)
 	while (s2[++j])
 		joined[i++] = s2[j];
 	joined[i] = '\0';
+	return (joined);
+}
+
+/*
+** [Description]
+** join list strings togother with xmalloc.
+*/
+
+char		*xstrjoin_arr(const char **arglst, size_t n)
+{
+	char	*joined;
+	char	*xjoined;
+	char	*tmp;
+	int		i;
+
+	tmp = NULL;
+	while (i < n - 1)
+	{
+		tmp = joined;
+		joined = ft_strjoin(joined, arglst[i]);
+		if (joined == NULL)
+			error();
+		free(tmp);
+	}
+	xjoined = xstrdup(joined);
+	free(joined);
 	return (joined);
 }
