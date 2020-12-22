@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 03:55:13 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 05:15:43 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct	s_map
 	int		is_minimap_enabled;
 	int		is_collision_enabled;
 	int		is_audio_running;
+	int		is_slide_enabled;
 	int		initial_pos[2];
 	t_data	*sp_head;
 	t_image	*no;

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 03:54:24 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 05:16:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@ static void	slide(float nplayer_x, float nplayer_y)
 		player()->y = nplayer_y;
 }
 
+static void	move_with_collision(nplayer_x, nplayer_y)
+{
+	if (
+			!has_wall_at(nplayer_x, nplayer_y) &&
+			!has_sprite_at(nplayer_x, nplayer_y))
+	{
+		player()->x = nplayer_x;
+		player()->y = nplayer_y;
+	}
+}
+
 void		move_player(void)
 {
 	float nplayer_x;
@@ -39,7 +50,10 @@ void		move_player(void)
 	else if (player()->move_forward_or_backward)
 		move_forwback(&nplayer_x, &nplayer_y);
 	if (game()->is_collision_enabled)
-		slide(nplayer_x, nplayer_y);
+		if (game()->is_slide_enabled)
+			slide(nplayer_x, nplayer_y);
+		else
+			move_with_collision(nplayer_x, nplayer_y);
 	else
 	{
 		player()->x = nplayer_x;

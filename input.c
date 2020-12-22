@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 03:12:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 05:16:16 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,19 @@ static int	on_key_pressed(int key, void *param)
 	minimap_resezing_binding(key);
 	collision_binding(key);
 	audio_binding(key);
+
 	if (key == KEY_UP_ARROW)
 		player()->look += 100;
 	else if (key == KEY_DOWN_ARROW)
 		player()->look -= 100;
+
+	if (key == KEY_L)
+	{
+		if (game()->is_slide_enabled)
+			game()->is_slide_enabled = FALSE;
+		else
+			game()->is_slide_enabled = TRUE;
+	}
 	return (0);
 }
 

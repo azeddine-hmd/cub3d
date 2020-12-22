@@ -435,6 +435,7 @@ xfree_double_pointer	linkedlist/linkedlist_utils.c	/^void	xfree_double_pointer(c
 xmalloc	linkedlist/allocation.c	/^void		*xmalloc(size_t size)$/;"	f
 xstrdup	linkedlist/utils.c	/^char		*xstrdup(const char *s)$/;"	f
 xstrjoin	linkedlist/utils.c	/^char		*xstrjoin(const char *s1, const char *s2)$/;"	f
+xstrjoin_arr	linkedlist/utils.c	/^char		*xstrjoin_arr(const char **arglst, size_t n)$/;"	f
 y	cub3d.h	/^	float	y;$/;"	m	struct:s_player
 y	cub3d.h	/^	float	y;$/;"	m	struct:s_point
 y	game_map/map.h	/^	float	y;$/;"	m	struct:s_sp

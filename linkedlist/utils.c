@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 03:13:06 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 23:00:04 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 03:02:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,18 @@ char		*xstrjoin(const char *s1, const char *s2)
 char		*xstrjoin_arr(const char **arglst, size_t n)
 {
 	char	*joined;
-	char	*xjoined;
 	char	*tmp;
-	int		i;
+	size_t	i;
 
 	tmp = NULL;
-	while (i < n - 1)
+	joined = NULL;
+	i = -1;
+	while (++i < n)
 	{
 		tmp = joined;
-		joined = ft_strjoin(joined, arglst[i]);
-		if (joined == NULL)
-			error();
-		free(tmp);
+		joined = xstrjoin(joined, arglst[i]);
+		if (tmp)
+			xfree(tmp);
 	}
-	xjoined = xstrdup(joined);
-	free(joined);
 	return (joined);
 }

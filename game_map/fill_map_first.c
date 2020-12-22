@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 23:00:49 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 03:33:33 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	fill_r_norm(t_map *map, const char **arglst, int i, int *position)
 			map->win_height = MAX_WINDOW_HEIGHT;
 	}
 	else
-		error_map(map->name, "bad resolution.");
+		error_map(map->name, "nvalid resolution");
 }
 
 void		fill_r(t_map *map, const char **arglst)
@@ -43,7 +43,7 @@ void		fill_r(t_map *map, const char **arglst)
 
 	if (length(arglst) != 2)
 		error_map(map->name,
-				"found less or more than two argumments in resolution.");
+				"found less or more than two argumments in resolution");
 	position = 1;
 	i = -1;
 	while (arglst[++i])
@@ -55,22 +55,15 @@ void		fill_r(t_map *map, const char **arglst)
 void		fill_no(t_map *map, const char **arglst)
 {
 	t_image	*img;
-	char	*no_path;
 	int		i;
 
-	// join paths
-	no_path = xstrjoin_arr(arglst, length(arglst));
-
-	// fill information
+	if (length(arglst) != 1)
+		error_map(map->name,
+				"found less or more than one argumment in 'NO' texture");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (arglst[++i])
 	{
-		//debugging
-		for (int word = 0; word < length(arglst); word++) {
-			printf("arglst[%d]='%s'\n", word, arglst[word]);
-		}
-
 		if (ft_onlyspaces(arglst[i]))
 			continue ;
 		if ((img->img = mlx_xpm_file_to_image(
@@ -80,7 +73,7 @@ void		fill_no(t_map *map, const char **arglst)
 			return ;
 		}
 		else
-			error_message("bad path to north texture.");
+			error_message("invalid path to north texture");
 		xfree((void*)arglst[i]);
 	}
 }
@@ -90,9 +83,9 @@ void		fill_so(t_map *map, const char **arglst)
 	t_image	*img;
 	int		i;
 
-	/*if (length(arglst) != 1)
+	if (length(arglst) != 1)
 		error_map(map->name,
-				"found less or more than one argumment in 'SO' texture.");*/
+				"found less or more than one argumment in 'SO' texture");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (arglst[++i])
@@ -106,7 +99,7 @@ void		fill_so(t_map *map, const char **arglst)
 			return ;
 		}
 		else
-			error_map(map->name, "bad path to south texture.");
+			error_map(map->name, "invalid south texture path");
 		xfree((void*)arglst[i]);
 	}
 }
@@ -118,7 +111,7 @@ void		fill_we(t_map *map, const char **arglst)
 
 	if (length(arglst) != 1)
 		error_map(map->name,
-				"found less or more than one argumment in 'WE' texture.");
+				"found less or more than one argumment in 'WE' texture");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (arglst[++i])
@@ -132,7 +125,7 @@ void		fill_we(t_map *map, const char **arglst)
 			return ;
 		}
 		else
-			error_map(map->name, "bad path to west texture.");
+			error_map(map->name, "invalid west texture path");
 		xfree((void*)arglst);
 	}
 }

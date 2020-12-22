@@ -6,16 +6,11 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/20 22:41:50 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/22 02:34:47 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
-
-LIBS = libft/libft.a \
-	   get_next_line/libget_next_line.a \
-	   linkedlist/liblinkedlist.a \
-	   game_map/libmap.a \
 
 CC = gcc
 
@@ -23,7 +18,12 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
-	  -g \
+	  -fsanitize=address \
+
+LIBS = libft/libft.a \
+	   get_next_line/libget_next_line.a \
+	   linkedlist/liblinkedlist.a \
+	   game_map/libmap.a \
 
 SRC = cub3d.c \
 	  vars.c \

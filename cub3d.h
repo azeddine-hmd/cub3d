@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 22:07:43 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 05:07:28 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define KEY_O 31
 # define KEY_P 35
 # define KEY_M 46
+# define KEY_L 37
 # define KEY_0 29
 # define KEY_C 8
 # define KEY_1 18

@@ -4,27 +4,35 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-G	Makefile	/^G = gcc -Wall -Wextra -Werror$/;"	m
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Werror -Wextra \\$/;"	m
 LINKEDLIST_H	linkedlist.h	/^# define LINKEDLIST_H$/;"	d
-NAME	Makefile	/^NAME = linkedlist.a$/;"	m
-O	Makefile	/^O =	${SRC:.c=.o}$/;"	m
+NAME	Makefile	/^NAME = liblinkedlist.a$/;"	m
+OBJ	Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
 SRC	Makefile	/^SRC = linkedlist.c \\$/;"	m
 add	linkedlist_utils.c	/^void	add(t_data **head, void *data)$/;"	f
+add_double_pointer	linkedlist_utils.c	/^void	add_double_pointer(char **ptr)$/;"	f
 data	linkedlist.h	/^	void			*data;$/;"	m	struct:s_data
-error	helpers.c	/^void		error(t_data *head)$/;"	f
-error_message	helpers.c	/^void		error_message(t_data *head, char *message)$/;"	f
-finish	helpers.c	/^void		finish(t_data *head)$/;"	f
+error	error.c	/^void	error(void)$/;"	f
+error_map	error.c	/^void	error_map(const char *file_name, const char *message)$/;"	f
+error_message	error.c	/^void	error_message(const char *message)$/;"	f
+error_special	error.c	/^void	error_special(const char *message)$/;"	f
 free_node	linkedlist.c	/^void	free_node(t_data *node)$/;"	f
-get_head_node	allocation.c	/^void		**get_head_node(void)$/;"	f
+get_head_node	allocation.c	/^t_data		**get_head_node(void)$/;"	f
 lst_add_back	linkedlist.c	/^void	lst_add_back(t_data **head, t_data *node)$/;"	f
 lst_add_front	linkedlist.c	/^void	lst_add_front(t_data **head, t_data *node)$/;"	f
 lst_clear	linkedlist.c	/^void	lst_clear(t_data *head)$/;"	f
 lst_last	linkedlist.c	/^t_data	*lst_last(t_data *node)$/;"	f
-main	main.c	/^int		main(void)$/;"	f
+lst_size	linkedlist_utils.c	/^int		lst_size(t_data *head)$/;"	f
 new_node	linkedlist_utils.c	/^t_data	*new_node(void *data)$/;"	f
 next	linkedlist.h	/^	struct s_data	*next;$/;"	m	struct:s_data	typeref:struct:s_data::s_data
 s_data	linkedlist.h	/^typedef struct	s_data$/;"	s
+swap	swap.c	/^void	swap(t_data *this, t_data *other)$/;"	f
 t_data	linkedlist.h	/^}				t_data;$/;"	t	typeref:struct:s_data
 xfree	allocation.c	/^void		xfree(void *data)$/;"	f
 xfree_after_head	allocation.c	/^static int	xfree_after_head(t_data *node, void *data)$/;"	f	file:
+xfree_double_pointer	linkedlist_utils.c	/^void	xfree_double_pointer(char **ptr)$/;"	f
 xmalloc	allocation.c	/^void		*xmalloc(size_t size)$/;"	f
+xstrdup	utils.c	/^char		*xstrdup(const char *s)$/;"	f
+xstrjoin	utils.c	/^char		*xstrjoin(const char *s1, const char *s2)$/;"	f
+xstrjoin_arr	utils.c	/^char		*xstrjoin_arr(const char **arglst, size_t n)$/;"	f

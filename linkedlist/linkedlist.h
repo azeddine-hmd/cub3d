@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 12:33:58 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/21 23:20:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void			swap(t_data *this, t_data *other);
 
 char			*xstrdup(const char *s);
 char			*xstrjoin(const char *s1, const char *s2);
+char			*xstrjoin_arr(const char **arglst, size_t n);
 
 #endif
