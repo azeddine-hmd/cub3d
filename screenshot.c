@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 20:39:01 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 14:03:14 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:20:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,13 @@ char	*make_img_buff(t_bitmapheader *header)
 	return (buf);
 }
 
-void	take_screenshot(void)
+void	take_screenshot(const char *map_name)
 {
 	t_bitmapheader	header;
 	char			*header_str;
 	char			*img_buf;
 
+	setup(map_name);
 	header.fd = open("./screenshot.bmp", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 	render();
 	header_str = make_bmp_header(&header);
@@ -90,4 +91,5 @@ void	take_screenshot(void)
 	write(header.fd, img_buf, header.image_size);
 	free(header_str);
 	free(img_buf);
+	game_exit(0);
 }

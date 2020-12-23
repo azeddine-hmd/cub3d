@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 10:02:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 04:19:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:28:17 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ static void	projection(t_ray *ray, int col)
 	wall.wall_strip_height =
 		(TILE_SIZE / wall.correct_wall_distance) * wall.distance_proj_plane;
 	wall.wall_top_pixel =
-		(game()->win_height / 2 + player()->look) - ((wall.wall_strip_height / 2));
+		(game()->win_height / 2 + player()->look)
+		- ((wall.wall_strip_height / 2));
 	wall.wall_top_pixel = (wall.wall_top_pixel < 0) ? 0 : wall.wall_top_pixel;
 	wall.wall_bottom_pixel =
-		(game()->win_height / 2 + player()->look) + ((wall.wall_strip_height / 2));
+		(game()->win_height / 2 + player()->look)
+		+ ((wall.wall_strip_height / 2));
 	wall.wall_bottom_pixel = (wall.wall_bottom_pixel > game()->win_height) ?
 		game()->win_height : wall.wall_bottom_pixel;
 	ceilling_projection(col, &wall);

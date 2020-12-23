@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   release_sprites.c                                  :+:      :+:    :+:   */
+/*   options.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/16 04:09:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 23:19:15 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/12/22 23:42:47 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/12/23 01:26:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*
-** Make sure to call this function before game ends, otherwise memory leak.
-** Deallocate sprites memory only if sprite's head is exists
-** otherwise do nothing.
-*/
-
-void		release_sprites(void)
+int		check_option(const char *option, const char *target)
 {
-	if (game()->sp_head)
-		lst_clear(game()->sp_head);
-	mlx_destroy_image(vars()->mlx, game()->s->img);
+	if (!ft_strncmp(target, option, ft_strlen(target)))
+		return (TRUE);
+	return (FALSE);
 }

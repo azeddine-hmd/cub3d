@@ -41,6 +41,7 @@ KEY_C	cub3d.h	/^# define KEY_C /;"	d
 KEY_D	cub3d.h	/^# define KEY_D /;"	d
 KEY_DOWN_ARROW	cub3d.h	/^# define KEY_DOWN_ARROW /;"	d
 KEY_ESC	cub3d.h	/^# define KEY_ESC /;"	d
+KEY_L	cub3d.h	/^# define KEY_L /;"	d
 KEY_LEFT_ARROW	cub3d.h	/^# define KEY_LEFT_ARROW /;"	d
 KEY_M	cub3d.h	/^# define KEY_M /;"	d
 KEY_O	cub3d.h	/^# define KEY_O /;"	d
@@ -93,6 +94,7 @@ check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, cons
 check_file_extension	game_map/map_extension.c	/^void	check_file_extension(const char *file_name)$/;"	f
 check_horz_collision	horz_intersection.c	/^static int	check_horz_collision($/;"	f	file:
 check_map	game_map/fill_map_third.c	/^static int		check_map(t_map *map, const char *line, int *p)$/;"	f	file:
+check_option	options.c	/^int		check_option(const char *option, const char *target)$/;"	f
 check_vert_collision	vert_intersection.c	/^static int	check_vert_collision($/;"	f	file:
 collision_binding	bonus_binding.c	/^void	collision_binding(int key)$/;"	f
 cols	game_map/map.h	/^	int		cols;$/;"	m	struct:s_map
@@ -182,6 +184,7 @@ ft_strtrim_helper	libft/ft_strtrim.c	/^static char	*ft_strtrim_helper(char const
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_tolower	libft/ft_tolower.c	/^int		ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int		ft_toupper(int c)$/;"	f
+g_pref	cub3d.h	/^t_pref			g_pref;$/;"	v
 game	game_map/map_helper.c	/^t_map			*game(void)$/;"	f
 game_exit	game.c	/^void		game_exit(int signal)$/;"	f
 get_colors	screenshot.c	/^int		*get_colors(int color)$/;"	f
@@ -218,19 +221,20 @@ init_localmap	game_map/map_utils.c	/^t_localmap	*init_localmap(void)$/;"	f
 initial_pos	game_map/map.h	/^	int		initial_pos[2];$/;"	m	struct:s_map
 input_handler	input.c	/^int			input_handler(void)$/;"	f
 integer_length	libft/ft_putnbr_fd.c	/^static int	integer_length(int nb)$/;"	f	file:
-is_audio_running	game_map/map.h	/^	int		is_audio_running;$/;"	m	struct:s_map
-is_collision_enabled	game_map/map.h	/^	int		is_collision_enabled;$/;"	m	struct:s_map
+is_audio_running	cub3d.h	/^	int		is_audio_running;$/;"	m	struct:s_pref
+is_collision_enabled	cub3d.h	/^	int		is_collision_enabled;$/;"	m	struct:s_pref
 is_inside_map	protection.c	/^int		is_inside_map(float x, float y)$/;"	f
 is_inside_sprite	protection.c	/^int		is_inside_sprite(float x, float y, int width, int height)$/;"	f
 is_inside_texture	protection.c	/^int		is_inside_texture(float x, float y, int width, int height)$/;"	f
 is_inside_window	protection.c	/^int		is_inside_window(float x, float y)$/;"	f
 is_map_walls_closed	game_map/map_wall.c	/^int					is_map_walls_closed(t_map *map, t_data *maparr)$/;"	f
-is_minimap_enabled	game_map/map.h	/^	int		is_minimap_enabled;$/;"	m	struct:s_map
+is_minimap_enabled	cub3d.h	/^	int		is_minimap_enabled;$/;"	m	struct:s_pref
 is_ray_facing_down	cub3d.h	/^	int		is_ray_facing_down;$/;"	m	struct:s_ray
 is_ray_facing_left	cub3d.h	/^	int		is_ray_facing_left;$/;"	m	struct:s_ray
 is_ray_facing_right	cub3d.h	/^	int		is_ray_facing_right;$/;"	m	struct:s_ray
 is_ray_facing_up	cub3d.h	/^	int		is_ray_facing_up;$/;"	m	struct:s_ray
 is_set	libft/ft_strtrim.c	/^static int	is_set(char const *set, char c)$/;"	f	file:
+is_slide_enabled	cub3d.h	/^	int		is_slide_enabled;$/;"	m	struct:s_pref
 l_lstnew	get_next_line/get_next_line_utils.c	/^t_list		*l_lstnew(int fd)$/;"	f
 l_lstremove	get_next_line/get_next_line.c	/^static void		l_lstremove(int fd, t_list **buffers)$/;"	f	file:
 l_lstremove_afterhead	get_next_line/get_next_line.c	/^static void		l_lstremove_afterhead(int fd, t_list *node)$/;"	f	file:
@@ -271,6 +275,7 @@ move_forwback	movement.c	/^void	move_forwback(float *nplayer_x, float *nplayer_y
 move_left	movement.c	/^void	move_left(float *nplayer_x, float *nplayer_y)$/;"	f
 move_player	player_methods.c	/^void		move_player(void)$/;"	f
 move_right	movement.c	/^void	move_right(float *nplayer_x, float *nplayer_y)$/;"	f
+move_with_collision	player_methods.c	/^static void	move_with_collision(nplayer_x, nplayer_y)$/;"	f	file:
 movement_binding	binding.c	/^void	movement_binding(int key)$/;"	f
 name	game_map/map.h	/^	char	*name;$/;"	m	struct:s_map
 negative_condition	libft/ft_itoa.c	/^static char	*negative_condition(long n)$/;"	f	file:
@@ -303,6 +308,7 @@ player_init	player.c	/^static t_player	*player_init(void)$/;"	f	file:
 player_render	player_methods.c	/^void		player_render(void)$/;"	f
 player_state	game_map/map.h	/^	int		player_state;$/;"	m	struct:s_localmap
 power_ten	libft/ft_putnbr_fd.c	/^static int	power_ten(int power)$/;"	f	file:
+print_usage	game.c	/^void		print_usage(void)$/;"	f
 projection	projection.c	/^static void	projection(t_ray *ray, int col)$/;"	f	file:
 pview	game_map/map.h	/^	char	pview;$/;"	m	struct:s_map
 ray_angle	cub3d.h	/^	float	ray_angle;$/;"	m	struct:s_ray
@@ -330,6 +336,7 @@ rotate	movement.c	/^void	rotate(void)$/;"	f
 rotation_angle	cub3d.h	/^	float	rotation_angle;$/;"	m	struct:s_player
 rotation_binding	binding.c	/^void	rotation_binding(int key)$/;"	f
 rows	game_map/map.h	/^	int		rows;$/;"	m	struct:s_map
+run	run.c	/^void	run(const char *map_name)$/;"	f
 s	game_map/map.h	/^	t_image	*s;$/;"	m	struct:s_map
 s_bitmapheader	cub3d.h	/^typedef struct	s_bitmapheader$/;"	s
 s_data	linkedlist/linkedlist.h	/^typedef struct	s_data$/;"	s
@@ -341,6 +348,7 @@ s_localmap	game_map/map.h	/^typedef struct	s_localmap$/;"	s
 s_map	game_map/map.h	/^typedef struct	s_map$/;"	s
 s_player	cub3d.h	/^typedef struct	s_player$/;"	s
 s_point	cub3d.h	/^typedef struct	s_point$/;"	s
+s_pref	cub3d.h	/^typedef struct	s_pref$/;"	s
 s_ray	cub3d.h	/^typedef struct	s_ray$/;"	s
 s_sp	game_map/map.h	/^typedef struct	s_sp$/;"	s
 s_txt	cub3d.h	/^typedef struct	s_txt$/;"	s
@@ -361,7 +369,7 @@ set_sprites_distance	sprite_methods.c	/^void		set_sprites_distance(void)$/;"	f
 set_west_texture	txt_helper.c	/^void	set_west_texture(t_txt *txt)$/;"	f
 setpoint	math_helper.c	/^void	setpoint(t_point *p, int x, int y)$/;"	f
 settexture	txt.c	/^void	settexture(t_ray *ray)$/;"	f
-setup	cub3d.c	/^static void	setup(const char *map_name)$/;"	f	file:
+setup	cub3d.c	/^void	setup(const char *map_name)$/;"	f
 size	cub3d.h	/^	uint32_t	size;$/;"	m	struct:s_bitmapheader
 slide	player_methods.c	/^static void	slide(float nplayer_x, float nplayer_y)$/;"	f	file:
 so	game_map/map.h	/^	t_image	*so;$/;"	m	struct:s_map
@@ -386,13 +394,14 @@ t_localmap	game_map/map.h	/^}				t_localmap;$/;"	t	typeref:struct:s_localmap
 t_map	game_map/map.h	/^}				t_map;$/;"	t	typeref:struct:s_map
 t_player	cub3d.h	/^}				t_player;$/;"	t	typeref:struct:s_player
 t_point	cub3d.h	/^}				t_point;$/;"	t	typeref:struct:s_point
+t_pref	cub3d.h	/^}				t_pref;$/;"	t	typeref:struct:s_pref
 t_ray	cub3d.h	/^}				t_ray;$/;"	t	typeref:struct:s_ray
 t_sp	game_map/map.h	/^}				t_sp;$/;"	t	typeref:struct:s_sp
 t_txt	cub3d.h	/^}				t_txt;$/;"	t	typeref:struct:s_txt
 t_vars	game_map/map.h	/^}				t_vars;$/;"	t	typeref:struct:s_vars
 t_vert	cub3d.h	/^}				t_vert;$/;"	t	typeref:struct:s_vert
 t_wall	cub3d.h	/^}				t_wall;$/;"	t	typeref:struct:s_wall
-take_screenshot	screenshot.c	/^void	take_screenshot(void)$/;"	f
+take_screenshot	screenshot.c	/^void	take_screenshot(const char *map_name)$/;"	f
 texture_init	txt.c	/^void	texture_init(void)$/;"	f
 texture_pixel_get	mlx_helper.c	/^int		texture_pixel_get(int x, int y)$/;"	f
 turn_direction	cub3d.h	/^	int		turn_direction;$/;"	m	struct:s_player

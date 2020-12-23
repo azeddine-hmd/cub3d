@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 05:06:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:27:06 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** Note: functions invokation order is essential otherwise game will crash.
 */
 
-static void	setup(const char *map_name)
+void	setup(const char *map_name)
 {
 	map_init(map_name);
 	vars();
@@ -26,24 +26,21 @@ static void	setup(const char *map_name)
 	texture_init();
 }
 
-int			main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	if (argc == 3 && !ft_strcmp(argv[2], "--save"))
+	if (argc != 2 && argc != 3)
 	{
-		setup(argv[1]);
-		take_screenshot();
-		game_exit(0);
+		print_usage();
+		exit(1);
 	}
-	if (argc != 2)
+	if (argc == 3 && check_option(argv[2], "--save"))
+		take_screenshot(argv[1]);
+	else if (argc == 3)
 	{
-		ft_putstr_fd("Usage: ./cub3D <map_path> ['--save']\n", 2);
-		ft_putstr_fd("--save: will take a screenshot then save it as bmp ", 2);
-		ft_putstr_fd("file and store it in the current directory.", 2);
-		game_exit(1);
+		print_usage();
+		exit(1);
 	}
-	setup(argv[1]);
-	render();
-	mlx_loop_hook(vars()->mlx, input_handler, NULL);
-	mlx_loop(vars()->mlx);
+	if (argc == 2)
+		run(argv[1]);
 	return (0);
 }

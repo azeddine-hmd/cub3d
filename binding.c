@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 01:54:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 03:51:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 23:11:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	minimap_binding(int key)
 {
 	if (key == KEY_M)
 	{
-		if (game()->is_minimap_enabled == FALSE)
-			game()->is_minimap_enabled = TRUE;
+		if (g_pref.is_minimap_enabled == FALSE)
+			g_pref.is_minimap_enabled = TRUE;
 		else
-			game()->is_minimap_enabled = FALSE;
+			g_pref.is_minimap_enabled = FALSE;
 	}
 }
 

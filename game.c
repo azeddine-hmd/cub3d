@@ -6,11 +6,18 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 03:09:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:27:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void		print_usage(void)
+{
+	ft_putstr_fd("Usage: ./cub3D <map_path> ['--save']\n", 2);
+	ft_putstr_fd("--save: will take a screenshot then save it as bmp ", 2);
+	ft_putstr_fd("file and store it in the current directory.\n", 2);
+}
 
 /*
 ** free and release game allocation from memory then exit
@@ -18,7 +25,7 @@
 
 void		game_exit(int signal)
 {
-	if (game()->is_audio_running)
+	if (g_pref.is_audio_running)
 		stop_audio();
 	release_sprites();
 	release_textures();
@@ -49,7 +56,6 @@ static void	update(void)
 void		render(void)
 {
 	update();
-	//mlx_clear_window(vars()->mlx, vars()->win);
 	render_projection_walls();
 	render_sprites();
 	minimap_render();

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 05:15:43 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 23:21:07 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,6 @@ typedef struct	s_map
 	int		num_rays;
 	float	minimap_scale;
 	char	pview;
-	int		is_minimap_enabled;
-	int		is_collision_enabled;
-	int		is_audio_running;
-	int		is_slide_enabled;
 	int		initial_pos[2];
 	t_data	*sp_head;
 	t_image	*no;
@@ -102,105 +98,31 @@ typedef struct	s_localmap
 	int		id_count;
 }				t_localmap;
 
-/*
-** file: map.c
-*/
-
 t_map			*read_map(const char *file_name);
-
-/*
-** file: fill_map_first.c
-*/
-
 void			fill_r(t_map *map, const char **arglst);
 void			fill_no(t_map *map, const char **arglst);
 void			fill_so(t_map *map, const char **arglst);
 void			fill_we(t_map *map, const char **arglst);
-
-/*
-** file: fill_map_second.c
-*/
-
 void			fill_ea(t_map *map, const char **arglst);
 void			fill_s(t_map *map, const char **arglst);
 void			fill_f(t_map *map, const char **arglst);
 void			fill_c(t_map *map, const char **arglst);
-
-/*
-** file: fill_map_third.c
-*/
-
 void			fill_map(t_map *map, t_data **maparr, const char *line, int *p);
-
-/*
-** file: fill_directions.c
-*/
-
 int				fill_directions(char *previous, char *current, char *next);
-
-/*
-** file: map_wall.c
-*/
-
 int				is_map_walls_closed(t_map *map, t_data *maparr);
-
-/*
-** file: fill_map.c
-*/
-
 int				length(const char **array);
 void			fill_maparr(t_map *map, t_data *maparr);
-
-/*
-** file: fill_map.c
-*/
-
 void			check_allfilled(t_map *map);
-
-/*
-** file: map_utils.c
-*/
-
 t_map			*new_map(void);
 t_localmap		*init_localmap(void);
-
-/*
-** file: fill_map.c
-*/
-
 void			read_map_5(t_localmap *localmap);
 void			read_map_6(t_localmap *localmap);
-
-/*
-** file: map_helper.c
-*/
-
 void			*get_mlx();
 t_map			*game();
 void			map_init(const char *map_name);
-
-/*
-** file: map_information.c
-*/
-
 void			set_map_information(t_map *map);
-
-/*
-** file: map_extension.c
-*/
-
 void			check_file_extension(const char *file_name);
-
-/*
-** file: sprite.c
-*/
-
 void			set_sp_initial_position(t_map *map);
-
-/*
-** file: close_map.c
-*/
-
 void			close_map_file(int fd);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 05:16:30 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:56:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	slide(float nplayer_x, float nplayer_y)
 		player()->y = nplayer_y;
 }
 
-static void	move_with_collision(nplayer_x, nplayer_y)
+static void	move_with_collision(float nplayer_x, float nplayer_y)
 {
 	if (
 			!has_wall_at(nplayer_x, nplayer_y) &&
@@ -49,8 +49,8 @@ void		move_player(void)
 		move_left(&nplayer_x, &nplayer_y);
 	else if (player()->move_forward_or_backward)
 		move_forwback(&nplayer_x, &nplayer_y);
-	if (game()->is_collision_enabled)
-		if (game()->is_slide_enabled)
+	if (g_pref.is_collision_enabled)
+		if (g_pref.is_slide_enabled)
 			slide(nplayer_x, nplayer_y);
 		else
 			move_with_collision(nplayer_x, nplayer_y);
@@ -67,7 +67,7 @@ void		player_render(void)
 	t_point p1;
 	int		line_height;
 
-	if (game()->is_minimap_enabled == 0)
+	if (g_pref.is_minimap_enabled == 0)
 		return ;
 	p0.x = player()->x * game()->minimap_scale;
 	p0.y = player()->y * game()->minimap_scale;

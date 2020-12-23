@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   release_sprites.c                                  :+:      :+:    :+:   */
+/*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/16 04:09:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 23:19:15 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/12/23 01:21:20 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/12/23 01:22:04 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*
-** Make sure to call this function before game ends, otherwise memory leak.
-** Deallocate sprites memory only if sprite's head is exists
-** otherwise do nothing.
-*/
-
-void		release_sprites(void)
+void	run(const char *map_name)
 {
-	if (game()->sp_head)
-		lst_clear(game()->sp_head);
-	mlx_destroy_image(vars()->mlx, game()->s->img);
+	setup(map_name);
+	render();
+	mlx_loop_hook(vars()->mlx, input_handler, NULL);
+	mlx_loop(vars()->mlx);
 }

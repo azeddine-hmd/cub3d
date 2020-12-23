@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:42:02 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 05:07:28 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:21:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,229 +145,93 @@ typedef struct	s_vert
 	int		vert_wall_content;
 }				t_vert;
 
-/*
-** file: math_helper.c
-*/
+typedef struct	s_pref
+{
+	int		is_minimap_enabled;
+	int		is_audio_running;
+	int		is_slide_enabled;
+	int		is_collision_enabled;
+}				t_pref;
 
+t_pref			g_pref;
 float			normalize_angle(float angle);
 float			distance_between_points(t_point p1, t_point p2);
 float			f_mod(float a, float b);
 void			setpoint(t_point *p, int x, int y);
-
-/*
-** file: draw.c
-*/
-
 int				rgb(int r, int g, int b);
 void			line(t_point p0, t_point p1, int color);
 void			square(float x, float y, float width, int color);
 void			rect(t_point p, int width, int height, int color);
-
-/*
-** file: map_methods.c
-*/
-
 void			minimap_sprite_render(void);
 void			minimap_render(void);
 int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
 int				is_inside_texture(float x, float y, int width, int height);
 int				is_inside_sprite(float x, float y, int width, int height);
-
-/*
-** file: player.c
-*/
-
 t_player		*player(void);
-
-/*
-** file: player_method.c
-*/
-
 void			move_player(void);
 void			player_render(void);
-
-/*
-** file: collision.c
-*/
-
 int				has_wall_at(float x, float y);
 int				has_hidden_wall_at(float x, float y);
 int				has_player_at(float x, float y);
 int				has_sprite_at(float x, float y);
-
-/*
-** file: input.c
-*/
-
 int				input_handler(void);
-
-/*
-** file: mlx_helper.c
-*/
-
 void			pixel_put(float x, float y, int color);
 int				pixel_get(float x, float y);
 int				texture_pixel_get(int x, int y);
 int				sprite_pixel_get(int x, int y);
-
-/*
-** file: vars.c
-*/
-
 t_vars			*vars(void);
-
-/*
-** file: rays.c
-*/
-
 t_ray			**rays(void);
 void			rays_init(void);
-
-/*
-** file: rays_helper.c
-*/
-
 void			set_ray_direction(t_ray *ray);
-
-/*
-** file: rays_methods.c
-*/
-
 void			rays_render(void);
 void			cast_all_rays(void);
 void			cast(t_ray *ray);
-
-/*
-** file: projection.c
-*/
-
 void			render_projection_walls(void);
-
-/*
-** file: game.c
-*/
-
 void			game_exit(int return_signal);
 void			render(void);
-
-/*
-** file: txt.c
-*/
-
 t_txt			*gettxt(void);
 void			texture_init(void);
 void			settexture(t_ray *ray);
 void			release_textures(void);
-
-/*
-** file: txt_helper.c
-*/
-
 void			set_north_texture(t_txt *txt);
 void			set_south_texture(t_txt *txt);
 void			set_west_texture(t_txt *txt);
 void			set_east_texture(t_txt *txt);
-
-/*
-** file: rays_helper.c
-*/
-
 void			set_ray_direction(t_ray *ray);
-
-/*
-** file: rays_methods.c
-*/
-
 void			rays_render(void);
 void			cast_all_rays(void);
-
-/*
-** file: sprite_methods.c
-*/
-
 void			set_sprites_distance(void);
 void			linkedlist_bubble_sort(t_data *head);
 void			render_sprites(void);
-
-/*
-** file: screenshot.c
-*/
-
-void			take_screenshot(void);
-
-/*
-** file: binding.c
-*/
-
+void			take_screenshot(const char *map_name);
 void			minimap_binding(int key);
 void			movement_binding(int key);
 void			minimap_resezing_binding(int key);
 void			rotation_binding(int key);
 void			global_binding(int key);
-
-/*
-** file: protection.c
-*/
-
 int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
 int				is_inside_texture(float x, float y, int width, int height);
 int				is_inside_sprite(float x, float y, int width, int height);
-
-/*
-** file: movement.c
-*/
-
 void			move_right(float *nplayer_x, float *nplayer_y);
 void			move_left(float *nplayer_x, float *nplayer_y);
 void			move_forwback(float *nplayer_x, float *nplayer_y);
 void			rotate(void);
-
-/*
-** file: projection_helper.c
-*/
-
 void			ceilling_projection(int col, t_wall *wall);
 void			floor_projection(int col, t_wall *wall);
 void			wall_projection(int col, t_ray *ray, t_wall *wall);
-
-/*
-** file: cast.c
-*/
-
 void			cast(t_ray *ray);
-
-/*
-** file: horz_intersection.c
-*/
-
 void			horizontal_intersection(t_ray *ray, t_horz *horz);
-
-/*
-** file: horz_intersection.c
-*/
-
 void			vertical_intersection(t_ray *ray, t_vert *vert);
-
-/*
-** file: release_sprites.c
-*/
-
-void		release_sprites(void);
-
-/*
-** file: bonus_binding.c
-*/
-
-void		collision_binding(int key);
-
-/*
-** file: audio.c
-*/
-
-void		play_audio(int id);
-void		stop_audio(void);
-void		audio_binding(int key);
+void			release_sprites(void);
+void			collision_binding(int key);
+void			play_audio(int id);
+void			stop_audio(void);
+void			audio_binding(int key);
+void			print_usage(void);
+int				check_option(const char *option, const char *target);
+void			setup(const char *map_name);
+void			run(const char *map_name);
 
 #endif

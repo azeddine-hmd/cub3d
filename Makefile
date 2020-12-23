@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/22 02:34:47 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/23 01:22:03 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
 	  -fsanitize=address \
+	  -g \
 
 LIBS = libft/libft.a \
 	   get_next_line/libget_next_line.a \
@@ -54,6 +55,8 @@ SRC = cub3d.c \
 	  release_sprites.c \
 	  bonus_binding.c \
 	  audio.c \
+	  options.c \
+	  run.c \
 
 OBJ = ${SRC:.c=.o}
 

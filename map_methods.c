@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 14:23:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 23:21:16 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		minimap_render(void)
 	int i;
 	int j;
 
-	if (game()->is_minimap_enabled == 0)
+	if (g_pref.is_minimap_enabled == 0)
 		return ;
 	i = -1;
 	while (++i < game()->rows)
@@ -94,7 +94,7 @@ void		minimap_sprite_render(void)
 	int i;
 	int j;
 
-	if (game()->is_minimap_enabled == 0)
+	if (g_pref.is_minimap_enabled == 0)
 		return ;
 	i = -1;
 	while (++i < game()->rows)

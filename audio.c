@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 03:56:18 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 04:31:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/22 23:12:15 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	play_audio(int id)
 	char command[128];
 
 	ft_bzero(command, 128);
-	if (game()->is_audio_running)
+	if (g_pref.is_audio_running)
 		stop_audio();
 	sprintf(command, "afplay soundtracks/%d.mp3 &", id);
 	system(command);
-	game()->is_audio_running = TRUE;
+	g_pref.is_audio_running = TRUE;
 }
 
 void	stop_audio(void)
 {
-	if (game()->is_audio_running)
+	if (g_pref.is_audio_running)
 	{
 		system("killall afplay");
-		game()->is_audio_running = FALSE;
+		g_pref.is_audio_running = FALSE;
 	}
 }
 

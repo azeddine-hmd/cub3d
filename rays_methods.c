@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 04:15:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 01:56:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ void	rays_render(void)
 	t_point p1;
 	int		col;
 
-	if (game()->is_minimap_enabled == 0)
+	if (g_pref.is_minimap_enabled == 0)
 		return ;
 	p0.x = player()->x * game()->minimap_scale;
 	p0.y = player()->y * game()->minimap_scale;
 	col = -1;
 	while (++col < game()->num_rays)
 	{
-		//if (rays()[col]->distance == 0)
-			//continue ;
 		p1.x = rays()[col]->wall_hit_x * game()->minimap_scale;
 		p1.y = rays()[col]->wall_hit_y * game()->minimap_scale;
 		line(p0, p1, rgb(0, 255, 0));
