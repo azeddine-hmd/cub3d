@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/23 01:22:03 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/23 03:21:34 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,6 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
-	  -fsanitize=address \
-	  -g \
 
 LIBS = libft/libft.a \
 	   get_next_line/libget_next_line.a \
@@ -60,6 +58,10 @@ SRC = cub3d.c \
 
 OBJ = ${SRC:.c=.o}
 
+BNSRC = bonus_activation.c \
+
+BNOBJ = ${BNSRC:.c=.o}
+
 MAKE = make -C
 
 all: $(NAME)
@@ -69,14 +71,21 @@ $(NAME):
 	@ $(MAKE) get_next_line
 	@ $(MAKE) game_map
 	@ $(MAKE) linkedlist
-	@ $(CC) $(CFLAGS) $(SRC) $(LIBS) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(SRC) bonus_disactivation.c $(LIBS) -o $(NAME)
+
+bonus:
+	@ $(MAKE) libft
+	@ $(MAKE) get_next_line
+	@ $(MAKE) game_map
+	@ $(MAKE) linkedlist
+	@ $(CC) $(CFLAGS) $(SRC) $(BNSRC) $(LIBS) -o $(NAME)
 
 clean:
 	@ $(MAKE) libft clean
 	@ $(MAKE) get_next_line clean
 	@ $(MAKE) game_map clean
 	@ $(MAKE) linkedlist clean
-	@ rm -rf $(OBJ)
+	@ rm -rf $(OBJ) $(BNOBJ) bonus_disactivation.o
 
 fclean: clean
 	@ $(MAKE) libft fclean

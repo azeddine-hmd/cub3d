@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 01:27:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 03:06:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		main(int argc, char **argv)
 		print_usage();
 		exit(1);
 	}
-	if (argc == 2)
-		run(argv[1]);
+	activate_bonus();
+	run(argv[1]);
 	return (0);
 }

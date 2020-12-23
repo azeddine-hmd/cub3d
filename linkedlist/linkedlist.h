@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 23:20:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 03:48:17 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LINKEDLIST_H
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include <stdio.h>
 
 typedef struct	s_data
 {
@@ -22,55 +21,25 @@ typedef struct	s_data
 	struct s_data	*next;
 }				t_data;
 
-/*
-** file: linkedlist.c
-*/
-
 t_data			*lst_last(t_data *node);
 void			lst_add_front(t_data **head, t_data *node);
 void			lst_add_back(t_data **head, t_data *node);
 void			free_node(t_data *node);
 void			lst_clear(t_data *head);
-
-/*
-** file: linkedlist_utils.c
-*/
-
 t_data			*new_node(void *data);
 void			add(t_data **head, void *data);
 void			add_double_pointer(char **ptr);
 void			xfree_double_pointer(char **ptr);
 int				lst_size(t_data *head);
-
-/*
-** file: allocation.c
-*/
-
 t_data			**get_head_node(void);
 void			*xmalloc(size_t size);
 void			xfree(void *data);
-
-/*
-** file: error.c
-*/
-
 void			error(void);
 void			error_message(const char *message);
 void			finish(void);
 void			error_map(const char *file_name, const char *message);
 void			error_special(const char *message);
-
-/*
-** file: swap.c
-*/
-
 void			swap(t_data *this, t_data *other);
-
-
-/*
-** file: utils.c
-*/
-
 char			*xstrdup(const char *s);
 char			*xstrjoin(const char *s1, const char *s2);
 char			*xstrjoin_arr(const char **arglst, size_t n);

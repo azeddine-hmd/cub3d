@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 01:57:19 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 02:38:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ t_map			*read_map(const char *file_name)
 	localmap = init_localmap();
 	localmap->map->name = xstrdup(file_name);
 	if ((localmap->fd = open(file_name, O_RDONLY)) == -1)
-		error();
+		error_message("File doesn't exist");
 	read_map_1(localmap);
 	read_map_5(localmap);
 	read_map_6(localmap);

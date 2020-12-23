@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 01:27:47 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/23 03:30:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,23 @@ static int	on_key_pressed(int key, void *param)
 	global_binding(key);
 	movement_binding(key);
 	rotation_binding(key);
-	minimap_binding(key);
-	minimap_resezing_binding(key);
-	collision_binding(key);
-	audio_binding(key);
-	if (key == KEY_UP_ARROW)
-		player()->look += 100;
-	else if (key == KEY_DOWN_ARROW)
-		player()->look -= 100;
-	if (key == KEY_L)
+	if (g_bonus)
 	{
-		if (g_pref.is_slide_enabled)
-			g_pref.is_slide_enabled = FALSE;
-		else
-			g_pref.is_slide_enabled = TRUE;
+		if (key == KEY_UP_ARROW)
+			player()->look += 100;
+		else if (key == KEY_DOWN_ARROW)
+			player()->look -= 100;
+		if (key == KEY_L)
+		{
+			if (g_pref.is_slide_enabled)
+				g_pref.is_slide_enabled = FALSE;
+			else
+				g_pref.is_slide_enabled = TRUE;
+		}
+		collision_binding(key);
+		audio_binding(key);
+		minimap_binding(key);
+		minimap_resezing_binding(key);
 	}
 	return (0);
 }

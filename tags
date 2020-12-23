@@ -5,6 +5,10 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 AUDIO_PLAYER	cub3d.h	/^# define AUDIO_PLAYER /;"	d
+BNOBJ	Makefile	/^BNOBJ = ${BNSRC:.c=.o}$/;"	m
+BNSRC	Makefile	/^BNSRC = bonus_ativation.c$/;"	m
+BONUS	bonus.h	/^# define BONUS /;"	d
+BONUS_H	bonus.h	/^#define BONUS_H$/;"	d
 BUFFER_SIZE	get_next_line/get_next_line.h	/^# define BUFFER_SIZE /;"	d
 CC	Makefile	/^CC = gcc$/;"	m
 CC	game_map/Makefile	/^CC = gcc$/;"	m
@@ -78,6 +82,8 @@ SRC	linkedlist/Makefile	/^SRC = linkedlist.c \\$/;"	m
 TILE_SIZE	game_map/map.h	/^# define TILE_SIZE /;"	d
 TRUE	game_map/map.h	/^# define TRUE /;"	d
 WINDOW_NAME	game_map/map.h	/^# define WINDOW_NAME /;"	d
+activate_bonus	bonus_activation.c	/^void	activate_bonus(void)$/;"	f
+activate_bonus	bonus_disactivation.c	/^void	activate_bonus(void)$/;"	f
 add	linkedlist/linkedlist_utils.c	/^void	add(t_data **head, void *data)$/;"	f
 add_double_pointer	linkedlist/linkedlist_utils.c	/^void	add_double_pointer(char **ptr)$/;"	f
 add_sp	game_map/map_wall.c	/^static void			add_sp(char *line, unsigned int start, unsigned int end)$/;"	f	file:
@@ -89,6 +95,7 @@ cast	cast.c	/^void		cast(t_ray *ray)$/;"	f
 cast_all_rays	rays_methods.c	/^void	cast_all_rays(void)$/;"	f
 ceilling_projection	projection_helper.c	/^void	ceilling_projection(int col, t_wall *wall)$/;"	f
 check_allfilled	game_map/check_allfilled.c	/^void	check_allfilled(t_map *map)$/;"	f
+check_element_surrounding	game_map/fill_directions.c	/^static int			check_element_surrounding(char element, t_direction dire)$/;"	f	file:
 check_equality	libft/ft_strnstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_equality	libft/ft_strstr.c	/^static int	check_equality(const char *h, const char *n, int i)$/;"	f	file:
 check_file_extension	game_map/map_extension.c	/^void	check_file_extension(const char *file_name)$/;"	f
@@ -184,6 +191,7 @@ ft_strtrim_helper	libft/ft_strtrim.c	/^static char	*ft_strtrim_helper(char const
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_tolower	libft/ft_tolower.c	/^int		ft_tolower(int c)$/;"	f
 ft_toupper	libft/ft_toupper.c	/^int		ft_toupper(int c)$/;"	f
+g_bonus	cub3d.h	/^int				g_bonus;$/;"	v
 g_pref	cub3d.h	/^t_pref			g_pref;$/;"	v
 game	game_map/map_helper.c	/^t_map			*game(void)$/;"	f
 game_exit	game.c	/^void		game_exit(int signal)$/;"	f
@@ -252,7 +260,7 @@ lst_add_front	linkedlist/linkedlist.c	/^void	lst_add_front(t_data **head, t_data
 lst_clear	linkedlist/linkedlist.c	/^void	lst_clear(t_data *head)$/;"	f
 lst_last	linkedlist/linkedlist.c	/^t_data	*lst_last(t_data *node)$/;"	f
 lst_size	linkedlist/linkedlist_utils.c	/^int		lst_size(t_data *head)$/;"	f
-main	cub3d.c	/^int			main(int argc, char **argv)$/;"	f
+main	cub3d.c	/^int		main(int argc, char **argv)$/;"	f
 make_bmp_header	screenshot.c	/^char	*make_bmp_header(t_bitmapheader *header)$/;"	f
 make_img_buff	screenshot.c	/^char	*make_img_buff(t_bitmapheader *header)$/;"	f
 map	game_map/map.h	/^	t_map	*map;$/;"	m	struct:s_localmap
@@ -275,7 +283,7 @@ move_forwback	movement.c	/^void	move_forwback(float *nplayer_x, float *nplayer_y
 move_left	movement.c	/^void	move_left(float *nplayer_x, float *nplayer_y)$/;"	f
 move_player	player_methods.c	/^void		move_player(void)$/;"	f
 move_right	movement.c	/^void	move_right(float *nplayer_x, float *nplayer_y)$/;"	f
-move_with_collision	player_methods.c	/^static void	move_with_collision(nplayer_x, nplayer_y)$/;"	f	file:
+move_with_collision	player_methods.c	/^static void	move_with_collision(float nplayer_x, float nplayer_y)$/;"	f	file:
 movement_binding	binding.c	/^void	movement_binding(int key)$/;"	f
 name	game_map/map.h	/^	char	*name;$/;"	m	struct:s_map
 negative_condition	libft/ft_itoa.c	/^static char	*negative_condition(long n)$/;"	f	file:
