@@ -1,5 +1,6 @@
 *.o
 *.a
+*.bmp
 .DS_Store
 cub3D
 tags

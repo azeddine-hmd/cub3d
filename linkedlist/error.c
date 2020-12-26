@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:01:29 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 02:00:03 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 12:12:56 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,23 @@ void	error_message(const char *message)
 	exit(1);
 }
 
-void	error_map(const char *file_name, const char *message)
+void	error_line(int line, const char *message)
 {
 	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(file_name, 2);
-	ft_putstr_fd(": ", 2);
+	ft_putstr_fd("line[", 2);
+	ft_putstr_fd(ft_itoa(line), 2);
+	ft_putstr_fd("]: ", 2);
 	ft_putstr_fd(message, 2);
 	ft_putstr_fd("\n", 2);
 	lst_clear(*get_head_node());
 	exit(1);
 }
 
-void	error_special(const char *message)
+void	error_file(char *file_name, const char *file_name)
 {
 	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(file_name, 2);
+	ft_putstr_fd(": ", 2);
 	ft_putstr_fd(message, 2);
 	ft_putstr_fd("\n", 2);
 	lst_clear(*get_head_node());

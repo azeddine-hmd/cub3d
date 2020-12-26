@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:40:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/11/18 11:59:55 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 09:08:12 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** I'm too lazy to refactore it
 */
 
-void		read_map_5(t_localmap *localmap)
+/*void		read_map_5(t_localmap *localmap)
 {
 	xfree_double_pointer(localmap->strings);
 	check_allfilled(localmap->map);
@@ -28,7 +28,7 @@ void		read_map_5(t_localmap *localmap)
 		fill_map(localmap->map, &(localmap->maparr),
 				(const char*)localmap->line, &(localmap->player_state));
 	xfree(localmap->line);
-}
+}*/
 
 /*
 ** function implementation is not human readable
@@ -36,7 +36,7 @@ void		read_map_5(t_localmap *localmap)
 ** I'm too lazy to refactore it
 */
 
-void		read_map_6(t_localmap *localmap)
+/*void		read_map_6(t_localmap *localmap)
 {
 	while (localmap->line_end)
 	{
@@ -51,4 +51,4 @@ void		read_map_6(t_localmap *localmap)
 				(const char*)localmap->line, &(localmap->player_state));
 		xfree(localmap->line);
 	}
-}
+}*/

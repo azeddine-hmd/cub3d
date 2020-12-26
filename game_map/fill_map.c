@@ -6,14 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 22:45:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 12:20:57 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-int		length(const char **array)
-{
+int		length(char **array) {
 	int	i;
 
 	i = 0;

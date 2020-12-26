@@ -6,7 +6,7 @@
 /*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 22:38:41 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 11:59:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 12:59:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# define TRUE 1
+# define FALSE 0
 
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);

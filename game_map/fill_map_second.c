@@ -6,20 +6,20 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 03:33:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 10:55:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-void		fill_ea(t_map *map, const char **arglst)
+void		fill_ea(t_map *map, const char **arglst, int ln)
 {
 	t_image	*img;
 	int		i;
 
 	if (length(arglst) != 1)
-		error_map(map->name,
-				"found less or more than one argumment in 'EA' texture");
+		error_line(ln,
+				"found less or more than one argumment in EA identifier");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (arglst[++i])
@@ -33,19 +33,19 @@ void		fill_ea(t_map *map, const char **arglst)
 			return ;
 		}
 		else
-			error_map(map->name, "invalid path to east texture");
+			error_line(ln, "invalid path argument in EA identifier");
 		xfree((void*)arglst[i]);
 	}
 }
 
-void		fill_s(t_map *map, const char **arglst)
+void		fill_s(t_map *map, const char **arglst, int ln)
 {
 	t_image *img;
 	int		i;
 
 	if (length(arglst) != 1)
-		error_map(map->name,
-				"found less or more than one argumment in 'S' texture");
+		error_line(ln,
+				"found less or more than one argumment in S identifier");
 	img = (t_image*)xmalloc(sizeof(t_image));
 	i = -1;
 	while (arglst[++i])
@@ -59,12 +59,12 @@ void		fill_s(t_map *map, const char **arglst)
 			return ;
 		}
 		else
-			error_map(map->name, "invalid path to sprite texture");
+			error_line(ln, "invalid path argument in S identifier");
 		xfree((void*)arglst[i]);
 	}
 }
 
-static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)
+static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, int ln)
 {
 	char	**rgbarr;
 	int		i;
@@ -74,20 +74,22 @@ static void	rgbstr_to_rgbint(int *rgbint, char *rgbstr, t_map *map)
 	rgbarr = ft_split(rgbstr, ',');
 	add_double_pointer(rgbarr);
 	if (length((const char **)rgbarr) != 3)
-		error_map(map->name,
+		error_line(ln,
 				"found less or more than three argumments in rgb color");
 	i = -1;
 	while (rgbarr[++i])
 	{
+		if (!ft_isstrdigit(rgbarr[i]))
+			error_line(ln, "invalid rgb color");
 		if ((rgbint[i] = atoi(rgbarr[i])) < 0)
-			error_map(map->name, "rgb color below 0");
+			error_line(ln, "rgb color below 0");
 		if (rgbint[i] > 255)
-			error_map(map->name, "rgb color bigger than 255");
+			error_line(ln, "rgb color bigger than 255");
 	}
 	xfree_double_pointer(rgbarr);
 }
 
-void		fill_f(t_map *map, const char **arglst)
+void		fill_f(t_map *map, const char **arglst, int ln)
 {
 	int		i;
 	char	*frgb;
@@ -95,7 +97,7 @@ void		fill_f(t_map *map, const char **arglst)
 	i = -1;
 	frgb = NULL;
 	if (length(arglst) != 1)
-		error_map(map->name,
+		error_line(ln,
 				"found less or more than one argumments in floor color");
 	while (arglst[++i])
 	{
@@ -104,19 +106,19 @@ void		fill_f(t_map *map, const char **arglst)
 		if (ft_strstr(arglst[i], ","))
 		{
 			if (ft_countchar(arglst[i], ',') != 2)
-				error_map(map->name,
+				error_line(ln,
 						"found less or more than two commas in floor rgb");
 			frgb = xstrdup(arglst[i]);
 		}
 		else
-			error_map(map->name, "invalid floor color");
+			error_line(ln, "invalid floor color");
 	}
-	rgbstr_to_rgbint(map->frgb, frgb, map);
+	rgbstr_to_rgbint(map->frgb, frgb, ln);
 	if (frgb)
 		xfree(frgb);
 }
 
-void		fill_c(t_map *map, const char **arglst)
+void		fill_c(t_map *map, const char **arglst, int ln)
 {
 	int		i;
 	char	*crgb;
@@ -124,7 +126,7 @@ void		fill_c(t_map *map, const char **arglst)
 	i = -1;
 	crgb = NULL;
 	if (length(arglst) != 1)
-		error_map(map->name,
+		error_line(ln,
 				"found less or more than one argumments in ceiling color");
 	while (arglst[++i])
 	{
@@ -133,14 +135,14 @@ void		fill_c(t_map *map, const char **arglst)
 		if (ft_strstr(arglst[i], ","))
 		{
 			if (ft_countchar(arglst[i], ',') != 2)
-				error_map(map->name,
+				error_line(ln,
 						"found less or more than two commas in ceiling rgb");
 			crgb = xstrdup(arglst[i]);
 		}
 		else
-			error_map(map->name, "invalid ceilling color");
+			error_line(ln, "invalid ceilling color");
 	}
-	rgbstr_to_rgbint(map->crgb, crgb, map);
+	rgbstr_to_rgbint(map->crgb, crgb, ln);
 	if (!crgb)
 		xfree(crgb);
 }

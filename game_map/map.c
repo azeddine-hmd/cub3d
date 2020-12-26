@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 23:25:31 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 02:38:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 09:25:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** I'm too lazy to refactore it
 */
 
-static int		read_map_4(t_localmap *localmap)
+/*static int		read_map_4(t_localmap *localmap)
 {
 	if (!ft_strcmp((localmap->strings)[localmap->i], "F"))
 	{
@@ -40,7 +40,7 @@ static int		read_map_4(t_localmap *localmap)
 		return (1);
 	}
 	return (0);
-}
+}*/
 
 /*
 ** function implementation is not human readable
@@ -48,7 +48,7 @@ static int		read_map_4(t_localmap *localmap)
 ** I'm too lazy to refactore it
 */
 
-static int		read_map_3(t_localmap *localmap)
+/*static int		read_map_3(t_localmap *localmap)
 {
 	if (!ft_strcmp((localmap->strings)[localmap->i], "WE"))
 	{
@@ -72,7 +72,7 @@ static int		read_map_3(t_localmap *localmap)
 		return (1);
 	}
 	return (0);
-}
+}*/
 
 /*
 ** function implementation is not human readable
@@ -80,7 +80,7 @@ static int		read_map_3(t_localmap *localmap)
 ** I'm too lazy to refactore it
 */
 
-static int		read_map_2(t_localmap *localmap)
+/*static int		read_map_2(t_localmap *localmap)
 {
 	if (!ft_strcmp((localmap->strings)[localmap->i], "R"))
 	{
@@ -104,7 +104,7 @@ static int		read_map_2(t_localmap *localmap)
 		return (1);
 	}
 	return (0);
-}
+}*/
 
 /*
 ** function implementation is not human readable
@@ -112,7 +112,7 @@ static int		read_map_2(t_localmap *localmap)
 ** I'm too lazy to refactore it
 */
 
-static void		read_map_1(t_localmap *localmap)
+/*static void		read_map_1(t_localmap *localmap)
 {
 	while (localmap->line_end)
 	{
@@ -136,7 +136,7 @@ static void		read_map_1(t_localmap *localmap)
 			break ;
 		xfree(localmap->line);
 	}
-}
+}*/
 
 /*
 ** function implementation is not human readable
@@ -144,7 +144,7 @@ static void		read_map_1(t_localmap *localmap)
 ** I'm too lazy to refactore it
 */
 
-t_map			*read_map(const char *file_name)
+/*t_map			*read_map(const char *file_name)
 {
 	t_localmap	*localmap;
 
@@ -171,4 +171,4 @@ t_map			*read_map(const char *file_name)
 	set_map_information(localmap->map);
 	close(localmap->fd);
 	return (localmap->map);
-}
+}*/

@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("The line's: %d", __LINE__);
+}

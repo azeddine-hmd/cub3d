@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 01:56:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/24 10:27:13 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rays_render(void)
 	{
 		p1.x = rays()[col]->wall_hit_x * game()->minimap_scale;
 		p1.y = rays()[col]->wall_hit_y * game()->minimap_scale;
-		line(p0, p1, rgb(0, 255, 0));
+		line(p0, p1, COLOR_GREEN);
 	}
 }
 

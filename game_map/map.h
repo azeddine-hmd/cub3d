@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 23:21:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 13:00:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <float.h>
 # include <mlx.h>
+# include <stdio.h>
 
 # define WINDOW_NAME "cub3d"
 # define TILE_SIZE 64
@@ -26,8 +27,9 @@
 # define MAX_WINDOW_HEIGHT 1440
 # define MIN_WINDOW_WIDTH 500
 # define MIN_WINDOW_HEIGHT 500
-# define TRUE 1
-# define FALSE 0
+# define MAX_INFO_MENDATORY 8
+# define UNITIALIZED_COLOR -1
+# define INITIAL_MINIMAP_SCALE 0.1
 
 typedef struct	s_vars
 {
@@ -45,7 +47,6 @@ typedef struct	s_image
 
 typedef struct	s_map
 {
-	char	*name;
 	int		win_height;
 	int		win_width;
 	int		map_width;
@@ -83,36 +84,32 @@ typedef struct	s_sp
 	float	dist;
 }				t_sp;
 
-typedef struct	s_localmap
+typedef struct	s_fread
 {
-	t_map	*map;
 	char	*line;
-	int		fd;
-	int		line_end;
-	char	**strings;
-	int		i;
-	t_data	*maparr;
-	int		map_time;
-	int		map_reached;
-	int		player_state;
-	int		id_count;
-}				t_localmap;
+	int		ln;
+	int		info_count;
+	int		max_info;
+	int		reading_map_state;
+}				t_fread;
 
-t_map			*read_map(const char *file_name);
-void			fill_r(t_map *map, const char **arglst);
-void			fill_no(t_map *map, const char **arglst);
-void			fill_so(t_map *map, const char **arglst);
-void			fill_we(t_map *map, const char **arglst);
-void			fill_ea(t_map *map, const char **arglst);
-void			fill_s(t_map *map, const char **arglst);
-void			fill_f(t_map *map, const char **arglst);
-void			fill_c(t_map *map, const char **arglst);
+t_fread			freader;
+t_map			*load_map(const char *file_name);
+void			fill_r(t_map *map, char *width, char *height);
+void			fill_no(t_map *map, char *path);
+void			fill_so(t_map *map, char **arglst);
+void			fill_we(t_map *map, char **arglst);
+void			fill_ea(t_map *map, char **arglst);
+void			fill_s(t_map *map, char **arglst);
+void			fill_f(t_map *map, char **arglst);
+void			fill_c(t_map *map, char **arglst);
 void			fill_map(t_map *map, t_data **maparr, const char *line, int *p);
 int				fill_directions(char *previous, char *current, char *next);
 int				is_map_walls_closed(t_map *map, t_data *maparr);
-int				length(const char **array);
+int				length(char **array);
 void			fill_maparr(t_map *map, t_data *maparr);
 void			check_allfilled(t_map *map);
+t_map			*read_map(const char *file_name);
 t_map			*new_map(void);
 t_localmap		*init_localmap(void);
 void			read_map_5(t_localmap *localmap);

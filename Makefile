@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/23 03:21:34 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/24 16:27:57 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
+	  -fsanitize=address \
+	  -g \
 
 LIBS = libft/libft.a \
 	   get_next_line/libget_next_line.a \
@@ -85,7 +87,7 @@ clean:
 	@ $(MAKE) get_next_line clean
 	@ $(MAKE) game_map clean
 	@ $(MAKE) linkedlist clean
-	@ rm -rf $(OBJ) $(BNOBJ) bonus_disactivation.o
+	@ rm -rf $(OBJ) $(BNOBJ) bonus_disactivation.o cub3D.dSYM # remove later
 
 fclean: clean
 	@ $(MAKE) libft fclean

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 14:02:07 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/24 12:49:33 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,11 @@ static void	draw_sprite(int x, float distance, float height)
 static void	set_sprite_angle(t_sp *sprite, float *angle)
 {
 	*angle = atan2(sprite->y - player()->y, sprite->x - player()->x);
-	while (*angle - rays()[0]->ray_angle > M_PI)
-		*angle -= 2 * M_PI;
-	while (*angle - rays()[0]->ray_angle < -M_PI)
-		*angle += 2 * M_PI;
+	*angle = normalize_angle(*angle);
+	//while (*angle - rays()[0]->ray_angle > M_PI)
+		//*angle -= 2 * M_PI;
+	//while (*angle - rays()[0]->ray_angle < -M_PI)
+		//*angle += 2 * M_PI;
 }
 
 void		render_sprites(void)

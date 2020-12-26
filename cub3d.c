@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 03:06:18 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 11:25:57 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 
 void	setup(const char *map_name)
 {
-	map_init(map_name);
+	if (g_bonus)
+		//TODO: load map for all levels and assigned to a global variable
+	else
+		load_map(map_name, MAX_INFO_MENDATORY);
 	vars();
 	rays_init();
 	player();

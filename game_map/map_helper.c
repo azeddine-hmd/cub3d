@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 01:32:28 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 13:59:08 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 09:28:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void			map_init(const char *map_name)
 
 	map = map_double();
 	if (*map)
-		error_message("map_init: double initializition");
-	*map = read_map(map_name);
+		error_message("double map initializition");
+	*map = load_map(map_name);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 03:47:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/24 18:09:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define COLOR_WHITE 0xFFFFFF
 # define COLOR_RED 0xFF0000
 # define COLOR_ORANGE 0xFFA500
+# define COLOR_GREEN 0x00FF00
 
 /*
 ** Keys

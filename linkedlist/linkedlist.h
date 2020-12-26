@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 03:48:17 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 11:10:56 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ void			*xmalloc(size_t size);
 void			xfree(void *data);
 void			error(void);
 void			error_message(const char *message);
+void			error_line(int ln, const char *message);
 void			finish(void);
-void			error_map(const char *file_name, const char *message);
-void			error_special(const char *message);
 void			swap(t_data *this, t_data *other);
 char			*xstrdup(const char *s);
 char			*xstrjoin(const char *s1, const char *s2);

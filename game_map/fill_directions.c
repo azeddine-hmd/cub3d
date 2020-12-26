@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:30:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 02:38:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/26 09:06:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int			check_element_surrounding(char element, t_direction dire)
 							dire.down == ' ' || dire.down == '\0' ||
 							dire.left == ' ' || dire.left == '\0'))
 	{
-		error_special(message);
+		error_message(message);
 		xfree(message);
 		return (0);
 	}

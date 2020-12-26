@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 03:27:25 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/24 16:22:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		print_usage(void)
 {
 	ft_putstr_fd("Usage: ./cub3D <map_path> ['--save']\n", 2);
 	ft_putstr_fd("--save: will take a screenshot then save it as bmp ", 2);
-	ft_putstr_fd("file and store it in the current directory.\n", 2);
+	ft_putstr_fd("file and store it in the current directory\n", 2);
 }
 
 /*
