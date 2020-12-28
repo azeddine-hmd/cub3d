@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 20:04:42 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 09:23:09 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:38:56 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 #define EXTENSION_ERR "map extension is not cub!"
 
 /*
-** check map file name extension is 'cub'
+** check map file's name extension is 'cub'
 */
 
 void	check_file_extension(const char *file_name)
 {
-	int		dot_index;
+	char	*extn;
 
-	dot_index = ft_strlen(file_name) - 4;
-	if (ft_strcmp(file_name + dot_index, ".cub"))
+	extn = ft_strrchr(file_name, '.') + 1;
+	printf("extn = %s\n", extn);
+	if (ft_strncmp(extn, "cub", fmax(ft_strlen(extn), 3)))
 		error_message("file extension is not [.cub]");
 }

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:01:29 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 12:12:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:39:27 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	error_line(int line, const char *message)
 	exit(1);
 }
 
-void	error_file(char *file_name, const char *file_name)
+void	error_file(const char *file_name, const char *message)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(file_name, 2);

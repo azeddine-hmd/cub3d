@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/24 18:09:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:55:17 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 # define FOV_ANGLE (60 * (M_PI / 180))
 # define INT_MAX 2147483647
-# define MAX_SONGS 2
 # define AUDIO_PLAYER mplayer
 
 /*
@@ -157,10 +156,11 @@ typedef struct	s_pref
 
 t_pref			g_pref;
 int				g_bonus;
+
 float			normalize_angle(float angle);
 float			distance_between_points(t_point p1, t_point p2);
 float			f_mod(float a, float b);
-void			setpoint(t_point *p, int x, int y);
+void			setpoint(t_point *p, float x, float y);
 int				rgb(int r, int g, int b);
 void			line(t_point p0, t_point p1, int color);
 void			square(float x, float y, float width, int color);

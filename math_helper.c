@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:48:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/14 02:42:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:55:07 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ float	f_mod(float a, float b)
 	return (a - (floor(a / b) * b));
 }
 
-void	setpoint(t_point *p, int x, int y)
+void	setpoint(t_point *p, float x, float y)
 {
 	p->x = x;
 	p->y = y;

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 10:45:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 13:01:43 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:48:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_information(char *info)
 	{
 		exist = 2;
 		if (freader.info_count != freader.max_info &&
-				line[ft_strlen(freader.line) - 1] == ' ')
+				freader.line[ft_strlen(freader.line) - 1] == ' ')
 			error_line(freader.ln, "space at the end of line");
 		free(new_info);
 		return (TRUE);
@@ -66,6 +66,9 @@ void	preparing_filling_no(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumment in NO identifier");
 	fill_no(map, list + 1);
 	free_double_pointer(list);
 	freader.info_count++;
@@ -76,7 +79,10 @@ void	preparing_filling_so(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
-	fill_so(map, list + 1);
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumment in WE identifier");
+	fill_so(map, *list);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -86,7 +92,10 @@ void	preparing_filling_we(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
-	fill_we(map, list + 1);
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumment in WE identifier");
+	fill_we(map, *list);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -96,7 +105,10 @@ void	preparing_filling_ea(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
-	fill_ea(map, list + 1);
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumment in EA identifier");
+	fill_ea(map, *list);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -106,7 +118,10 @@ void	preparing_filling_s(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
-	fill_s(map, list + 1);
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumment in S identifier");
+	fill_s(map, *list);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -115,7 +130,10 @@ void	preparing_filling_c(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
-	fill_c(map, list + 1);
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumments in ceiling color");
+	fill_c(map, *list);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -125,7 +143,10 @@ void	preparing_filling_f(t_map *map)
 	char	**list;
 
 	list = ft_split(freader.line, ' ');
-	fill_f(map, list + 1);
+	if (length(list + 1) != 1)
+		error_line(freader.ln,
+				"found less or more than one argumments in floor color");
+	fill_f(map, *list);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -154,9 +175,9 @@ void	filling_information(t_map *map)
 		error_message("missing identifier");
 }
 
-void reading_map(char *line)
+void reading_map(t_map *map)
 {
-	//TODO: read map from freader.line
+	map++;
 }
 
 void	fill(t_map *map, int fd, int max_info)
@@ -192,14 +213,14 @@ static void	map_initializer(t_map *map)
 	map->crgb[2] = UNITIALIZED_COLOR;
 }
 
-t_map		*load_map(char *file_name, int max_info)
+t_map		*load_map(const char *file_name, int max_info)
 {
 	t_map	*map;
 	int		fd;
 
 	check_file_extension(file_name);
 	if ((fd = open(file_name, O_RDONLY)) == -1)
-		error_file("File doesn't exist");
+		error_file(file_name, "File doesn't exist");
 	map = (t_map*)xmalloc(sizeof(t_map));
 	map_initializer(map);
 	fill(map, fd, max_info);

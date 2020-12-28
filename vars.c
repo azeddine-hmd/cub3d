@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:13:07 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 14:09:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:09:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_vars	*vars_init(void)
 	t_vars *vars;
 
 	vars = (t_vars*)xmalloc(sizeof(t_vars));
-	vars->mlx = get_mlx();
+	vars->mlx = getmlx();
 	vars->win = mlx_new_window(
 			vars->mlx, game()->win_width, game()->win_height, WINDOW_NAME);
 	if (!vars->win)

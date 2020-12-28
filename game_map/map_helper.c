@@ -6,13 +6,13 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 01:32:28 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 09:28:14 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:39:44 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-void			*get_mlx(void)
+void			*getmlx(void)
 {
 	static void	*mlx;
 
@@ -41,12 +41,12 @@ t_map			*game(void)
 	return (*map_double());
 }
 
-void			map_init(const char *map_name)
+void			map_init(const char *map_name, int max_info)
 {
 	t_map **map;
 
 	map = map_double();
 	if (*map)
 		error_message("double map initializition");
-	*map = load_map(map_name);
+	*map = load_map(map_name, max_info);
 }

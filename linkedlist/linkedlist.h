@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:52:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 11:10:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:40:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			xfree(void *data);
 void			error(void);
 void			error_message(const char *message);
 void			error_line(int ln, const char *message);
+void			error_file(const char *file_name, const char *message);
 void			finish(void);
 void			swap(t_data *this, t_data *other);
 char			*xstrdup(const char *s);

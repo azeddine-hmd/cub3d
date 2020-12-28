@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:16:47 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/26 09:29:50 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/28 10:56:11 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRC = new_map.c \
 	  fill_map.c \
 	  map_information.c \
 	  map_norm.c \
-	  map_utils.c \
 	  map_extension.c \
 	  sprite.c \
 	  map_helper.c \
