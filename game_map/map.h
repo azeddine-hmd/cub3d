@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 12:42:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 16:52:27 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@
 # define MAX_INFO_MENDATORY 8
 # define UNITIALIZED_COLOR -1
 # define INITIAL_MINIMAP_SCALE 0.1
+
+# define MAP_STATE_PRIOR 0
+# define MAP_STATE_READING 1
+# define MAP_STATE_FINISHED 2
 
 typedef struct	s_vars
 {
@@ -90,7 +94,7 @@ typedef struct	s_fread
 	int		ln;
 	int		info_count;
 	int		max_info;
-	int		reading_map_state;
+	int		map_state;
 }				t_fread;
 
 t_map			map;
@@ -105,7 +109,7 @@ void			fill_ea(t_map *map, char *path);
 void			fill_s(t_map *map, char *path);
 void			fill_f(t_map *map, char *rgb);
 void			fill_c(t_map *map, char *rgb);
-void			fill_map(t_map *map, t_data **maparr, const char *line, int *p);
+void			fill_map(t_map *map, t_data **tmp_map);
 int				fill_directions(char *previous, char *current, char *next);
 int				is_map_walls_closed(t_map *map, t_data *maparr);
 int				length(char **array);

@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:16:47 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/28 10:56:11 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/28 16:55:07 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ SRC = new_map.c \
 	  map_extension.c \
 	  sprite.c \
 	  map_helper.c \
+	  fill_map_third.c \
 	  #map_wall.c \
 	  #map.c \
 	  #check_allfilled.c \
-	  #fill_map_third.c \
 
 OBJ = ${SRC:.c=.o}
 

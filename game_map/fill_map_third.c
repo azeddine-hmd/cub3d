@@ -6,42 +6,37 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 03:27:54 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 09:16:33 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 18:25:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-static int		check_map(t_map *map, const char *line, int *p)
+/*static int		check_map(t_map *map, const char *line)
 {
-	int		i;
 	char	*message;
+	int		i;
 
 	i = -1;
-	if (*line == '\0')
-		error_map(map->name, "empty line inside map's lines.");
 	while (line[++i])
 	{
 		if (line[i] == 'N' || line[i] == 'S' || line[i] == 'W'
 				|| line[i] == 'E')
-		{
 			map->pview = line[i];
-			(*p)++;
-		}
 		if (line[i] != '0' && line[i] != '1' && line[i] != '2' && line[i] != '3'
 				&& line[i] != 'N' && line[i] != 'S' && line[i] != 'W'
 				&& line[i] != 'E' && line[i] != ' ')
 		{
 			message = xstrdup("'x' not  a map element.");
 			message[1] = line[i];
-			error_map(map->name, (const char*)message);
+			error_line(freader.ln, message);
 			return (0);
 		}
 	}
 	return (1);
-}
+}*/
 
-static void		set_map_width(t_map *map, const char *line)
+static void	set_cols(t_map *map, const char *line)
 {
 	int	strings_len;
 
@@ -53,17 +48,16 @@ static void		set_map_width(t_map *map, const char *line)
 	map->map_width = map->cols * TILE_SIZE;
 }
 
-void			fill_map(t_map *map, t_data **maparr, const char *line, int *p)
+void		fill_map(t_map *map, t_data **tmp_map)
 {
-	const char	*maparr_line;
+	char	*tmp_line;
 
-	maparr_line = (const char*)xstrdup(line);
-	if (!maparr_line)
+	tmp_line = ft_strdup(freader.line);
+	if (!tmp_line)
 	{
-		lst_clear(*maparr);
+		lst_clear(*tmp_map);
 		error();
 	}
-	check_map(map, line, p);
-	set_map_width(map, line);
-	add(maparr, (void*)maparr_line);
+	set_cols(map, freader.line);
+	add(tmp_map, (void*)tmp_line);
 }

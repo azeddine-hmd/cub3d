@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 10:45:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 12:48:14 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 18:40:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	preparing_filling_no(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumment in NO identifier");
-	fill_no(map, list + 1);
+	fill_no(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -82,7 +82,7 @@ void	preparing_filling_so(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumment in WE identifier");
-	fill_so(map, *list);
+	fill_so(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -95,7 +95,7 @@ void	preparing_filling_we(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumment in WE identifier");
-	fill_we(map, *list);
+	fill_we(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -108,7 +108,7 @@ void	preparing_filling_ea(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumment in EA identifier");
-	fill_ea(map, *list);
+	fill_ea(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -121,7 +121,7 @@ void	preparing_filling_s(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumment in S identifier");
-	fill_s(map, *list);
+	fill_s(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -133,7 +133,7 @@ void	preparing_filling_c(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumments in ceiling color");
-	fill_c(map, *list);
+	fill_c(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -146,7 +146,7 @@ void	preparing_filling_f(t_map *map)
 	if (length(list + 1) != 1)
 		error_line(freader.ln,
 				"found less or more than one argumments in floor color");
-	fill_f(map, *list);
+	fill_f(map, list[1]);
 	free_double_pointer(list);
 	freader.info_count++;
 }
@@ -175,17 +175,51 @@ void	filling_information(t_map *map)
 		error_message("missing identifier");
 }
 
-void reading_map(t_map *map)
+void reading_map(t_map *map, t_data **tmp_map)
 {
-	map++;
+	if (freader.map_state == MAP_STATE_READING && !(freader.line[0]))
+	{
+		freader.map_state = MAP_STATE_FINISHED;
+		return ;
+	}
+	if (freader.map_state == MAP_STATE_FINISHED && freader.line[0])
+		error_line(freader.ln, "map must be the last element");
+	if (freader.map_state == MAP_STATE_PRIOR && !(freader.line[0]))
+		return ;
+	if (freader.map_state == MAP_STATE_PRIOR)
+		freader.map_state = MAP_STATE_READING;
+	fill_map(map, tmp_map);
+}
+
+void	set_cols(t_map *map, t_data *tmp_map)
+{
+	int	col;
+
+	map->cols = 0;
+	while (tmp_map)
+	{
+		col = ft_strlen((char*)tmp_map->data);
+		if (map->cols < col)
+			map->cols = col;
+		tmp_map = tmp_map->next;
+	}
+	map->map_width = map->cols * TILE_SIZE;
+}
+
+void	set_rows(t_map *map, t_data *tmp_map)
+{
+	map->rows = lst_size(tmp_map);
+	map->map_height = map->rows * TILE_SIZE;
 }
 
 void	fill(t_map *map, int fd, int max_info)
 {
+	t_data	*tmp_map;
 	int		eol;
 
 	freader.ln = 1;
 	freader.max_info = max_info;
+	tmp_map = NULL;
 	eol = 1;
 	while(eol)
 	{
@@ -195,22 +229,31 @@ void	fill(t_map *map, int fd, int max_info)
 		if (freader.info_count != freader.max_info)
 			filling_information(map);
 		else
-			reading_map(map);
+			reading_map(map, &tmp_map);
 		free(freader.line);
 		freader.ln++;
 	}
+	if (!tmp_map)
+		error_message("map not found");
+	// TODO: set variables
+	set_cols(map, tmp_map);
+	set_rows(map, tmp_map);
+	// TODO: join already filled map to one dimension map
+	lst_clear(tmp_map);
 }
 
 static void	map_initializer(t_map *map)
 {
+	int	i;
+
 	ft_bzero(map, sizeof(t_map));
 	map->minimap_scale = INITIAL_MINIMAP_SCALE;
-	map->frgb[0] = UNITIALIZED_COLOR;
-	map->frgb[1] = UNITIALIZED_COLOR;
-	map->frgb[2] = UNITIALIZED_COLOR;
-	map->crgb[0] = UNITIALIZED_COLOR;
-	map->crgb[1] = UNITIALIZED_COLOR;
-	map->crgb[2] = UNITIALIZED_COLOR;
+	i = -1;
+	while (++i < 3)
+	{
+		map->frgb[i] = UNITIALIZED_COLOR;
+		map->crgb[i] = UNITIALIZED_COLOR;
+	}
 }
 
 t_map		*load_map(const char *file_name, int max_info)
@@ -224,6 +267,6 @@ t_map		*load_map(const char *file_name, int max_info)
 	map = (t_map*)xmalloc(sizeof(t_map));
 	map_initializer(map);
 	fill(map, fd, max_info);
-	exit(1); // remove it later
+	exit(0); // remove it later
 	return (map);
 }

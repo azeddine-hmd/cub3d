@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 12:47:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/28 15:02:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,10 @@ void		fill_no(t_map *map, char *path)
 {
 	t_image	*img;
 
-	printf("path = %s\n", path);
 	img = (t_image*)xmalloc(sizeof(t_image));
 	img->img = mlx_xpm_file_to_image(getmlx(), path, &(img->w), &(img->h));
 	if (img->img == NULL)
-	{
-		printf("img->img = %s\n", img->img);
-		error_line(freader.ln, "invalid path argument in NO idenfifier");
-	}
+		error_line(freader.ln, "invalid path arguemnt in NO idenfifier");
 	map->no = img;
 }
 
