@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isstrdigit.c                                    :+:      :+:    :+:   */
+/*   length.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 02:55:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 10:50:23 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/12/30 12:34:44 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/12/30 12:39:21 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isstrdigit(const char *s)
+int		length(char **array)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-	{
-		if (!ft_isdigit(s[i]))
-			return (0);
+	while (array[i])
 		i++;
-	}
-	return (1);
+	return (i);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_onlyspaces.c                                    :+:      :+:    :+:   */
+/*   count_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 01:23:24 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/02 02:49:45 by ahamdaou         ###   ########.fr       */
+/*   Created: 2020/12/30 12:40:02 by ahamdaou          #+#    #+#             */
+/*   Updated: 2020/12/30 12:40:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_onlyspaces(const char *s)
+int		count_char(const char *s, char c)
 {
+	int	counter;
 	int	i;
 
+	counter = 0;
 	i = -1;
-	if (!s)
-		return (0);
 	while (s[++i])
-		if (s[i] != ' ')
-			return (0);
-	return (1);
+		if (s[i] == c)
+			counter++;
+	return (counter);
 }

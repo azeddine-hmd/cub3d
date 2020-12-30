@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 14:43:50 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/30 11:36:56 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 # define FOV_ANGLE (60 * (M_PI / 180))
 # define INT_MAX 2147483647
-# define AUDIO_PLAYER mplayer
 
 /*
 ** Colors
@@ -154,8 +153,17 @@ typedef struct	s_pref
 	int		is_collision_enabled;
 }				t_pref;
 
+
+/*
+** global variables
+*/
+
 t_pref			g_pref;
 int				g_bonus;
+
+/*
+** prototypes
+*/
 
 float			normalize_angle(float angle);
 float			distance_between_points(t_point p1, t_point p2);

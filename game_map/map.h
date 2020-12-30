@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 16:52:27 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/30 11:38:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,24 @@
 # include <mlx.h>
 # include <stdio.h> // remove it later
 
-# define WINDOW_NAME "cub3d"
 # define TILE_SIZE 64
+# define UNITIALIZED_COLOR -1
+# define INITIAL_MINIMAP_SCALE 0.1
+# define MAX_INFO_MENDATORY 8
+
+/*
+** window settings
+*/
+
+# define WINDOW_NAME "cub3d"
 # define MAX_WINDOW_WIDTH 2560
 # define MAX_WINDOW_HEIGHT 1440
 # define MIN_WINDOW_WIDTH 500
 # define MIN_WINDOW_HEIGHT 500
-# define MAX_INFO_MENDATORY 8
-# define UNITIALIZED_COLOR -1
-# define INITIAL_MINIMAP_SCALE 0.1
+
+/*
+** map states
+*/
 
 # define MAP_STATE_PRIOR 0
 # define MAP_STATE_READING 1

@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/16 04:26:11 by ahamdaou         ###   ########.fr        #
+#    Updated: 2020/12/30 12:40:30 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,9 @@ SRC = ft_atoi.c \
 	  ft_strcmp.c \
 	  ft_dec2hex.c \
 	  ft_strtoupper.c \
-	  ft_isstrdigit.c \
-	  ft_onlyspaces.c \
-	  ft_countchar.c \
+	  is_str_digit.c \
+	  count_char.c \
+	  length.c \
 
 OBJ = ${SRC:.c=.o}
 

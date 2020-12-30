@@ -6,7 +6,7 @@
 /*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 22:38:41 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/26 12:59:54 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2020/12/30 12:40:52 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void			ft_putnbr_fd(int n, int fd);
 char			*ft_strdup(const char *s1);
 char			*ft_dec2hex(size_t decimal);
 char			*ft_strtoupper(char *s);
-int				ft_isstrdigit(const char *s);
+int				is_str_digit(const char *s);
 void			ft_putstr(const char *s);
-int				ft_onlyspaces(const char *s);
-int				ft_countchar(const char *s, char c);
+int				count_char(const char *s, char c);
+int				length(char **array);
 
 #endif
