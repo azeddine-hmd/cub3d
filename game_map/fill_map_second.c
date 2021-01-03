@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:51 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 14:56:53 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/02 12:37:38 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		fill_f(t_map *map, char *rgb)
 	rgb_position = 0;
 	while (rgb_list[rgb_position])
 	{
-		if (!ft_isstrdigit(rgb_list[rgb_position]))
+		if (!is_str_digit(rgb_list[rgb_position]))
 			error_line(freader.ln, "rgb color is not valid");
 		color = ft_atoi(rgb_list[rgb_position]);
 		if (color < 0 || color > 255)
@@ -71,7 +71,7 @@ void		fill_c(t_map *map, char *rgb)
 	rgb_position = 0;
 	while (rgb_list[rgb_position])
 	{
-		if (!ft_isstrdigit(rgb_list[rgb_position]))
+		if (!is_str_digit(rgb_list[rgb_position]))
 			error_line(freader.ln, "rgb color is not valid");
 		color = ft_atoi(rgb_list[rgb_position]);
 		if (color < 0 || color > 255)

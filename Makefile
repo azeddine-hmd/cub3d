@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/24 16:27:57 by ahamdaou         ###   ########.fr        #
+#    Updated: 2021/01/02 18:28:59 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
+	  #-g \
 	  -fsanitize=address \
-	  -g \
 
 LIBS = libft/libft.a \
 	   get_next_line/libget_next_line.a \

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/30 11:36:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/03 16:03:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@
 */
 
 # define KEY_ESC 53
+
 # define KEY_LEFT_ARROW 123
 # define KEY_RIGHT_ARROW 124
 # define KEY_UP_ARROW 126
 # define KEY_DOWN_ARROW 125
+
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
@@ -47,6 +49,7 @@
 # define KEY_L 37
 # define KEY_0 29
 # define KEY_C 8
+
 # define KEY_1 18
 # define KEY_2 19
 # define KEY_3 20

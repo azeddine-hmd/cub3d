@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 10:16:47 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/28 16:55:07 by ahamdaou         ###   ########.fr        #
+#    Updated: 2021/01/02 18:28:33 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,23 +15,19 @@ NAME = libmap.a
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra \
+		 #-g \
 		 -fsanitize=address \
-		 -g \
 
-SRC = new_map.c \
+SRC = map.c \
 	  fill_directions.c \
 	  fill_map_first.c \
 	  fill_map_second.c \
 	  fill_map.c \
 	  map_information.c \
-	  map_norm.c \
 	  map_extension.c \
 	  sprite.c \
 	  map_helper.c \
-	  fill_map_third.c \
-	  #map_wall.c \
-	  #map.c \
-	  #check_allfilled.c \
+	  map_wall.c \
 
 OBJ = ${SRC:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/30 11:38:36 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/02 18:29:00 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 ** window settings
 */
 
-# define WINDOW_NAME "cub3d"
 # define MAX_WINDOW_WIDTH 2560
 # define MAX_WINDOW_HEIGHT 1440
 # define MIN_WINDOW_WIDTH 500
@@ -60,6 +59,7 @@ typedef struct	s_image
 
 typedef struct	s_map
 {
+	char	*win_name;
 	int		win_height;
 	int		win_width;
 	int		map_width;
@@ -104,12 +104,22 @@ typedef struct	s_fread
 	int		info_count;
 	int		max_info;
 	int		map_state;
+	int		player_count;
 }				t_fread;
+
+/*
+** global variables
+*/
 
 t_map			map;
 t_fread			freader;
 
+/*
+** functions prototype
+*/
+
 t_map			*load_map(const char *file_name, int max_info);
+void			check_file_extension(const char *file_name);
 void			fill_r(t_map *map, char *width, char *height);
 void			fill_no(t_map *map, char *path);
 void			fill_so(t_map *map, char *path);
@@ -118,21 +128,16 @@ void			fill_ea(t_map *map, char *path);
 void			fill_s(t_map *map, char *path);
 void			fill_f(t_map *map, char *rgb);
 void			fill_c(t_map *map, char *rgb);
-void			fill_map(t_map *map, t_data **tmp_map);
+void			fill_map(t_data **tmp_map);
+void			check_line_element(const char *line);
+int				is_map_walls_closed(t_data *tmp_map, int cols);
 int				fill_directions(char *previous, char *current, char *next);
-int				is_map_walls_closed(t_map *map, t_data *maparr);
+void			set_initial_player_position(t_map *map);
+void			set_sp_initial_position(t_map *map);
+void			map_init(const char *map_name, int max_info);
+void			free_double_pointer(char **ptr);
 int				length(char **array);
-void			fill_maparr(t_map *map, t_data *maparr);
-void			check_allfilled(t_map *map);
-t_map			*read_map(const char *file_name);
-t_map			*new_map(void);
 void			*getmlx();
 t_map			*game();
-void			map_init(const char *map_name, int max_info);
-void			set_map_information(t_map *map);
-void			check_file_extension(const char *file_name);
-void			set_sp_initial_position(t_map *map);
-void			close_map_file(int fd);
-void			free_double_pointer(char **ptr);
 
 #endif

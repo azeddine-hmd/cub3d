@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 05:29:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/21 03:55:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/03 16:18:58 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static t_player	*player_init(void)
 	player->turn_direction = 0;
 	player->walk_direction = 0;
 	player->rotation_angle = get_initial_angle();
-	player->rotation_angle = M_PI / 2;
 	player->walk_speed = 10;
 	player->turn_speed = 3 * (M_PI / 180);
 	player->left = FALSE;

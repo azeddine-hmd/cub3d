@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 15:02:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/02 12:37:19 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void		fill_r(t_map *map, char *width, char *height)
 {
-	if (!ft_isstrdigit(width))
+	if (!is_str_digit(width))
 		error_line(freader.ln, "invalid resolution width");
-	if (!ft_isstrdigit(height))
+	if (!is_str_digit(height))
 		error_line(freader.ln, "invalid resolution height");
 	map->win_width = atoi(width);
 	if (map->win_width < MIN_WINDOW_WIDTH)

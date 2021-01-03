@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 23:06:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/09 14:11:28 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/02 18:26:03 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static void			add_sp(char *line, unsigned int start, unsigned int end)
 	}
 }
 
-static void			fill_map_withspaces(t_data *maparr, int map_width)
+static void			fill_map_withspaces(t_data *tmp_map, int map_width)
 {
 	char	*line;
 	int		data_len;
 	t_data	*head;
 
-	head = maparr;
+	head = tmp_map;
 	while (head)
 	{
 		data_len = ft_strlen((char*)head->data);
@@ -36,7 +36,7 @@ static void			fill_map_withspaces(t_data *maparr, int map_width)
 			line = (char*)xmalloc(map_width + 1);
 			if (!line)
 			{
-				lst_clear(maparr);
+				lst_clear(tmp_map);
 				error();
 			}
 			ft_memset(line, 0, map_width + 1);
@@ -49,32 +49,32 @@ static void			fill_map_withspaces(t_data *maparr, int map_width)
 	}
 }
 
-static int			walls_closed(t_data *maparr)
+static int			walls_closed(t_data *tmp_map)
 {
 	char	*previous;
 	char	*current;
 	char	*next;
 
 	previous = NULL;
-	while (maparr)
+	while (tmp_map)
 	{
-		current = (char*)maparr->data;
-		if (!maparr->next)
+		current = (char*)tmp_map->data;
+		if (!tmp_map->next)
 			next = NULL;
 		else
-			next = (char*)maparr->next->data;
+			next = (char*)tmp_map->next->data;
 		if (!fill_directions(previous, current, next))
 			return (0);
 		previous = current;
-		maparr = maparr->next;
+		tmp_map = tmp_map->next;
 	}
 	return (1);
 }
 
-int					is_map_walls_closed(t_map *map, t_data *maparr)
+int					is_map_walls_closed(t_data *tmp_map, int cols)
 {
-	fill_map_withspaces(maparr, map->cols);
-	if (!walls_closed(maparr))
+	fill_map_withspaces(tmp_map, cols);
+	if (!walls_closed(tmp_map))
 		return (0);
 	return (1);
 }
