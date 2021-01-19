@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 14:49:07 by ahamdaou          #+#    #+#              #
-#    Updated: 2020/12/30 12:40:30 by ahamdaou         ###   ########.fr        #
+#    Updated: 2021/01/03 16:55:00 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC = ft_atoi.c \
 	  is_str_digit.c \
 	  count_char.c \
 	  length.c \
+	  free_double_pointer.c \
 
 OBJ = ${SRC:.c=.o}
 

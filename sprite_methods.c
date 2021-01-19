@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/10 19:29:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/24 12:49:33 by ahamdaou         ###   ########.fr       */
+/*   Created: 2021/01/17 09:42:36 by ahamdaou          #+#    #+#             */
+/*   Updated: 2021/01/19 15:55:15 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,89 +36,66 @@ void		set_sprites_distance(void)
 	}
 }
 
-/*
-** Description: sorting sprites in linkedlist using bubble sort algorithm.
-**
-** note: bubble sort is extremly slow but takes less time to code. however,
-** since we will never have millions of sprites in one map it's okey to
-** implement it here
-*/
-
-void		linkedlist_bubble_sort(t_data *head)
+static void	draw_sprite_strip(int col, int x, int sp_height)
 {
-	int		swapped;
-	t_sp	*lsprite;
-	t_sp	*rsprite;
-
-	if (!head)
-		return ;
-	swapped = 0;
-	while (head->next)
-	{
-		lsprite = (t_sp*)head->data;
-		rsprite = (t_sp*)head->next->data;
-		if (lsprite->dist < rsprite->dist)
-		{
-			swap(head, head->next);
-			swapped = 1;
-		}
-		head = head->next;
-	}
-	if (swapped)
-		linkedlist_bubble_sort(head);
-}
-
-static void	draw_sprite(int x, float distance, float height)
-{
-	int i;
-	int j;
+	int y;
+	int	x_offset;
 	int y_offset;
 	int color;
 
-	i = x;
-	while (i <= x + height)
+	y = (game()->win_height / 2 + player()->look) - sp_height / 2;
+	x_offset = x - col;
+	y_offset = 0;
+	while (y < (game()->win_height / 2 + player()->look) + sp_height / 2)
 	{
-		j = (game()->win_height - height) / 2;
-		y_offset = 0;
-		if (i >= 0 && i < game()->win_width && distance < rays()[i]->distance)
-		{
-			while (j < (game()->win_height + height) / 2 - 1)
-			{
-				color = sprite_pixel_get(
-						(int)(i - x) / height * game()->s->w,
-						(int)(y_offset / height * game()->s->h));
-				if (j < game()->win_height && j >= 0 && color != 0x000000)
-					pixel_put(i, j, color);
-				j++;
-				y_offset++;
-			}
-		}
-		i++;
+		color = sprite_pixel_get(
+				(x_offset * game()->s->w) / sp_height,
+				(y_offset * game()->s->h) / sp_height);
+		if (color != COLOR_BLACK)
+			pixel_put(x, y, color);
+		y++;
+		y_offset++;
 	}
 }
 
-/*
-** sort sprites based on distance from nearest to farthest,then render
-** them as squares on window.
-*/
-
-static void	set_sprite_angle(t_sp *sprite, float *angle)
+static void	draw_sprite(int col, float distance, float sp_height)
 {
-	*angle = atan2(sprite->y - player()->y, sprite->x - player()->x);
-	*angle = normalize_angle(*angle);
-	//while (*angle - rays()[0]->ray_angle > M_PI)
-		//*angle -= 2 * M_PI;
-	//while (*angle - rays()[0]->ray_angle < -M_PI)
-		//*angle += 2 * M_PI;
+	int x;
+
+	if (col >= -sp_height && col < game()->win_width)
+	{
+		x = col;
+		while (x <= col + sp_height - 1)
+		{
+			if (x >= 0 && x < game()->win_width &&
+					distance < rays()[x]->distance)
+				draw_sprite_strip(col, x, sp_height);
+			x++;
+		}
+	}
+}
+
+static void	single_sprite_rendring(t_sp *sprite)
+{
+	float	angle;
+	float	alpha;
+	float	sprite_height;
+	int		col;
+
+	angle = atan2(player()->y - sprite->y, player()->x - sprite->x) + M_PI;
+	alpha = angle - rays()[0]->ray_angle;
+	if (rays()[0]->ray_angle > (3 * M_PI / 2) && angle < FOV_ANGLE)
+		alpha += 2 * M_PI;
+	sprite_height = (TILE_SIZE / sprite->dist) *
+		(game()->win_width / 2) / tan(FOV_ANGLE / 2);
+	col = alpha * game()->win_width / FOV_ANGLE - sprite_height / 2;
+	draw_sprite(col, sprite->dist, sprite_height);
 }
 
 void		render_sprites(void)
 {
 	t_data	*head;
 	t_sp	*sprite;
-	float	angle;
-	float	sprite_height;
-	int		column_index;
 
 	head = game()->sp_head;
 	if (!head)
@@ -127,13 +104,7 @@ void		render_sprites(void)
 	while (head)
 	{
 		sprite = (t_sp*)head->data;
-		set_sprite_angle(sprite, &angle);
-		sprite_height = (TILE_SIZE / sprite->dist) *
-			(game()->win_width / 2) / tan(FOV_ANGLE / 2);
-		column_index =
-			(angle - rays()[0]->ray_angle) / (FOV_ANGLE / game()->win_width)
-			- (sprite_height / 2);
-		draw_sprite(column_index, sprite->dist, sprite_height);
+		single_sprite_rendring(sprite);
 		head = head->next;
 	}
 }

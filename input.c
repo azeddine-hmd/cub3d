@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/23 03:30:11 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:52:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static int	on_key_pressed(int key, void *param)
 		audio_binding(key);
 		minimap_binding(key);
 		minimap_resezing_binding(key);
+		window_binding(key);
 	}
 	return (0);
 }

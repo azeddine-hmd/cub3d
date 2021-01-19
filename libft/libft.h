@@ -6,7 +6,7 @@
 /*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 22:38:41 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/30 12:40:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/03 16:54:44 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int				is_str_digit(const char *s);
 void			ft_putstr(const char *s);
 int				count_char(const char *s, char c);
 int				length(char **array);
+void			free_double_pointer(char **ptr);
 
 #endif

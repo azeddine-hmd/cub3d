@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 05:29:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/03 16:18:58 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:25:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static t_player	*player_init(void)
 	t_player	*player;
 
 	player = (t_player*)xmalloc(sizeof(t_player));
-	ft_bzero(player, sizeof(t_player));
 	player->x = game()->initial_pos[0] * TILE_SIZE - (TILE_SIZE / 2);
 	player->y = game()->initial_pos[1] * TILE_SIZE - (TILE_SIZE / 2);
 	player->width = 1;

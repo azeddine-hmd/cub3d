@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:35:25 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 04:53:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/17 11:01:40 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		sprite_pixel_get(int x, int y)
 	int *buf;
 	int	unused;
 
-	if (!is_inside_sprite(x, y, gettxt()->width, gettxt()->height))
+	if (!is_inside_sprite(x, y, game()->s->w, game()->s->h))
 		return (COLOR_RED);
 	buf = (int*)mlx_get_data_addr(game()->s->img, &unused, &unused, &unused);
 	return (buf[x + y * game()->s->w]);

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 04:09:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 23:19:15 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/17 10:12:02 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,5 @@
 
 void		release_sprites(void)
 {
-	if (game()->sp_head)
-		lst_clear(game()->sp_head);
 	mlx_destroy_image(vars()->mlx, game()->s->img);
 }

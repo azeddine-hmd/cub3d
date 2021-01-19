@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/03 16:03:14 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:59:57 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define CUB3D_H
 # include "game_map/map.h"
 # include <stdio.h>
+# include <time.h>
 
-# define FOV_ANGLE (60 * (M_PI / 180))
+# define FOV_ANGLE 1.04719666667
 # define INT_MAX 2147483647
 
 /*
@@ -27,6 +28,7 @@
 # define COLOR_RED 0xFF0000
 # define COLOR_ORANGE 0xFFA500
 # define COLOR_GREEN 0x00FF00
+# define COLOR_BLUE 0x0000FF
 
 /*
 ** Keys
@@ -59,6 +61,9 @@
 # define KEY_7 26
 # define KEY_8 28
 # define KEY_9 25
+
+# define KEY_MINUS 27
+# define KEY_EQUAL 24
 
 typedef struct	s_point
 {
@@ -156,7 +161,6 @@ typedef struct	s_pref
 	int		is_collision_enabled;
 }				t_pref;
 
-
 /*
 ** global variables
 */
@@ -248,5 +252,7 @@ int				check_option(const char *option, const char *target);
 void			setup(const char *map_name);
 void			run(const char *map_name);
 void			activate_bonus(void);
+void			change_win(int width, int height, char *win_name);
+void			window_binding(int key);
 
 #endif

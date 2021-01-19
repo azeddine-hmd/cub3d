@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:30:52 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/02 17:09:42 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/10 10:41:59 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int			wall_conditions(t_direction dire)
 
 	if (dire.self == '1' || dire.self == ' ')
 		return (1);
-	elements = "02NEWS";
+	elements = MAP_SURROUNDING;
 	i = -1;
 	while (elements[++i])
 		if (!check_element_surrounding(elements[i], dire))

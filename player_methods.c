@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/03 16:19:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/14 12:53:01 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	move_with_collision(float nplayer_x, float nplayer_y)
 {
 	if (
 			!has_wall_at(nplayer_x, nplayer_y) &&
-			!has_sprite_at(nplayer_x, nplayer_y))
+			!has_sprite_at(nplayer_x - 5, nplayer_y - 5))
 	{
 		player()->x = nplayer_x;
 		player()->y = nplayer_y;

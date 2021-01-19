@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rays.c                                             :+:      :+:    :+:   */
+/*   free_double_pointer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 17:09:48 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 15:42:07 by ahamdaou         ###   ########.fr       */
+/*   Created: 2021/01/03 16:54:23 by ahamdaou          #+#    #+#             */
+/*   Updated: 2021/01/18 17:05:41 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-t_ray	**rays(void)
+void	free_double_pointer(char **ptr)
 {
-	static t_ray **rays;
+	int i;
 
-	if (!rays)
-	{
-		rays = (t_ray**)xmalloc(sizeof(t_ray*) * MAX_WINDOW_WIDTH);
-		if (!rays)
-			game_exit(1);
-	}
-	return (rays);
-}
-
-void	rays_init(void)
-{
-	int		col;
-	t_ray	**rays_double;
-
-	rays_double = rays();
-	col = -1;
-	while (++col < MAX_WINDOW_WIDTH)
-		rays_double[col] = (t_ray*)xmalloc(sizeof(t_ray));
+	i = -1;
+	while (ptr[++i])
+		free(ptr[i]);
+	free(ptr[i]);
+	free(ptr);
 }

@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2021/01/02 18:28:59 by ahamdaou         ###   ########.fr        #
+#    Updated: 2021/01/19 15:07:45 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra \
 	  -I /usr/local/include \
 	  -L /usr/local/lib -lmlx \
 	  -framework OpenGL -framework AppKit \
-	  #-g \
+	  -g \
 	  -fsanitize=address \
 
 LIBS = libft/libft.a \
@@ -57,6 +57,7 @@ SRC = cub3d.c \
 	  audio.c \
 	  options.c \
 	  run.c \
+	  window.c \
 
 OBJ = ${SRC:.c=.o}
 

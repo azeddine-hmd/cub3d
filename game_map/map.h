@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/02 18:29:00 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:56:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@
 # include <fcntl.h>
 # include <float.h>
 # include <mlx.h>
-# include <stdio.h> // remove it later
+# include <stdio.h>
 
 # define TILE_SIZE 64
 # define UNITIALIZED_COLOR -1
 # define INITIAL_MINIMAP_SCALE 0.1
 # define MAX_INFO_MENDATORY 8
+# define MAP_ELEMENTS " NEWS0123"
+# define MAP_SURROUNDING "NEWS023"
 
 /*
 ** window settings
 */
 
+# define WINDOW_NAME "cub3D"
 # define MAX_WINDOW_WIDTH 2560
 # define MAX_WINDOW_HEIGHT 1440
 # define MIN_WINDOW_WIDTH 500
@@ -111,8 +114,8 @@ typedef struct	s_fread
 ** global variables
 */
 
-t_map			map;
-t_fread			freader;
+t_map		g_map;
+t_fread		g_freader;
 
 /*
 ** functions prototype
@@ -128,6 +131,14 @@ void			fill_ea(t_map *map, char *path);
 void			fill_s(t_map *map, char *path);
 void			fill_f(t_map *map, char *rgb);
 void			fill_c(t_map *map, char *rgb);
+void			preparing_filling_r(t_map *map);
+void			preparing_filling_no(t_map *map);
+void			preparing_filling_so(t_map *map);
+void			preparing_filling_we(t_map *map);
+void			preparing_filling_ea(t_map *map);
+void			preparing_filling_s(t_map *map);
+void			preparing_filling_f(t_map *map);
+void			preparing_filling_c(t_map *map);
 void			fill_map(t_data **tmp_map);
 void			check_line_element(const char *line);
 int				is_map_walls_closed(t_data *tmp_map, int cols);
@@ -139,5 +150,12 @@ void			free_double_pointer(char **ptr);
 int				length(char **array);
 void			*getmlx();
 t_map			*game();
+void			set_cols(t_map *map, t_data *tmp_map);
+void			set_rows(t_map *map, t_data *tmp_map);
+void			set_map_information(t_map *map, t_data *tmp_map);
+void			check_player_instance(void);
+void			joinmap(t_map *map, t_data *head);
+int				is_information(char *info);
+void			linkedlist_bubble_sort(t_data *head);
 
 #endif
