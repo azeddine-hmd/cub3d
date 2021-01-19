@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:32:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/03 16:43:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:38:26 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	set_map_information(t_map *map, t_data *tmp_map)
 		error_message("map is not surrounding with walls");
 	}
 	joinmap(map, tmp_map);
+	lst_clear(tmp_map);
 	set_initial_player_position(map);
 	set_sp_initial_position(map);
 }

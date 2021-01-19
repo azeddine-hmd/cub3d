@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/10 09:27:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:37:26 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		fill_map(t_data **tmp_map)
 {
 	char	*tmp_line;
 
-	tmp_line = xstrdup(g_freader.line);
+	tmp_line = ft_strdup(g_freader.line);
 	if (!tmp_line)
 	{
 		lst_clear(*tmp_map);

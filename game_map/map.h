@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 15:56:30 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:32:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <fcntl.h>
 # include <float.h>
 # include <mlx.h>
-# include <stdio.h>
 
 # define TILE_SIZE 64
 # define UNITIALIZED_COLOR -1

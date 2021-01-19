@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 23:06:57 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/02 18:26:03 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:46:28 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void			fill_map_withspaces(t_data *tmp_map, int map_width)
 		data_len = ft_strlen((char*)head->data);
 		if (data_len != map_width)
 		{
-			line = (char*)xmalloc(map_width + 1);
+			line = (char*)malloc(map_width + 1);
 			if (!line)
 			{
 				lst_clear(tmp_map);
@@ -42,7 +42,7 @@ static void			fill_map_withspaces(t_data *tmp_map, int map_width)
 			ft_memset(line, 0, map_width + 1);
 			ft_memmove(line, head->data, data_len);
 			add_sp(line, data_len, map_width);
-			xfree(head->data);
+			free(head->data);
 			head->data = line;
 		}
 		head = head->next;

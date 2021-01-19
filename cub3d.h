@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 15:59:57 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:31:28 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 # include "game_map/map.h"
 # include <stdio.h>
-# include <time.h>
 
 # define FOV_ANGLE 1.04719666667
 # define INT_MAX 2147483647
