@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:54:59 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:52:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	setup(const char *map_name)
 	g_game = *load_map(map_name, MAX_INFO_MENDATORY);
 	vars();
 	rays_init();
-	player();
+	player_init();
 	texture_init();
 }
 

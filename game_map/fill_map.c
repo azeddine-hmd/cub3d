@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:13:43 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 17:57:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:56:05 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void		check_line_element(const char *line)
 {
 	const char	*elements;
 	size_t		i;
-
-	if (g_bonus)
 
 	if (g_bonus)
 		elements = MAP_ELEMENTS_BONUS;

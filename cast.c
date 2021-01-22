@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 19:03:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/20 22:17:22 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:54:51 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	storing_ray_content(t_ray *ray, t_horz *horz, t_vert *vert)
 	t_point	horz_wall_hit_point;
 	t_point	vert_wall_hit_point;
 
-	setpoint(&player_point, player()->x, player()->y);
+	setpoint(&player_point, g_player.x, g_player.y);
 	setpoint(
 			&horz_wall_hit_point,
 			horz->horz_wall_hit_x,

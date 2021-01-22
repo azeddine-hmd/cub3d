@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:18:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:22:00 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:58:59 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static int	check_vert_collision(
 
 	x_to_check = vert->next_vert_touch_x - (ray->is_ray_facing_left ? 1 : 0);
 	y_to_check = vert->next_vert_touch_y;
-	if (has_wall_at(x_to_check, y_to_check) ||
-			has_hidden_wall_at(x_to_check, y_to_check))
+	if (has_wall_at(x_to_check, y_to_check))
 	{
 		vert->vert_wall_hit_x = vert->next_vert_touch_x;
 		vert->vert_wall_hit_y = vert->next_vert_touch_y;
@@ -54,10 +53,10 @@ void		vertical_intersection(t_ray *ray, t_vert *vert)
 	vert->vert_wall_hit_x = 0;
 	vert->vert_wall_hit_y = 0;
 	vert->vert_wall_content = 0;
-	x_intercept = floor(player()->x / TILE_SIZE) * TILE_SIZE;
+	x_intercept = floor(g_player.x / TILE_SIZE) * TILE_SIZE;
 	x_intercept += ray->is_ray_facing_right ? TILE_SIZE : 0;
 	y_intercept =
-		player()->y + (x_intercept - player()->x) * tan(ray->ray_angle);
+		g_player.y + (x_intercept - g_player.x) * tan(ray->ray_angle);
 	x_step = TILE_SIZE;
 	x_step *= ray->is_ray_facing_left ? -1 : 1;
 	y_step = TILE_SIZE * tan(ray->ray_angle);

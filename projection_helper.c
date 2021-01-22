@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 05:36:58 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:21:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:55:07 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	wall_projection(int col, t_ray *ray, t_wall *wall)
 	{
 		distance_from_top =
 			y + (wall->wall_strip_height / 2) -
-			(g_game.win_height / 2 + player()->look);
+			(g_game.win_height / 2 + g_player.look);
 		offset_y = distance_from_top *
 			((float)gettxt()->height / wall->wall_strip_height);
 		pixel_put(col, y, texture_pixel_get(offset_x, offset_y));

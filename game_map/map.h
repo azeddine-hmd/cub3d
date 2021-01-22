@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:01:14 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:34:23 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 ** MAP
 */
 
+# define PLAYER_ELEMENTS "NEWS"
 # define MAP_ELEMENTS " NEWS012"
 # define MAP_ELEMENTS_BONUS " NEWS012HT"
 # define MAP_SURROUNDING "NEWS02"
@@ -118,6 +119,12 @@ typedef struct	s_fread
 	int		player_count;
 }				t_fread;
 
+typedef struct	s_lvlinfo
+{
+	int		max_level;
+	int		current_level;
+}				t_lvlinfo;
+
 /*
 ** global variables
 */
@@ -126,6 +133,7 @@ t_map		g_game;
 int			g_bonus;
 t_map		g_map;
 t_fread		g_freader;
+t_lvlinfo	g_lvlinfo;
 
 /*
 ** functions prototype

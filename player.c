@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 05:29:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:20:33 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:53:18 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,35 +28,12 @@ static float	get_initial_angle(void)
 	return (initial_angle);
 }
 
-static t_player	*player_init(void)
+void			player_init(void)
 {
-	t_player	*player;
-
-	player = (t_player*)xmalloc(sizeof(t_player));
-	player->x = g_game.initial_pos[0] * TILE_SIZE - (TILE_SIZE / 2);
-	player->y = g_game.initial_pos[1] * TILE_SIZE - (TILE_SIZE / 2);
-	player->width = 1;
-	player->height = 1;
-	player->turn_direction = 0;
-	player->walk_direction = 0;
-	player->rotation_angle = get_initial_angle();
-	player->walk_speed = 10;
-	player->turn_speed = 3 * (M_PI / 180);
-	player->left = FALSE;
-	player->right = FALSE;
-	player->move_forward_or_backward = FALSE;
-	return (player);
-}
-
-/*
-** before calling this function, 'vars()' should be invoked first.
-*/
-
-t_player		*player(void)
-{
-	static t_player	*player;
-
-	if (!player)
-		player = player_init();
-	return (player);
+	g_player = *(t_player*)xmalloc(sizeof(t_player));
+	g_player.x = g_game.initial_pos[0] * TILE_SIZE - (TILE_SIZE / 2);
+	g_player.y = g_game.initial_pos[1] * TILE_SIZE - (TILE_SIZE / 2);
+	g_player.rotation_angle = get_initial_angle();
+	g_player.walk_speed = 10;
+	g_player.turn_speed = 3 * (M_PI / 180);
 }

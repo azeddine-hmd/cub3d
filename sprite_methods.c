@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 09:42:36 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:21:23 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:54:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		set_sprites_distance(void)
 	head = g_game.sp_head;
 	if (!head)
 		return ;
-	setpoint(&player_point, player()->x, player()->y);
+	setpoint(&player_point, g_player.x, g_player.y);
 	while (head)
 	{
 		sp = (t_sp*)head->data;
@@ -43,10 +43,10 @@ static void	draw_sprite_strip(int col, int x, int sp_height)
 	int y_offset;
 	int color;
 
-	y = (g_game.win_height / 2 + player()->look) - sp_height / 2;
+	y = (g_game.win_height / 2 + g_player.look) - sp_height / 2;
 	x_offset = x - col;
 	y_offset = 0;
-	while (y < (g_game.win_height / 2 + player()->look) + sp_height / 2)
+	while (y < (g_game.win_height / 2 + g_player.look) + sp_height / 2)
 	{
 		color = sprite_pixel_get(
 				(x_offset * g_game.s->w) / sp_height,
@@ -82,7 +82,7 @@ static void	single_sprite_rendring(t_sp *sprite)
 	float	sprite_height;
 	int		col;
 
-	angle = atan2(player()->y - sprite->y, player()->x - sprite->x) + M_PI;
+	angle = atan2(g_player.y - sprite->y, g_player.x - sprite->x) + M_PI;
 	alpha = angle - rays()[0]->ray_angle;
 	if (rays()[0]->ray_angle > (3 * M_PI / 2) && angle < FOV_ANGLE)
 		alpha += 2 * M_PI;

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:08:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 10:18:08 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:55:41 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static int	on_key_pressed(int key, void *param)
 	if (g_bonus)
 	{
 		if (key == KEY_UP_ARROW)
-			player()->look += 100;
+			g_player.look += 100;
 		else if (key == KEY_DOWN_ARROW)
-			player()->look -= 100;
+			g_player.look -= 100;
 		if (key == KEY_L)
 		{
 			if (g_pref.is_slide_enabled)
@@ -46,23 +46,23 @@ static int	on_key_released(int key, void *param)
 	if (key == KEY_ESC)
 		game_exit(0);
 	else if (key == KEY_LEFT_ARROW)
-		player()->turn_direction = 0;
+		g_player.turn_direction = 0;
 	else if (key == KEY_RIGHT_ARROW)
-		player()->turn_direction = 0;
+		g_player.turn_direction = 0;
 	else if (key == KEY_W)
 	{
-		player()->walk_direction = 0;
-		player()->move_forward_or_backward = FALSE;
+		g_player.walk_direction = 0;
+		g_player.move_forward_or_backward = FALSE;
 	}
 	else if (key == KEY_A)
-		player()->left = FALSE;
+		g_player.left = FALSE;
 	else if (key == KEY_S)
 	{
-		player()->walk_direction = 0;
-		player()->move_forward_or_backward = FALSE;
+		g_player.walk_direction = 0;
+		g_player.move_forward_or_backward = FALSE;
 	}
 	else if (key == KEY_D)
-		player()->right = FALSE;
+		g_player.right = FALSE;
 	return (0);
 }
 
@@ -77,7 +77,7 @@ static int	on_window_closed(void)
 }
 
 /*
-** before calling this function player() should be called first.
+** before calling this function player_init() should be called first.
 */
 
 int			input_handler(void)

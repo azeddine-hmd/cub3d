@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:09:35 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:56:44 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ typedef struct	s_player
 {
 	float	x;
 	float	y;
-	float	width;
-	float	height;
 	int		turn_direction;
 	int		walk_direction;
 	float	walk_speed;
@@ -167,6 +165,7 @@ typedef struct	s_pref
 
 t_pref			g_pref;
 t_map			**g_lvls;
+t_player		g_player;
 
 /*
 ** prototypes
@@ -186,12 +185,9 @@ int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
 int				is_inside_texture(float x, float y, int width, int height);
 int				is_inside_sprite(float x, float y, int width, int height);
-t_player		*player(void);
 void			move_player(void);
 void			player_render(void);
 int				has_wall_at(float x, float y);
-int				has_hidden_wall_at(float x, float y);
-int				has_player_at(float x, float y);
 int				has_sprite_at(float x, float y);
 int				input_handler(void);
 void			pixel_put(float x, float y, int color);
@@ -256,5 +252,7 @@ void			change_win(int width, int height, char *win_name);
 void			window_binding(int key);
 void			multiple_level_setup(int total_maps, char **path_value);
 void			bonus_init(void);
+int				has_elements_at(float x, float y, char *elements);
+void			player_init(void);
 
 #endif

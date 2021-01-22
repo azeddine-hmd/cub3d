@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:20:45 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:54:10 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	rays_render(void)
 
 	if (g_pref.is_minimap_enabled == 0)
 		return ;
-	p0.x = player()->x * g_game.minimap_scale;
-	p0.y = player()->y * g_game.minimap_scale;
+	p0.x = g_player.x * g_game.minimap_scale;
+	p0.y = g_player.y * g_game.minimap_scale;
 	col = -1;
 	while (++col < g_game.num_rays)
 	{
@@ -36,7 +36,7 @@ void	cast_all_rays(void)
 	float	ray_angle;
 	int		col;
 
-	ray_angle = player()->rotation_angle - (FOV_ANGLE / 2);
+	ray_angle = g_player.rotation_angle - (FOV_ANGLE / 2);
 	col = -1;
 	while (++col < g_game.num_rays)
 	{

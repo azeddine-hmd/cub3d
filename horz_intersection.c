@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:16:17 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:21:56 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:57:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static int	check_horz_collision(
 
 	x_to_check = horz->next_horz_touch_x;
 	y_to_check = horz->next_horz_touch_y + (ray->is_ray_facing_up ? -1 : 0);
-	if (has_wall_at(x_to_check, y_to_check) ||
-			has_hidden_wall_at(x_to_check, y_to_check))
+	if (has_wall_at(x_to_check, y_to_check))
 	{
 		horz->horz_wall_hit_x = horz->next_horz_touch_x;
 		horz->horz_wall_hit_y = horz->next_horz_touch_y;
@@ -54,10 +53,10 @@ void		horizontal_intersection(t_ray *ray, t_horz *horz)
 	horz->horz_wall_hit_x = 0;
 	horz->horz_wall_hit_y = 0;
 	horz->horz_wall_content = 0;
-	y_intercept = floor(player()->y / TILE_SIZE) * TILE_SIZE;
+	y_intercept = floor(g_player.y / TILE_SIZE) * TILE_SIZE;
 	y_intercept += ray->is_ray_facing_down ? TILE_SIZE : 0;
 	x_intercept =
-		player()->x + (y_intercept - player()->y) / tan(ray->ray_angle);
+		g_player.x + (y_intercept - g_player.y) / tan(ray->ray_angle);
 	y_step = TILE_SIZE;
 	y_step *= ray->is_ray_facing_up ? -1 : 1;
 	x_step = TILE_SIZE / tan(ray->ray_angle);

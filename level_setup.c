@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 10:41:34 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 12:29:54 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:52:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ void		multiple_level_setup(int total_maps, char **path_value)
 	int	map_index;
 
 	g_lvls = (t_map**)xmalloc(sizeof(t_map*) * total_maps);
+	g_lvlinfo.max_level = total_maps;
+	g_lvlinfo.current_level = 1;
 	map_index = -1;
 	while (++map_index < total_maps)
 		g_lvls[map_index] = load_map(path_value[map_index], MAX_INFO_BONUS);
 	g_game = *g_lvls[0];
 	vars();
 	rays_init();
-	player();
+	player_init();
 	texture_init();
 	run_bonus();
 }

@@ -6,7 +6,7 @@
 #    By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/11 10:23:10 by ahamdaou          #+#    #+#              #
-#    Updated: 2021/01/21 11:29:50 by ahamdaou         ###   ########.fr        #
+#    Updated: 2021/01/22 18:22:44 by ahamdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,6 @@ fclean: clean
 	@ $(MAKE) get_next_line fclean
 	@ $(MAKE) game_map fclean
 	@ $(MAKE) linkedlist fclean
-	@ rm -rf $(NAME)
+	@ rm -rf $(NAME) cub3D.dSYM # remove it later
 
 re: fclean all
