@@ -6,37 +6,50 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/10 09:01:10 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:11:25 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		draw_minimap(int x, int y)
+static int	get_color(char content)
 {
-	int tile_x;
-	int tile_y;
-	int content;
 	int color;
 
-	tile_x = x * TILE_SIZE;
-	tile_y = y * TILE_SIZE;
-	color = -1;
-	content = game()->maparr[x + y * game()->cols];
 	if (content == '0')
 		color = COLOR_BLACK;
 	else if (content == '1')
 		color = COLOR_WHITE;
 	else if (content == '3')
 		color = COLOR_WHITE;
+	else if (content == 'T')
+		color = COLOR_BLUE;
+	else if (content == 'H')
+		color = COLOR_GREY;
 	else if (content == ' ')
-		return ;
+		color = -1;
 	else
 		color = COLOR_BLACK;
+	return (color);
+}
+
+void		draw_minimap(int x, int y)
+{
+	int		tile_x;
+	int		tile_y;
+	char	content;
+	int		color;
+
+	tile_x = x * TILE_SIZE;
+	tile_y = y * TILE_SIZE;
+	content = g_game.maparr[x + y * g_game.cols];
+	color = get_color(content);
+	if (color == -1)
+		return ;
 	square(
-		tile_x * game()->minimap_scale,
-		tile_y * game()->minimap_scale,
-		TILE_SIZE * game()->minimap_scale,
+		tile_x * g_game.minimap_scale,
+		tile_y * g_game.minimap_scale,
+		TILE_SIZE * g_game.minimap_scale,
 		color);
 }
 
@@ -53,10 +66,10 @@ void		minimap_render(void)
 	if (g_pref.is_minimap_enabled == 0)
 		return ;
 	i = -1;
-	while (++i < game()->rows)
+	while (++i < g_game.rows)
 	{
 		j = -1;
-		while (++j < game()->cols)
+		while (++j < g_game.cols)
 			draw_minimap(j, i);
 	}
 }
@@ -71,15 +84,15 @@ static void	draw_sprite_minimap(int x, int y)
 	tile_x = x * TILE_SIZE;
 	tile_y = y * TILE_SIZE;
 	color = -1;
-	content = game()->maparr[x + y * game()->cols];
+	content = g_game.maparr[x + y * g_game.cols];
 	if (content == '2')
 		color = COLOR_ORANGE;
 	else
 		return ;
 	square(
-		tile_x * game()->minimap_scale,
-		tile_y * game()->minimap_scale,
-		TILE_SIZE * game()->minimap_scale,
+		tile_x * g_game.minimap_scale,
+		tile_y * g_game.minimap_scale,
+		TILE_SIZE * g_game.minimap_scale,
 		color);
 }
 
@@ -97,10 +110,10 @@ void		minimap_sprite_render(void)
 	if (g_pref.is_minimap_enabled == 0)
 		return ;
 	i = -1;
-	while (++i < game()->rows)
+	while (++i < g_game.rows)
 	{
 		j = -1;
-		while (++j < game()->cols)
+		while (++j < g_game.cols)
 			draw_sprite_minimap(j, i);
 	}
 }

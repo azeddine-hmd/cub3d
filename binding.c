@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 01:54:12 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/22 23:11:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:21:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void	minimap_resezing_binding(int key)
 {
 	if (key == KEY_P)
 	{
-		if (!(game()->map_width * game()->minimap_scale > game()->win_width))
-			game()->minimap_scale += 0.01;
+		if (!(g_game.map_width * g_game.minimap_scale > g_game.win_width))
+			g_game.minimap_scale += 0.01;
 	}
 	else if (key == KEY_O)
 	{
-		if (!(game()->minimap_scale < 0.1))
-			game()->minimap_scale -= 0.01;
+		if (!(g_game.minimap_scale < 0.1))
+			g_game.minimap_scale -= 0.01;
 	}
 }

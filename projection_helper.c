@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 05:36:58 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/17 12:34:06 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:21:48 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ceilling_projection(int col, t_wall *wall)
 	int y;
 	int	*crgb;
 
-	crgb = game()->crgb;
+	crgb = g_game.crgb;
 	y = -1;
 	while (++y < wall->wall_top_pixel)
 		pixel_put(col, y, rgb(crgb[0], crgb[1], crgb[2]));
@@ -28,9 +28,9 @@ void	floor_projection(int col, t_wall *wall)
 	int y;
 	int *frgb;
 
-	frgb = game()->frgb;
+	frgb = g_game.frgb;
 	y = wall->wall_bottom_pixel - 1;
-	while (++y < game()->win_height)
+	while (++y < g_game.win_height)
 		pixel_put(col, y, rgb(frgb[0], frgb[1], frgb[2]));
 }
 
@@ -52,7 +52,7 @@ void	wall_projection(int col, t_ray *ray, t_wall *wall)
 	{
 		distance_from_top =
 			y + (wall->wall_strip_height / 2) -
-			(game()->win_height / 2 + player()->look);
+			(g_game.win_height / 2 + player()->look);
 		offset_y = distance_from_top *
 			((float)gettxt()->height / wall->wall_strip_height);
 		pixel_put(col, y, texture_pixel_get(offset_x, offset_y));

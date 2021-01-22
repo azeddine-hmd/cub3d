@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 17:31:28 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:09:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define COLOR_ORANGE 0xFFA500
 # define COLOR_GREEN 0x00FF00
 # define COLOR_BLUE 0x0000FF
+# define COLOR_GREY 0x808080
 
 /*
 ** Keys
@@ -165,7 +166,7 @@ typedef struct	s_pref
 */
 
 t_pref			g_pref;
-int				g_bonus;
+t_map			**g_lvls;
 
 /*
 ** prototypes
@@ -253,5 +254,7 @@ void			run(const char *map_name);
 void			activate_bonus(void);
 void			change_win(int width, int height, char *win_name);
 void			window_binding(int key);
+void			multiple_level_setup(int total_maps, char **path_value);
+void			bonus_init(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ahamdaou <ahamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 16:19:37 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/03/05 03:45:48 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/20 18:14:35 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlen(const char *str)
 {
 	int		i;
 
-	if (!str)
-		return (-1);
 	i = 0;
 	while (str[i] != '\0')
 		i++;

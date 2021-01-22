@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 19:07:20 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 15:50:33 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:23:11 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	window_binding(int key)
 {
 	if (key == KEY_EQUAL)
-		change_win(game()->win_width + 10, game()->win_height + 10, "changed");
+		change_win(g_game.win_width + 10, g_game.win_height + 10, "changed");
 	else if (key == KEY_MINUS)
-		change_win(game()->win_width - 10, game()->win_height - 10, "changed");
+		change_win(g_game.win_width - 10, g_game.win_height - 10, "changed");
 }
 
 void	change_win(int width, int height, char *win_name)
@@ -38,9 +38,9 @@ void	change_win(int width, int height, char *win_name)
 	mlx_destroy_image(vars()->mlx, vars()->img);
 	vars()->win = new_win;
 	vars()->img = new_img;
-	game()->win_width = width;
-	game()->win_height = height;
-	game()->win_name = win_name;
-	game()->num_rays = width;
+	g_game.win_width = width;
+	g_game.win_height = height;
+	g_game.win_name = win_name;
+	g_game.num_rays = width;
 	render();
 }

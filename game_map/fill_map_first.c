@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:25:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 17:34:21 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:00:09 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void		fill_r(t_map *map, char *width, char *height)
 		error_line(g_freader.ln, "invalid resolution height");
 	map->win_width = ft_atoi(width);
 	if (map->win_width < MIN_WINDOW_WIDTH)
-		map->win_width = MIN_WINDOW_WIDTH;
+		map->win_width = MAX_WINDOW_WIDTH;
 	if (map->win_width > MAX_WINDOW_WIDTH)
 		map->win_width = MAX_WINDOW_WIDTH;
 	map->win_height = ft_atoi(height);
 	if (map->win_height < MIN_WINDOW_HEIGHT)
-		map->win_height = MIN_WINDOW_HEIGHT;
+		map->win_height = MAX_WINDOW_HEIGHT;
 	if (map->win_height > MAX_WINDOW_HEIGHT)
 		map->win_height = MAX_WINDOW_HEIGHT;
 }

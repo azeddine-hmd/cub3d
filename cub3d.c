@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 15:57:53 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:54:59 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	setup(const char *map_name)
 {
-	map_init(map_name, MAX_INFO_MENDATORY);
+	g_game = *load_map(map_name, MAX_INFO_MENDATORY);
 	vars();
 	rays_init();
 	player();
@@ -28,19 +28,14 @@ void	setup(const char *map_name)
 
 int		main(int argc, char **argv)
 {
-	if (argc != 2 && argc != 3)
-	{
-		print_usage();
-		exit(1);
-	}
+	activate_bonus();
 	if (argc == 3 && check_option(argv[2], "--save"))
 		take_screenshot(argv[1]);
-	else if (argc == 3)
-	{
+	else if (g_bonus && argc > 2 && check_option(argv[1], "--maps"))
+		multiple_level_setup(argc - 2, argv + 2);
+	else if (argc == 2)
+		run(argv[1]);
+	else
 		print_usage();
-		exit(1);
-	}
-	activate_bonus();
-	run(argv[1]);
 	return (0);
 }

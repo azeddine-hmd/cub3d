@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/14 12:53:01 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:19:34 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,17 @@ void		player_render(void)
 
 	if (g_pref.is_minimap_enabled == 0)
 		return ;
-	p0.x = player()->x * game()->minimap_scale;
-	p0.y = player()->y * game()->minimap_scale;
+	p0.x = player()->x * g_game.minimap_scale;
+	p0.y = player()->y * g_game.minimap_scale;
 	line_height = 2;
 	p1.x = p0.x + cos(player()->rotation_angle) *
-		(TILE_SIZE * line_height * game()->minimap_scale);
+		(TILE_SIZE * line_height * g_game.minimap_scale);
 	p1.y = p0.y + sin(player()->rotation_angle) *
-		(TILE_SIZE * line_height * game()->minimap_scale);
+		(TILE_SIZE * line_height * g_game.minimap_scale);
 	line(p0, p1, COLOR_RED);
 	square(
-			player()->x * game()->minimap_scale - 2,
-			player()->y * game()->minimap_scale - 2,
+			player()->x * g_game.minimap_scale - 2,
+			player()->y * g_game.minimap_scale - 2,
 			4,
 			COLOR_RED);
 }

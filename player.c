@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 05:29:39 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 15:25:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:20:33 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static float	get_initial_angle(void)
 	char	pview;
 
 	initial_angle = 0;
-	pview = game()->pview;
+	pview = g_game.pview;
 	if (pview == 'W')
 		initial_angle = M_PI;
 	else if (pview == 'N')
@@ -33,8 +33,8 @@ static t_player	*player_init(void)
 	t_player	*player;
 
 	player = (t_player*)xmalloc(sizeof(t_player));
-	player->x = game()->initial_pos[0] * TILE_SIZE - (TILE_SIZE / 2);
-	player->y = game()->initial_pos[1] * TILE_SIZE - (TILE_SIZE / 2);
+	player->x = g_game.initial_pos[0] * TILE_SIZE - (TILE_SIZE / 2);
+	player->y = g_game.initial_pos[1] * TILE_SIZE - (TILE_SIZE / 2);
 	player->width = 1;
 	player->height = 1;
 	player->turn_direction = 0;

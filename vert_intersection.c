@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:18:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/17 14:05:00 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:22:00 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static int	check_vert_collision(
 		if (is_inside_map(x_to_check, y_to_check))
 		{
 			index = (int)(floor(x_to_check / TILE_SIZE) +
-					floor(y_to_check / TILE_SIZE) * game()->cols);
-			vert->vert_wall_content = game()->maparr[index];
+					floor(y_to_check / TILE_SIZE) * g_game.cols);
+			vert->vert_wall_content = g_game.maparr[index];
 		}
 		return (-1);
 	}

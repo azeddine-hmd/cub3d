@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:18:49 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/19 17:32:05 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:01:14 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,17 @@
 # define UNITIALIZED_COLOR -1
 # define INITIAL_MINIMAP_SCALE 0.1
 # define MAX_INFO_MENDATORY 8
-# define MAP_ELEMENTS " NEWS0123"
-# define MAP_SURROUNDING "NEWS023"
+# define MAX_INFO_BONUS 8
+
+
+/*
+** MAP
+*/
+
+# define MAP_ELEMENTS " NEWS012"
+# define MAP_ELEMENTS_BONUS " NEWS012HT"
+# define MAP_SURROUNDING "NEWS02"
+# define MAP_SURROUNDING_BONUS "NEWS02HT"
 
 /*
 ** window settings
@@ -34,8 +43,8 @@
 # define WINDOW_NAME "cub3D"
 # define MAX_WINDOW_WIDTH 2560
 # define MAX_WINDOW_HEIGHT 1440
-# define MIN_WINDOW_WIDTH 500
-# define MIN_WINDOW_HEIGHT 500
+# define MIN_WINDOW_WIDTH 0
+# define MIN_WINDOW_HEIGHT 0
 
 /*
 ** map states
@@ -113,6 +122,8 @@ typedef struct	s_fread
 ** global variables
 */
 
+t_map		g_game;
+int			g_bonus;
 t_map		g_map;
 t_fread		g_freader;
 
@@ -148,7 +159,6 @@ void			map_init(const char *map_name, int max_info);
 void			free_double_pointer(char **ptr);
 int				length(char **array);
 void			*getmlx();
-t_map			*game();
 void			set_cols(t_map *map, t_data *tmp_map);
 void			set_rows(t_map *map, t_data *tmp_map);
 void			set_map_information(t_map *map, t_data *tmp_map);

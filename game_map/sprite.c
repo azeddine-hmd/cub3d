@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:57:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/17 09:47:52 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:18:28 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_sp	*new_sprite(int x, int y)
 	sp = (t_sp*)xmalloc(sizeof(t_sp));
 	if (!sp)
 	{
-		lst_clear(game()->sp_head);
+		lst_clear(g_game.sp_head);
 		error();
 	}
 	sp->x = (x + 0.5) * TILE_SIZE;

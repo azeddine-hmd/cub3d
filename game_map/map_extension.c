@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 20:04:42 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/28 16:34:39 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/20 18:29:00 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 
 void	check_file_extension(const char *file_name)
 {
-	char	*extension;
-
-	extension = ft_strrchr(file_name, '.') + 1;
-	if (ft_strncmp(extension, "cub", fmax(ft_strlen(extension), 3)))
+	if (ft_strlen(file_name) < 4)
+		error_file(file_name, "invalid file name");
+	if (ft_strncmp(file_name + ft_strlen(file_name) - 4, ".cub", 4))
 		error_file(file_name, "file extension is not 'cub'");
 }

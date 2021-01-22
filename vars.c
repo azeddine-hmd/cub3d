@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 03:13:07 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/02 17:22:01 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:18:55 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static t_vars	*vars_init(void)
 	vars = (t_vars*)xmalloc(sizeof(t_vars));
 	vars->mlx = getmlx();
 	vars->win = mlx_new_window(
-			vars->mlx, game()->win_width, game()->win_height, game()->win_name);
+			vars->mlx, g_game.win_width, g_game.win_height, g_game.win_name);
 	if (!vars->win)
 		error_message("failed to initialize a new window");
-	vars->img = mlx_new_image(vars->mlx, game()->win_width, game()->win_height);
+	vars->img = mlx_new_image(vars->mlx, g_game.win_width, g_game.win_height);
 	if (!vars->img)
 		error_message("failed to initialize image buffer");
 	return (vars);

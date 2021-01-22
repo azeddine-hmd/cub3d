@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 12:52:55 by ahamdaou          #+#    #+#             */
-/*   Updated: 2020/12/24 10:27:13 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/21 12:20:45 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	rays_render(void)
 
 	if (g_pref.is_minimap_enabled == 0)
 		return ;
-	p0.x = player()->x * game()->minimap_scale;
-	p0.y = player()->y * game()->minimap_scale;
+	p0.x = player()->x * g_game.minimap_scale;
+	p0.y = player()->y * g_game.minimap_scale;
 	col = -1;
-	while (++col < game()->num_rays)
+	while (++col < g_game.num_rays)
 	{
-		p1.x = rays()[col]->wall_hit_x * game()->minimap_scale;
-		p1.y = rays()[col]->wall_hit_y * game()->minimap_scale;
+		p1.x = rays()[col]->wall_hit_x * g_game.minimap_scale;
+		p1.y = rays()[col]->wall_hit_y * g_game.minimap_scale;
 		line(p0, p1, COLOR_GREEN);
 	}
 }
@@ -38,11 +38,11 @@ void	cast_all_rays(void)
 
 	ray_angle = player()->rotation_angle - (FOV_ANGLE / 2);
 	col = -1;
-	while (++col < game()->num_rays)
+	while (++col < g_game.num_rays)
 	{
 		rays()[col]->ray_angle = normalize_angle(ray_angle);
 		set_ray_direction(rays()[col]);
 		cast(rays()[col]);
-		ray_angle += FOV_ANGLE / game()->num_rays;
+		ray_angle += FOV_ANGLE / g_game.num_rays;
 	}
 }
