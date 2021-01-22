@@ -6,19 +6,31 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:54:02 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 19:19:43 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static void	teleport(void)
+{
+	if (g_lvlinfo.current_level != g_lvlinfo.max_level)
+		g_lvlinfo.current_level = 1;
+	else
+		g_lvlinfo.current_level++;
+	g_game = *g_lvls[g_lvlinfo.current_level - 1];
+	set_player_state();
+}
+
 static void	slide(float nplayer_x, float nplayer_y)
 {
-	if (
+	if (!has_elements_at(nplayer_x, nplayer_y, "T"))
+		teleport();
+	else if (
 			!has_wall_at(nplayer_x, g_player.y) &&
 			!has_sprite_at(nplayer_x, g_player.y))
 		g_player.x = nplayer_x;
-	if (
+	else if (
 			!has_wall_at(g_player.x, nplayer_y) &&
 			!has_sprite_at(g_player.x, nplayer_y))
 		g_player.y = nplayer_y;
@@ -26,7 +38,9 @@ static void	slide(float nplayer_x, float nplayer_y)
 
 static void	move_with_collision(float nplayer_x, float nplayer_y)
 {
-	if (
+	if (!has_elements_at(nplayer_x, nplayer_y, "T"))
+		teleport();
+	else if (
 			!has_wall_at(nplayer_x, nplayer_y) &&
 			!has_sprite_at(nplayer_x - 5, nplayer_y - 5))
 	{

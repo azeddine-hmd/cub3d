@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:56:44 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/22 19:19:36 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,5 +254,6 @@ void			multiple_level_setup(int total_maps, char **path_value);
 void			bonus_init(void);
 int				has_elements_at(float x, float y, char *elements);
 void			player_init(void);
+void			set_player_state(void);
 
 #endif
