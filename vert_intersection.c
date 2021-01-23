@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:18:35 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 19:02:49 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:39:22 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	check_vert_collision(
 
 	x_to_check = vert->next_vert_touch_x - (ray->is_ray_facing_left ? 1 : 0);
 	y_to_check = vert->next_vert_touch_y;
-	if (has_wall_at(x_to_check, y_to_check))
+	if (has_wall_at(x_to_check, y_to_check) ||
+			has_elements_at(x_to_check, y_to_check, "H"))
 	{
 		vert->vert_wall_hit_x = vert->next_vert_touch_x;
 		vert->vert_wall_hit_y = vert->next_vert_touch_y;

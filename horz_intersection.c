@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:16:17 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:57:36 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:40:32 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	check_horz_collision(
 
 	x_to_check = horz->next_horz_touch_x;
 	y_to_check = horz->next_horz_touch_y + (ray->is_ray_facing_up ? -1 : 0);
-	if (has_wall_at(x_to_check, y_to_check))
+	if (has_wall_at(x_to_check, y_to_check) ||
+			has_elements_at(x_to_check, y_to_check, "H"))
 	{
 		horz->horz_wall_hit_x = horz->next_horz_touch_x;
 		horz->horz_wall_hit_y = horz->next_horz_touch_y;
