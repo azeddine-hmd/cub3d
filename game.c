@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 12:49:10 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/21 11:20:12 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:06:37 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void		render(void)
 	render_sprites();
 	minimap_render();
 	rays_render();
-	minimap_sprite_render();
+	minimap_other_elements_render();
 	player_render();
 	mlx_put_image_to_window(vars()->mlx, vars()->win, vars()->img, 0, 0);
 }

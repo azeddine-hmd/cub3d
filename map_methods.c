@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 09:56:16 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:13:30 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:07:50 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ static int	get_color(char content)
 		color = COLOR_WHITE;
 	else if (content == '3')
 		color = COLOR_WHITE;
-	else if (content == 'T')
-		color = COLOR_BLUE;
-	else if (content == 'H')
-		color = COLOR_GREY;
 	else if (content == ' ')
 		color = -1;
 	else
@@ -74,7 +70,7 @@ void		minimap_render(void)
 	}
 }
 
-static void	draw_sprite_minimap(int x, int y)
+static void	draw_other_elements_minimap(int x, int y)
 {
 	int tile_x;
 	int tile_y;
@@ -87,6 +83,10 @@ static void	draw_sprite_minimap(int x, int y)
 	content = g_game.maparr[x + y * g_game.cols];
 	if (content == '2')
 		color = COLOR_ORANGE;
+	else if (content == 'T')
+		color = COLOR_BLUE;
+	else if (content == 'H')
+		color = COLOR_GREY;
 	else
 		return ;
 	square(
@@ -102,7 +102,7 @@ static void	draw_sprite_minimap(int x, int y)
 ** two times, well the answer is obvious: I'M F***ing LAZY!!
 */
 
-void		minimap_sprite_render(void)
+void		minimap_other_elements_render(void)
 {
 	int i;
 	int j;
@@ -114,6 +114,6 @@ void		minimap_sprite_render(void)
 	{
 		j = -1;
 		while (++j < g_game.cols)
-			draw_sprite_minimap(j, i);
+			draw_other_elements_minimap(j, i);
 	}
 }

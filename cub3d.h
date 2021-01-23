@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 03:47:22 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/23 08:45:41 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:05:54 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ int				rgb(int r, int g, int b);
 void			line(t_point p0, t_point p1, int color);
 void			square(float x, float y, float width, int color);
 void			rect(t_point p, int width, int height, int color);
-void			minimap_sprite_render(void);
+void			minimap_other_elements_render(void);
 void			minimap_render(void);
 int				is_inside_map(float x, float y);
 int				is_inside_window(float x, float y);
