@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/23 08:51:20 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:16:40 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ static void	teleport(void)
 		g_lvlinfo.current_level = 1;
 	else
 		g_lvlinfo.current_level++;
-	int index = g_lvlinfo.current_level - 1;
-	printf("index = %d\n", index);
-	g_game = *g_lvls[index];
+	if (g_lvlinfo.current_level <= 9)
+		play_audio(g_lvlinfo.current_level);
+	else
+		play_audio(1);
+	g_game = *g_lvls[g_lvlinfo.current_level - 1];
 	set_player_state();
 }
 
