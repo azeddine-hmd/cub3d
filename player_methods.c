@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/23 09:16:40 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:33:38 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ static void	teleport(void)
 
 static void	slide(float nplayer_x, float nplayer_y)
 {
-	if (!has_elements_at(nplayer_x, nplayer_y, "T"))
+	if (has_elements_at(nplayer_x, nplayer_y, "T"))
+	{
 		teleport();
-	else if (
+		return ;
+	}
+	if (
 			!has_wall_at(nplayer_x, g_player.y) &&
 			!has_sprite_at(nplayer_x, g_player.y))
 		g_player.x = nplayer_x;
-	else if (
+	if (
 			!has_wall_at(g_player.x, nplayer_y) &&
 			!has_sprite_at(g_player.x, nplayer_y))
 		g_player.y = nplayer_y;
@@ -43,10 +46,13 @@ static void	slide(float nplayer_x, float nplayer_y)
 static void	move_with_collision(float nplayer_x, float nplayer_y)
 {
 	if (has_elements_at(nplayer_x, nplayer_y, "T"))
+	{
 		teleport();
-	else if (
+		return ;
+	}
+	if (
 			!has_wall_at(nplayer_x, nplayer_y) &&
-			!has_sprite_at(nplayer_x - 5, nplayer_y - 5))
+			!has_sprite_at(nplayer_x, nplayer_y))
 	{
 		g_player.x = nplayer_x;
 		g_player.y = nplayer_y;
