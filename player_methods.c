@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:23:26 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 19:19:43 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 08:51:20 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 static void	teleport(void)
 {
-	if (g_lvlinfo.current_level != g_lvlinfo.max_level)
+	if (g_lvlinfo.current_level == g_lvlinfo.max_level)
 		g_lvlinfo.current_level = 1;
 	else
 		g_lvlinfo.current_level++;
-	g_game = *g_lvls[g_lvlinfo.current_level - 1];
+	int index = g_lvlinfo.current_level - 1;
+	printf("index = %d\n", index);
+	g_game = *g_lvls[index];
 	set_player_state();
 }
 
@@ -38,7 +40,7 @@ static void	slide(float nplayer_x, float nplayer_y)
 
 static void	move_with_collision(float nplayer_x, float nplayer_y)
 {
-	if (!has_elements_at(nplayer_x, nplayer_y, "T"))
+	if (has_elements_at(nplayer_x, nplayer_y, "T"))
 		teleport();
 	else if (
 			!has_wall_at(nplayer_x, nplayer_y) &&

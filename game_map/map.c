@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 10:45:08 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/20 17:43:46 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 08:57:53 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ static void	map_initializer(t_map *map)
 		map->frgb[i] = UNITIALIZED_COLOR;
 		map->crgb[i] = UNITIALIZED_COLOR;
 	}
+	ft_bzero(&g_freader, sizeof(t_fread));
 }
 
 t_map		*load_map(const char *file_name, int max_info)

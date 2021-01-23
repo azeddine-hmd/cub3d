@@ -6,7 +6,7 @@
 /*   By: ahamdaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 02:59:47 by ahamdaou          #+#    #+#             */
-/*   Updated: 2021/01/22 18:52:37 by ahamdaou         ###   ########.fr       */
+/*   Updated: 2021/01/23 09:03:30 by ahamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int		main(int argc, char **argv)
 		take_screenshot(argv[1]);
 	else if (g_bonus && argc > 2 && check_option(argv[1], "--maps"))
 		multiple_level_setup(argc - 2, argv + 2);
+	else if (g_bonus && argc == 2)
+		multiple_level_setup(argc - 1, argv + 1);
 	else if (argc == 2)
 		run(argv[1]);
 	else
